@@ -15,7 +15,7 @@
     "part_number": "xsd:string",
     "category": "Category",
     "name": "xsd:string",
-    "part_material": "Material"
+    "material": "Material"
   },
   {
     "@type": "Enum",
@@ -147,7 +147,7 @@
     },
     "img_url": "xsd:anyURI",
     "name": "xsd:string",
-    "num_parts": "xsd:positiveInteger",
+    "num_parts": { "@type" : "Optional", "@class": "xsd:positiveInteger"},
     "figure_number" : "xsd:string"
   },
   {

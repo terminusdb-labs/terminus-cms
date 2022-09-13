@@ -16,12 +16,14 @@ def serialise_minifigs(output):
         csv_reader = csv.DictReader(csv_file)
         inserts = []
         for row in csv_reader:
+            num_parts = int(row['num_parts'])
+            num_parts_val = num_parts if num_parts > 0 else None
             output.write({
                 '@type' : 'Minifig',
                 '@capture' : row['fig_num'],
                 'name': row['name'],
                 'img_url': row['img_url'],
-                'num_parts': int(row['num_parts']),
+                'num_parts': num_parts_val,
                 'figure_number' : row['fig_num']
             })
 
@@ -37,7 +39,16 @@ def serialise_inventory_minifigs(output):
                 'minifig' : { '@ref' : row['fig_num'] }
             })
 
-def serialise_parts(output):
+def get_part_categories():
+    with open('./part_categories.csv') as csv_file:
+        # reading the csv file using DictReader
+        csv_reader = csv.DictReader(csv_file)
+        part_categories = {}
+        for row in csv_reader:
+            part_categories[row['id']] = row['name']
+        return part_categories
+
+def serialise_parts(output, part_categories):
     with open('./parts.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
@@ -46,7 +57,7 @@ def serialise_parts(output):
             output.write({
                 '@type' : 'Part',
                 'part_number' : row['part_num'],
-                'category' : { '@ref' : row['part_cat_id'] },
+                'category' : part_categories[row['part_cat_id']],
                 'name' : row['name'],
                 'material' : 'Material'
             })
@@ -130,7 +141,8 @@ def main():
     with jsonlines.open(name, mode='w') as writer:
         serialise_minifigs(writer)
         serialise_inventory_minifigs(writer)
-        serialise_parts(writer)
+        part_categories = get_part_categories()
+        serialise_parts(writer,part_categories)
         entity_image_map = serialise_inventory_parts(writer)
         serialise_elements(writer,entity_image_map)
     create_db(name,'../')
