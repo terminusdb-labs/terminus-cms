@@ -1,0 +1,200 @@
+[
+  {
+    "@type": "Class",
+    "@id": "Part",
+    "@key": {
+      "@type": "Lexical",
+      "@fields": [
+        "part_number"
+      ]
+    },
+    "part_number": "xsd:string",
+    "category": "Category",
+    "name": "xsd:string",
+    "relation": {
+      "@type": "Set",
+      "@class": "PartRelation"
+    },
+    "part_material": "Material"
+  },
+  {
+    "@type": "Enum",
+    "@id": "Material",
+    "@values": [
+      "Cardboard/Paper",
+      "Cloth",
+      "Foam",
+      "Metal",
+      "Plastic",
+      "Rubber"
+    ]
+  },
+  {
+    "@type": "Enum",
+    "@id": "Category",
+    "@values": [
+      "Bars, Ladders and Fences",
+      "Baseplates",
+      "Bricks Sloped",
+      "Belville, Scala and Fabuland",
+      "Bricks Curved",
+      "Bricks Round and Cones",
+      "Bricks Special",
+      "Bricks Wedged",
+      "Bricks",
+      "Clikits",
+      "Containers",
+      "Duplo, Quatro and Primo",
+      "Electronics",
+      "Flags, Signs, Plastics and Cloth",
+      "HO Scale",
+      "Hinges, Arms and Turntables",
+      "Large Buildable Figures",
+      "Magnets and Holders",
+      "Mechanical",
+      "Minidoll Heads",
+      "Minidoll Lower Body",
+      "Minidoll Upper Body",
+      "Minifig Accessories",
+      "Minifig Heads",
+      "Minifig Headwear",
+      "Minifig Lower Body",
+      "Minifig Upper Body",
+      "Minifigs",
+      "Modulex",
+      "Non-Buildable Figures (Duplo, Fabuland, etc)",
+      "Non-LEGO",
+      "Other",
+      "Panels",
+      "Plants and Animals",
+      "Plates Angled",
+      "Plates Round Curved and Dishes",
+      "Plates Special",
+      "Plates",
+      "Pneumatics",
+      "Projectiles / Launchers",
+      "Rock",
+      "Stickers",
+      "String, Bands and Reels",
+      "Supports, Girders and Cranes",
+      "Technic Axles",
+      "Technic Beams Special",
+      "Technic Beams",
+      "Technic Bricks",
+      "Technic Bushes",
+      "Technic Connectors",
+      "Technic Gears",
+      "Technic Panels",
+      "Technic Pins",
+      "Technic Special",
+      "Technic Steering, Suspension and Engine",
+      "Tiles Round and Curved",
+      "Tiles Special",
+      "Tiles",
+      "Tools",
+      "Transportation - Land",
+      "Transportation - Sea and Air",
+      "Tubes and Hoses",
+      "Wheels and Tyres",
+      "Windows and Doors",
+      "Windscreens and Fuselage",
+      "Znap"
+    ]
+  },
+  {
+    "@class": "PartRelation",
+    "@type": "Class",
+    "@subdocument": [],
+    "relation_type": "RelationType"
+  },
+  {
+    "@id": "RelationType",
+    "@type": "Enum",
+    "@values": [
+      "Alternate",
+      "Mold",
+      "Pair",
+      "Pattern",
+      "Print",
+      "Sub-Part"
+    ]
+  },
+  {
+    "@id": "Inventory",
+    "@type": "Class",
+    "version": "xsd:positiveInteger",
+    "inventory_part": {
+      "@type": "Set",
+      "@class": "InventoryPart"
+    },
+    "inventory_minifigs": {
+      "@type": "Set",
+      "@class": "InventoryMinifig"
+    }
+  },
+  {
+    "@type": "Class",
+    "@id": "InventoryMinifig",
+    "quantity": "xsd:positiveInteger",
+    "minifig": "Minifig"
+  },
+  {
+    "@type": "Class",
+    "@id": "Minifig",
+    "img_url": "xsd:url",
+    "name": "xsd:string",
+    "num_parts": "xsd:positiveInteger"
+  },
+  {
+    "@id": "InventoryPart",
+    "@type": "Class",
+    "@subdocument": [],
+    "element": "Element",
+    "quantity": "xsd:positiveInteger",
+    "spare": "xsd:boolean"
+  },
+  {
+    "@id": "Element",
+    "@type": "Class",
+    "part": "Part",
+    "color": {
+      "@type": "Optional",
+      "@class": "Color"
+    },
+    "img_url": "xsd:url"
+  },
+  {
+    "@id": "Color",
+    "@type": "Class",
+    "name": "xsd:string",
+    "rgb": "xsd:string",
+    "transparent": "xsd:boolean"
+  },
+  {
+    "@id": "LegoSet",
+    "@type": "Class",
+    "name": "xsd:string",
+    "year": "xsd:gYear",
+    "theme": "Theme",
+    "inventory_set": {
+      "@type": "Class",
+      "@id": "InventorySet",
+      "@subdocument": [],
+      "inventory": "Inventory",
+      "quantity": "xsd:positiveInteger"
+    }
+  },
+  {
+    "@id": "Theme",
+    "@type": "Class",
+    "@key": {
+      "@type": "Lexical",
+      "@fields": ["name"]
+    },
+    "name": "xsd:string",
+    "parent": {
+      "@type": "Optional",
+      "@class": "Theme"
+    }
+  }
+]
