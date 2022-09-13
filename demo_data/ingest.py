@@ -118,10 +118,12 @@ def create_db(name, cwd):
         process = subprocess.Popen(['terminusdb', 'doc', 'insert', 'admin/lego', '-f', '-g', 'schema'],
                                    cwd=cwd,
                                    stdin=f)
+        process.wait()
     with open('objs.json', 'r') as f:
         process = subprocess.Popen(['terminusdb', 'doc', 'insert', 'admin/lego'],
                                    cwd=cwd,
                                    stdin=f)
+        process.wait()
 
 def main():
     name = 'objs.json'
