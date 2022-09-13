@@ -11,10 +11,6 @@
     "part_number": "xsd:string",
     "category": "Category",
     "name": "xsd:string",
-    "relation": {
-      "@type": "Set",
-      "@class": "PartRelation"
-    },
     "part_material": "Material"
   },
   {
@@ -101,11 +97,12 @@
       "Znap"
     ]
   },
-  {
-    "@class": "PartRelation",
+  { "@class": "PartRelation",
     "@type": "Class",
     "@subdocument": [],
-    "relation_type": "RelationType"
+    "relation_type": "RelationType",
+    "left " : "Part",
+    "right" : "Part"
   },
   {
     "@id": "RelationType",
@@ -143,11 +140,12 @@
     "@id": "Minifig",
     "@key": {
       "@type": "Lexical",
-      "@fields": ["name"]
+      "@fields": ["figure_number"]
     },
     "img_url": "xsd:url",
     "name": "xsd:string",
-    "num_parts": "xsd:positiveInteger"
+    "num_parts": "xsd:positiveInteger",
+    "figure_number" : "xsd:string"
   },
   {
     "@id": "InventoryPart",
@@ -165,7 +163,10 @@
       "@type": "Optional",
       "@class": "Color"
     },
-    "img_url": "xsd:url"
+    "image_url": {
+      "@type" : "Optional",
+      "@class" : "xsd:url"
+    }
   },
   {
     "@id": "Color",
