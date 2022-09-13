@@ -103,7 +103,6 @@
   },
   { "@id": "PartRelation",
     "@type": "Class",
-    "@subdocument": [],
     "relation_type": "RelationType",
     "left " : "Part",
     "right" : "Part"
@@ -146,7 +145,7 @@
       "@type": "Lexical",
       "@fields": ["figure_number"]
     },
-    "img_url": "xsd:url",
+    "img_url": "xsd:anyURI",
     "name": "xsd:string",
     "num_parts": "xsd:positiveInteger",
     "figure_number" : "xsd:string"
@@ -154,6 +153,8 @@
   {
     "@id": "InventoryPart",
     "@type": "Class",
+    "@key" : {"@type" : "Hash",
+              "@fields" : ["element", "quantity", "spare"]},
     "@subdocument": [],
     "element": "Element",
     "quantity": "xsd:positiveInteger",
@@ -169,7 +170,7 @@
     },
     "image_url": {
       "@type" : "Optional",
-      "@class" : "xsd:url"
+      "@class" : "xsd:anyURI"
     }
   },
   {
@@ -185,13 +186,16 @@
     "name": "xsd:string",
     "year": "xsd:gYear",
     "theme": "Theme",
-    "inventory_set": {
-      "@type": "Class",
-      "@id": "InventorySet",
-      "@subdocument": [],
-      "inventory": "Inventory",
-      "quantity": "xsd:positiveInteger"
-    }
+    "inventory_set": { "@type" : "Set",
+                       "@class" : "InventorySet"}
+  },
+  {
+    "@type": "Class",
+    "@id": "InventorySet",
+    "@subdocument": [],
+    "@key" : {"@type" : "Random"},
+    "inventory": "Inventory",
+    "quantity": "xsd:positiveInteger"
   },
   {
     "@id": "Theme",
