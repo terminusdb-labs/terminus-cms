@@ -1,4 +1,8 @@
 [
+  { "@type" : "@context",
+    "@base" : "terminusdb:///lego/data",
+    "@schema" : "terminusdb:///lego/schema#"
+  },
   {
     "@type": "Class",
     "@id": "Part",
@@ -16,7 +20,7 @@
   {
     "@type": "Enum",
     "@id": "Material",
-    "@values": [
+    "@value": [
       "Cardboard/Paper",
       "Cloth",
       "Foam",
@@ -28,7 +32,7 @@
   {
     "@type": "Enum",
     "@id": "Category",
-    "@values": [
+    "@value": [
       "Bars, Ladders and Fences",
       "Baseplates",
       "Bricks Sloped",
@@ -97,7 +101,7 @@
       "Znap"
     ]
   },
-  { "@class": "PartRelation",
+  { "@id": "PartRelation",
     "@type": "Class",
     "@subdocument": [],
     "relation_type": "RelationType",
@@ -107,7 +111,7 @@
   {
     "@id": "RelationType",
     "@type": "Enum",
-    "@values": [
+    "@value": [
       "Alternate",
       "Mold",
       "Pair",
