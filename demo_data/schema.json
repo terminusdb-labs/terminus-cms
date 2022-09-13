@@ -141,6 +141,10 @@
   {
     "@type": "Class",
     "@id": "Minifig",
+    "@key": {
+      "@type": "Lexical",
+      "@fields": ["name"]
+    },
     "img_url": "xsd:url",
     "name": "xsd:string",
     "num_parts": "xsd:positiveInteger"
