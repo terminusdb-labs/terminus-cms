@@ -59,7 +59,7 @@ def serialise_parts(output, part_categories):
                 'part_number' : row['part_num'],
                 'category' : part_categories[row['part_cat_id']],
                 'name' : row['name'],
-                'material' : 'Material'
+                'material' : row['part_material']
             })
 
 def serialise_elements(output,element_image_map):
