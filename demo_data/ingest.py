@@ -103,6 +103,7 @@ def boolean(torf):
     return torf == 't'
 
 def serialise_inventory_parts(output):
+    inserts = []
     with open('./inventory_parts.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
