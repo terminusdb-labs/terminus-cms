@@ -53,6 +53,7 @@ def serialise_parts(output, part_categories):
         for row in csv_reader:
             output.write({
                 '@type' : 'Part',
+                '@capture' : f"Part/{row['part_num']}",
                 'part_number' : row['part_num'],
                 'category' : part_categories[row['part_cat_id']],
                 'name' : row['name'],
@@ -80,7 +81,7 @@ def serialise_elements(output,element_image_map):
             output.write({
                 '@type' : 'Element',
                 '@capture' : f"Element/{element_id}",
-                'part' : row['part_num'],
+                'part' : { '@ref': f"Part/{row['part_num']}" },
                 'color' : color_obj,
                 'image_url' : image_url
             })
