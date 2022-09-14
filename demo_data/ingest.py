@@ -143,6 +143,7 @@ def create_db(name, cwd):
 def main():
     name = 'objs.json'
     with jsonlines.open(name, mode='w') as writer:
+        serialise_colors(writer)
         serialise_minifigs(writer)
         serialise_inventory_minifigs(writer)
         part_categories = get_part_categories()
