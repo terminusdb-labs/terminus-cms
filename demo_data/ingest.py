@@ -99,6 +99,17 @@ def serialise_colors(output):
                 'transparent' : True if row['is_trans'] == 't' else False
             })
 
+def serialise_themes(output):
+    with open('./themes.csv') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        for row in csv_reader:
+            output.write({
+                '@type' : 'Theme',
+                '@capture' : f"Theme/{row['id']}",
+                'name' : row['name'],
+                'parent': {'@ref': f"Theme/{row['parent_id']}"} if row['parent_id'] != '' else None
+            })
+
 
 def boolean(torf):
     return torf == 't'
@@ -141,6 +152,7 @@ def main():
     with jsonlines.open(name, mode='w') as writer:
         serialise_colors(writer)
         serialise_minifigs(writer)
+        serialise_themes(writer)
         serialise_inventory_minifigs(writer)
         part_categories = get_part_categories()
         serialise_parts(writer,part_categories)
