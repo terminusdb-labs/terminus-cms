@@ -67,12 +67,16 @@ def serialise_elements(output,element_image_map):
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
         inserts = []
+        elements = {}
         for row in csv_reader:
             if row['color_id'] != -1:
                 color_obj = { '@ref' : row['color_id'] }
             else:
                 color_obj = None
             element_id = f"{row['part_num']} {row['color_id']}"
+            if element_id in elements:
+                continue
+            elements[element_id] = True
             if element_id in element_image_map:
                 image_url = element_image_map[element_id]
             else:
