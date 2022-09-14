@@ -14,7 +14,6 @@ def serialise_minifigs(output):
     with open('./minifigs.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
-        inserts = []
         for row in csv_reader:
             num_parts = int(row['num_parts'])
             num_parts_val = num_parts if num_parts > 0 else None
@@ -31,7 +30,6 @@ def serialise_inventory_minifigs(output):
     with open('./inventory_minifigs.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
-        inserts = []
         for row in csv_reader:
             output.write({
                 '@type' : 'InventoryMinifig',
@@ -52,7 +50,6 @@ def serialise_parts(output, part_categories):
     with open('./parts.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
-        inserts = []
         for row in csv_reader:
             output.write({
                 '@type' : 'Part',
@@ -66,7 +63,6 @@ def serialise_elements(output,element_image_map):
     with open('./elements.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
-        inserts = []
         elements = {}
         for row in csv_reader:
             if row['color_id'] != -1:
@@ -93,7 +89,6 @@ def serialise_colors(output):
     with open('./colors.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
-        inserts = []
         for row in csv_reader:
             output.write({
                 '@type' : 'Color',
@@ -111,7 +106,6 @@ def serialise_inventory_parts(output):
     with open('./inventory_parts.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
-        inserts = []
         element_image_map = {}
         for row in csv_reader:
             element_id = f"{row['part_num']} {row['color_id']}"
