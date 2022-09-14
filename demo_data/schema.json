@@ -1,6 +1,6 @@
 [
   { "@type" : "@context",
-    "@base" : "terminusdb:///lego/data",
+    "@base" : "terminusdb:///lego/data/",
     "@schema" : "terminusdb:///lego/schema#"
   },
   {
