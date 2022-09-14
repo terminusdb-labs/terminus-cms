@@ -5,9 +5,6 @@ import csv
 import os
 import subprocess
 
-def dump_json(writer, list_of_objs: list):
-    for obj in list_of_objs:
-        writer.write(obj)
 
 def serialise_minifigs(output):
     # opening the csv file
