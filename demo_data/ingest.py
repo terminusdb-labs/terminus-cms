@@ -112,7 +112,6 @@ def boolean(torf):
     return torf == 't'
 
 def serialise_inventory_parts(output):
-    inserts = []
     with open('./inventory_parts.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
@@ -121,7 +120,7 @@ def serialise_inventory_parts(output):
             element_id = f"{row['part_num']} {row['color_id']}"
             image = None if row['img_url'] == '' else row['img_url']
             element_image_map[element_id] = image
-            inserts.append({
+            output.write({
                 '@type' : 'InventoryPart',
                 '@capture' : f"InventoryPart/{row['inventor_id']}",
                 'quantity' : int(row['quantity']),
