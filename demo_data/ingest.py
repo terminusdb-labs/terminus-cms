@@ -20,7 +20,7 @@ def serialise_minifigs(output):
             num_parts_val = num_parts if num_parts > 0 else None
             output.write({
                 '@type' : 'Minifig',
-                '@capture' : row['fig_num'],
+                '@capture' : f"Minifig/{row['fig_num']}",
                 'name': row['name'],
                 'img_url': row['img_url'],
                 'num_parts': num_parts_val,
@@ -83,7 +83,7 @@ def serialise_elements(output,element_image_map):
                 image_url = None
             output.write({
                 '@type' : 'Element',
-                '@capture' : element_id,
+                '@capture' : f"Element/{element_id}",
                 'part' : row['part_num'],
                 'color' : color_obj,
                 'image_url' : image_url
@@ -97,7 +97,7 @@ def serialise_colors(output):
         for row in csv_reader:
             output.write({
                 '@type' : 'Color',
-                '@capture' : row['id'],
+                '@capture' : f"Color/{row['id']}",
                 'name' : row['name'],
                 'rgb' : row['rgb'],
                 'transparent' : True if row['is_trans'] == 't' else False
@@ -119,7 +119,7 @@ def serialise_inventory_parts(output):
             element_image_map[element_id] = image
             inserts.append({
                 '@type' : 'InventoryPart',
-                '@capture' : row['inventor_id'],
+                '@capture' : f"InventoryPart/{row['inventor_id']}",
                 'quantity' : int(row['quantity']),
                 'element' : { '@ref' : element_id},
                 'spare' : boolean(row['is_spare']),
@@ -135,10 +135,11 @@ def create_db(name, cwd):
                                    stdin=f)
         process.wait()
     with open('objs.json', 'r') as f:
-        process = subprocess.Popen(['terminusdb', 'doc', 'insert', 'admin/lego'],
-                                   cwd=cwd,
-                                   stdin=f)
-        process.wait()
+        #process = subprocess.Popen(['terminusdb', 'doc', 'insert', 'admin/lego'],
+        #                           cwd=cwd,
+        #                           stdin=f)
+        #process.wait()
+        pass
 
 def main():
     name = 'objs.json'
