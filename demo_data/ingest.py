@@ -36,7 +36,7 @@ def serialise_inventory_minifigs(output):
             output.write({
                 '@type' : 'InventoryMinifig',
                 'quantity' : int(row['quantity']),
-                'minifig' : { '@ref' : row['fig_num'] }
+                'minifig' : { '@ref' : f"Minifig/{row['fig_num']}" }
             })
 
 def get_part_categories():
@@ -70,7 +70,7 @@ def serialise_elements(output,element_image_map):
         elements = {}
         for row in csv_reader:
             if row['color_id'] != -1:
-                color_obj = { '@ref' : row['color_id'] }
+                color_obj = { '@ref' : f"Color/{row['color_id']}" }
             else:
                 color_obj = None
             element_id = f"{row['part_num']} {row['color_id']}"
@@ -121,7 +121,7 @@ def serialise_inventory_parts(output):
                 '@type' : 'InventoryPart',
                 '@capture' : f"InventoryPart/{row['inventor_id']}",
                 'quantity' : int(row['quantity']),
-                'element' : { '@ref' : element_id},
+                'element' : { '@ref' : f"Element/{element_id}"},
                 'spare' : boolean(row['is_spare']),
             })
         return element_image_map
