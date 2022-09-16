@@ -104,6 +104,7 @@ def serialise_themes(output):
             output.write({
                 '@type' : 'Theme',
                 '@capture' : f"Theme/{row['id']}",
+                'theme_id': int(row['id']),
                 'name' : row['name'],
                 'parent': {'@ref': f"Theme/{row['parent_id']}"} if row['parent_id'] != '' else None
             })
