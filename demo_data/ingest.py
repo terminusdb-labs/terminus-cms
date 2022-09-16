@@ -7,7 +7,7 @@ import sys
 import subprocess
 
 
-def serialise_minifigs(output):
+def serialize_minifigs(output):
     # opening the csv file
     with open('./minifigs.csv') as csv_file:
         # reading the csv file using DictReader
@@ -24,7 +24,7 @@ def serialise_minifigs(output):
                 'figure_number' : row['fig_num']
             })
 
-def serialise_inventory_minifigs(output):
+def serialize_inventory_minifigs(output):
     with open('./inventory_minifigs.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
@@ -44,7 +44,7 @@ def get_part_categories():
             part_categories[row['id']] = row['name']
         return part_categories
 
-def serialise_parts(output, part_categories):
+def serialize_parts(output, part_categories):
     with open('./parts.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
@@ -59,7 +59,7 @@ def serialise_parts(output, part_categories):
             })
 
 
-def serialise_elements(output, element_image_map):
+def serialize_elements(output, element_image_map):
     with open('./elements.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
@@ -86,7 +86,7 @@ def serialise_elements(output, element_image_map):
             })
     return elements
 
-def serialise_colors(output):
+def serialize_colors(output):
     with open('./colors.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
@@ -99,7 +99,7 @@ def serialise_colors(output):
                 'transparent' : True if row['is_trans'] == 't' else False
             })
 
-def serialise_themes(output):
+def serialize_themes(output):
     with open('./themes.csv') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
@@ -116,7 +116,7 @@ def boolean(torf):
     return torf == 't'
 
 
-def serialise_inventory(output, inventory_parts):
+def serialize_inventory(output, inventory_parts):
     with open('./inventories.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
@@ -182,27 +182,25 @@ def main():
     name = 'objs.json'
     with jsonlines.open(name, mode='w') as writer:
         print("Serializing colors")
-        serialise_colors(writer)
+        serialize_colors(writer)
         print("Serializing minifigs")
-        serialise_minifigs(writer)
+        serialize_minifigs(writer)
         print("Serializing themes")
-        serialise_themes(writer)
+        serialize_themes(writer)
         print("Serializing inventory minifigs")
-        serialise_inventory_minifigs(writer)
+        serialize_inventory_minifigs(writer)
         print("Get part categories")
         part_categories = get_part_categories()
         print("Serializing parts")
-        serialise_parts(writer, part_categories)
+        serialize_parts(writer, part_categories)
         print("Creating elements image map")
-#        (entity_image_map, inventory_part_map) = create_inventory_item_map()
         entity_image_map = create_element_image_map()
         print("Serializing elements")
-        elements = serialise_elements(writer, entity_image_map)
+        elements = serialize_elements(writer, entity_image_map)
         print("Creating inventory part map")
         inventory_part_map = create_inventory_part_map(elements)
-        # serialise_inventory_parts(writer)
         print("Serializing inventory")
-        serialise_inventory(writer, inventory_part_map)
+        serialize_inventory(writer, inventory_part_map)
     if "--no-insert" not in sys.argv:
         print("Inserting in DB")
         create_db(name,'../')
