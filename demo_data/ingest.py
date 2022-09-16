@@ -3,6 +3,7 @@
 import jsonlines
 import csv
 import os
+import sys
 import subprocess
 
 
@@ -130,15 +131,16 @@ def serialise_inventory_parts(output):
         return element_image_map
 
 def create_db(name, cwd):
-    subprocess.call(['terminusdb', 'store', 'init', '--force'], cwd=cwd)
-    subprocess.call(['terminusdb', 'db', 'create', 'admin/lego'], cwd=cwd)
+    terminusdb_path = 'terminusdb' if 'TERMINUSDB_EXECUTABLE' not in os.environ else os.environ['TERMINUSDB_EXECUTABLE']
+    subprocess.call([terminusdb_path, 'store', 'init', '--force'], cwd=cwd)
+    subprocess.call([terminusdb_path, 'db', 'create', 'admin/lego'], cwd=cwd)
     with open('schema.json', 'r') as f:
         process = subprocess.Popen(['terminusdb', 'doc', 'insert', 'admin/lego', '-f', '-g', 'schema'],
                                    cwd=cwd,
                                    stdin=f)
         process.wait()
     with open('objs.json', 'r') as f:
-        process = subprocess.Popen(['terminusdb', 'doc', 'insert', 'admin/lego'],
+        process = subprocess.Popen([terminusdb_path, 'doc', 'insert', 'admin/lego'],
                                    cwd=cwd,
                                    stdin=f)
         process.wait()
@@ -163,7 +165,8 @@ def main():
         print("Serializing elements")
         serialise_elements(writer,entity_image_map)
     print("Inserting in DB")
-    create_db(name,'../')
+    if "--no-insert" not in sys.argv:
+        create_db(name,'../')
 
 if __name__ == '__main__':
     main()
