@@ -58,7 +58,8 @@ def serialise_parts(output, part_categories):
                 'material' : row['part_material']
             })
 
-def serialise_elements(output,element_image_map):
+
+def serialise_elements(output, element_image_map):
     with open('./elements.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
@@ -83,6 +84,7 @@ def serialise_elements(output,element_image_map):
                 'color' : color_obj,
                 'image_url' : image_url
             })
+    return elements
 
 def serialise_colors(output):
     with open('./colors.csv') as csv_file:
@@ -113,7 +115,23 @@ def serialise_themes(output):
 def boolean(torf):
     return torf == 't'
 
-def serialise_inventory_parts(output):
+
+def serialise_inventory(output, inventory_parts):
+    with open('./inventories.csv') as csv_file:
+        # reading the csv file using DictReader
+        csv_reader = csv.DictReader(csv_file)
+        for row in csv_reader:
+            inventory_id = row['id']
+            parts = inventory_parts[inventory_id] if inventory_id in inventory_parts else []
+            output.write({
+                '@type': 'Inventory',
+                'version': int(row['version']),
+                'inventory_parts': parts,
+                'inventory_minifigs': [],
+            })
+
+
+def create_element_image_map():
     with open('./inventory_parts.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
@@ -122,14 +140,28 @@ def serialise_inventory_parts(output):
             element_id = f"{row['part_num']} {row['color_id']}"
             image = None if row['img_url'] == '' else row['img_url']
             element_image_map[element_id] = image
-            output.write({
+        return element_image_map
+
+
+def create_inventory_part_map(elements):
+    with open('./inventory_parts.csv') as csv_file:
+        # reading the csv file using DictReader
+        csv_reader = csv.DictReader(csv_file)
+        inventory_part_map = {}
+        for row in csv_reader:
+            element_id = f"{row['part_num']} {row['color_id']}"
+            # There are some missing elements that we should skip :(
+            if element_id not in elements:
+                continue
+            inventory_part_map[row['inventor_id']] = {
                 '@type' : 'InventoryPart',
                 '@capture' : f"InventoryPart/{row['inventor_id']}",
+                'inventory_part_id': f"{row['inventor_id']}{element_id}",
                 'quantity' : int(row['quantity']),
                 'element' : { '@ref' : f"Element/{element_id}"},
                 'spare' : boolean(row['is_spare']),
-            })
-        return element_image_map
+            }
+    return inventory_part_map
 
 def create_db(name, cwd):
     terminusdb_path = 'terminusdb' if 'TERMINUSDB_EXECUTABLE' not in os.environ else os.environ['TERMINUSDB_EXECUTABLE']
@@ -160,13 +192,19 @@ def main():
         print("Get part categories")
         part_categories = get_part_categories()
         print("Serializing parts")
-        serialise_parts(writer,part_categories)
-        print("Serializing inventory parts")
-        entity_image_map = serialise_inventory_parts(writer)
+        serialise_parts(writer, part_categories)
+        print("Creating elements image map")
+#        (entity_image_map, inventory_part_map) = create_inventory_item_map()
+        entity_image_map = create_element_image_map()
         print("Serializing elements")
-        serialise_elements(writer,entity_image_map)
-    print("Inserting in DB")
+        elements = serialise_elements(writer, entity_image_map)
+        print("Creating inventory part map")
+        inventory_part_map = create_inventory_part_map(elements)
+        # serialise_inventory_parts(writer)
+        print("Serializing inventory")
+        serialise_inventory(writer, inventory_part_map)
     if "--no-insert" not in sys.argv:
+        print("Inserting in DB")
         create_db(name,'../')
 
 if __name__ == '__main__':

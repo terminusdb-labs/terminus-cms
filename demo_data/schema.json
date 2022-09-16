@@ -123,7 +123,7 @@
     "@id": "Inventory",
     "@type": "Class",
     "version": "xsd:positiveInteger",
-    "inventory_part": {
+    "inventory_parts": {
       "@type": "Set",
       "@class": "InventoryPart"
     },
@@ -153,9 +153,10 @@
   {
     "@id": "InventoryPart",
     "@type": "Class",
-    "@key" : {"@type" : "Hash",
-              "@fields" : ["element", "quantity", "spare"]},
+    "@key" : {"@type" : "Lexical",
+              "@fields" : ["inventory_part_id"]},
     "@subdocument": [],
+    "inventory_part_id": "xsd:string",
     "element": "Element",
     "quantity": "xsd:positiveInteger",
     "spare": "xsd:boolean"
