@@ -202,9 +202,10 @@
     "@type": "Class",
     "@key": {
       "@type": "Lexical",
-      "@fields": ["name"]
+      "@fields": ["theme_id", "name"]
     },
     "name": "xsd:string",
+    "theme_id": "xsd:positiveInteger",
     "parent": {
       "@type": "Optional",
       "@class": "Theme"
