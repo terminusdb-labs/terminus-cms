@@ -3,6 +3,7 @@
 import jsonlines
 import csv
 import os
+import sys
 import subprocess
 
 
@@ -164,7 +165,8 @@ def main():
         print("Serializing elements")
         serialise_elements(writer,entity_image_map)
     print("Inserting in DB")
-    create_db(name,'../')
+    if "--no-insert" not in sys.argv:
+        create_db(name,'../')
 
 if __name__ == '__main__':
     main()
