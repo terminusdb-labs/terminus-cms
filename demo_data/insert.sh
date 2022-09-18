@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -d /app/terminusdb/storage ]; then
+if [ ! -d /app/terminusdb/storage/db ]; then
 	./terminusdb store init
 	./terminusdb db create admin/lego
 	./terminusdb doc insert admin/lego -f -g schema < /app/demo_data/schema.json
