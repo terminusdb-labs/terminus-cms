@@ -116,18 +116,19 @@ def boolean(torf):
     return torf == 't'
 
 
-def serialize_inventory(output, inventory_parts):
+def serialize_inventory(output, inventory_parts, minifig_map):
     with open('./inventories.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
             inventory_id = row['id']
             parts = inventory_parts[inventory_id] if inventory_id in inventory_parts else []
+            minifigs = minifig_map[inventory_id] if inventory_id in minifig_map else []
             output.write({
                 '@type': 'Inventory',
                 'version': int(row['version']),
                 'inventory_parts': parts,
-                'inventory_minifigs': [],
+                'inventory_minifigs': minifigs,
             })
 
 
@@ -141,6 +142,22 @@ def create_element_image_map():
             image = None if row['img_url'] == '' else row['img_url']
             element_image_map[element_id] = image
         return element_image_map
+
+
+def create_inventory_minifig_map():
+    with open('./inventory_minifigs.csv') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        inventory_minifig_map = {}
+        for row in csv_reader:
+            #inventory_id,fig_num,
+            inventory_id = row['inventory_id']
+            if inventory_id not in inventory_minifig_map:
+                inventory_minifig_map[inventory_id] = []
+            inventory_minifig_map[inventory_id].append({
+                'quantity': int(row['quantity']),
+                'minifig': { '@ref': f"Minifig/{row['fig_num']}" }
+            })
+    return inventory_minifig_map
 
 
 def create_inventory_part_map(elements):
@@ -199,8 +216,10 @@ def main():
         elements = serialize_elements(writer, entity_image_map)
         print("Creating inventory part map")
         inventory_part_map = create_inventory_part_map(elements)
+        print("Creating inventory minifig map")
+        minifig_inventory_map = create_inventory_minifig_map()
         print("Serializing inventory")
-        serialize_inventory(writer, inventory_part_map)
+        serialize_inventory(writer, inventory_part_map, minifig_inventory_map)
     if "--no-insert" not in sys.argv:
         print("Inserting in DB")
         create_db(name,'../')
