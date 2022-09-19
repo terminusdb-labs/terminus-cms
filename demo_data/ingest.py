@@ -58,6 +58,26 @@ def serialize_parts(output, part_categories):
                 'material' : row['part_material']
             })
 
+def serialize_part_relationships(output):
+    rel_type_enum = {
+        "A": "Alternate",
+        "M": "Mold",
+        "R": "Pair",
+        "T": "Pattern",
+        "P": "Print",
+        "B": "Sub-Part",
+    }
+    with open('./part_relationships.csv') as csv_file:
+        # reading the csv file using DictReader
+        csv_reader = csv.DictReader(csv_file)
+        for row in csv_reader:
+            rel_type = rel_type_enum[row['rel_type']]
+            output.write({
+                'relation_type': rel_type,
+                'left': {'@ref': f"Part/{row['child_part_num']}"},
+                'right': {'@ref': f"Part/{row['parent_part_num']}"},
+            })
+
 
 def serialize_elements(output, element_image_map):
     with open('./elements.csv') as csv_file:
@@ -251,6 +271,7 @@ def main():
         print("Creating and serializing inventory sets")
         inventory_set_map = create_inventory_set_map()
         serialize_sets(writer, inventory_set_map)
+        serialize_part_relationships(writer)
     if "--no-insert" not in sys.argv:
         print("Inserting in DB")
         create_db(name,'../')
