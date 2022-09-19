@@ -135,6 +135,10 @@
   {
     "@type": "Class",
     "@id": "InventoryMinifig",
+    "@subdocument": [],
+    "@key" : {"@type" : "Lexical",
+              "@fields" : ["inventory_minifig_id"]},
+    "inventory_minifig_id": "xsd:string",
     "quantity": "xsd:positiveInteger",
     "minifig": "Minifig"
   },

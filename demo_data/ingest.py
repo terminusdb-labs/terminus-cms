@@ -24,17 +24,6 @@ def serialize_minifigs(output):
                 'figure_number' : row['fig_num']
             })
 
-def serialize_inventory_minifigs(output):
-    with open('./inventory_minifigs.csv') as csv_file:
-        # reading the csv file using DictReader
-        csv_reader = csv.DictReader(csv_file)
-        for row in csv_reader:
-            output.write({
-                '@type' : 'InventoryMinifig',
-                'quantity' : int(row['quantity']),
-                'minifig' : { '@ref' : f"Minifig/{row['fig_num']}" }
-            })
-
 def get_part_categories():
     with open('./part_categories.csv') as csv_file:
         # reading the csv file using DictReader
@@ -190,6 +179,7 @@ def create_inventory_minifig_map():
             if inventory_id not in inventory_minifig_map:
                 inventory_minifig_map[inventory_id] = []
             inventory_minifig_map[inventory_id].append({
+                'inventory_minifig_id': inventory_id + row['fig_num'],
                 'quantity': int(row['quantity']),
                 'minifig': { '@ref': f"Minifig/{row['fig_num']}" }
             })
@@ -253,8 +243,6 @@ def main():
         serialize_minifigs(writer)
         print("Serializing themes")
         serialize_themes(writer)
-        print("Serializing inventory minifigs")
-        serialize_inventory_minifigs(writer)
         print("Get part categories")
         part_categories = get_part_categories()
         print("Serializing parts")
