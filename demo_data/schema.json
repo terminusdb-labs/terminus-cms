@@ -104,7 +104,7 @@
   { "@id": "PartRelation",
     "@type": "Class",
     "relation_type": "RelationType",
-    "left " : "Part",
+    "left" : "Part",
     "right" : "Part"
   },
   {
