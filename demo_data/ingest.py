@@ -272,7 +272,7 @@ def main():
         print("Creating and serializing inventory sets")
         inventory_set_map = create_inventory_set_map()
         serialize_sets(writer, inventory_set_map)
-#        serialize_part_relationships(writer)
+        serialize_part_relationships(writer)
     if "--no-insert" not in sys.argv:
         print("Inserting in DB")
         create_db(name,'../')
