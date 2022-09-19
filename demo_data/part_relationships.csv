@@ -1,4 +1,3 @@
-# Part Relationship rel_types are: (P)rint, Pai(R), Su(B)-Part, (M)old, Pa(T)tern, (A)lternate
 rel_type,child_part_num,parent_part_num
 P,3626cpr3662,3626c
 P,87079pr9974,87079
