@@ -73,6 +73,7 @@ def serialize_part_relationships(output):
         for row in csv_reader:
             rel_type = rel_type_enum[row['rel_type']]
             output.write({
+                '@type': 'PartRelation',
                 'relation_type': rel_type,
                 'left': {'@ref': f"Part/{row['child_part_num']}"},
                 'right': {'@ref': f"Part/{row['parent_part_num']}"},
