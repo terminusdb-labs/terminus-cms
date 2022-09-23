@@ -126,19 +126,17 @@ def serialize_themes(output):
             })
 
 
-def serialize_sets(output, set_inventory_map):
+def serialize_sets(output):
     with open('./sets.csv') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
             set_id = row['set_num']
-            sets = set_inventory_map[set_id] if set_id in set_inventory_map else []
             output.write({
                 '@type': 'LegoSet',
                 '@capture': f"LegoSet/{set_id}",
                 'theme': {"@ref": f"Theme/{row['theme_id']}"},
                 'name': row['name'],
                 'year': int(row['year']),
-                'inventory_set': sets,
             })
 
 
@@ -146,20 +144,15 @@ def boolean(torf):
     return torf == 't'
 
 
-def serialize_inventory(output, inventory_parts, minifig_map):
+def serialize_inventory(output):
     with open('./inventories.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
-            inventory_id = row['id']
-            parts = inventory_parts[inventory_id] if inventory_id in inventory_parts else []
-            minifigs = minifig_map[inventory_id] if inventory_id in minifig_map else []
             output.write({
                 '@type': 'Inventory',
-                '@capture': f"Inventory/{inventory_id}",
+                '@capture': f"Inventory/{row['id']}",
                 'version': int(row['version']),
-                'inventory_parts': parts,
-                'inventory_minifigs': minifigs,
             })
 
 
@@ -175,23 +168,23 @@ def create_element_image_map():
         return element_image_map
 
 
-def create_inventory_minifig_map():
+def serialize_inventory_minifigs(output):
     with open('./inventory_minifigs.csv') as csv_file:
         csv_reader = csv.DictReader(csv_file)
-        inventory_minifig_map = {}
         for row in csv_reader:
             inventory_id = row['inventory_id']
-            if inventory_id not in inventory_minifig_map:
-                inventory_minifig_map[inventory_id] = []
-            inventory_minifig_map[inventory_id].append({
-                'inventory_minifig_id': inventory_id + row['fig_num'],
+            inventory_minifig_id = f"{inventory_id} {row['fig_num']}"
+            output.write({
+                '@type': "InventoryMinifig",
+                '@linked-by': {"@ref": f"Inventory/{inventory_id}",
+                               "@property": "inventory_minifigs"},
+                'inventory_minifig_id': inventory_minifig_id,
                 'quantity': int(row['quantity']),
-                'minifig': { '@ref': f"Minifig/{row['fig_num']}" }
+                'minifig': {'@ref': f"Minifig/{row['fig_num']}"}
             })
-    return inventory_minifig_map
 
 
-def create_inventory_set_map():
+def serialize_inventory_sets(output):
     with open('./inventory_sets.csv') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         set_inventory_map = {}
@@ -199,32 +192,36 @@ def create_inventory_set_map():
             set_id = row['set_num']
             if set_id not in set_inventory_map:
                 set_inventory_map[set_id] = []
-            set_inventory_map[set_id].append({
+            output.write({
+                '@type': 'InventorySet',
+                '@linked-by': {'@ref': f"LegoSet/{row['set_num']}",
+                               '@property': 'inventory_set'},
                 'quantity': int(row['quantity']),
-                'inventory': { '@ref': f"Inventory/{row['inventory_id']}" }
+                'inventory': {'@ref': f"Inventory/{row['inventory_id']}"}
             })
-    return set_inventory_map
 
 
-def create_inventory_part_map(elements):
+def serialize_inventory_parts(output, elements):
+    inventory_part_ids = {}
     with open('./inventory_parts.csv') as csv_file:
         # reading the csv file using DictReader
         csv_reader = csv.DictReader(csv_file)
-        inventory_part_map = {}
         for row in csv_reader:
             element_id = f"{row['part_num']} {row['color_id']}"
+            inventory_part_id = f"{row['inventor_id']} {element_id}"
             # There are some missing elements that we should skip :(
-            if element_id not in elements:
+            if element_id not in elements or inventory_part_id in inventory_part_ids:
                 continue
-            inventory_part_map[row['inventor_id']] = {
-                '@type' : 'InventoryPart',
-                '@capture' : f"InventoryPart/{row['inventor_id']}",
-                'inventory_part_id': f"{row['inventor_id']}{element_id}",
-                'quantity' : int(row['quantity']),
-                'element' : { '@ref' : f"Element/{element_id}"},
-                'spare' : boolean(row['is_spare']),
-            }
-    return inventory_part_map
+            inventory_part_ids[inventory_part_id] = True
+            output.write({
+                '@type': 'InventoryPart',
+                '@linked-by': {"@ref": f"Inventory/{row['inventor_id']}",
+                               "@property": "inventory_parts"},
+                'inventory_part_id': inventory_part_id,
+                'quantity': int(row['quantity']),
+                'element': {'@ref': f"Element/{element_id}"},
+                'spare': boolean(row['is_spare']),
+            })
 
 
 def create_db(name, cwd):
@@ -260,14 +257,14 @@ def main():
         print("Serializing elements")
         elements = serialize_elements(writer, entity_image_map)
         print("Creating inventory part map")
-        inventory_part_map = create_inventory_part_map(elements)
+        serialize_inventory_parts(writer, elements)
         print("Creating inventory minifig map")
-        minifig_inventory_map = create_inventory_minifig_map()
+        serialize_inventory_minifigs(writer)
         print("Serializing inventory")
-        serialize_inventory(writer, inventory_part_map, minifig_inventory_map)
+        serialize_inventory(writer)
         print("Creating and serializing inventory sets")
-        inventory_set_map = create_inventory_set_map()
-        serialize_sets(writer, inventory_set_map)
+        serialize_inventory_sets(writer)
+        serialize_sets(writer)
         serialize_part_relationships(writer)
     if "--no-insert" not in sys.argv:
         print("Inserting in DB")
