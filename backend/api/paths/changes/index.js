@@ -1,4 +1,4 @@
-module.exports = function () {
+ const operation = () =>{
     let operations = {
       GET,
       POST,
@@ -114,3 +114,5 @@ module.exports = function () {
   
     return operations;
   };
+
+  export default operation

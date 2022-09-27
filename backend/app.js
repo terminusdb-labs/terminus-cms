@@ -1,9 +1,9 @@
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var { initialize } = require("express-openapi");
-var swaggerUi = require("swagger-ui-express");
+import express from "express";
+import path  from "path";
+import  cookieParser from "cookie-parser";
+import logger from "morgan";
+import  { initialize } from "express-openapi";
+import swaggerUi from "swagger-ui-express";
 
 var app = express();
 
@@ -16,7 +16,7 @@ app.use(cookieParser());
 // OpenAPI routes
 initialize({
   app,
-  apiDoc: require("./api/api-doc"),
+  apiDoc: "./api/api-doc.json",//require("./api/api-doc"),
   paths: "./api/paths",
 });
 
@@ -36,4 +36,4 @@ console.log(
   "OpenAPI documentation available in http://localhost:3035/api-documentation"
 );
 
-module.exports = app;
+//module.exports = app;
