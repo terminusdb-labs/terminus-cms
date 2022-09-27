@@ -7,11 +7,83 @@ const opts = {
     server : "http://127.0.0.1:6363"
 
 }
+
+const classObj = {}
+const linkPropertyFromTo = {}
+const linkPropertyToFrom = {}
+const noProperty = {"@id":true,"@key":true,"@subdocument":true,"@type":true}
+const nodeClasses = []
+const linkEdges = []
+
+
+const manageClasses =(classes) =>{
+    if(!Array.isArray(classes)) return 
+    classes.forEach((item)=>{
+        classObj[item['@id']] = item
+        nodeClasses.push( {
+            "type": "node",
+            "id": item['@id'],
+            "nodetype": item['@id'],
+            "color": [
+                255,
+                0,
+                255
+            ],
+            "text": item['@id'],
+            "radius": 30
+        })
+    })
+
+    classes.forEach((item)=>{
+        const classId= item["@id"]
+        Object.keys(item).forEach(key=>{
+            if(!noProperty[key]){
+                let propValue =  typeof item[key] === "object" ? item[key]["@class"] : item[key] 
+                if(classObj[propValue]){
+                    if(typeof linkPropertyFromTo[classId] !== "object"){
+                        linkPropertyFromTo[classId] = {}
+                    } 
+                    //maybe is better an array ??
+                    linkPropertyFromTo[classId][key] = propValue
+                    linkEdges.push ({
+                        "type": "link",
+                        "target": propValue,
+                        "source": classId,
+                        "text": key
+                    })
+                    if(typeof linkPropertyToFrom[propValue] !== "object"){
+                        linkPropertyToFrom[propValue] = {}
+                    }
+                    //propValue is the class name 
+                    //no complete secure of this
+                    linkPropertyToFrom[propValue][key] = classId
+                }
+            }
+        })
+    })
+
+    console.log(classObj)
+    console.log(linkPropertyFromTo)
+    console.log(linkPropertyToFrom)
+
+}
+
+const createQuery =()=>{
+
+}
+
+const linkPropertyWithClass = () =>{
+    
+}
+
+ 
 export const ClientProvider = ({children}) => {
     const [client, setClient] = useState(null)
     const [accessControlDashboard, setAccessControl] = useState(null)
     const [loadingServer, setLoadingServer] = useState(false)
     const [classes,setClasses] = useState([])
+    const [frames,setFrames] = useState([])
+    const [error,setError] = useState([])
 
     useEffect(() => {
         const initClient = async(credentials)=>{
@@ -21,7 +93,11 @@ export const ClientProvider = ({children}) => {
                 const dbClient = new TerminusClient.WOQLClient(opts.server,credentials)
        
                 const result = await dbClient.getClasses();
+                const frameResult = await dbClient.getSchemaFrame(null, dbClient.db())
+
+                manageClasses(result)
                 setClasses(result)
+                setFrames(frameResult)
                // const access =  new TerminusClient.AccessControl(opts.server,accessCredential)
                // const clientAccessControl = new AccessControlDashboard(access)
 
@@ -32,6 +108,7 @@ export const ClientProvider = ({children}) => {
             } catch (err) {
               //  const message = formatErrorMessage(err)
                 setError(err.message)
+                console.log(err)
             }finally {
                 setLoadingServer(false)
             }
@@ -42,7 +119,7 @@ export const ClientProvider = ({children}) => {
             setLoadingServer(true)
             const user = localStorage.getItem("TerminusCMS-USER") 
             const key = localStorage.getItem("TerminusCMS-KEY")
-            const credentials  = {user ,key, organization:"admin", db:"lego_set" }                        
+            const credentials  = {user ,key, organization:"admin", db:"lego" }                        
             initClient(credentials)
 
         }
@@ -53,7 +130,10 @@ export const ClientProvider = ({children}) => {
         <ClientContext.Provider
             value={{
                 client,
-                classes
+                classes,
+                nodeClasses,
+                linkEdges,
+                frames
             }}
         >
             {children}
