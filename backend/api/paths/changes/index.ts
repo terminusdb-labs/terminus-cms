@@ -1,12 +1,14 @@
- const operation = () =>{
+import { Operation } from "express-openapi";
+import { Request,Response, } from "express";
+/* const operation = () =>{
     let operations = {
       GET,
       POST,
       PUT,
       DELETE,
-    };
+    };*/
   
-    function GET(req, res, next) {
+    export const GET: Operation = (req:Request, res:Response) =>{
       res.status(200).json([
         { "@type" : "ChangeRequest",
         "@id" : "hdhdjjaKWOWIOIELLLLFL[Q",
@@ -17,17 +19,17 @@
       ]);
     }
   
-    function POST(req, res, next) {
+    export const POST: Operation = (req:Request, res:Response) =>{
       console.log(`About to create Change Request: ${JSON.stringify(req.body)}`);
       res.status(201).send();
     }
   
-    function PUT(req, res, next) {
+    export const PUT: Operation =(req:Request, res:Response)=>{
       console.log(`About to update Change Request status: ${req.query.status}`);
       res.status(200).send();
     }
   
-    function DELETE(req, res, next) {
+    export const DELETE: Operation =(req:Request, res:Response) => {
       console.log(`About to delete Change Request id: ${req.query.id}`);
       res.status(200).send();
     }
@@ -112,7 +114,7 @@
       },
     };
   
-    return operations;
-  };
+    //return operations;
+ // };
 
-  export default operation
+  //export default operation

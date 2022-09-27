@@ -4,6 +4,7 @@ import  cookieParser from "cookie-parser";
 import logger from "morgan";
 import  { initialize } from "express-openapi";
 import swaggerUi from "swagger-ui-express";
+import ApiDocs from "./api/api-doc.json"
 
 var app = express();
 
@@ -16,15 +17,15 @@ app.use(cookieParser());
 // OpenAPI routes
 initialize({
   app,
-  apiDoc: "./api/api-doc.json",//require("./api/api-doc"),
-  paths: "./api/paths",
+  apiDoc: ApiDocs,//"./api/api-doc.json",//require("./api/api-doc"),
+  paths: "./api/paths"
 });
 
 // OpenAPI UI
 app.use(
   "/api-documentation",
   swaggerUi.serve,
-  swaggerUi.setup(null, {
+  swaggerUi.setup(undefined, {
     swaggerOptions: {
       url: "http://localhost:3035/api-docs",
     },
