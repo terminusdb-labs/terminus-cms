@@ -3,5 +3,5 @@ node_modules
 dist
 es6
 .env
-
+./tdb_storage
 *.DS_Store
