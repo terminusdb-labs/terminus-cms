@@ -1,0 +1,613 @@
+"""""""$ˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""""DDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""$DDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆ‰"""""""""""""""""""""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆ‘"""$Dˆˆ‘""DDDD‰"""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆ‘"Dˆˆˆˆˆˆ‘"""""""""""""""""""""""""DDDDDDDDDDDHˆˆˆˆˆ‰""""Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""DDDDDDDDDH‰"""DDDDDDDDDDHˆˆˆˆ‰""""""""""""""""""""""""""""""""""""""$DDDDDDDˆˆˆˆˆˆˆˆ‘"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""DDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆ‰""""DDDDDDDDˆˆˆˆˆˆˆˆˆˆ‘""DDDDDDDˆˆˆˆˆ‰""""""""""$DDDDDDDDDDˆˆˆˆˆˆ‰""""""""""""$ˆˆˆˆˆˆˆ‘"""""""""""$DDDDDDHˆˆˆ‰"""""""$DHˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""$DDDDˆ‘$DDDDDDDDDDHˆ‘"Dˆˆˆˆˆ‘"""""""""""$ˆˆˆˆ‘""""""""""$DDˆˆˆˆˆ‘""""""""""""""""""""""""""""""""$DDDDDDD‘""""""""""DDDD‰""""DDDDDDDDDDDDˆˆ‰"""""""""""""""""$DDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""Dˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""""""""""""""DDDDDDDDDDHˆˆˆˆˆˆˆ‘"""""""$DH‰""""""""""""""""""""""$DDDDDDˆˆˆˆˆˆˆˆ‘"""""DDDDDDDˆˆˆˆˆˆˆˆˆˆ‰"""""""DDDDDDDDˆˆˆˆˆˆˆ‰"""""""""""DDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆ‘"""""DDDDHˆˆˆˆˆ‰"DDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""DDDH‰"""""""""$ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""""""""DDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""$DDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""$DDDDDDDDDDDDDDDDDDDDDDDH‘"DDDˆˆˆˆˆˆˆ‘""""""""""""""DDˆˆˆˆˆˆˆˆ‘"""""""""DDDDDDDDˆˆˆˆˆ‰""DDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""""DD‘""$DDDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆ‘"""$DDDDDI""$DDDDDDDˆˆˆˆˆ’""""$‘$DDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""$DDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘DDDHˆˆˆˆˆˆˆˆˆ‰"""""""""""""$Dˆ‘""""""""""""""$DDDDDDDDDDDDDˆˆ‰$DDHˆˆˆˆˆˆˆˆˆˆˆˆ’"DDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""$DDDDDDDˆˆˆˆˆ‘"""""""""""$Dˆˆˆˆˆˆˆˆˆˆ‰"$DDDDDDDDDDDDDˆˆ‘"""""""""""""""""""""""""""""""""""""""""""""""""""DDDDDDDHˆˆˆ‘"""""""$DDHˆˆˆˆ‰""""""DDDDDDHˆˆˆˆˆ‰"""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"$Dˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"DDDDDDˆˆˆˆ’"DDDDDDDDDDˆˆˆˆˆˆˆˆˆ‘""""""""""""""""""""""""""""""""""DDHˆˆˆˆˆˆˆˆ‰"""$DDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""""""$DDDDDDDDHˆˆˆˆ‘$DDDDDˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""DDˆˆˆ‰"""""DDDDDDDDDDHˆ‰"""""""""""""""$DDDˆˆˆ‰"""DDDˆˆˆˆˆˆˆˆˆˆ‰"""""$Dˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""DDDDDDDDˆˆˆˆˆˆˆˆˆˆˆ‰"""$DDDDDDDˆˆˆˆˆˆˆ‰""$DDDDDDDDDDDD‰""""""""DDDDDDDDDDHˆ‘"""""DDDD‰""""""""""""""""DDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""""$DDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""""""""""""DDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""$DDDDDDDDDDDDDDDˆˆˆˆˆˆˆ‘""DHˆˆˆˆˆˆˆˆˆ’$DDDDDHˆ‘$DDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""DDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""$DDDDDDDˆ‘""""""""""""""""""DDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""$DDˆˆˆ‘"""""""""""""""""""""DDHˆˆ‘"""Hˆˆˆˆˆ‰"""""""DDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆ‰""D‘"DDDDDDDDDDDDDDI""$DDI"DDDDDDDDDDˆ‰""Dˆˆˆˆˆ‰"""""DI""$Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""DDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘$DDDDDDˆˆˆˆˆˆˆˆˆ‰"$DDDDˆˆˆˆˆˆˆˆˆ‰"$DDˆ‰""""""""""""$DDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""""""""""""$DHˆˆˆ‰"""""DDDDDDDDDH‰""""$DDDDDDDˆ‘""""DDDˆˆ‘"""DDDDDDDDDDDDD‰""""DDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"$DDDDDDDDDDDD‰""DDDDDHˆˆˆˆˆˆ‘"""""$DDDDDDˆˆˆˆˆˆˆˆ‰""""$DDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""$DDDDDDDDDDDDHˆˆˆˆ‘"""""""""""""""""""""$DDDDDDDDD‘""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""""""""DDˆˆˆˆˆ‰""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDHˆ‰"""""DDHˆˆ‘""""""""$DDDDDDˆˆˆˆ’DDDDDDHˆˆˆˆˆˆˆ‰"""""""$DDDDDDDD’"""""""""""DDDDDHˆˆˆˆˆˆˆˆˆˆˆ‘$Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""$DDDDˆˆˆˆˆˆˆˆˆ‘""""""""""""""""""""""""""""""""$Dˆˆˆˆˆˆˆ‰""""""""""""""""""""""DHˆˆˆˆˆˆˆˆˆˆ‘"DDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""$DDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆ‰"""$DDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""DDDDDDˆˆˆˆˆˆˆˆ‘"""""""""""DI"""""""""""""""DDDDDDDDDDHˆ‰""$DDDHˆˆˆˆ‘"""""""""""""""""""""""""""$DDˆˆˆˆˆˆˆˆ‘"""""""DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD‰"DDDDDDDDDHˆˆˆ‘"""""""""""""""""""""""DDDDDDDDDDDDHˆ‘"""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""""""""""""""""""""""""""""""""""""""""""""""DDDHˆ‰"""""""""""DDDDDDDDDDDDDDDDDDDDD‘"""""""$DDDDDDDDˆˆˆˆˆˆˆˆˆˆ‰DDˆ‰"""""""Hˆˆˆˆˆˆˆˆˆˆ‘""""""""$DDˆˆˆˆˆ‰""""""""""""""""""DDDDˆˆˆˆˆ‰"""""""""""""""$DDDDDDDDD‰"$Hˆˆˆˆˆˆ‘"""""""""""$DDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""$DDDDDDDˆˆˆ‰$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆ‘""""""""""""$DDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆ‰"""$DDDH‘""""""""""""""""""""$DDDDDDDDDDDDDDDDI""""""""""""Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""$Dˆˆ‰"DDDDDDˆˆ‘"""""DDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆ‰"""""""DDDDHˆˆˆˆ‰"$DDDDDDDDDDDˆˆˆˆˆˆˆ‘"""""""""""""""""""""""""""""""""$DDDDDHˆ‰""""""""$DDDDDDˆˆˆˆˆˆˆˆˆˆˆ‘""DDDDDDDDDDDDHˆˆˆˆ‰"""""""""""""""""""""Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"DDDDI""""""""DDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""$Dˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰$DDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""$DDDDDDDDDDDDDDDDDDDHˆˆˆ‘$DDDDDDDDDDDDDDDDDDDˆˆ‰""""""""""""""""""""""""""""""""$DDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆ‘$DDDDDDDDDDDDDDDDDDDDDDHˆˆˆ‰""""""$DDDDDDDDDDDDˆ‰"DDDDDDDDDDDˆˆˆ‰""""""""""""""$DDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"DDDDDDHˆˆˆˆˆˆ‰""""""""DDDDˆˆˆ‰"""""DDDDDDDDDˆ‰""""DDDDDDHˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""""DDDDDDDDˆˆˆ‘"$DDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""$DDDDDDDDDDDDDH‰""""""""""""""""$DDDDDDDDDˆˆˆˆˆˆ‘""$DDH’"""""""""""""""$DDDDDHˆˆ‘""""DDDDDDDDHˆˆˆˆˆˆˆ‰"""""DDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""DDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆ‰""""""""DDHˆˆˆˆ‰""""""$DDDDDDDDDHˆ‰"""$DDDDDDDDDDDDDDDDDDDDDHˆˆ‘"""""DDDDDDDDDDDDDDDDˆˆˆ‘""""""""""""""""""""""DDDDDDDDDDDDDˆˆ‰"""""$ˆˆ‰"$DDDDDDDDDDDDDDˆ‰"""""DDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""""""$I""""""$DDDDDDDDDDDHˆ‰"""""""$DDˆ‘"$DHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""DDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"DDDDDDDDDDDDDDDDDDDˆˆˆ‘"""""""""$DDDDDDDDDDDDDDDDDDHˆ‰"""""""$ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"DDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆ‘"""""""""""""$ˆˆˆ‘""""""$DDDDˆˆˆˆˆˆˆ‘""""DDDDDDDDDDDDDDDD‰"$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDˆ‘""""""""""""""""""""""Dˆˆˆˆˆˆˆˆˆˆˆˆ‘"$DDDDDDˆˆˆ’"""""""""Dˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"$Hˆ‰""""""$DDDDDˆˆˆˆˆ‰"""""DDDDI""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆ‰""""""""Hˆˆˆˆˆˆˆˆˆˆ‘""""""""""DDDˆˆˆˆˆˆˆˆˆ‘"""""""""""""""DDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆ‰""""""""""DHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""$ˆˆ‰""""""""DDDD‰"DDDDDDDH‘""""""""""$DHˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆ‘""""""""""""""""""$DDDDDDDD‰"""""DDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""$DDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""DDDHˆˆˆˆˆˆˆˆˆˆ‰""""$DD‰""""""""""$DDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""""""""""""""DDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""$DD‘"""""""""$DDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""""""""""""""DDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆ‘""DDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""""""""""""""""""""""DDDDDˆˆˆˆˆˆˆ‘""""""""""""""""""""""""""$DDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""DDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""""""""""DDDDDDDDDHˆ‘"$Hˆˆˆ‘""""""""""""""""DDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""""""""""""""""""$DDDDˆˆˆˆˆˆˆˆˆˆˆ‰DDI""""""""""""DDDDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆ‘"""""""""""""""""DDDDDDDDDDDDDDDDH‰""""""""""""""""DDDDDDDDHˆ‘"""""""""""""""DDDDHˆˆˆˆˆˆˆ‰""""""DDDDDDDDDDDDDDDDI""""""""""""""$DDDDDDDDDDDDDˆ‰"""""""DDDDDˆˆˆˆˆˆ‘""""Dˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰DDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆ‰""""""$DDHˆˆˆˆˆˆ‘"""DDDDDDH‰"""DDDDDDDHˆˆ‘$DDDDDDDDDˆˆˆˆˆˆˆˆˆˆ’"""""""""""""$DDDHˆˆ‘"""DDDDDDDDDDDDDDDDDDDHˆˆˆ‰""""""""""""""""DDDHˆˆˆˆˆ‰$DDH‰$DDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""DDDDDˆ‰""""""""""DDDDDDDDDDDDDDDHˆˆˆ‘""""$DDDDD‰""$DDDDHˆˆˆˆ‰""""""""""""""Dˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""""""""""$DDDDDDDDDDDˆˆˆ‘""""""""""""""""""""DDDDHˆˆˆˆˆˆˆˆˆ‘"$DDDDDHˆˆˆˆ‘""""""""$DDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""""""""""""""""""$DHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""$Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""DDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""$DDD‘""""""""""""""""""""""""""""DDDDDDDDDDˆˆˆˆˆˆˆˆ‰""""DDDDDDDDDDDDDDHˆˆˆ‘$DDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""$DDDDDDDDDDˆˆˆˆˆˆˆ‘""""""""""""""""""""""""""$DDDDHˆˆˆˆˆˆˆˆ‘""""""""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"DDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆ‰""""""""DDDDDˆˆˆˆˆˆ‰""DDDDDDDDDDDDDˆˆˆˆ‰""""""""DDDDDDDHˆˆ‘""""""$DDDDDDDDDDDˆˆˆ‘$DDDDˆˆˆˆˆˆˆˆˆˆˆˆ‰""DDDDDDˆˆ‘""""""""""$DDDDDDDDDDHˆ‘"""""""""""""""$DDDDDDDDDDDDDDDDDˆˆ‘""""""DDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""""$DDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""DDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""$ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘$DDDI""""""""""""""""""""""""""""""$DDDDDDDDDDDDDDDDDˆˆ‘""""""""""""""""""""""""""""DDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""$DDH‘"""""""""""$DDHˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""$DDDDDDDDˆˆˆˆ‘"$DDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""DDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆ‰"""""""""""""""""""""""""""""""$DDDDDDDˆˆˆˆˆˆˆ‰$DDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""""""DDDDDDDDDDDDDDHˆ‘"""""""""""$DDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""$DDDHˆˆˆˆˆˆˆˆ‘"""""$DDDDDˆˆ‘""""""""""""$DDDDDDDDDˆˆˆˆˆ‘""""""""$DDDDDDDDDDDDDDDˆˆˆˆˆ‘"""""""$Dˆˆˆˆˆˆ‰"""""""$DDD‘""""""""""""""""""""""""DDDˆ‘"Hˆ‰"""""""""DDDDDDDDDDDDDDDDDH‰""$DDHˆˆˆˆˆˆ‰"""""""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDˆˆ‰""$DDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""DDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆ‘DI""""""""""""$DDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"DDDDDˆˆ‘"""""""""""Dˆ‰""""""""""""$DDˆˆˆˆˆˆˆ‰"DDDI""""""""""""""""""DDDHˆˆˆˆˆˆˆˆˆ‘$DDDDDDDH‘"""""DDDDDDDˆˆ‰"""""$DD‰"""""""""DDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆ‘$DDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""DDDDDDHˆˆˆˆˆˆˆˆ‘""""DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆ‰""""""""""$DDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""$DDDDHˆˆˆˆˆˆ‰"DDDDDDDDDDDDDDDDDI""DDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""DDDˆˆˆˆˆˆ‰$DDDDDDDDDDDDDDDDDDDDHˆ‰"""""""DDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆ‰"""""DDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆ‰"""Hˆˆˆˆˆˆˆˆˆˆˆˆ‰$DDDDHˆ‘""""""""""""$ˆ‘$DDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD‘"""""Hˆˆˆˆˆˆˆˆˆˆ‰"""""""""$DDDDDDDDDˆ‰""""""""$DHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""""""""DDDDDHˆˆ‘"""""""""""""$I""""$DDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"$DDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆ‘DDDDDDˆˆˆ‘"""""$Hˆˆˆˆˆˆˆ‘"""""""""""""Dˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""$DDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""Dˆˆ‰""DDDDDDDDDDDDDDDDHˆˆˆ‰""""""""""$DDDDDDDDDDDDDDDDHˆˆ‘"""""DDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""""""""""""""""DDDDDDDDDDˆˆ‰$DDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆ‰"""DDDDDDDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆ‰"D‰"""""$DDˆˆ‘""""""""$DDDDDDDDDDDˆˆˆˆˆˆˆˆˆ‘"DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆ‘"""""""""$DHˆˆˆ‘$DDDDˆˆˆˆˆˆˆ‘DHˆˆˆˆ‘""""""""$DHˆˆˆˆˆ‘""""""DDDDDDDDDDDDDDDDDDDDDDDDD‰"$DDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""$DDDDDDDDDDDDDDDHˆˆˆ‘"""""""""""""""""""""""""""""""""""""""""DDDDDˆˆ‘"""""""$Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ’DDˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""$DDDDDDDˆˆ‰"""""DD‰""$DDDDDDDDDDDDDDDDDDDˆˆ‰"$DDDDDDˆˆˆˆˆˆˆ‘""""DDDDDDDDHˆˆˆˆˆˆˆˆˆˆ‘""""DDDDHˆˆˆˆ‘""""$DDDDDDDDDDDDDDHˆˆ‘"DDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""""""""""""DDDDDD‰"DDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆ‘""DDDDDDDDDDDDDDDDDHˆˆˆˆ‰"""""""""""""""$Hˆˆˆˆˆˆˆˆˆˆˆˆ‰"""DDDHˆˆ‘"$DDHˆ‰""""""""""""DDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""DDDDDDDDDDDDˆˆˆˆˆˆ‘"""H‰""""DDDDˆˆˆˆˆ‰"""""""Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""$DDDˆˆˆˆ‘"""$DDDDDDDDDDDDDDDDDDDDDHˆ‰""""""""""DDDDDˆˆ‘""""DDˆˆˆˆˆ‘""""""""""""$DDDHˆˆˆˆˆ‰""""""""""""""""""""""""DDDDDDDDDDDDDDˆˆˆˆ‰""DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆ‰"""""""DDDDDHˆˆˆˆˆˆˆ‘$DDˆˆ‰""""""""""$DDDDDDDDDDDDDˆˆˆ‰""DDDDDDDDDˆˆˆˆˆˆ‰"""DDDDDHˆˆˆˆˆˆˆ‘""""""""""$DDDDDDDDDDDDDDDDDDDDDDDDDD‰""""""DDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"DHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""DDDDDˆˆˆˆ‘""""""$DDDDDDDDDDDHˆˆ‰"""""Hˆ‘"$Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""DDDDDDDDDDDDˆˆˆˆˆˆˆ‰""""""$DDDDDDDDDDDDHˆˆˆˆˆˆ‰""""""DDDDDDH‰"""""DDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""DDDDDDDDDDDHˆ‰""""""""""""""""""$Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""""""""""""""$DHˆˆˆ‘"""$DDDDDDDDDDDHˆˆ‘"""""""$DDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"$DDDDDDDDDDDDDDˆˆˆˆˆˆ‘""""""""""""""""""$DDDDHˆˆˆˆ‘""""""""""DDDDDDDDˆˆˆˆˆˆˆˆ‘""""""""""""""""""""""""$DH‰"""""""""DDˆˆˆˆ‘"""""""""DDHˆˆˆ‘""""$DDDDDDDDDDDDDDDDHˆˆˆ‰""""""""""DDDDDDDDDDDDDDDDDDˆˆˆ‰"""""""""""""""""DDDDDDDDDˆˆˆˆˆˆˆˆ‘""""""""""""""""""$DDDDDDDDDDDDDDDHˆˆˆˆˆˆˆ‘$DDDDDDDDDDDDDDDHˆˆˆˆ‘DDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆ‰"""""""""""""""""""""""DDDDDDDDDDDDDDDDHˆˆˆ‘"""""""""DDDHˆˆˆˆˆˆˆˆˆ‰""""""""""""""""""""""""""""""""""""""""""""""Hˆˆˆˆˆˆˆˆˆ‘$DDI""""$ˆˆˆˆˆˆˆˆ‘""""""""""$DH‰""""$DDDDDDˆˆˆ‰""""""$DDDDDDDDDDˆˆˆ‘""""""""""DHˆˆˆˆ‰"""""""""""""""""""""""""""""""""""""""""""""DDDDDDDDDDˆ‰"""""""""""""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆ‘"""""DDDDDDHˆˆˆ‘"""DDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""""$DDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"DDDDˆˆˆˆˆ‰""""""""""""""DDDDHˆˆˆˆˆˆˆ‰"""DDDDDˆˆˆˆˆˆˆˆˆˆˆ‰"""""$DDDDDDHˆˆˆˆˆˆ‰""""""""""""""DH’""""""""DDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""$I""""""""""""""""""DDDDDDDDDDDDDDDDDDˆ‰""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆ‰"""$DDDDDDDDDDDDDDDDDD‰"""""""""""""""""$DDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆ‘""""""""""""""""$DDDDDDˆ‰"""""""""""""$DDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆ‰"""""""""""""""""""""""""""""""""""""""Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰DI$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆ’"""$DDDHˆ‘""""$Hˆˆ‘$DDHˆˆˆˆ‘""""H‘DDˆˆˆˆˆˆˆˆˆˆˆˆ’"""""""DDDDDDDDDD‰"""""""""""""""""""""DDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""DDDDDDˆˆˆˆˆ‘""""""""""""""""""""""""""""""""""""""""""$DHˆˆˆˆˆˆˆ‰""""""""""""""""DDDDDDHˆˆˆˆˆˆˆ‘"""""""""DDDDDDDDDD‘"""""""DDDDDDDˆˆ‘"""""""""""""""""""""$DDDDDDDDDDˆˆ‘"""""""""$DDDDHˆ‰"""DDDDDDDDDDDDDDDDDDDDDDDDDDDHˆ‘""""""""DDDDDDDDDˆˆˆˆ‘"""""""""""""""""""""""""""""DDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""""""""$DDDHˆˆˆ‰""""$DDDDDDDDH‘""""""""""$DDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""""""""DDDDDDDDDDˆˆˆˆˆˆ‘"""""""""""$DDDDDDDDDDˆˆ‰""""""""Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ’"$DDDDDDDDDˆˆˆˆˆˆ‘""""""$ˆˆˆˆˆˆˆˆ‰""""Dˆˆˆˆ‘"""""""""""""DDˆˆˆˆˆˆ‰""$DDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆ‘$DDDDDDDDˆ‘""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""DDDˆ‘"""""""""""""$DDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆ‰"$DDD‘""""""""""""""""""""""""""""""""""""""""$DDDDDDHˆˆˆˆˆ‰"""""DDDDDDDDDDDDˆˆˆˆˆˆˆ‰"""""""""""DDDDDDDDDDDDDDDDDˆˆ‘"""""$DDDDDDDDDDDDDDDDDDDDI"""DDDH‰"""DDDDDDDDDDDDˆˆˆˆˆ‘"""""""""""$Hˆˆˆ‰"""$DDDDDDDˆˆˆˆˆ‘""""""$Dˆˆˆˆˆˆˆ‰""""""""""DDDDDDDDDDDDDDDDDDHˆˆ‰"DDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""DDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""""""""Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""DDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""DDHˆˆ‰$DDDDDDHˆˆˆˆˆˆˆ‘"""$DD‘""""""""""""""""$DDDDDDDDDDˆ‘"""""""""$DDHˆˆˆˆˆˆˆ‰""""""""""DDI"""""""""""$DDDDDHˆˆ‘""""""""""""$DDDDDHˆˆˆ‰""""""$ˆˆˆˆˆ‰"""$DDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""$DDDHˆˆˆˆˆˆˆˆˆ‘"""""""""DHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDD‘""""""""""DDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"$DDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""DDDDDDDDDDˆˆˆˆˆˆ‘""""""DDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆ‘"""""""""DDDDDDDˆˆˆˆˆˆ‘"""""""""""DDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""""""""""""$Hˆˆˆˆˆˆˆˆ‰""""""""DDˆ‘""""""""""Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆ’""""""""""DHˆˆˆ‘""""""""""""""""""""DDDDˆˆˆˆˆˆˆˆˆ‰""""""""""""""""""DDDDDDDHˆˆˆˆˆ‰"""$DDDDDH‰"""""""""""""H‘""""""$I"""DDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆ‰""""DDDDDDˆˆˆˆˆˆˆ‰""$ˆ‘"""""""DDDDDˆˆˆˆ‰DDDDDDDDDˆˆˆˆˆ‰""""""""""DDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""DDDDDDDˆˆ‰"""""""""""""""H‰"""""""""""""""""DDD‰""DDDDDDDDDDDDˆ‰""""""""""""""""""""""""$DDDHˆˆˆˆˆˆˆˆˆˆˆ‰""$DDDDDDDDDDDˆˆ‰"""""""""""""""""""DDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""""""""""""$DDDDDDDDDDˆˆ‘"""""""$DDDHˆ‰"""$DDDDDDDDDDDDDDDDDDDDDDˆˆˆ‘""""""""""""""""""""DDDDˆˆ‘$DDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ’"""""""""""""""""""""Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""$DDDDDDDˆˆ‘$DDDDDDDDDDDDDDDDDDHˆˆ‘""""""""$DDDDDDDDDDDDDDDDDDDDDDI"""""""""""""""""""""""""$DDDˆˆˆˆˆ‰"""""""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDI$DDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""$DDDDDDDDDDDDDDDDDDDDDDDDHˆˆ‰"""""$DDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""$DDDDDDDDDHˆ‘""""""""DDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""$DDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""""$Dˆ‰""$DDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""$DDˆˆ‰"""""""""""$DDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""""""""""""""""""""""""""""""$DDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘$DDDDDDDDDDDDDDDDD‘""""""""""""""""""""""Hˆˆˆˆˆˆˆˆ‰"""""$DDDHˆˆ‘"""$DDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆ‘"""""""""""""""""""""""""$DDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆ‘"""Dˆ‰"""""""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆ‘"""""""""""""DDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""$DHˆˆˆˆˆˆˆˆˆˆˆˆ’""""""""""$DDDDDDDDDDDDDDH‘"""""""""""$DDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""""""DDDDDHˆˆˆˆˆˆ‘"""""""$ˆˆˆˆˆˆˆ‰"""""""""""""""""""""""""""Dˆˆˆˆˆˆˆ‘""""""""""""DDDDDDI"""""$Dˆ‰"""""""""""DDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDD‰"""""""""$DDDDˆ‘"""""DDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘$DDDDDDDDDDDDˆˆ‰""""""""""""""""DDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""""""""""""""""""""""$DDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆ‘Dˆˆˆˆ‘"""""""""""DDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""""DDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""$DHˆˆˆˆ‘"""""""""""""""DDDDDDDDDDDHˆˆˆˆˆ‰""""""""$Hˆˆˆˆˆˆˆˆˆ’"""""""DDDDDDDDDHˆˆˆˆˆˆˆ‰$DDDDDDDDHˆˆ‘$DDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""$DDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆ‰""$Hˆˆˆ‘"DDDDDHˆˆ‘""""$Hˆˆ‘"""""Dˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""Hˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""DDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆ‰"""$DDDDDDDDDDDDDDDDDDDDDHˆˆˆˆ‰""""""$DDDDDDDHˆ‰""""""""""""""""DDDDDDHˆˆˆˆ’$DDDDDDDDˆ‰""""""""""""""""""""""""""""""$DDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘DDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"$DHˆ‘""""""""$Dˆ‘""$DDDDDDDDHˆˆˆˆˆˆ‘DDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""$DDDDDDDDDDDDDDDDDDDDDDDDD‰"""""""""""""$DDDDDDDˆˆ‘"""""""""""""""$DDDDDDDDDDDDˆˆˆˆ‰$DDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ’""DHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆ‘"$DDDHˆˆˆˆˆˆ‰$Dˆˆˆˆ‘"DDDDDDDDDDDDDDDDˆ‘"""""""""""""""""""$DDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘DH‰""DDDDDDDDDDDDDDDDDDD‘""$DDDHˆˆˆˆ‰""$DDDDDDDDDDDDDDDDDDDDDDDDDDDHˆ‰"""""$DDDDDˆˆˆˆˆ‰""""""""""""""""""""""""""""""""""""""""""""""$DDDDHˆˆ‰"""""""""""""DDHˆˆˆ‰"DDDˆˆˆ‘DDDDDDDDDDDI"""DDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆ‰"""""DDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"$DDDDDDDDDDDDHˆˆ‰"""""""""""""""""""""""""DDHˆˆˆˆˆˆˆˆˆˆˆˆ‰""""$DDˆˆˆˆˆ‰"DDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""DDDDDDDDDDDHˆ‰""$DDˆˆˆˆˆ‰"DDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""""DHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"DDDHˆˆˆ‰$Hˆˆ‰""""""""""""""""DDDDDDH‘""""""""""""""""""""""""""""""""$DDDDDDDDDDDDDDDDDDˆˆˆ‘"""""""""""""""""DDDDDDDDDDDDDDDDDDDDDDDDDHˆ‘"""""""""""""""""""""""""""""""""""""""""""""""$D‘"""$DDDDDˆˆˆˆˆ‘"""""""Hˆˆˆˆˆ‘""""""DDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆ‰"""""""""""""""DDˆ‰"""""""""""""""""""$DDDDD‘"""""""""""""DDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""$DDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰$ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""""""""""""""""""""""""""""""""""""""""""""DHˆ‘"""""""""""""""DDDDDDDDDDDDDDDDDDDH‘""""""""""""""""""""""""""""""""""Dˆˆˆˆˆˆˆ‘""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆ‰""""""$DHˆˆˆˆˆˆˆ‰""""""""""$DDˆˆˆˆˆˆ‘"""""DDDDDDDDDDDDˆˆ‰"""""""""""""""""""""""""""""""""""""""""""""""Dˆˆˆˆˆˆ‰""""DDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰$DDDI"""$DDDDDDDDDDDDDDDDDDˆˆˆˆ‘"""""""""$DDHˆˆˆˆˆ‰"""DDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""DDDDDDDDDDDDDˆˆˆˆˆ‰""DDDDDDDDDDDDDDDDDHˆˆˆˆˆˆ‘"""""$DDDHˆˆˆˆ‰"DDDDDDDDDDDDDDHˆˆ‰"""""""""""""""""""""""""""""""""$DHˆ‰""""""""""""$DDDHˆˆˆˆˆˆˆˆˆˆ‘"DDDHˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰DDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""$DDDDDDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆˆ‰$DDDDDDDDDHˆ‘"""""""$ˆˆˆˆ‘""""""""""$ˆˆˆˆˆ‘$DDDDDDDDDDDDDˆ‰""$DDˆˆˆˆˆˆˆˆ‘"""""""""""""""""""DHˆˆˆˆˆˆ’""""""""""$ˆˆˆˆˆˆ‘""""""""$D’"""""$DDˆ‘$DDDHˆˆ‰"""""""""""""""""""""$DDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""DDHˆˆ‰"""""""""""""""""Hˆˆˆ‰"""""""""""""""""""""$I"""""""""""""""""""""$DDDDDDDHˆˆˆˆˆ‰""""""DDDDDDDˆˆˆˆˆˆˆˆˆ‘""""""""""""""""""""""""""$Dˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""""$H‘""""DDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""$DDDDDDDDDHˆˆˆˆˆˆˆˆ‘"""""DDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""$DDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆ’"""""""""""""""""$DDˆ‘"""""""DDDDDDDDDDDDDDDDDDDD‰""""""""""""""""""$ˆˆˆˆˆˆˆ‰"""""""Hˆ‘"""""$DDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""DDDDDDDDDˆˆˆˆˆˆ‘""""""""""$DDHˆ‘"""""""$DDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""""""""""$DDDDˆˆˆˆˆˆˆˆˆˆ‰"""DDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"""DDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰$DDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""$DDDDDDDDDDDH‘"H‘""""""""""""""""DHˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""""""""DDDDDDDDDDDDDDDˆ‰"$Dˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""""""DDDDDDDDDDDDDDDDˆˆˆˆˆ‰""""""""""""$DDDDDDDDDDDDDDDDDDDHˆ‘""""""$DDDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘$DDDDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰"DDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""""""DDDDDDDDDDˆˆˆˆˆˆˆ‰""""""""""""DDDˆˆˆˆˆ‘"""""DDDDˆ‘"DDDDDDHˆ‰"""DDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""""DDDDDDDDHˆˆˆˆˆˆˆˆˆ‘"$Dˆˆ‘"DDH‰"DDDDDDˆ‘"""""""""$DDDDDDDDˆˆˆˆˆˆˆˆˆˆ‰"""DDDDDDDDDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""""""DDDDDH’DI""""""DD’$DDDˆ’"""""""""""""""$DDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆˆˆˆˆ‘""""""""""""""""""""""""""""DDD‰"""""DDDDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‰""""$DDDDDDˆˆˆ‰""""""""""$DDˆˆˆ‘""""DDDDDDˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘$DDDDDDDDDDDDDDDDDDDDDDDDHˆˆˆ‘""""$DDDDDDDDDDDDDDDDDDHˆˆˆˆˆˆˆ‰""""""""""$DDDDDDDDDDDDDDDDDDDDDˆˆˆˆˆˆ‘""""""""""""""""""""""""""""""""""""""""$DDDDDDHˆˆˆˆˆˆˆˆˆˆˆˆˆ‘"""""""$ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""$DDDDDHˆˆˆˆ‰"""""Dˆˆˆˆˆˆˆˆˆ‘"""""DDDDHˆˆ‰DDDDDD‘""Dˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""""""DHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ‘""""""$DDDDDHˆˆˆˆˆˆ‰"""""""""""""""""""""""DDDDDDDDDDHˆˆˆ‰"""""""""""""""$DDDDD‘"""""""""""""""""""""""$DDDDDDDDDDˆˆˆˆ‰"""""""""""""""""""""""""""""$DDDDDDDDDDDDˆ‘"""""""$DDDDˆˆˆˆˆˆˆˆˆˆˆ„DB"ˆˆ„„DBBB"	ˆ„„„„…!!
+Bˆˆˆˆ„„…‘R		ˆHHDDDDD$"!!!!!!!!"B"¢"ˆˆHDBBˆˆ„D$$$)		ˆˆˆˆ„„„DDBBBBBBBDD$$)		ˆˆDDBB"„„„„„„„„DDDDBB""…!	ˆDBBB"D$$*BBBBBB¤)
+B""„D$$$"!!R""!¤)	„„D"!!								ˆ„„„„„D$)
+B"ˆ„„„„„„„„D$$"!!!		
+BB"¤*BBBBˆˆ„„„„„„…HHHHHQ¢""„…	ˆHHDBˆˆHT„„„„DD$$$$$$$$(ˆHDDDBBB‘!						
+¤$$"!DBBB""!!!!!!!!!HHHRDBB""…DDD$$$$"!!!!!!ˆ„„…!"""$$$""¤"!HHDBˆˆˆˆHR„D$$$""!!!!"ˆˆHR„„„DBˆ„D$""!!!!!RˆHDB"¢"ˆ„„DBBBBB"!!!!!!!ˆ„„…!	ˆˆ„„„„„…!	ˆHRD"!		ˆ…!!!RDDBB""!¤""""""!HHHDBˆˆˆˆ„„„„„„DBBBBBBBBBBB"„„„…!		ˆ…!!!HHHHHHHHT…!ˆHHHR¢!!DDDDBBBBBBBˆˆ„D$$"!!!!¢!!ˆ„„DDBBBB"ˆˆ„D$$$"!ˆDD$$$"!!ˆˆDDD$*"ˆˆR‰		
+BBBB"„„…!!HRˆˆDD"!HDB¢""¤)
+B"©						
+"ˆˆ„DDB¤$$$$$$$$$$$)ˆˆˆ„„„„„…!		
+E!HDDBBBBBBBBBBB"""!						
+¢"""„„DBB""‰
+BBBBˆˆ„D$$$$"!!					
+¤"!HDDDDBB"!!DDD$$)
+B¢"!	ˆ„„…!!!!!!
+BB©									ˆDDDBˆˆ„„„…!!	
+"DDD$$"""ˆ„…!!!!!!ˆHDDBˆˆ„…!ˆHDD*Bˆˆ„„D"!	ˆHHDBBˆˆ„„D$""	ˆ„„„…!!""BˆˆHHHR¤(ˆˆHQˆ„„D$"!HDDD""!!!ˆˆˆˆHR„„DD$$$""!!!DBBBBB"¤$$"!!!!!ˆˆR„„DD$$$HHR…!!R
+BBBBB¢"!!!!HDD$*ˆˆˆHDDD$)					
+"„…!!!!!!!ˆˆˆ„„D$)ˆ„„„„D""¢"¢!HHˆˆˆˆ„„„„DD$$)		ˆHHHQ¤$""""ˆˆHHˆˆ…!!
+""D""¤$$$$$$$$"""!!!!HDDDDD"!ˆ„„„…!!R¤$$$)ˆHHDB¢"„…!!!!HHHHHHHR„D$$HDDBˆˆˆˆˆˆˆR$$$$"!!!!ˆHDBˆ„„DDDDD"!!HHHHHHHHRˆ„„DDDD$""„„„…¤$$""!			
+""BBB"¤(ˆˆHHHHDDBBBBBBBBB"
+BDDDBB""!R„„„„„D$$$""…!!!!!¤)						ˆ„…!DBB"ˆ„„DBBBBBB"…DB"!
+B"ˆDD(ˆˆˆDB"‘ˆˆHDDBˆˆˆ…!!!HDDBBBBBB"""""!!!!HHHDB"""ˆˆˆ„D"!!!
+BB"			
+BB"(ˆHDB"	
+BB"!!!!!!!!!‘!!HHDB"ˆ„„„„„D"""	
+BB"!			
+"‰							
+ˆ„D$$$""!!!DDBB"!!		‘HHHDBBB"""""„„„„…!!!!!!!							
+B"""!!¤$$$$$$""ˆ„„DDB"ˆˆ„„„„„„„„…!!HDD)	
+Bˆ„D)
+BB"!ˆHRˆˆˆHRD"""!	
+BBBB"„„„DDB""!HDBB"DBBˆ„„DDB"DBEDBBBBB"„DD)	
+B"!					
+B""„„„…DDBˆ„„DDB""""„D)
+BBBB¤""
+BBB©ˆˆ„„„„…!HHHHR					
+B¤HHHDBBˆ…!!!				ˆˆHDD$"""!"B"!!!ˆ„…!!!!!!!!!!!!R…!!ˆ„„…HDDBBB¤$)	ˆHHHHHHDBBBBBˆ„DDD$)ˆ…R¤)
+B"""""!!ˆ…!!HDDDDB"!!			
+B"!ˆ„DBB"ˆ„„…HHHHHHHRˆˆˆˆˆHHDDD$$"!!!!!!!!!!!HHHHHHR…!!HHHHDDDDBBB"„„„DDD"!DD$$(ˆDDD$$)ˆˆˆ„„„DB¤$$""			
+B"DDD$$$""
+BBBB¤$$$)					ˆHHHQˆˆ„DBBB"!ˆˆ„„DDDD(ˆ„„„„„D$)
+B"¢"…!!!HHHRˆˆˆDD$$$)	ˆHHHHDB"!!!			ˆDD$$$$$)				ˆˆDBBB¤(ˆˆˆˆˆˆˆˆˆˆˆ„DBBB"!!HHHHHHHHHHDD$$(ˆHHHRˆˆRˆ„„…HHHQ	
+BB¤$"""""!				
+BBBB"ˆ„„„„„D$$)	ˆHDDDBBBBBB"			
+¢"""""""""""ˆ„„„…!¤"!!!
+BBB"!!ˆDDDBB¤$""ˆˆˆ„„„„D""!!!!!!HDBBBBBB"!!!		
+BBBˆˆDDDDDDBBBBBBBBBBBB"„„„…!!!!!!		ˆ„„„„„DB¤"!!HHHHHDBB©		
+""!!!ˆˆˆˆHHHHDD""¢!!!!"BBBˆ…!		¢!"""¤$$$"""!!ˆˆˆDD$$)					ˆˆDB""!	ˆˆHHHHHDD""!R„…!!!!!HRˆ„DBBB"©	
+"""""""		
+BB"""""	ˆU	ˆ„„D$$$$$)		
+B""""¤""!!!HHHHHHHHHHDDDDBBBBB"ˆ„„„„D$$(ˆR¤$$"""!!!!	ˆHHDBD„„„…		
+B"¤$""
+B"						ˆHHDDDBBB©			
+BBˆˆˆˆ„„„„„D$"!!!!!!ˆ„„„DDDDD*"	ˆ„DDD$"""
+BBB"				
+BBBBBB"¢!ˆ„„…!!!!!HHHHDBBBBBˆˆ„„…!!!		
+BBB"¢"!!!!!QˆˆT„DB"!!!								ˆ„„DBBBBBB"!¢"""DBBBBˆ„DB"!!!!R„„„DBB¤$)		
+""ˆˆHRˆˆDB"""""""""""!HHHQ	
+"…	
+""ˆ„„„DB"	ˆˆˆHHDDB¤$*BB"""!!!	
+"„„„DBBBBˆˆˆDBB¤$)		
+""„„„DDD$$(ˆˆˆH©		
+B"ˆˆˆ„…!!!HHHHRDDDBˆˆDDDDB¤)
+B"""!¢"!!!!!HHHDD$"!!	
+"!!!!HDDD$$$"!!!!ˆ„„„DD$$$(ˆDDDDD*BB"ˆQˆ…!		
+"!!DD(ˆHHHDBB"D$)			
+ˆ„„DDBB"!!		
+BBB"„„„„DDDD$$$)		
+B"!!!!!!!"¢!"B¨ˆˆ„„„DD$$$)			ˆDD"!
+BBˆ…!ˆ…!DDD(ˆHHHHR„D(ˆˆˆˆˆHHHHDBB""…!¢!	ˆHHHHDDB"!ˆ„„„„„DBBB""ˆ„„D$)			
+"!!!!!!!ˆˆ„D)
+ˆ„DDB"DDD$$)					
+ˆ„DB""¤$$$HRˆDBBB"!!!!!!!!!!!©	ˆˆHHU		DDDDBBBBBˆ„„„D)
+ˆˆˆR!!!	
+ªB"!HHHDBBBBBBB"ˆ„…!HHHHHHDDD$$)			
+BB"ˆˆHDBBBBBBB"					ˆˆˆ…!!HDD$$"!!Q¢!			ˆ…!!!!HDBBBB"ˆˆDDBBBBˆˆHHDBˆˆ„…!!!HR
+BBBBBBBBBB"¢""!	
+"!!!			ˆˆˆ„„„„„…HHHHHHR„„…!HRˆˆ„DDBBBB""""!!!ˆ…!HHHHHHHHHR
+BBB"!!!!
+B""	
+DDB‘				
+"!!ˆ…!!!!!Rˆ…!!!
+¤*""!!!	ˆRªB""¤$$$"!HHHRˆ„…!!!ˆˆˆˆˆHHR©					ˆDDD"""ˆ…!HHR
+B""¤$""!!!HDBˆˆˆ„D"!!	ˆˆ„D$$(ˆDBˆˆHHHT„…HHHHHHDDD(ˆHDDBBBBBB"ˆˆHR
+BˆˆˆHDD$$$$)									ˆˆˆHHHRˆˆˆ„…!!!!		
+"!!!!!ˆ„„D$$)	
+BB¤$$$(ˆ„DB¤$*BD„„„„DD$*ˆ„„„„„„„D$$"!!!!!!!HDBBBBBˆ„„DDBBBBB"				
+B"ˆˆR	
+BB"		ˆˆHDB"	
+""!!!H¤HHDBBBB"©			
+B¤"""„„„…HHDBBBªBBBB"!	
+ˆˆHDD$(ˆˆHDBBBBBˆˆˆ„D""""!!
+BBBB""¢"!!!ˆHDDDBˆ…!!!!	ˆHHR„„DDDBBBBBBBB¢!!!!!		ˆ„„„„DD$$$"!!HHHHDD$"""„„„DDDB"!!ˆ„D$$""!!!!!!
+¤$$DDBB"ˆˆHHHHDDB¤""!HHDBBBBBB"¤$$""D$$"!!!!!!!!!	
+"""
+B‘!!			ˆˆHDDBBBB"""""„„„…!!
+D„…DBˆ„„„„„„…	ˆˆHHDB¤$$)	ˆˆ…!!!DDD$$$)	
+"¤"!HHHHHDBB"!ˆ…!HHHR„„„DBB¢"""!!!HHHHHHR!!ˆHHHRD"!!!!HHDDDDBBˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ„D)	
+BBBB"D$$)ˆDB"		
+"ˆ„„„„D$$""!!!!!!R		ˆˆˆ„„DDBDD$$$"!¤$$$)			ˆHHHHHDDBB""ˆˆˆ„„…!!!!R„„„„„„„…!!!
+BB¤)			ˆHDBBBBBB¤(ˆHHDDD$$""„„„DD)				ˆHHHHHˆ„„„„„„DDBB¤$$$""!!	
+"!!!!HHDBB¤$$)
+BBBBB""!ˆ„„„…!!!RˆHHHQˆˆ„„„…!	
+¢"DDDB"ˆˆˆDB¤""!DB"!!!¢"„„„DDBBB"ˆ„„…ˆ„…ˆ„D$$$$"!!!HHDBˆ„DD$$$""¤(ˆDBBBBˆˆHDB"„„…!!R„„„„D$(ˆHDBBBˆ„…ˆˆˆHHHHQˆˆDDD$$$""	
+¤$$$$$"!!!!!!ˆHHHDBB"""!!!!R„…!!!!HR„„DDB¤$$$)
+"!	ˆHHH¢!!!‘				ˆDDBBB"!!!DBBBB""!!!	ˆ„„„D$"""¤(ˆˆˆT„„„D""!!!!!!!!!!!Rˆ„D$$$*BˆˆQˆ„„ˆˆHHHHDB""""!!			ˆˆˆDDDDDDBBˆ„DDDBBˆˆHRˆ„„DBBˆˆˆˆDBB‘!!T„D$$$$)ˆ…!!©ˆ…!!HDB¤"!!						
+B""DBBˆ„„„…
+B¢"ˆˆˆˆHDBB"
+B¨ˆHDBªBBBBBBB¤$(ˆHHR¤""„„…!!¤$$$"!!!ˆDDBB"¢!!!HHHHHHHHH¤$)		
+BB"…DDDDD$$)ˆˆ…RD)ˆDDDDDDBBB¤$(ˆˆ„„D$$$$$)			„„…!!!¤$*Bˆˆ„„„DDB¤""„„…!!!ˆHHHHHHHHHRˆˆˆDDDB""ˆ„„„D$"!ˆ…
+B"!!!!!!!!	
+BBBB""„„DDB""!ˆ„„„„„„„DDD$$)				
+""!HTD$$$$$)		
+"!!ˆˆDD$$$$$$$$$"!
+BBB""!!!HHHHDB"¤)ˆHHDDBBBBBª"!!!!©		
+BB"""ˆˆHHHDD"!!!	D$"""©		ˆR¢!!!!!!
+ˆˆHHˆˆ…!!DDB"!!!HDBBBBB"!!HDDBBB""""!"BB¤)	ˆR„„„…!!!DBBBBB""!!!!!	
+¢""!!!DBBB¤)											ˆHHDD$$"!ˆˆˆˆDBB¢!!!!
+ˆ„DD""					
+BBBBBB""ˆ„DDDDBBBBBB¤$(ˆˆˆˆDDDB"ˆ…HRˆˆ…!ˆˆ„„…!!!
+BBBBB"$$$"!!ˆˆ„…HHHHHHHHHDB¤$"""!!!			ˆ„DD$$$""¤)	ˆ„„„DBBˆˆˆRˆˆˆˆ„„„„„D$""!!!HHDBBˆˆˆ„„„„D$""!DBB"¤$$"!!ˆ„„„…ˆˆ„DDBB""ˆˆˆHHHHHHHHDDB"!ˆˆˆˆ„„„…HHDB"ˆˆ„„D$$$$$"""„D$$$$"!!!!!!!!ˆˆ„D$$$$)
+BB"!ˆˆˆHHHR„DB""				ˆˆHHHHHHDB¨ˆ„„„DD$$$$HR¤$$$)									ˆHDDB"ˆˆˆˆDDD$"!!©				
+BBBBB"¤$$$$$"!!R
+ˆ„„…!!!ˆDD$$$$$$$$"!!!!!ˆˆˆHHHHRDD$)ˆ„„„„„„…HHHDBBB""!HHHHRˆ„„„„…¤"!!
+BBBˆˆ„„DBBB"ˆˆˆDDBBBBBDDHQ				
+BBˆˆDBBBBB"ˆˆˆHQ
+BB"!!!!!!!
+¤""…ˆ„„…!DB""!!¤""ˆˆˆ…	ˆˆˆHDB"!!	ˆˆˆˆ„DDDBBBBBBBˆˆ…DDD$""!!!DB©			ˆHHDBB"¢!!¤$$""	
+BBBˆˆˆHRˆ„DBBDDDD$$(ˆˆHHDDD$"""!!!!!¢!					
+"
+BBB¤$)					
+ˆˆˆHHHHHR¤$$"!HHHHHDBBBBBBBB""$$$$$""""!!HHHHDDB"„ˆ‰								ˆ„„„„D$$$$$"!!!!DBBBBBBB""!!ˆHHR©ˆˆHHHHHHHHHH¤$$$$$)	
+"!ˆˆHHHHHDBˆˆˆHQˆˆˆˆHHHHRD)				ˆQ©															ˆHQ
+B¤$$$""„„„„DD$$$)ˆ„…!!				ˆˆHDB"!!!!!!DDBB¤$$$$$$(ˆˆˆ„„…						ˆ„DBB""!HDB"""!	ˆHDDDBB""$$"!!!!!!!ˆ…!!!!		
+BB¤)										ˆˆHHHHHR„„„„DBBˆˆ„„„„D$"!
+BBBB"ˆDBBB"„„D)
+"DBBB¤$$$$)	ˆˆˆˆ„„„DBBBBBBBB""ˆ…!!!!!RˆˆˆHHHHHR	
+BBBªBB"¤""!!!
+B¤"!!!!	ˆ„„DBBB"„DDD$$"!	ˆˆ„…!ˆHHH‰	ˆˆˆHHHHHª"¤"!R„DDDDBBBB""…!!!!!!		ˆHHR‘!!!!		ˆ„„DD)			
+B"""ˆˆ„„„„„„D$(ˆˆˆHHDD$"!¤$""ˆˆˆHHDBˆˆˆ„…ˆ„„„DBB¢"„„„„…!!HDDDD$$$$$$(ˆHR	ˆˆ…HHDBB""„D)					ˆQˆˆ„„DBBBBB"!DBBB"				
+BBB"!!ˆ„‰			ˆˆˆˆDBBBBBBªBB"!!DD$$$$*BB¤$$*BBB"!!
+B¢""""""""!!!!!			ˆˆHHDDBBBB¤)	ˆHHHHHDB"!
+BˆˆˆHDD$$"!!!HHTD$"""!!!!!DDBB"!!!!!!!!		ˆˆ„…!!HDDBBBBB"D""!!!
+"ˆˆˆ…!HHHHDBBˆ„„D)											
+B"„„„„„…!!	
+"ˆˆˆ„…!!!!!!			ˆˆHDDD$$$$""!!!!	
+"„D""„…			ˆˆ…!
+BˆˆHHHR‘!ˆ„„DDD$$(ˆˆ„„…!ˆHDB"""„DBB"©ˆHHDDDD$"!!!ˆ„DDB¤$"!!ˆˆ„DD*BBB¢!!!!!!!!!HR¤$$"!!!!ˆ„„„„DBB"„„…		
+B"„„„„„D$$$)ˆHQˆˆHHHHTD$$$$$)						ˆHHHDBB"…!!R„„„…!HDBBB"			ˆˆˆ„„…ˆˆ„…HDBBˆˆ„„„DDBˆ…"¤""…
+B"¤$"""!!
+BBB"!ˆ„D$"!!!!
+BBBB‘!ˆˆˆDD$)		
+"						ˆˆHHRˆ…!HHR©		ˆRˆˆHHHHHHHHDB"!¤)ˆˆ„D$(ˆˆˆDBˆˆˆˆHRˆ„„„„D$$$$)ˆ„„D$)
+"„„„„DDDBB"ˆˆ„DDD$""…!
+BBB"!!!!										
+DDD$"!!!!¢!!!!!	ˆˆ…!					ˆˆˆ„„D$$""!ˆˆˆHDBB"""
+Bˆ„D$$$$$$$$$$$$$)
+ˆˆˆHHDD""DD(ˆ„„…	ˆQˆˆˆˆˆ„„DDD""!!
+BBB"	ˆQˆHHHHHHHHT„„D$)
+ˆ„„„„…!!!!HHDDDDD$$$$)	ˆRˆˆR„…!!!						ˆDBBBBBBˆˆˆHHHHDBBB"„DDBB"!"BB¤""¤$$$(ˆ„D$"!HDDBBB"„…!!!R¢"…ˆDBBB¤$$""„…!		
+B"ˆ„DB"!DDDBBˆˆˆHHTD$$$$$$$$(ˆHˆˆ„D$$$)ˆˆˆRˆ„D)ˆˆR„„„DD(ˆDDD*BB""!			ˆHTD"!!HHHHDB¤"!!!	ˆˆ„„„D)	ˆˆR	ˆQˆˆˆ„„„„„„„DD)	ˆHRˆˆHR„„„D""
+ˆˆ…!R„DBˆ„„„„„„„DDD(ˆ…ˆ…HHHHHHDD$$"!ˆˆ„„„DBB¤"!	ˆˆˆHDBˆˆ„DD)	
+BBBBBˆ„„„„„„D$$$HDD$*"ˆˆ„„…HHHR	ˆˆˆ„„„D$""""""„„DD$""!								ˆHHDB"!!ˆˆ„DD$$$)ˆ„D$"!!!!!ˆˆˆ„„DBB"!!HHHDB""!!!ˆ„D$$$$$$$"!			
+BBBBBˆˆˆˆRˆˆHDDDDD$)			ˆˆR!!!!HHDDBBBB¤"!!!"¢""			ˆDB"DD""!!!
+B"„DD(ˆHRD""!!HHHRˆˆˆˆˆHDBBB©			ˆˆˆHHDBBBBBB"		ˆ„„„„„D$)
+BB""!!!!!!	
+"!!!!!HDDDB"!!Q				ˆˆ„DB"!HR!!!			ˆ„D$"""!!DDDD)												ˆ„DBBBBB"""ˆ„DB"ˆˆHHT…!!DBBB¤"!ˆ„„„D$(ˆˆ„„DD$$$$)
+"""""„„„…!!!!!
+"!!!ˆHHHHHHHHRˆˆˆHDD""					
+BBB"!HHDBˆ„„„DBBD„…
+ˆˆˆˆˆˆHR¤)		
+ˆˆ„„…!	ˆ…!!!					
+"„„DD"!!HHHQˆ„„…R			
+"!ˆ„…!	ˆRˆˆHDD$"!!!!HHHHHDDDD""DDBˆˆHDDBBBB¤$$$$$"!!	
+BBB¤)	ˆHHR„„„…DDD""¤)
+Bˆˆˆˆ„„„„D$$$$$$$"""„„D(ˆHHDBˆˆˆ„…!!!!!!HHHHR„„…!!DBBB""¢!!!HHDDB""!!	ˆˆˆ…!TDDBBBBBˆˆDB""""ˆˆHHHU!!!DD$$$$$$$"!ˆHHDB"""ˆ…			ˆHHHHR¤$$"!!DBB""DBB"„„…!!!
+©					!!!!!	
+"DBBB"©		ˆ„…HHQˆˆHHHR‰ˆˆ„…©	
+ˆˆˆDDBB"!!R„D)				
+"„D$$$$$""!	ˆˆHHHHHDDDD"!DBBˆ„„DDD)ˆHHHHHHHHDDBBˆ„„„„D$)ˆHRˆ„…!"""B"					
+B¤""„DBB"¤""„„„„„DBB""""„„„„„„D(ˆˆˆ„„„„„D$"""„„„D$*BBB¤$$"!!!!!	ˆHHHHDB¢!DD$""D""D"!!¤$)
+BBBBBBBBBBBBBB"DDBªBBB"DDD*Bˆ„D"!ˆHHHHHHHHDDBBBˆ„…!Q
+BBBBBB"„„…!			
+ˆˆˆR„„„…!!!HHDDDDDB""!!!!	ˆˆHHHHDBBBBBBˆ„„D$"!!		
+ˆˆ…!!!!!!ˆ„D"!!!		
+BˆˆˆR„D"""©ˆHHQ¢"!!!!!	
+B"!DBBBBBB©				ˆ„DBB"""„DBBB"											ˆHHHHHR„„…!!!!!!!!!!!!!	
+ˆˆHU!!HHHHHHR
+B"ˆ…!			ˆˆˆˆHHHHHHDD$$$$$(ˆHHHDBB"ˆ„„„DDD$$$$$(ˆˆHHHHHHU!		ˆHDBB"!!!!!!!!!!!!!!!!HDDD$"""¤$$(ˆ…HDDD$$$"!!!!!!"""BBˆ„„„„…!ˆ„D$$$$$$$$""!	ˆ„„„…!ˆ„„DBBBBBBBBBBBBBBBBBB""!!!!!!DBˆ„„‰		
+BB¤$$"!R¤)			
+B"DD$"!!!©
+¤$$$$""
+""""""¢!HHHDBBBB¤$$$)
+BBˆˆˆR¤$$$)	ˆˆQˆˆ…!!
+ˆ„DDDB"""""DB"	ˆˆ…DD$"!!		ˆ…!!!!!HHDD$$""…HHDB©
+"ˆˆHR…!!¤""„„„„„„DD$""!!"B¤$$"!	
+BBB¤"!HHHDBˆˆHHDBBB"	
+B"	ˆHHDD""
+"			ˆˆˆˆHHHDDDBBBBB"ˆˆDDBBB©
+"ˆˆQˆ…!!!DBBBˆ„DDBB"!
+B¢"ˆˆˆˆˆHHHHHDDD)		
+Bˆˆˆˆˆ„D$$"""„„…¢"R…!HR¤$$"!HHHHHDDDD""„„„…!!!!!!Q¤$$$)	
+B"!!!ˆ„„„DD$$""!!!!!ˆˆHHHR		ˆHR¤"!		ˆˆˆˆHDBBBBBBˆˆHTD$"!R!	ˆ„„…!HHDBBB""!!ˆHHHHHDD$$"!!		
+B¤$$$$$(ˆˆHHHHDBBBBBˆ„„„„D"!	""!!HDBBˆˆ…!!		ˆˆHHHHHQ	ˆˆ…!				ˆDB"ˆ„…"""ˆˆˆˆHQˆˆˆHDDDDBBˆ„„DB""¤"!!	ˆˆR„„„„„„…	ˆHHHHR„…!!!!			ˆHHHHDBB"!		ˆˆHHHHHHHHHHHRˆˆˆHHDDB"!!!!DDDB¨ˆˆˆˆ„„DD$)		
+B"¤$$$)			
+ˆˆQ¤$"!!!!!!!!!!UˆˆˆDBB"„„DB"!!!ˆ…!!!!!!¤$"!!!DBˆ„„D""ˆ„„„„„…!!!R…!!!!!DBB"!!!HT„DDDDBB"!!!!!!ˆ„D(ˆ„…DB""ˆ„„…		ˆR…!!!!¤$$$$$$$""„„D)ˆ„„DB©	
+BBB"
+¤$)	
+B‘HDDBBBBDD…!DDB"DBBBBB""""ˆ„„„„„DDB"¢"	ˆˆHHDB"„„D"!DDDB¢""DD$$$*"ˆˆ„„„„„DDDD)			ˆ„„„„„D)			
+BˆˆHHHHHHHDBB"¤)
+BBBBˆˆHHDB"DB"""¤*BB"…"BBBB"!!HHHHR„DD$$"!!!!!!!!!!!!!!!
+"!!!!HHR¢"!	
+B"„…!!		ˆˆ„DD$$$$$$$)		ˆDDBBBBˆˆˆˆˆˆˆHHDB""""„„DBBB""ˆ„„„„„„DBBBBBB"""!ˆ„„DDDDDB"„„…!!!!HHDDD$$$$$$)		ˆHR!!""""							
+BB"„„D$$)					DDDDBBB"!!!
+¤""„„…!HHHDDB"""""!!		ˆHHHHT„„…	ˆˆˆDD""¤$$$)ˆˆˆˆ„„„„„„„D$$""Qˆˆ„D"!!!!HHHHHHHHHDB"	ˆˆ…HDB"!!!
+BBB‘!!HDB"ˆˆ„…!!!DDD$$$$"!!!!!!
+BBB¨ˆˆ…!!!!!!!ˆHDD$$$$$"!!!!!!!DDBBB¤"!!!		ˆHHDBB"!!HHHHRD"""""¤$$"!¢!!HHHHDBˆˆˆˆˆ„…!!ˆˆDDBB"D$$"!!ˆ„„„„D$)	
+B"ˆˆHHDBBˆˆ„„„…!ˆˆˆ„„„„D$$$$$$$)				ˆˆHHHHHQˆ…HHHU!!!DB"D$$(ˆ…!HQ			ˆ…!		
+B""!!!!	ˆˆˆDB"ˆ„D$"!ˆˆHDBˆˆHHHHR„D$)		
+ˆˆHHHHHDD"!!	
+BBBBBBBBBBBˆˆHHQ	ˆHDDDDBBBˆˆ„„„„„„„DD"!HDBBB©		ˆˆ„„„„…				ˆHHHDD)		
+BBBBB‘			
+ˆˆˆDDD$$$"!	ˆHHDD$$$$$$(ˆHDB"""!!!HHHHHDDDDDDD(ˆˆHHDDBBBˆ„„„„„„„…¤$""„„„Š""""„„„„„DDBBB"ˆ„DD"!HHHDBBB"¤"!!ˆHDBB""			ˆˆˆHDDDD$"""„…!	ˆHDDDBBBˆ„…!!!!!	ˆR…	ˆˆ„D$$""…!ˆˆHR			ˆ„D$$$"!¤$$$""!		ˆˆˆˆˆˆˆDB¢!R¤$$$$)ˆDBˆˆˆDBBBBBˆ„…!	
+BB""!!!!!ˆDDDDBBBBBB"„DBBˆˆHQ‘!!
+BBˆˆ„…!!!©		ˆHHHQ¢!!DB"D"!!HHDDD)	
+BBˆˆHDBBˆˆ„„D(ˆˆ„„„„„DB"„„D$)					
+"DBBˆˆHDBB""""¤)	
+ˆ„„„D$$$$$$)ˆHRˆˆDDBBB""""""!!!!ˆ„D$)	ˆHHQ¤""„DD$$$)ˆ„„„„D$"!!ˆ„„„„„„„„„„„D"!ˆ„„„„„…!!R¢!HHHDBB¤"!			ˆˆHRDBB¤"""ˆˆHHHHHR„„„„„…!!!		ˆ„D$"!				ˆHHHHHHDD$""""""!!RDDDDDBBBBBBBB"¢"""!	ˆ…!¤$)"$$$""!!ˆˆ„„DD$$$(ˆHHDBB¤)		
+B"""!!DDD$(ˆˆ…!ˆˆˆˆˆHDBˆ„DDDBB"!HDBBBˆˆˆˆ„„D)
+BBBBBˆˆˆ„D$)ˆHHDD"!!!HQˆ…ˆR¤$""	ˆHDB""„D$$$$$$$$$$$$$$$$"!!!¢!	ˆHHHHDDDBBBBBB"„DD$"!!			ˆ„„DBBBB"„„„D$(ˆˆHR	
+BBBBBˆˆ„…!!!!¤)ˆ…		
+ˆ„…HDD*B"	ˆˆHHQˆ„„„…!DBBBBBBBˆ…!!""$$$$)		
+B""!						
+B"¤"""¤$"""!ˆˆˆDBBBBBBB""""D)			ˆˆˆHHHQ	
+"¢!¤)			
+BBˆ…!!!!!!!!DDBBBBBB"""""""!!!!ˆHDD$$$)		ˆDDDD""!¨ˆˆˆ„„DB"!!!!!!					
+B"ˆˆˆˆˆHHHHR¤(ˆHHHHHHTˆˆDDD)ˆHR„„„DBBBBBB¢""ˆR„D$$$)	ˆ„D$"!!ˆHHHDDDDDBˆˆˆˆˆHHDBBB"HDBB"‘!!
+BBBBBBB"„DD$$*Bˆˆˆˆˆ„D)	ˆHHDB"!!DDDB¤"""!		ˆ„DD$$$$)ˆ„„„D$$""ˆˆˆ„„„„„…!!!!ˆˆˆˆT„…!¨ˆHHDD$$)ˆ…HHHHHHHHHR""DB"!!!ˆ„…!HR„„„„D$DHHHDD""								ˆHDDDDDDDDBBBˆ…¤$"!			ˆˆˆHHDDD(ˆHHU!ˆHR…!!ˆˆˆU!!!!!!HHDDBBˆˆQ
+B¤$$$$*"„„DBB"DBBˆˆ„„„„D)	ˆˆ„„„D$""„DDBBBBBBBˆˆDBBB"!		ˆ„„D)		
+B¤(ˆˆDDDB"DDBBB""!!!!ˆHHHHDDD$$$"!QˆˆQ	
+B"„…!R""	
+BBBBBˆ„D)		ˆˆˆˆˆˆ„„„„DDB©			ˆ„D$$""¤(ˆ…!ˆ„„DBBB"¤"!!!!!HDD(ˆˆˆHU!!	ˆ„„„„„„„„„„„„DDB"!!DBB""D$$$)
+BB"!!!DBBB"""""""""""!¤$$$""¤""!!!DDDD$$"!HHHDDBBB¤$$"!!ˆˆ„„„„„DDDDBBˆ„„D$$(ˆˆHHQˆˆˆ…!!!HHˆˆˆˆHHQ						ˆHT„„„„„„D)			ˆDDDD$"!!!				ˆHHQˆDBBBBBB"„…©
+"„DBBBBBB"„„…!R			ˆˆDBˆ„„…!!ˆ„D(ˆ„„„„„„…HT„DDD$"""!HHHRˆˆˆT„DB"¤"""D$"!HQ¤)ˆ…HHR„„DBB"ˆ„„„„„DDB"„D"!‘		ˆ„DDDB"¢""!!!QˆˆHHDDBBBB""DB¤$$$$"!!!!!			ˆˆHHHHHQ¢!!!!	
+"				
+"""""¤$$)	
+BBB"!HHQ¤$""			ˆˆˆ„D$$""!!!!!!!ˆ„„„„„„DD)
+¤""ˆˆ„„D)	ˆˆˆHHHHRˆˆˆRDD""!!
+"„„„D$$$(ˆ„„„DD"!ˆHDDDBBBBˆˆ„„„…HT„„„„„DDB"!HHHHHHDDDDBBB¤$)
+BBBBBBBB¤"!!¢!!HDDD$$$$$"!!							ˆDD""""!!ˆHHHDBB¢"""„…									
+BB"¤"""!HDDB¢!!		
+B¤$$(ˆˆDD$$"!DBB""!!¢!!	ˆˆR	
+©				
+B"¤*"ˆˆˆˆˆˆˆˆˆˆˆ„„D"!!!!!!!!ˆR¤$(ˆˆˆHHHDBBBBBBB"¢"!!!!!			ˆDBBBBBBBBBˆ„„…!
+ˆ…					ˆ…HHDB""!	ˆDD""¤)ˆDBˆ„DD$""	
+BBB"!!!DBBBBˆ„„„…!ˆˆ„DDB""""!HHHHHDDDD""		ˆDBBBB""ˆˆ…¢"ˆ„D$"!!HHR			ˆDBBB"ˆ„D$$)		
+¢!HHDDBBBˆ…!!ˆˆˆˆDBB""!!
+Bˆ…!HHHDD$$*ˆ„DDD"!RDD$)	
+BBB"„„„„„„„„D""„DDD*B""!!!				ˆHHDDBBBB""
+""		ˆDBBBB"ˆ„„…!!!¤)
+BBB""!!!!!HDD(ˆHDBB"!!		
+ˆ„„„„DBBˆ„„„…"¤"""!!!	
+ˆ„…!!HDBBBB""¤$)			ˆ„„„…!		
+"„…HHHHDD$(ˆHHHRˆˆˆˆˆˆˆHHHHHHHDBBBB"ˆˆHDBBBBBBBˆˆˆHDDDB"!HHHHDBBBB"""ˆHT„„…!!HHHT„…HHHT„„D)ˆHHHHR„…!			¤$$$$$$$)ˆRˆˆ„„„„„„„D$""			ˆˆDBBBBBB"ˆ„„„‰
+¤$""""¤)		
+BBB"!HR„„…!							
+"©	
+BBˆ„„„„„„DD""!			
+BB"	ˆRˆ…!HDBBBˆ„„„…!!!¤$$*BB"„„„„„„„„„„„DDDB""„DDD"""!!!!!!!!!!ˆ„„DBBBBBB"ˆ„…!!!!!!!!!ˆˆˆˆ„DDBB"¤$$$$$$$$$$"""¤$"""!	
+BBBBBB©ˆQˆ…!ˆ„„„D$(ˆDBBBBBB¤$$(ˆHHHHHR…!!!!!HDDBB"„DD$"!!ˆ…
+BBBBBBBˆ…!					ˆHHDDDBBBBB"¢""©	
+BB"	ˆ„„„„D""ˆˆˆHHHHDD$$""!!R¢!HDD)	ˆˆ„„D)
+¤$$HHHDDDDDDD$$"!!!!HR„…©	
+"	
+BBB"ˆ„„„„D$"!Qˆ„D$"!HHHHHDD$"!ˆHDDB"""ˆˆˆ„„„„„D$)		ˆDD$$$""„„„D"!ˆˆˆDBBBBBBB"„„DBˆ„D$$$$(ˆ„„DB¤$$$$""!ªBB""¤$)			
+Bˆ„D$)			ˆˆ„DD""ˆ„„„„„DDD"!!¢"""…ˆ„„D$"!!!!HHHHDDDDBBB""
+"""¤)ˆ…!!ˆˆ„„„„DD$""!!!!!Rˆ…HHDBBBˆˆHHHHHDDBˆˆHQˆ„DDDB"!!		
+Bˆ„…			ˆˆˆHHHDDBB"!!ˆR					ˆˆˆˆHDBˆ„„„„DDDB©	ˆHDB"DDBBBˆˆˆˆˆHDDDD$$"!HHHHHHHDBBBBBBBBBB¤"!!!!!!!!!!Q								ˆ…HDB¢""		
+B""!!!¢"!			ˆHDDDDDDD$""""ˆˆˆˆˆHHHHHQ‘!ˆˆˆ„„…	ˆˆ„„D$$$$$""	
+"DBˆ„D$*B""!!!	
+¤$)	ˆHHHHHHHH¨ˆQ¢"!!HDD$)	
+¤$"!!ˆˆˆˆˆHHR			ˆˆDD$$"""!!!!!HDDB©			ˆQˆ„„D"!!		ˆHHDBˆˆˆHHHHHDBB"D$$$"!DD$)	ˆHT„„„„D$$$$"!!	ˆˆˆˆHRˆˆ…!!!!!!HHHQ¨ˆ„D)	ˆHHHDDDDD$""						
+B"ˆˆˆˆHHHR„…!!HHHHHQˆˆ„„„„„„D*""!!!ˆ„„„„„„„„D)	ˆDD*B"
+BBBˆˆˆ„„„„„„D)		
+BB"!HDBBˆ„„„D$""""„…!!!
+""DBB"!HHDD$$$$)	
+©	ˆˆ…HHHRˆˆ„D"!	…HDD"!!!								
+BB"„„„„„DBB"!!!	ˆHR
+BBˆˆ„„„„DBBB"ˆ„„„„D)	
+©	
+BB""""!	ˆDBBB"„„…
+ˆ„„„„D$$$$$$$(ˆˆHRˆˆDD$$$)			ˆ„„„„„D$)ˆˆˆˆˆˆˆˆˆˆˆHHDDBB"""!!!!		ˆ„DD$$(ˆR¢""ˆˆDBˆˆHHR¤"""!!!HDBˆ„D$""„„„D$$$$)	ˆ„…					
+Bˆˆ„„DD)	
+BB"ˆˆRˆˆ„D$"!ˆ„…!!!		
+B"!!!¤$$$$$)					
+"!!	ˆˆ„„…
+BBBB"ˆˆ„„„D$)
+"
+B"¨ˆQˆˆHHHR©	„„„„…!!!HDB"
+Bˆˆ…				
+BBB"""!!HHHQˆDDDBBB¤$"!!!!!HHDDBB"""!	ˆˆ„„„…!!!HHHTDBB""ˆˆHHRD$"""!!!!HHHHDB"		
+Bˆ„„„…!!!!!""""			ˆ„„D""ˆ„…!!!!DBBB"D$$)				ˆ„„„„„DD$""""""!HHHHDDBB"DDBBBBB"	ˆHHHDBBBBBBBBBBBBˆˆHUˆˆQˆ„„„…!!		ˆHHRDDD$""
+¤""!!!!!!HHDDB"DD$""""
+ˆˆ„…		
+BBBBBBBBBBBB"„„„„„„„D$$$*BB"„DD$$$(ˆ…!"BB"""…!
+BBBˆ…DDD""DBBBBˆˆ„„„„„DBBE!!!HHR		
+ˆˆˆHHHDDD""	
+B""„„DBBˆ„D""!HHHHTD"!DBBBB¢"!ˆˆTD"!!HHDB"D$HHR"")			ˆˆHRˆˆHHT…Q¢"	
+B"!!¤$$)	
+"„„„„„DBBˆ„„„DD$"!
+E!!!!!								ˆRDDDDD"""!ˆ„„„…!!!!!!!!!!!¢""DDDDDDDDBBˆ„…ˆHDBBBBBBBBBBB""¢""""„D*B¤""!!!ˆˆ„„„„„„„D"!!!!							ˆHHHHHHHDDD"!!R¢!!			ˆ„DD(ˆˆDB""!!!HQˆ„„„„„DDBBBˆ…!	ˆˆR„…!HHHHHHRD)
+"!!Hˆˆˆ…!!DBBB"„„„…RˆˆˆˆˆHDB¤$$$""„„…!HHRHTD"!!!!!ˆ„„„DDBBBBB""ˆˆDBBBBB"!ˆ„D$""						ˆˆˆˆ…!HHHHHHRˆˆˆHHDD"!!!!!!!ˆ„D)							ˆˆDBB""!!!
+BBBBBBˆ„„„„„DD$$$""""ˆ„„„D""!!!!!!DD"!!!!!HDBB"ˆˆR…!!!!!ˆHHDDBBBBB"!HHDB¢!DBBBBB""""„D$"""!!!HHDD$$$$$$$""ˆˆDBBBBˆˆˆHDDD$$$$"!ˆ„„„„„„„„D$$"!""""
+B¤)				ˆHHHHHHHHR„„„DDDBBBˆˆ„„…!ˆˆ…!
+¤$$"""¤$"!!¢"¤$"""D"!HTDDBBD„„„„…!HHHR
+BBˆ„„„„„D$"!HHHHHHDD""ˆ„„DD$"""ˆˆˆHHHHDDDB"DD)ˆHDD"!!!!!!!HHDBBBB"""!
+B"!!ˆˆˆˆ…RˆˆHHHDBBBB"¢!!QˆˆDBBBBB"	ˆHHDDBB"!ˆ„DDDDB""„„…!!!!¤$$$$$$"!	ˆ„D""!!!DBBB"		
+BBˆˆ„D$""""ˆHRˆˆˆDDDDDDDB"ˆˆˆ„„„„„„„D)ˆˆ„D$$$$$$$$"!"BB¤$$$$*B¤)			
+ˆ„„„„„D$""!!ˆˆˆHHHR„„„…!HHDD$)
+BBBBBB¢"„DD$$$$(ˆˆˆRˆˆˆHHHHHTDD""!	ˆHHHDB""DBˆ„…DD"!ˆ„„DBB"ˆˆDB"D$$"!DBBBBBBB"!!!		ˆDB""DDD$$""""	
+ˆˆˆQ	
+BBBBBB""
+BBBB""DD""„D"!!HDDBBBBB"$$)	ˆˆHR¢!
+Bˆ„‰			
+BBB"""!T„„„„…HDDDD$$)		
+"„„D"!!!!!!	
+B"!!!!T„…HR„„„„„„D*B"!""!
+©		ˆQ		
+BB"…							
+B""ˆ„„…	ˆHHHHDDD$*BB""ˆHHHHRˆˆHDDBBBBBB""„„DDDBBˆˆˆHHHHHHQˆˆˆHQˆ„DDBBBBBBB""ˆˆDBBˆ„„„„„…!!!			
+ˆˆHDDDB"„„„„„„„„‰	ˆˆDB¤$$)ˆˆHDB¤*BˆˆˆHHHHT„„„DBBˆˆ„…!!!!!DBBBBˆˆHDD$"!				ˆDBBBB""$""ˆR…HHDB"""ˆˆHHHHRˆˆDD$"!!!HHHHR„„…						ˆ„„„DBBBˆˆ„…!ˆ„…HHHRD$$$"""ˆ„„DB"„„D$$$$$"!!!HHHR„„„„…HHR¤$(ˆ„„„„„„„„„„„„„D$(ˆDBˆˆˆ„„„„…	„„„…HDDBB""""©	ˆ„„…
+""ˆ„„„D""		
+BBBBB©ˆDDD$$$$$$(ˆR¤"!HR„„„„DDDD(ˆˆˆHHQ¤$$$$$(ˆˆˆHHDB""		
+ˆˆHHHT„„D$)		ˆ„„DBBˆ„D$"""""""""""!!!HR				…ˆ„D""!!!						
+""!!!!"Bˆˆ„„…!¤$$$$$"!DBBBBBBBBBB¤$$$$)ˆDDDBBBˆˆHDBˆ„„„D""¤"!!!	
+B""„„„„„…!!!!!!!!!
+"!!!©
+BBBBˆˆ„„„…!!HDB"…		
+BBBB©
+ˆ„„„„„„„D$$$$$"!HHQˆˆDDDDB"!!ˆ„„„„„D"""ˆˆˆˆRˆ„„„…!ˆˆHHHDDDD$$$$$$$$"!!HQ	
+B"¤$"!!DBBB"
+¤""!!		
+BB"…!!!!DDBBB"¤""!ˆ…HˆˆˆDBBB""„„…!!!!!DD)				ˆHDDBBBBˆ„„…ˆ„„„…	
+B¤""!!
+ˆˆDBBBˆˆHQˆ„D$)	
+BBB""©
+BD„D$$$$$"""„„D$$$*BBBBB"!!HDD)		
+BBBBBBBBB¤$$$$(ˆˆˆˆHHDD$""ˆˆˆˆˆ„D""""!!ˆ…HHDBBBB""!DBBBBB"¤HDBB"!!!!!!		ˆDDB"!		ˆˆDD$""""""""¤"!!!		
+"ˆˆ„„„„„…!!!HHHHHHHHDB¢"			ˆˆ„„DDB"""ˆˆ„„„…HDD$$$$$Q	ˆ…!HHDDBBB"!DB"¤"!
+BB"ˆˆˆ„…DD$"!HHDB"„„DD$*BB"!!!ˆˆˆˆˆ„„„„„DBBˆˆ„„„„„„„„„„„„DDBBBBˆˆHDBBBBˆ…!ˆˆHQ©
+ˆˆˆˆˆˆˆˆˆˆˆˆHHHHHHHHHDDDDD$$$"!		ˆRˆ…				ˆU
+"!!!!!!HQ©			ˆR¤$"!		ˆˆHHHHDDBBBBˆ„DBBBBBB¤$""!!!Rˆ„„„„D$$(ˆˆ„…!HDBˆ„„„DD$$$$$$$$$"!!!!!	
+BBˆˆDB"		ˆˆ„…¤$)	ˆHHDDD$$"!!HDBBB"ˆˆHHˆ…ˆˆˆˆˆ„„D"!!HHDB"""DDDDDBBBBˆˆQ
+"¤)					ˆ„D$$$)ˆˆDB©	
+BBBBBˆˆHHDBBˆˆHHDB"""""						ˆHHDBBDDD""""!!!	ˆˆDBBBB"!			
+B"ˆˆ…!DDDD$)	ˆ„…	ˆ„„„„„DDBBBˆ„…DDDDD)ˆˆˆHHHHR¤$$"""ˆ…!!HHHT„DDDBB""ˆˆHHTD"!ˆHHHHHR¢!!!!!!!!!HHT„„„DD$)						
+"…!!!!!!!!				ˆˆˆˆˆ…!!!		ˆ„DB"!!!		ˆˆHHU!HHHDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDBBBB¢"			ˆHHQˆ„„„…!!!HHT„„„„„D$"!!!!!!!		
+ˆˆˆHHHDB"!!!						
+B¤(ˆˆHHQˆHHHDDDBB"""ˆˆˆˆ„„DDD"!RˆDDDD$$$$$$$"!!!HHHDD$$*BBBBBBBˆ…¤(ˆHHHHHHHHHDBBˆˆ„„„„DBB"!!!!!!!DBBBBˆˆ„„D$$$)			ˆ„DB"ˆ„…!!!!			!Qˆ…ˆˆˆDDD$$$$"""!HDBBBBBBBBBBB¢!ˆˆDB"D$$$$$$$$)ˆDB"„„„DD""!!!!!!!!!!!!!!ªB"¤$*ˆ„„D$$$$$$$)	ˆˆˆˆ„…!HHHHQ			ˆRˆHHRˆˆHQˆˆ„„„…HHT„…RDD$$$$$$)
+ˆ„DBBB"…!ˆ„„„„D"!		
+ˆˆ„D$"!TDDDB"!HDBB"D(ˆˆTD$$""ˆ„…!			ˆ„„„D)	ˆDBBB¤$"!¢!!¤)
+BBB"!!!HHHˆˆR„DDD$$""„„„„„…!ˆˆHHR„„„„…!
+BB"!ˆHDBBB"!!	ˆ„…!	
+Bˆ…ˆˆˆHR„„„„…!!!ˆˆˆˆˆ„„„‰				ˆQˆ…R¢"!!!!HDB"„„„DDDDB"¤$$$$$$""!!!!!!DDBB"ˆˆˆDB"„„DD)			ˆ„DBBB¤$(ˆˆHHHHHHHHHDDB"DDBBBBB""!!	ˆHDBBB"!	
+ˆˆHHDBB"	„„„„„„DBBB""ˆˆ„…DBBˆˆHQ	ˆDDB"ˆˆˆDDDDB¤$$)			ˆDD$)			
+BB""!!		
+""¤"!!R„„„…!!!!ˆ„„„„D$"!!U!!!!!!!!!!!!!ˆ„…!!!HHHHHDB"!ˆˆ„„DDBBˆ„D"!HHHHDD""""		
+"ˆˆ„„DD$$"!R„DB"„„„„„„D$$$"!!ˆHHR¤$DBBBB"„„DBˆˆR¤$$*"!HR„„„„„„„…!!!!!!!!!HˆˆDDB"ˆ…!	ˆ„…										ˆHR				ˆHR¤$$$""!ˆˆ„„„„DDBBˆ„„„…!!!ˆˆRˆˆˆˆ„„D"!ˆˆˆHDB¤""""…!!					ˆˆHRˆ„„„„DDDD$"!!!!!!!HR„DDB¨ˆHHHDBBBˆˆHR„„D)				
+BBBBBBB¤$$$$)		
+B""!HHHHHHHDBBB¨ˆRˆˆˆDD$$""!!!!!ˆˆˆˆ„„„DDBBBB"ˆ…
+B"	ˆUHHHDDDBBBB"!!!!!!©				
+B""	ˆ„„„…!!!ˆ„„…!!!HHHDBB""
+BBBBB"¨ˆHHHDDBB"„DBBB"!!!!©ˆHHRˆHHHHHR„„„„…!!!!!!!!!!!!DBB¤$)		
+"ˆ„„DD$(ˆˆˆˆDD$"!	ˆHHDD"!ˆˆˆˆˆˆˆˆDD$$$(ˆR„„…
+BBBB¤""""ˆˆ„…!!!!!		ˆˆHHHHHQ¢"ˆˆˆˆ„„„„„„„„„DBB"ˆ„„„D$""!!HHQˆˆˆHDB¤$$)	ˆHDBBˆ…!!ˆHHHRˆ„DBˆˆ„„„„„„„„„„„„„„„„„„„D$$$)						
+BˆˆˆˆˆHHHT„„„„„„D$$""	
+BBB"!
+BBBˆˆDBB"!!!!!!!!!!HHHHR„…			ˆHHDD$$"""„„„D$$DDHHHHHDBˆ…!!!¤$""!!!	
+ˆˆˆˆHHR„„…HˆˆˆˆˆDD"""…			ˆHHDBBBB"ˆˆˆ…!
+"!ˆ„„„„„„„DDDD(ˆˆ„„„„„…HHHHHHR„…!		ˆHDDDDDDDDDDD"!		ˆHHHHDBBBBBB"ˆ„…!!		
+B"!!HHHDB""ˆˆˆˆ…!!			
+ˆ„„…¤$)ˆˆˆˆˆˆ„„„„„„D""	
+"!!!ˆˆˆˆHHDDBBBBB"„„DD$$$$$""„„DDDDB‘!!HDD$"""„„DBBBBBB"ˆˆ„„„„„„DD$$$$)	
+ˆˆ„„DD$$$"!HHHHRˆDD$$$$$$"!
+B"	ˆˆHDD)			ˆˆˆˆHHHHHHHDB"!HHDDD"!HT„„…¤$)ˆHDD)		ˆˆ„„„„…!!T„D"!!!!				
+""!!!!!¤$$$$$$$$$$""!!!!DD)
+B¤)
+BB"‘!HHHQˆ…
+BBBBˆ„…!!!!ˆˆˆDD$$$"!!¤$HQˆ…!!DD""!HDDDB""""ˆˆˆDD"!!HHHHHDDDDDBBB""!DBB¤"!!¤$$$$$$$$(ˆRˆ„„„DD)ˆ„„DD$"!HHHDD""""""""""""!!!!U!
+""!HHQˆ„…!HQ¢"„DD$""!!ˆ„…!!!!ˆHHR¤$$"!!!!!!HHR…DBBBBBBˆˆ„„„…!!HRD$"!!	
+""""!!!
+¤"!!!				ˆRˆˆˆˆˆDDDB"¤$$)ˆHDBBBB"	ˆRˆˆHHHHHHHRˆ…!!!HHHHHHDD$$"""""!!DBBEˆˆHHHQ¢"©		ˆˆHQ¢"D$$""!	ˆˆHHHHHDD"""¢!HHHR…¤""¤$$$$$$""!		
+BB"!DDD$)						
+B"ˆˆHHHDD""¢!											
+BBBB"""„„„„…!!!!
+Bˆˆ„„„„„DDD$(ˆHDDDBBBB"""¤"!HDDB"¢!!!!		ˆDDD$$$$$$(ˆDB¤"!!!ˆˆˆR„„„„DDBBBBBˆ„…!HQ¢!!!HHHDD)		ˆHHT„„„„D"!!!!¤$$$$$$)ˆˆˆHHHHHDBBB"!!!!!!!!!R„„„DD$)	ˆˆHDB"	ˆHHHHHHHHHHDB""¢"„„DD)ˆˆˆDD$$""!!!"BˆˆˆHHHDBB"!DBBBˆ„„…!!!!HHHHHHˆ„D$""‘!!¤$"!!!!!!!!!!DB"ˆˆHHHHHHDDDDDBB"""!!ˆ„„„D"!DD$HDBBˆˆHHDDD"""""!!!!ˆ„„„„„„„„D"""¢!			ˆHR¢!!ˆHHHHHR„D$)					ˆTD$(ˆ…!!!!!!!!!Qˆ„D$*BBBB""!!HRD""""ˆˆHR…		ˆHHQˆˆ„D$""!!!!!!ˆˆ„„„„„D$$$)	ˆR„D$$$$$"""""""""""""""ˆHDBBBB"„„„„DBB"!!!!!Q¤$$""D)
+""""„„…!ˆ„„„„ŠB""	
+BBBˆ„…!!		
+"!!!!ˆDB"""!!!HˆˆDD$$$)
+D„„„„„„„D$$$$$$$$$$)
+BBBB"ˆHHR¤(ˆT„„…!HHRD""„„…HDB"!!!!!ˆˆHHDB""		
+BBB©
+¢!								
+¤"!!!ˆHDB"¤*¤"!!!HRˆ„„…!HHHHRˆˆˆˆ„„DBBB¤"!HHDBˆ…	ˆ„„D$$$)	
+""¤)ˆ„„„„„„„DBB"""!		
+"!!		
+"…!!HHHHHHHHHHHHHHHDBB¤$)		ˆˆR…	
+BBBBBBBB"„„„„„D$)	
+"!!DDD""""!RDD)	ˆR©					
+B"						ˆHQˆ„D$"""""""!T„…¨ˆˆˆ„„„…!!DDD)ˆHQˆˆˆˆˆˆˆˆˆˆˆˆ„„„D$$$$$"!DBBBBB"©									ˆHHDBB"DBBBB¤$$$$""D""ˆ„D)		
+ˆ„„…	ˆHR					
+ˆˆHDBBBBB""ˆ„„„…
+BB¤$$)ˆˆˆHHHDD)ˆ…HHHHR…!HQˆˆˆˆ„…HHHHR…¤$$*""!!!		ˆR¤$$$*"!		
+BBBB¨ˆHHDDBBBB"D*B"D"!!ˆ„„„D)	
+BˆˆHDD$$$$$"""!DBBB"""$"!ˆ„D$"!HDDDDD$""""ˆˆDDD$$$$$$$$""ˆˆ„…!!!HDB""!!	
+BBB"
+ˆˆDBBBB"…
+"ˆˆHHHHHRˆˆHHHDBˆˆQ					ˆDB"D$)ˆHHHHHDBB"ˆ„DDDB¤"!!!
+BB"¤$$$$$$$$$)					
+B"„„D"""D"!			
+BB"!!!!
+BD„„„DD$$"!!!!	ˆ„„„DBBBBBBB""ˆ„„„„…!ˆˆˆˆDDBBBBBBBB""!!!!!!!!ˆHRˆ„D$""„D)ˆˆDDBBB¤$$$"""!HR!
+BBBB¤(ˆDB""	ˆˆˆ„„„…!!¢""¤""!!!!!!ˆˆ„„„„…!HHHHQ¤$$"!HDDB"""!
+"!						
+BBBB"¤$)	ˆˆHHHHDDD"!¤$$$"!HHHHHHHHDB""„…ˆ…R„„„DBBBˆˆHHDBBB"!!!!DD)	ˆHHDD"""!!!ˆHHHHHR	ˆDDBB""!!!HHHDDD$"!DD$$)									
+BBBB"„„DDD$$""„„„D"!!!			
+B"""„DBBˆ„„„D$$"!!!!		ˆHHRDD(ˆHDD$$$$$$)
+BBB¢""!!!
+D…!¤$$"""„D"!!!!ˆHR¤$""""""""„„…!!DDB"„„„DD$$""!		ˆˆHDDB¤"!!!!!HHHRHDD$$""			
+"!!!HHDBBBB"„„…
+""!!!!!!ˆ„„D$$"!!HHHDDDDDDDDDDBˆˆHHHHHT„„„„„„„DDD$HDBB"ˆHR							
+B¤$$"""!!HHDBBBBB"!
+BB"""""!
+BBBBBBB"ª"¤$$"!!!HDDBBBB"!!				ˆHHDD"!!!!					
+¤"!		
+ˆ„„…!!¨ˆˆHRˆˆˆ„…!!HHHHDDBªBB¤*BB¢""!!©	ˆˆ„…!ˆ…!!						ˆˆHDDDBBBBˆˆˆˆHHHHHHHDD$$$"!!!		ˆˆˆ„„„„DDBBBBBB¤$$$)ˆHHDD$"""ˆ„…	ˆˆ„„DD)				ˆ„DBBB"„„D)ˆHˆˆˆˆHT„„„„„„DDDD"!!!DD$$"!R¤$$$$$*""¤""!!!!!HR„„…!¤$"!HHDD$"!DBˆ…HQˆˆˆHQ		ˆQˆˆˆR‘!¤$$$"""!HHHHHU!!			ˆˆˆˆHHR¤)ˆˆHHHHRˆ„„„„D$$R„DD$$$)	ˆˆ„D$$"!¤$"!!!!
+©	
+Bˆ„…!HDDDDB""„D""!!!!!"BB"""!!!!HHDDB"ˆ…!	ˆˆˆ„ˆˆˆDDD$"""!!U!!ˆDDD"""""	ˆˆT„DDBBBBBBBBBB¤$$"""""!!!
+BBB¤$$"!		ˆRˆˆ…!!!!!!!!!HRDD""!HTDBBB"¢"„D"""""!!!HHDD"!DB¢"!Hˆˆ„„…!!!HHHHHR)
+B""""„„„D$$*BBBB""!ˆQˆ„„„„DD$$$)					ˆHHHHQ©	
+BBBBB¢!¤$$$$$"!!	ˆHHDDDB""""!			ˆ„DB"!ˆˆˆ„DDD"!!!!!!!!!HHU!!		
+"¤"""	ˆ„„D$$"""ˆ„DB"¢"!¨ˆˆˆ…HDDBB"D"""!!!!!!				
+""¢!DDD$"!!DDDD""!!HHHHT„„„„„DDDDDDDB""¤*""""„„„„„„„„„…!!!!!			
+‘!			
+"!¢!!ˆ„„D(ˆˆ„„„D$$$$"!HR	ˆHHR		
+BˆˆˆT„DDBBB"!HDB""""„D$$$$$$$$$$$$$$$$$$(ˆDBB""ˆ„„Š""D$)	
+"!			ˆHDBB"¤$$"""„„„D"""!ˆ„„„„DDDDBBBBBBB‘!!DB"DDD$$$)		
+""""ˆˆˆHHHR!DB¤$""¢"!ˆ„„„…!!DD$)ˆ„„„…HDD$$$$)	
+"¤$$$$"!!!	ˆˆˆ„„„„„„„„…ˆ„…!HDD)ˆ…!!ˆˆR		
+BB"!!!	
+B"!!!!!!"B"""""¨ˆˆHHDDDBˆ„„„D"!!!!ˆˆ„…!
+BBBBˆ„„„D$$$$$$""ªBB¤$$"""!!!"B"		ˆ…HHR¤$"!					
+"!R…!!
+B¤$)	ˆDDB"D"!HHHHHHDB"	
+BBBBˆˆDD$"!!!¢!!!!HR¨ˆHHHHHHRˆˆˆ„„„„„DDBˆˆˆˆHHHªˆ„„„D$$"!!!!HQˆˆˆ„„DDDDB"„„„„„„DDDBBBBBBBBB¤$$$(ˆˆˆˆ„„…R¢!!		ˆˆˆHHDD*B"¤"!ˆ„DD"!ˆ„D""¤$$""!			ˆR©
+B""!DD$""""!!HHQ‘!!DDD$$$$$$)
+""""		ˆˆ…HDDB"…HHHHHDD""„…ˆQ¤)			ˆ„„„„DDD$$$$"""!				ˆDD"!HQˆˆˆHHHHHHHDDB"""		ˆ„„D$$$$*BBBB"!!ˆ„„D""!!!!!!!
+BBB"!!!!!!!!ˆHHR
+"!HHRˆ„„„DDB"„„„„„„D$$""„„„„…!¤$""!!!DDD$"""""!ªBBB¢!!!!!ˆˆˆ„D$$$"!!!ˆ„„„„„„DB""!!!!!!RªBBB"‘¤""
+"""""""""ˆ…							ˆHDBBˆ„…!!!!!!!DBB©		
+BBB""„„„„„„„„D)			
+BB¤$$$$"!!ˆˆˆ„„„„DDDBB"D$)	ˆHDDBª¤$$(ˆHHHHR¢"D"!!!!!!!HHHHDB¤)						
+BBB"ˆˆHHR„„„D$$"""!!!DBB"!DBB"ˆ„„„„…!!	
+¢!!!!
+B"!HHHDBB¢"ˆˆDB¤"""DDDD)	ˆQ					
+BBBBˆˆ„„…HQˆˆ„D$)	
+ˆ„„„„„„D$HQˆHDBB¤(ˆHQˆˆ…R			ˆHHHHHR…!HDDBD„„„…!
+BBBˆ„„„„…!DD$"!!¢!HHHHHHDD$"!HHHQˆˆˆHHDDBBBBBBB"!!HHDDD$$$$$$(ˆHHHHDDBB"D$$$$$)				
+BBˆˆˆDB"…DB¤)	ˆˆˆˆˆˆ„„„„„DDD"""""„…!ˆˆˆˆˆ„„„„„„DD""…!!!!!!!!!ˆ„„…HHDDDD(ˆDBB""!	ˆDDDBBBBBB©					ˆHR					ˆˆˆ„„DB¤"!		ˆHR										ˆ„„…!!!!!!HDBˆ„„…!!!!!DB""ˆ„„„D""ˆˆˆˆ„DDDD$*"!ˆHR¤$$"!	
+Bˆ„„DBBBBBBBBB"			ˆHDBBBBBBBBB"„DD""!ˆ„DBBBˆˆˆˆDBBˆˆHDDD$$$$)ˆHHHDD$$$$$"!	
+"¤*""!!!!¨ˆˆˆHHR
+B"""ˆ„„„DDDBD…						
+BBB"!!!!HR"!¤$$$$$(ˆˆT„„DBBBBBBB¤$"!!ˆ„D""""""""ˆ„„„„„„…!DDDBˆ„DDD)ˆˆ„…DB"ˆQ¤$$$$$)	
+BBBB¢"DD(ˆˆ„„„„„„„„D$$$$$$)				ˆˆHHDBBB"""ˆ„…¨ˆHDBBBB"!!!HHHHHDBBˆˆˆHDDDB¤$$$$$(ˆ„D$$"""!HHQ			ˆHDD"!!!!R„„„„„…!!!
+BB¤$$*BB¢"$(ˆ„„„„„„„„„…!!HDBBB"DDD$"!!¢!!R¤$$(ˆˆHHHU!!!¤"!HHDDD$(ˆDBBˆ„…DDD$$"""¢"ˆ…!HHDBBB"DD""ˆˆˆ„…!!!!!RˆHHHDBB"""""!!DBBBB"ˆˆ„D*"		ˆHHHHHQˆˆDBB"ˆ„DD""ˆ„„„„„„„„„„D"!ˆHDDD""""ˆ„DD$)			ˆHDD$$*"			ˆHDD""©
+"¤$$$$""!HDDBBˆ„‰					
+BB"				
+BB""©	ˆDD$$$$"!!ˆHHDBBBBBBBB¤$$)
+"ˆHHHDDD$*BB"!!ˆˆˆ„D(ˆˆHHHDD*"ˆˆHHHDB¤$$$"!!!	
+©	ˆHDD$""!!!!DBBBBBˆˆHDBBBˆˆ„…!DD$"!!!	
+BBB‘HQˆ„DBBˆˆHHHHDBB"ˆ„„…!!DBˆˆˆR	ˆˆHDBBˆ„„„„DD$)	
+B¤$"""„DDDDD$"!!!!ˆˆˆˆˆˆˆHHHHHHHHHHDBˆ„„DDDBB¤)ˆDDBB"
+BB""ˆHHHRˆˆˆHHHHHHHHDBB"!DD$$$$"!Rª¤$$"!R¤$$$$$$""„„D$$$""!!ˆ„„„„„…		
+B""ˆ…ˆˆ„D$$"""
+"©				ˆHHHHHHHHDDBBBBBˆˆ…!ˆ„DDBBBBBBˆ„„„„DBB"""!						
+BB""""""!!!!!!ˆDB"„„„„„„„„„D$"!!!ˆˆTDD""!!HDBBB©
+"	ˆˆˆDBBˆ„…ˆˆˆ„„…!HHHHRˆˆˆˆHHRˆ…HHDD*¢!!TDBBBB"ˆ„D$(ˆHT„…ˆHHHHQ	
+""			
+ˆ„„„„DDDDBE		
+"!HHRˆˆˆHHHHR!!¤$$*Bˆˆ„„DD$$)ˆHDB"„DB""ˆ„DBBBB"!!ˆHHDBB"!!¢"""ˆHDB¤$"!HTD"!!!!!!HDBB¤*B"""…ˆ„„D$"""„D)ˆHDBˆˆQ		ˆˆ„„…			
+BBB‘ˆ„„DB¤$"""ˆ„…!!!ˆˆˆˆˆˆˆˆˆˆˆˆˆDDDBB"!!	ˆHHR…!!T„„„„„D(ˆˆ„D$$""!!!!!ˆˆˆ„„„„DBBˆˆDD(ˆ„D$$$$"!!!HT„ŠˆˆHHDBBBBBBBBBBBB"!!!
+BBBB"!!Q
+ˆˆHHHHHHDBB""DDD$$$$$$$)	
+¢!!!HDBB¤$""""„„DDB"„DD$"!!!!!U©	
+"""!HR		
+"ˆ„…HHHHDDBBˆ„„DDB""ˆ„DDBBB"!!HHRˆ„„„D$""ˆˆˆˆHR…!	
+B"©				ˆH¢"!
+""!ˆˆ„…!!!HTDB©ˆˆHHHDD""!!HQˆˆˆHHHHHHT„„„„„D$$)		ˆHHHT„DDBˆ„„„DDBBBBB""¢""""„…!!!!!HHHHHHDBBB"ˆˆˆHDBB"			
+Bˆ„„DDDBBB¤$$$$$""¤$$""ˆ„„„D$$$$)
+B"""""	ˆHDBBˆ„„„…ˆ„…!HHDB""				ˆDD""		
+BBB""	
+B"ˆ„„„„„„„DDBBBBBBB"DDDB""„„D"!			
+BBBBˆ„„„„„DDBBBBBBBBBBBˆˆˆ„„„„„D"!!				ˆHDD"!!	
+D„„„„DDBBB""""ˆ„„„„„DBBBBBBB"
+"!!	ˆˆHHHHDB¢"„DD$"!HHHHHHHDB"„„„„DDD$$$*BBB¤$"!!!!!			ˆ„…!!!!!!HHHHHR„„DD$$""¤$HHHHDBBBBBB""ˆ„„„„D)
+BBBBBˆˆˆHTD$$(ˆHHHDDBBBBBBBˆˆˆDBBBBBˆˆRD"""D$$$$(ˆˆDDD$*BBB¤$"!!ˆ„DB""¤$$$*BB""!HDB¤)
+B"!!	ˆRˆHDBBBBBBˆˆHHR„„„„„„„„„„„DDD"!!		ˆHHHDD""„DD$)	
+BBBBBˆˆRˆ…				
+"""!	
+B""ˆˆˆ„„„…!HDDDD$(ˆHT„„„D$"!!ˆHHHDD$"""!ˆ„„DDDDDB"¤$""""					ˆR„DBB"ˆ„DDBB"""!!!	ˆHHHHHHDBBBˆˆQˆˆˆˆˆQˆˆHHHHHR			ˆHR	
+BBBB""""ˆˆˆHDDDBBBBBBBBB""""!!						ˆˆˆHHHRˆˆHHRDDBB"	
+BB¤"""!!!!©					ˆ„„„DBBB‘HHHHRˆˆˆHHQ
+BBBB"!ˆˆ„DBBB¤$""!!!	ˆˆˆHHHR							ˆDBBB"!!!!!RD$(ˆˆˆHHDDDBBB¤$$$$$$"!!!!©	ˆQˆˆˆˆ„DBBB"
+BB""!!HHHHQˆ…!!HRˆˆˆHQˆˆˆˆHHHHDBBBB"""!!!
+BB""			
+B¤"!!"B""!HHHHHHHHHHR			ˆDBBB¤(ˆHHHDDB"„…!!!ˆˆˆˆˆHHHHRˆ„„…
+BB"D""!	
+Bˆˆ„„DD$$$$*BBˆˆˆHHHHHHR…ˆˆˆˆˆHHHRˆ„„DDDBB¤$$(ˆU					ˆˆ„D$$"!!!!!!!¤""…!	ˆˆR„„„…!!ˆˆˆHHHHHDD$$$$)		ˆˆHDDDBBBˆˆˆˆˆHHHDDBBBˆ„„„„„„DDD$""…!!!HHHDD""„DD$$(ˆHHHHHDDBBB¤$$)			ˆ„…!HHHHHR				
+B""!!!!!!
+ˆˆ„„„D$"""ˆˆQ¢!Q¢""	…!DDBBˆˆHT„DD$(ˆDBBBBBBBBˆ„„D$)	ˆˆˆˆˆˆˆˆDDDBBˆˆDD$"!!!ˆ„„„„…ˆˆˆˆˆˆˆHR¢!		
+ˆ…!¢!ˆ„„„DD$(ˆ„„„DD$$$)		ˆHDDDDB"„„„„DDDDBBBBBBB¤DD$$)
+"D$"!!!DD$"!!!!!!	ˆHHHHHHHHHHHHHDD$"!HHDBBB"…		
+Bˆ„…ˆˆ„„„„„„…ˆˆ…!©ˆ„„„„„DBB"""DDDD$$"""©ˆ„„DDDDD$$$$$$""""!
+D„„„…ˆˆ„„„„DB¤$$""!!!DBBB¢""!!!HR!!!!!!			
+BBB""!HDB¢!!HHHDDDBBBB"""!!¨ˆˆ„DDBBB"ˆ„„D$D„„…!!	ˆRˆHT„„„DDDDDD$)		
+BB""ˆˆˆHHDDB¤)ˆHDDD$$""!!""$*BBˆ„…!!ˆ…!!!!HHDDBBBB"!!HDD"!	
+BBBB¢!HHHHHHHDDDBBBˆˆ„„„„„„„D)	
+B"!!!!!!!!!!Rˆ„…!!
+BBBBˆ„„„…!!!!	ˆ…!!!HHHQ				ˆ„…!HHHHHHHDBˆ„„„…!!!!!!	
+""		ˆ„…!!HDBBˆ…!HHHHDDD"!!!!!!HHT„„DBBBBBˆ…!								ˆˆˆ„…!ˆˆ„„„„…!!!ˆˆDDDD(ˆ„„D""„„„„D"""ˆˆHR„„„„DD$HHHHDBˆ…!!!!!!			
+BˆˆQ
+BBBBBBB"„DBBB"	ˆHT„DD$""„DD$$$$)…!DBBBBB""!HHDBB""ˆ„„DBBBBBBBB¤$)			
+B""¢"!	ˆˆˆHDBBBB""ˆˆˆHDDD$$""…ˆHDDB"!	ˆ„DDB"!!!!!DD$$""!!!¤"!HHHRDBBB""""!Qˆ„„„„D$$$(ˆDB"…!!!!	
+B"¤$"!!		ˆDDBBB©				
+BBBB"ˆ…				ˆ„„…!!DB"	ˆ„…!HHHHHHDDDBBBBBBBBB"!ˆ„…!!!HHDBBˆ„„D$"!	
+BD„…ˆ„„„DBˆ„„„„DBBBBB"$$$$$$$$$""!!HDDBBBB"ˆHHUˆˆHHHHHHH¢!!
+¢"!				ˆˆˆHHHHRˆQ				ˆ„„„D"!!HDDD$$$*B¤$$$"""			ˆHRDBB"!DD$$$"""ˆˆHR		ˆDD$$"!!!!HHHDBBBBBB"!HDBBB¤$$$$)		!!!!			
+ˆˆR„„„„„„„…!!!¤$$"""¢"„„D$*BBBD„D$$$)	ˆˆHHDBBBˆˆˆDDBBˆ…HDBBB¤$*BBBBBB"!ˆHHHHHHDDDBBDD„„DDDDD$$$""„D$$$R„„D"!		
+Bˆ„…!!!!!‘!HHR¤U!		
+BBB"©	
+BBˆˆ„DBBBBBBˆ„DB"„„DBˆˆˆHQ		¤$$$"""D$$$(ˆHDBBBBBBBBBB"¢!
+BBB""!!
+BBˆˆR	ˆHHDD)
+B"!!!!ˆ„„„…HHHHHR	ˆˆ„D)							ˆDDDD"!	ˆ…!!		ˆDDBBˆˆ„DDDB¤$$$$$$$*BBBˆˆˆH¤$$$$$$"""!!!HRˆˆˆˆˆRˆˆˆˆˆˆˆDB"ˆHDB"!!ˆˆˆ„„„…!!!HDBBˆˆHHHHDBBBˆˆDDBB"„DBB¤$$""„„…!!!DDDD$$$(ˆHHDDD"!¢!!HHDD$$$"""""""!!		
+¤$*B¤$$""„„„„„„D$$*BBBB""										
+B""„„…ˆˆˆDDBBBˆˆ„„„„„…!!!HHDB"ˆˆˆQˆ…!!!!!DBBB""ˆDB""!HHHQ	ˆˆHHHHHHHDDDBB"„…!HDD"!!!							ˆˆDB"„„„„„D$"!!!ˆˆHDDBBBBBBBBB""„DB""!!!!!!HHHHHDBB"ˆˆˆHDDB""""!R	ˆHRˆHHHHHDD"!!			
+BBBB"
+BˆˆDBBB""¢!!!!!!!!!	
+B"ˆHDBBE!!				
+B©	ˆˆˆ„„…ˆˆ„„„DD(ˆR""!!!ˆ„„DDD$$$$"""!!!!		ˆHHHHDD$(ˆˆDBBBBB"!!¤$$$$$"!!!!!HHHHDB"ˆˆ„„„„DDDDD$$$""¤$""!!!!DD"!ˆˆˆHDB"!HR
+BBB"!HDD$$"!!HHHHHDDD$$""!	
+¤$""""„„D$$)	ˆˆHHQˆ„„„„D$"!HHDB"""DBBBBB‘!!HHHHHDBB"D$)¤$$$$$"!		ˆˆ…ˆˆ„„„„DD$$$$$$$)
+BBB¤$$$$$$$)			
+BBB¢!!DD$""!ˆ„„…					
+BBB"!!!!!!DBBBB""!!!ˆ„„„DDD$$$$$(ˆHHHHHRˆˆ…¤$""„„D)		ˆHHHHHDB"!!!ˆ„„DDDD)ˆˆˆ„„„„„„D(ˆ…!HDDDB¤)
+""$)
+B"!!!DDDDB""""!!!ˆ„„„ˆˆHDD$$$$HHHHT„…!Rˆˆˆ„…!T„„…!!!!¤$*ˆ„„„„DD$*Bˆ…!!!	
+B"ˆˆˆDB""""„D$$"!ˆˆ„DDBˆ„D$$$$$$)							
+"!					ˆˆˆˆˆˆ„„„„„…HR…!!!Rˆ„„„„„„„D$$$"!!DBB¢""„„„„…!HR!HHDDDBBBˆ„„„„DDBBBBBBBBBBBBˆ„„„„„…		
+""			
+Bˆ„„„D$$$$$"!!HHHDD$"!!	
+BB"!DDDDBBB"ˆDB©		ˆ„„…!!!!DBˆˆˆˆ…!¢!!!!!!			
+BBBBBB""…ˆDBBˆˆˆHHHDBˆ„„D$$*ˆ„„„„D*BBBˆ…!!!!HHHDD)	ˆˆˆ„D$""ˆˆˆDB""¤*BBBBBBBˆˆT„D"""ˆ„„„D""!!!HQˆ„„„„DDDB¤$""""""
+BBˆˆ„„„„…DB"!!!!HHHHHDBBˆˆˆ„„DBBˆ„„„„…©¤$$$$$$$"!!T…!
+B©
+B"ˆˆHDBBBBB""ˆ„DD$"!!ˆˆHHDDBBBBBBBBˆˆˆˆDB"		ˆHTDDDD$$""„DDBBBB""!!!							
+"ˆ…!!		
+"ˆ…!TDD)	
+BBˆ…HDDDDDDDD$(ˆˆˆˆˆˆˆDD$$(ˆˆ„„„DBˆˆ„D""!!!			ˆˆˆˆˆHDD$$$)
+B¤$"!!		
+"ˆˆˆHHHHHHDDDDD$$*"!!!			ˆ„D$""!!!ˆ„D)			
+BBB"„„„„„„„…HHHDDDB"!ˆ„„DDDDD$"!
+BB"	
+ˆˆHHDBBBBB"			
+BBB©		ˆHR„…ˆ„DD$$"!HHHDBBˆˆQˆ„„„…!HHHHHDB"""!!HDBBB©ˆDBB"…!!HHHR¤$)			
+B¤$$$$"!!HHHDB¤$$$$$""!HHQ¤$$$$""ˆ„„„„„DBB"!!!¤$$"!!DB"…!!		ˆDBˆˆ„DDDBBBBBBBB""!!!!!!!DBBBˆˆ„…			
+BBB¢!!DDDDB""				
+D…!	ˆ„„„D)ˆHDDBˆ„„„„…ˆˆˆHHHHHHU!!!HDD"""""!!ˆˆˆˆHHRˆˆˆˆˆ„D)			
+BB"
+""ˆˆ„„„„„D"!!!		ˆHHHRDDD$$$)			
+BªBB¢"!!HHHDDBB"	
+BBBBBBBBB"!HRD"""¤)	ˆˆHDD$$(ˆDB"		
+¤)
+"""""ˆ…!!!		
+"„„…!¨ˆHHHDB"!¤*""„„DBBBBBˆ„…!HHHHDDBˆˆ„„„…
+¤$)	
+B©			ˆ„„„„DBBB"„„„„„„„„„DD(ˆ„…
+Bˆ„„…
+¤$$)ˆHDD""ˆˆˆˆHHQ¤""…!ˆR	ˆˆˆH©			„‰					ˆHQ©			ˆˆ„„„…	
+¤"!!!!!!!!		
+BBB¢""¤"!HQ¢"!!¤$$$(ˆˆHDB"	ˆDBˆˆˆHRˆˆˆHDDBBB"!	ˆˆHˆ„„„DD$""!!
+"!!!HDD)
+"„…HDDBBBˆ„DD$)	
+BBBBBBBBBBBˆˆˆ„„…!DDBBBˆ„„„„„„…!!					ˆDDD)
+"„„D""		ˆHHHHDDD"!!DBB")ˆHQ	ˆˆˆRˆˆDBBBˆˆˆ„„…!HHHHHHHHHHDBB""""!!	
+B"""©
+"¤$)										ˆR¤"!!¤$$$)			
+Bˆ„DBBB¤$$$HHHR!!!¢!!HHHDDB"
+BB"""!!!""BBBB"…DD$$"!¤)ˆHHDBBDDD$$$$""!		ˆ„DD$$)			
+ˆ„…!""""!R!!HHR„„…Q¤""„„…HHHHHDDBB""			„„D$$"!!!	
+¤$$$"!
+BB""!!!!!!HHDB¤""!!!!!!!!HHHHH¤)						ˆ„„„„„D$)ˆˆˆT…	
+"!!!!!	ˆDBBB©ˆT…ˆ„D$$$)	
+BBB¤$)								ˆ„„„D$(ˆ„„„DB""„D$$"!
+BBˆˆ„„„„…	ˆHQˆ„„D(ˆˆ„DD$""""""!!!!!"BBBBBˆ„„„„D$$""„„DBˆ…
+"!			ˆHDB¢"!!!					ˆHHHHDBB"""					ˆHDDBB"D$$$)
+BBBB"¢"!DDDBBB"""„DD$(ˆˆR„„„D"!!""!!!	!ˆˆ„„„…
+"!ˆ„„„„…ˆˆ„„D$$$$""…HHHHHDB¢"!¨ˆˆHHHHDD$$$$$""¤""ˆ„„„DDD*BBBBB"¢!!!ˆ„…¨ˆHHDD$$"""!!!!!!!ˆ…!ˆ„…ˆˆˆˆˆ…ˆˆHDDD$"!HR„„D$""D$$)			¨ˆ„D$"!!ˆDBBB"©ˆ…!!!HDDDBˆ„„„D$$$"!!	
+B¤$"!!	
+"‘R				ˆ„„DDDDDDDDDD$$)				
+B¤$*""!!HHHHDBB"!!!¢"	
+©						
+Bˆ„„„„DBBBˆˆHDB"""„„D"""!"""!"""!$DDDDD$DDD$BHˆˆˆˆˆˆHˆˆˆ„ˆˆHˆ„‘	‘’""""""""""""!"!""Hˆˆˆˆˆˆˆ„‘‘’I$’"""BDBDD$DDDDDDDDBDBDDDD$DD$„ˆˆˆˆˆ„ˆHˆˆ„ˆI				‘		$BDDDDDDD$DDBI	‘	‘‘‘‘’""""""""""""!"""""""!$„ˆˆˆ„’"!$DDDDDDDBDDD$‘	‘’D$DDBDD$ˆˆˆˆˆˆˆˆˆˆˆHˆI‘		$DDDDDDD$DDDD$BDBDDDDD$BDDDBDD$DDDBI‘	‘	‘’""""""!!"""""""""!"""D$DDDDBBDDDDDDDDDDDDBDDDDDDDBI‘	"!""""""""""""""!""""""!""""!""""""!"""""""""!""HˆˆHHˆˆˆˆˆˆˆˆˆHˆˆˆˆˆˆˆˆˆI‘		"""!$BDBDDDDDBDDDDD$BDDDDDBDBDDDDD$DDDDDBDDDDD$DDDDDBDDDD$DDDDBDDDD$DDDBD$DBDDDDDDD$$DDDBDDD$BDDDDBDDDDDBHˆˆ„„„ˆˆˆˆˆHˆˆˆˆˆˆˆˆ„ˆˆˆˆˆˆˆ„‘‘	‘‘							‘			!$‘		’""!$‘	!""""!$D$DBDDDDD$’""""""""""!""""""""""""HˆHI		’I‘		‘	‘		!!$DDD$DDDDDDDDDDDBDD$BHˆˆ„ˆˆˆˆˆˆˆˆ„„„ˆˆˆˆˆˆˆˆˆHˆˆˆˆˆ„ˆˆˆˆˆˆˆˆˆˆˆ„„ˆˆˆˆ„’I$’DD$’"!""!"!"!""""""!"!$D$DDDBDDDDD$DBDDDDDBI‘‘’""!""""!"""""""!"""!""""!!"!""""!"""""""""""!$DDDDDD$BD$’""""!"""""""""!"DDDD$DDDBDDDDBDD$DDBDDDDBDDD$ˆHˆI	‘‘								‘‘’DD$ˆI!$‘	’""""""""""""""!""DDBHˆˆˆˆˆ„ˆˆˆˆˆˆˆHI""!"!""""!$D$DBDDDDD$DDDDDDDD$DDDDD$ˆˆˆˆH„ˆˆˆˆˆˆ„„’I‘	‘‘				$DBHHˆˆˆHˆˆ„„ˆˆˆˆHˆHˆˆˆHˆ„ˆˆˆ„ˆˆˆHˆˆˆˆˆHˆˆˆˆˆˆˆ„ˆˆˆˆˆˆ„’BHHˆˆˆI"""""BI‘‘’""""""""""""""""""""!!""""""!"""""""""!"!!""!""""""""""!$BHI	‘	‘	!""""""""""!""""""""""""""""""!""""""""!!"!!""""!""""!!"!$$DDDD$D$D$‘	"""!""""""Hˆˆ„ˆˆˆHˆˆˆˆˆˆˆ„ˆˆˆ„ˆˆˆˆˆˆˆ„‘	$DDDDDDDDDD$ˆ„ˆ„‘		‘‘‘	"""""""""""!$ˆˆ„ˆˆI	""!$‘‘’!""""""!"!$ˆˆHHˆ„‘		!!$DDBDBH„ˆHˆ„ˆˆ„ˆˆˆˆˆI			""!$„ˆˆ„ˆˆˆˆI$’I"""""!"""""!""!"""""""""!!!$DDDD$DDD$ˆˆˆ„„‘‘		‘‘	’"""DDDDBHˆ„ˆˆHI$’"""""I$BD$DBBDDDDDDBDDDDD$$$$BDDDDDBDDDDD$‘‘	""""!"!!""!$‘‘							$ˆˆI$$DDDDBDDDDD$$DDDDDDDD$DDDDDDD$$DDD$ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆI	’""""!"""""""""""""""!$DDDDBD$DDD$‘‘		$BDDDDDD$D$$DBDD$’I$DDDDDDD$BDDDDDD$DDD$DBI‘		‘	’"!!$DDDDDBDDD$DDD$DDBDDBDDDDDBDDDDDD$DDDBDDDDDDDDDDDDBDDDDDD$ˆˆ„ˆH„’""""!""!""""!""""""!$DBD$BDDDDDBDDDDDDD$DDDDDDDD$DD$$DD$DD$$‘		’DBDDBDDDDDDBHˆˆˆˆˆˆˆˆ„‘		‘‘’""""""""!""""""!$DDDBHHˆHˆˆHˆˆI$ˆHˆˆˆHˆˆˆˆˆˆˆˆˆI$$’I	""""HˆˆI		"""""""DDDDBDDD$ˆˆˆ„ˆˆˆˆˆˆˆˆI	""""""""""""!"""""""""!""""!""Hˆˆ„ˆˆHˆ„ˆHˆˆHˆˆˆˆˆˆˆˆˆ„ˆˆˆHˆˆˆˆ„ˆ„‘‘		$DDDBH„ˆHˆˆHˆ„„ˆ„„ˆˆˆHI	$DBBDDDDBI"""!""""""""!$$DDDDDDDBDBDDBDDD$DDBBDDD$DDDD$‘	‘	""!""!""""""""!"!"""""""""""BDD$D$DBD$DD$DBI		‘‘						‘‘				‘			$$DDDDD$DBDDDBBDDDDDDDDDBHˆHHˆˆˆˆˆˆˆˆ„ˆˆˆ„ˆˆˆˆˆˆˆˆ„ˆHˆˆ„ˆˆˆ„’I""""HˆˆˆHˆˆˆˆˆ„‘‘’I$’DDDDDBBDDDD$DBD$DDDDDDDDDDD$„ˆˆˆˆˆˆI’"""""""!""!"""""""!$BDBDDDDDDD$‘‘‘	!""I"!!"""DDDDDDBDDDD$DDDDDDDBDDBI$ˆHˆˆˆˆ„ˆˆ„‘	’!"""""""""!""""""""""""""!""!""""""""""""""""""I	‘		‘’""""""!!"!"D$ˆI‘’""!$$DD$DD$DDDD$DD$DD$DDDDBDDDDDDDD$BHˆHˆHˆˆˆˆˆˆI‘	‘			‘‘		’"!!""""""""""""""HI‘’""!"!""!"""""!""""I	‘			"!"""""""""""""!!"""!$DDDDDDBD$BDDDBDD$DDDDBDDBDDDDD$DDDBDDD$DDDBDDDBI		$DBDDDBDDDDDDDDDDDDDDDDDDDD$„‘			‘‘		‘	‘‘‘					’"""""""!"Hˆˆ„‘	$DDD$$BDDD$DDDDDDD$DDBDDDDDDDDDDBDDDD$$DDBBDDDDDDDDBH„ˆˆHˆI	‘‘‘‘‘’"""""""""""!$ˆˆˆˆ„ˆHHˆˆˆˆˆ„ˆHˆˆˆI‘‘	‘	‘	‘’""D$DDDDDDDDDDDBDDDBD$BI""""""""""""""""""""""""""""""""""""""""""""!""!""""""""!"""""""""""""""""""""""!"!""""""""""""DBHHˆHHˆˆˆˆˆˆˆHˆ„ˆˆˆ„„„ˆˆˆˆˆˆHHˆˆˆ„ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆHˆ„ˆˆˆˆˆI		‘‘	""""""""""!""""""""!""""""""""""""""""!$DDDDDDDDBDBD$DBDDDDBDDDDDD$$$DDBDBBDD$DBHHˆˆI$’I’"!""""""""""!""""""""""""""""DBDBBDDDDDD$BDDDD$$DDDDDD$DDD$DDD$DDDDD$BHˆˆ„’""!""""""!$$$DD$DDDDDDDBBHˆˆ„ˆˆˆˆˆˆˆˆˆˆ„ˆ„ˆHˆˆ„’""I$$DBDDDDDDDBDDDBDBDDDDBDDDDDD$DDDBDDDD$DD$BDDDDDD$DD$DDDD$$DDDBBD$DDDD$ˆˆˆ„’!$ˆˆˆˆˆˆˆˆˆ„’BDDDD$ˆˆˆHˆ„‘‘			’DBDDD$BBHˆ„ˆHI‘’""""!"""""""DDDDD$ˆ„ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆI	$DDDDBD$‘‘‘	‘					‘	""""!"""DDBDDDD$ˆˆˆˆˆˆˆ„ˆˆˆˆHˆˆˆ„ˆHˆ„’HˆˆˆˆˆˆHˆˆˆˆˆˆ„ˆˆˆˆˆˆˆˆˆˆˆHˆI				‘‘	‘‘’"!"""""""""""""""!"!"""""""!"!!""!""""!""""""""""""""""""""!"""""I$ˆHˆˆˆHˆˆˆˆHˆHˆˆHˆH„ˆˆHˆˆˆˆˆˆˆˆˆ„ˆˆHˆHˆˆˆˆˆH„ˆˆHˆˆˆˆ„ˆˆˆˆI	‘‘	’DDDDDD$DDDDBHHH„’DDDDDDBBI"""""""!""""!"!""""DDDDDBDDDDDDD$$ˆˆˆHˆˆˆ„ˆˆˆˆˆˆI$ˆ„ˆˆˆˆˆˆHˆˆˆˆˆˆˆˆ„‘‘		‘	’"DDDD$DBBH„„’"""!!""""""""""""""!"!""!"""!""""DBHˆˆHˆ„ˆHˆˆˆˆ„‘		‘‘		"""""!"""""""""""""!$DBBD$DDDDBDBDDBDDDDDDDD$‘’BDDBDDDBDDDDDDDD$$DDD$DDDBDDDDDDDDDDDBD$$DBDDDDDDDDDD$DBD$DBBDDDBD$’""!""!!""""""""""""""""""I	’"!""!"""!"""""""!""DBD$DBDDDDBH„ˆ„ˆˆˆHˆˆˆ„ˆˆˆˆˆ„’"""D$DDDDDDD$ˆ„ˆHˆˆˆˆˆˆH„ˆˆˆHˆˆˆˆˆˆ„ˆˆHˆˆˆˆˆˆ„ˆˆˆˆˆˆˆ„ˆˆˆˆˆˆˆˆˆˆ„‘				’""!"""""""""""""""""""I$’DDD$DBDDDDDDDBD$DDBDD$DDDDDDDDD$BDDDDDDD$ˆˆˆˆˆˆˆˆˆˆˆˆˆ„ˆˆˆˆˆI’I’"""""""""!""""""!"!$DBDBDDBBHˆˆˆˆˆˆˆˆˆˆˆˆˆˆI’""""""""!"!""!"!""DD$D$ˆˆˆˆHˆˆ„ˆ„ˆ„ˆH„’"!"""""Hˆˆ„„‘‘’!"""""""DDD$ˆˆˆˆˆˆˆ„ˆ„ˆHHˆˆHˆˆˆˆHˆˆ„ˆˆˆˆˆˆˆˆ„‘‘‘	‘			‘’"""""""!$BDDDBDDDDDDD$DDD$$ˆˆ„ˆˆˆ„ˆˆˆˆˆˆˆHHˆHˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆHˆ„ˆˆ„ˆˆHˆˆˆˆˆI$’"""!$BDDDDDDDBDDDBDDBDDDDDBDD$DDDBBDDDDDDDD$ˆˆI‘	‘	"""""""""DBDDDDBDDDDDBDD$DD$BDDDDDDD$DDDDDDDDDDDDBDD$BDDDDDDDDDDD$DDDDDDDBHˆ„ˆI		‘‘‘’""!""""!"""!"!""""!"!""""!"""""""""!!"!"!""""!"!"DDDD$DDDDDD$’I	‘’"""""!"""""!"!$BDDDBDDDDDBD$’""""""""""""""""""DDBDDD$DBDDDDDDDDD$ˆˆˆˆˆˆˆHˆˆˆˆˆˆH„’"""""""""!"""""!"""""!""""""""DDBDDDD$$BBHˆˆˆˆˆˆˆˆˆˆˆHˆˆˆˆ„ˆˆ„ˆˆˆI’HˆHˆˆˆHˆHˆ„‘‘	‘‘		""""""""""DDDDBDBDBHˆˆ„„‘’"!!$DDDBI""""""""""""""""""!""""""!"""""""""""""""!$DDDD$$D$’!"!"""""""!"""""!$DD$DDBI‘	$DBHHˆHˆˆˆˆˆˆˆˆˆˆˆHˆˆ„ˆ„’BDDDDBDDDBDD$DDDDD$DDDDDBDDBDDDDDD$DDDDDDDBBDBDD$DD$ˆˆHˆˆHHˆˆˆˆ„„ˆˆˆˆˆˆ„ˆˆˆI"""!""""""""""""""!"I$ˆˆˆˆ„ˆˆˆ„„„ˆ„ˆHˆHˆˆI‘			$’DDD$ˆˆˆˆ„ˆˆ„ˆˆˆˆˆˆˆˆˆˆˆˆHˆˆˆ„‘‘			""!""""""""""""!""""""!"!$DDDBDDDDBBBBDDDDDDDDDDDDBDDDDBHˆˆˆˆˆˆHˆˆHˆˆ„ˆ„ˆˆˆˆˆˆHˆˆHˆHˆˆˆˆHHˆˆˆˆH„ˆˆ„ˆˆˆˆ„ˆˆˆH„ˆˆHˆˆˆ„ˆˆˆˆˆˆ„ˆ„‘	"""!"""""!$DDD$ˆˆˆˆHHˆ„ˆˆˆˆˆˆˆHˆˆˆˆˆˆ„‘‘‘	""!!""!""!""""""DDDDBDDDBD$ˆHHˆˆˆˆˆˆ„‘				"!"""""""""""""!""""!!""""!!""!!""""!""""""!!$D$$BDD$DDDDDDDD$BBDBDBDDD$DDDBDBBD$$ˆ„ˆˆHHˆˆˆˆˆˆˆI				’""""""""!"""""""BBDDDDD$DD$DDD$$DDDDDD$DD$BD$‘	‘			’"!""""""""""""""""""""!$‘		‘	‘					‘		‘		‘‘‘’""HˆHˆˆˆˆHHˆˆˆˆˆˆˆI"""""!"""""!""!"""""""""""""""""""""""!"!$’I""""!"!"""!"""!"""""""!""DDDDBHˆˆˆˆˆHˆˆ„ˆˆHˆˆI			‘		"""DD$DDD$$DDDD$DDDDDD$‘			‘’HHˆˆˆˆˆ„ˆHˆˆˆ„‘		’""!"""""""I	‘			‘‘		‘	’""HˆˆI’""!""I’""""""""!$$DBDDDDBDDD$’"""""""""!"DDDDDDDDDDBBDDBD$DDDDBHˆˆˆ„’""""""""!"""""""!$$$ˆHI!"!"""""""""!"""!""""!"!"""!""""DDDDBDDDDDDDBDDDDDDDDDDBBBDDDDD$D$DDD$DDDBDDDDBI			""""""!!!"""!$DDDDDDDDDDDDDD$$DDDDDDDDDBDDDBDDDD$DDBHˆˆHHˆˆˆ„ˆˆˆˆˆˆˆ„„ˆˆˆˆˆˆHˆˆˆˆˆ„ˆˆˆˆˆ„ˆˆˆˆˆˆ„‘‘	’I	‘	’H„ˆI""""""!"""!$D$D$ˆˆHHˆˆˆˆHˆˆˆˆˆˆI’DD$BDDDDDDDDDDD$DDDDDDD$D$BDDDD$DDDBDDBDDDBDDD$ˆˆˆHˆˆH„ˆHˆˆˆˆˆˆ„ˆˆˆˆ„ˆˆˆˆˆˆˆˆˆˆˆH„ˆˆˆˆˆˆˆˆˆˆ„ˆˆˆ„ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ„ˆˆ„ˆHˆˆHˆˆˆˆˆˆHˆˆˆˆˆˆHˆHˆˆˆˆHˆˆˆˆ„„„ˆˆˆˆˆHI"""""""!"""""""!""""""""""""""BDDDD$DDDDDDDDBDD$BDDBDDDDDBDD$D$DDDBDD$DDBDD$BDDDBI	‘‘		‘	$DDBDDDDD$BDDDD$BDDBD$D$DDDDDDDDBHˆˆ„ˆˆˆˆHˆˆ„ˆˆˆˆHˆHˆˆˆHˆˆHHˆˆˆHˆˆˆˆˆˆˆˆˆH„ˆH„ˆˆˆ„„‘	‘‘‘‘	‘	‘’""""!!$ˆˆˆˆ„ˆˆˆˆˆˆˆ„„‘	""""""""""""""!!"!""""""!""""""DDDD$ˆˆˆˆˆˆˆˆˆ„’"""""""""I	‘‘	’!""""""""""!""DDDBBDDDDBI			‘’"!""!"""""""""!"""""""!"""HˆˆˆˆHˆˆˆˆˆˆ„ˆˆˆHˆˆˆˆˆˆˆˆˆˆˆHˆˆˆˆˆˆˆˆ„ˆI‘‘‘	$‘		""""""""""""""""!""""""""!""""""""""!$DDDDDDDDD$DDDD$ˆˆˆˆˆˆˆˆˆˆˆˆHˆˆˆ„ˆˆˆ„’"!$„ˆHˆˆ„ˆˆˆ„ˆˆˆˆˆˆˆˆHˆHˆˆˆ„ˆˆˆˆˆˆHˆˆHHˆˆˆˆˆˆˆˆHˆˆˆˆˆHˆH„ˆ„‘‘‘‘		"!$DDDBDDDDD$$DDDDD$$$BHˆˆˆHˆˆHˆˆ„ˆˆˆˆI‘		‘‘’DBBI‘	‘		"!"""""!$$DBI		$DBBDDDDBDBDDD$DDDDDDD$’DDD$DDDBBDBDD$DDDDDDBDD$$$ˆˆˆˆˆHˆ„ˆ„ˆ„ˆˆHˆˆˆˆI$’I""!"""""""I""""""DBD$DD$DDD$DDDDD$DD$DDDDBD$’DDDBDBBBDDDD$D$ˆˆˆˆˆ„ˆH„ˆˆˆˆˆHˆHˆHHˆˆˆ„‘‘	‘		‘		""Hˆˆ„ˆˆˆˆˆˆHˆˆHˆHˆH„‘	""!""""""""""Hˆˆ„ˆ„’"!"""""!"""!""""""!"""""!"""!""!$DDD$DDBHˆˆˆˆˆˆ„„‘‘				$DDDDDBDDDDDDDBBBDDDD$DDDBDDD$„ˆˆˆ„ˆˆ„ˆˆˆˆˆ„ˆˆˆˆˆˆˆHˆˆH„ˆˆˆˆˆˆˆˆ„’!""!""!$$DD$D$D$DBD$ˆˆH„’HˆˆH„’BBDDDDD$DDBDDBDDDDDDDDDD$DDDDDDDDDBDDDDDDD$DBDD$DDDDDD$BD$DDDDD$DDDDDDDDDDDBDDBDDDDDDDDDDDDDDDD$ˆˆˆˆˆˆˆ„„ˆˆˆˆ„ˆˆˆˆˆˆHˆˆI‘	!""DDDDDDBDDDDDDDDDDD$DDDDDDDDDDBDDD$DDD$BDDBBI	’""!"""!"""!$BI	‘	‘‘’""!$$’"!$‘’Hˆˆ„’!!"!$DDBH„ˆ„ˆˆˆˆI"""""!""""!"!""""!!$DDDDD$„„‘	"""""!""DDBHˆˆˆ„ˆˆˆˆˆ„ˆ„ˆHˆˆ„ˆ„ˆˆH„ˆˆˆˆˆˆˆˆI""!"""!""""""BDDDDDDDD$BDD$DDDDDDDDDDBDDDD$DBDDBDDDDDDDDDBDD$DDDDDDDD$DDDDDDDDD$DDDDDBHˆˆˆHˆˆˆI		‘		‘		’"""""""!$DDD$DD$DDDDD$BBDD$DD$DDDDD$DDDDDDDDDD$ˆˆHHˆHˆˆˆˆˆˆˆˆˆˆˆˆˆHˆˆHH„ˆˆˆˆˆˆ„ˆˆˆH„ˆHˆˆˆˆˆˆˆˆˆˆI‘						’""""""""!"""DDDD$‘’"""""""""!""""""""""""DDDBD$DDDDDBDDD$DDBDDDDDDDBDDD$D$D$DBI				‘	""""""""""""""""""""""""!""!"""""""DDDDDDDDDBDDBBDDDDDDDDBDDDDD$DDDDDDBH„ˆˆˆˆˆ„ˆHˆˆHˆ„ˆˆHˆˆˆI	‘		"!"""""""I‘	‘		"D$DDDDDDBDDBDDDD$$‘‘		‘	"BI	‘			‘‘	’"""""""!"DDDD$$DDD$’BI‘	‘			"""""""!!$D$DDDDDDDDDDDDDDDDBDDDDBDBHˆˆ„ˆHˆˆˆˆ„„„ˆHˆˆˆ„ˆˆHˆˆˆˆHˆˆˆHHˆˆˆHˆ„ˆˆˆˆˆˆˆˆHˆˆ„ˆ„ˆHˆˆˆˆˆˆˆHˆˆˆˆˆˆI‘‘‘		‘	"""""""""!""""!""!$DD$DDDDDDDDDBHHˆˆHHˆI""!"""!"""!"""""""""""!"""!""""""""""""""!!""!$DDDDDBBDDDDBBHˆˆHˆˆˆˆˆˆH„’""!"!$DD$D$ˆ„ˆ„„ˆˆ„ˆˆHˆˆˆ„ˆˆˆˆˆˆˆˆˆˆˆHˆˆˆˆH„ˆˆ„ˆˆˆˆHˆˆˆˆ„ˆˆˆHˆˆˆ„ˆˆˆˆHHˆI’DDBI""""!""""""!!$DDD$‘					"!"""""!""!""!"""!$DDDDDDDDDD$DBDD$DDBDDDDDDDDDDD$DBDD$DDDDDDDD$DDDD$$$DDBD$ˆˆˆˆˆˆ„ˆˆ„ˆ„„ˆˆˆˆˆˆH„ˆˆˆˆˆˆ„ˆˆˆˆˆˆˆ„ˆˆˆˆ„ˆ„ˆHˆˆHH„ˆHˆH„‘’Hˆˆˆˆˆˆˆˆ„ˆˆˆˆI‘		‘	’"""""""!$BDDDDDDDBD$ˆˆˆHˆˆ„ˆˆˆHˆI	$’I$D$DDDBDD$DDDDDD$ˆˆˆHˆHˆˆ„’HHˆHˆH„ˆHˆˆˆ„’""DDDBD$$DDDBDDDDDDDDDDDBDD$DD$DDD$ˆˆ„ˆ„‘		’DDDDDDDDDDD$DDDDDDDDDDBHˆˆˆH„ˆˆˆHI"!"""""""""""""""""!""!""""!""!"""!$D$D$DDDBD$‘	‘‘			""DDBDDDDDDDDDDD$DDDD$DDDDDDDDDDDDDDDDDDDD$DDD$D$DDDD$’"DDDDDDDBDBDDBDBD$D$DDDD$ˆˆˆ„ˆˆHˆˆˆ„ˆˆ„‘’"""DDBDDD$‘‘‘’HI""""!""""!!!""""""!"""""""""""BDD$DD$DDDDBDDD$BI""!"""""""!$DBH„ˆˆˆ„ˆˆˆˆˆHˆHˆHˆˆˆˆˆˆˆˆˆˆˆH„ˆˆˆˆHˆHˆˆI‘	‘‘		‘	""""!"DD$DDDBHˆˆˆˆˆˆˆHH„ˆˆˆˆ„ˆˆˆHˆHˆ„ˆˆˆˆHˆˆHˆHˆˆˆˆHI"""""!!"""""""""""Hˆˆˆˆˆˆ„ˆ„’DDDDD$BHˆˆˆˆˆ„ˆˆˆˆI$„ˆˆˆˆˆˆˆI	‘‘‘’I$D$D$DDDDDDD$ˆˆˆˆˆˆHˆˆˆI$ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ„‘	$D$DDDDDDBDDDBDDDBDDDBDDDBHˆˆˆˆˆˆˆI’I"""""""""!""""""""""!!"""!!"!!"""!"""!!"""""""""""!""""""""!""""!!"""""""""""!""!""!"""""""""""""""""""DBI""""""""DDDDDDD$ˆˆˆˆˆˆˆˆˆˆˆˆI	‘				‘			‘‘’"!"""DDDDDDDD$BHˆI’!!"DDBD$D$DDDD$ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆHˆˆˆˆˆ„ˆˆˆˆˆˆˆˆˆˆˆHˆI	’""!"!$ˆˆˆHˆHˆˆˆˆHˆˆ„’I	"""""""""""""DBDDDDDDDD$BBBDBHˆˆˆˆ„ˆˆˆˆ„ˆ„„„ˆˆˆHˆˆˆH„ˆˆˆˆ„ˆˆˆˆ„ˆˆH„ˆˆ„ˆˆˆ„ˆˆˆˆˆHˆˆ„ˆˆH„ˆˆ„’""""""""""""""!$DDDDDDDDDDDDDBDDDD$$$DDDD$D$DD$DDDDDDD$DDDDDDDDDBDDDDDDBDD$ˆˆˆHˆˆˆˆˆˆHˆˆˆˆˆHˆˆˆˆˆˆˆˆˆˆ„ˆˆHˆHˆˆˆˆˆˆ„„„ˆˆI"!""!""""!"""""!""""""""""""""!"""""„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!BˆB„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„"„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„!B„""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""$DHˆ‰""DHˆ‰$DDDDDHˆˆˆ‘$Hˆ‘I$‰"H‰Dˆ‘I""II$’Dˆ’I"""""""I$’I""DDI"""$’II"DDDDDDHˆˆˆˆˆˆˆ‘D‘$D’H‘$DDII$’"DDHˆ‘"""""""""DDDDˆˆˆˆˆˆˆ’"DDH‰D‘$ˆ’Hˆˆˆˆˆ‰"H‘"DDDDDDDDDDDDD       î
