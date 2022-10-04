@@ -1,27 +1,46 @@
 import { Operation } from "express-openapi";
 import { Request,Response, } from "express";
-/* const operation = () =>{
-    let operations = {
-      GET,
-      POST,
-      PUT,
-      DELETE,
-    };*/
-  
-    export const GET: Operation = (req:Request, res:Response) =>{
-      res.status(200).json([
-        { "@type" : "ChangeRequest",
-        "@id" : "hdhdjjaKWOWIOIELLLLFL[Q",
-        "origin_database" : "DBNAME",
-        "status" : "Submitted",
-        "tracking_branch" : "djjdjqwklwkl;qle;l;",
-        "original_branch" : "dkdkelp3dmddkdkdkkdkdkk" }
-      ]);
+import ChangeRequestDB from "../../core/ChangeRequestDB";
+import * as typeDef from "../../core/typeDef"
+
+    export const GET: Operation = async(req:Request, res:Response) =>{
+      try{
+          const changeR = new ChangeRequestDB(req)
+          const result = changeR.getChangeRequests()
+          res.status(200).json(result);
+      }catch(err:any){
+          console.log(err.message)
+          const status = err.status || 500
+          const errData = err.data  || {message: "I can not get the change requests list"}
+          res.status(status).send(errData);
+      }
     }
   
-    export const POST: Operation = (req:Request, res:Response) =>{
-      console.log(`About to create Change Request: ${JSON.stringify(req.body)}`);
-      res.status(201).send();
+    export const POST: Operation = async (req:Request, res:Response) =>{
+      try{
+        const timestamp = Date.now()
+        const message = req.body.message || "create a new change request"
+        const payload : typeDef.ChangeReqDoc ={
+          "@type" : "ChangeRequest",
+          "origin_database" : "lego",
+          "status" :  "Open" ,
+          "tracking_branch" : req.body.tracking_branch,
+          "original_branch" : req.body.original_branch,
+          "author" : req.body.author, 
+          "creation_time" : Date.now(),
+          "messages" :[{"@type": "Message", "timestamp":timestamp,
+                        "text":message}]
+        }
+        const changeR = new ChangeRequestDB(req)
+        await changeR.createChangeRequest(payload,message)
+        console.log(`About to create Change Request: ${JSON.stringify(req.body)}`);
+        res.status(201).send("the change request as been created");
+      }catch(err:any){
+          console.log(err.message)
+          const status = err.status || 500
+          const errData = err.data  || {message: "I can not create a new change Request"}
+          res.status(status).send(errData);
+      }
     }
   
     export const PUT: Operation =(req:Request, res:Response)=>{

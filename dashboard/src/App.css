@@ -1,5 +1,11 @@
+@import url("https://bootswatch.com/5/darkly/bootstrap.css");
+
 body {
     background-color: #222 !important;
+}
+
+.bg-grey{
+   background:  rgb(51, 51, 51)
 }
 
 /**nav bar and content spacing */
@@ -160,11 +166,11 @@ form.rjsf > div > fieldset {
     width: 100% !important;
 }
 
-label.control-label,
+/*label.control-label,
 label.form-label,
 form.rjsf > div > fieldset > div.form-group > div.checkbox > label > span {
     color: #3459e6 !important;
-}
+}*/
 
 
 
@@ -273,7 +279,7 @@ a.leaflet-browser-print{
 .tdb__input > input, .tdb__input > select, .tdb__view__enum__input > select {
     border-color: transparent !important;
     border: 1px solid #ced4da !important;
-    color: #000 !important;
+    /*color: #000 !important;*/
 }
 
 /** Map legend css **/
@@ -346,4 +352,23 @@ a.leaflet-browser-print{
     height: 40px;
     width: 40px;
     z-index: 0;
+}
+
+.navbar-dark{
+    color:white;
+}
+
+.navbar-dark.active{
+    color:#00bc8c;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link.active{
+    color:#00bc8c;
+}
+.logo-img{
+    filter: grayscale(1);
 }

@@ -7,3 +7,4 @@ tdb_storage
 tmp_local
 *.DS_Store
 build
+.vscode
