@@ -36,9 +36,10 @@ initialize({
 app.use(
   "/api-documentation",
   swaggerUi.serve,
+  
   swaggerUi.setup(undefined, {
     swaggerOptions: {
-      url: "http://localhost:3035/api-docs",
+      url: "http://localhost:3035/api-docs"
     },
   })
 );

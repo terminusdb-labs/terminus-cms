@@ -20,8 +20,8 @@ export const DocumentInteface = () => {
     if (!frames || !result) return ""
    //const startView = client.checkout() === "main" ? "View" : "Edit"
    
-    const updateViewMode =(newBranchName)=>{
-        updateBranch(newBranchName)
+    const updateViewMode =(newBranchName,changeRequestId)=>{
+        updateBranch(newBranchName,changeRequestId)
         setView("Edit")
     }
 

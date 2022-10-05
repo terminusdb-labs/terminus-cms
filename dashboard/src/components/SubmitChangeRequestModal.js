@@ -3,30 +3,25 @@ import {Alert, Modal, Button, Form} from "react-bootstrap"
 import {ChangeRequest} from "../hooks/ChangeRequest"
 
 export const SubmitChangeRequestModal = ({showModal, setShowModal , updateParent}) => { 
-    const nameRef = useRef(null);
     const messageRef = useRef(null);
-    const {loading,errorMessage,setError,createChangeRequest} =  ChangeRequest()
+    const {loading,errorMessage,setError,updateChangeRequestStatus} =  ChangeRequest()
     
     const closeModal = () => setShowModal(false)
 
     const runCreate = async () => {
-        updateParent()
-        /*const name = nameRef.current.value
         const message = messageRef.current.value
-        if(!name || name === "" || !message || message === "") {
-            setError("Change request name and message are mandatory")
+        if(!message || message === "") {
+            setError("Change request message are mandatory")
             return
         }else{
-            const done = await createChangeRequest(name, message)         
+            const done = await updateChangeRequestStatus(message)         
             if(done){
-                nameRef.current.value = ""
                 messageRef.current.value = ""
-                updateParent(name)
+                updateParent()
                 setShowModal(false)
             }                  
-        }*/
+        }
     }
-
  
     //<Loading message={`Deleting Data Product ${dataProductDetails.label} ...`} type={PROGRESS_BAR_COMPONENT}/>}
     return <Modal size="lg" className="modal-dialog-right" show={showModal} onHide={closeModal}>
