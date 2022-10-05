@@ -1,4 +1,5 @@
 import TerminusClient , {WOQLClient} from "@terminusdb/terminusdb-client"
+import { DocParamsGet } from "@terminusdb/terminusdb-client/dist/typescript/lib/typedef"
 import { Request } from "express"
 import * as typeDef from "./typeDef"
 const server : string = process.env.SERVER_ENDPOINT || "http://127.0.0.1:6363"
@@ -28,7 +29,10 @@ class ChangeRequestDB {
             docResult = await this.client.addDocument(payload,undefined,undefined,message)
             const tmpClient : WOQLClient = this.connectWithCurrentUser()
             //create a new branch
-            return await tmpClient.branch(payload.tracking_branch)
+            await tmpClient.branch(payload.tracking_branch)
+            const docId: string= docResult[0]
+            const docIdHash:string=  docId.substring(docId.lastIndexOf("/")+1)
+            return {change_request_id:docIdHash}
         // to be review
         }catch(err: any){
             const errData = err.data || {}
@@ -64,6 +68,15 @@ class ChangeRequestDB {
         
     }
 
+    async changeRequestStatus(changeIdHash:string,status:string,message:string){
+        const changeId = `ChangeRequest/${changeIdHash}`
+        const requestDoc = await this.client.getDocument({id:changeId})
+        requestDoc.status = status
+        const messageObj : typeDef.MessageObj =  {"@type" : "Message",  "text":message, "timestamp":Date.now()}
+        requestDoc.messages.push(messageObj)
+        return this.client.updateDocument(requestDoc)
+    }
+
 
     async getChangeRequestById(changeId:string){
           const requestDoc = await this.client.getDocument({id:changeId})
@@ -77,15 +90,19 @@ class ChangeRequestDB {
             })
           }
 
-          if(!requestDoc)
-          {
+          if(!requestDoc){
             throw new Error ("change request not found")
-          }
-        
+          }      
     }
 
-    getChangeRequests(){
-        return this.client.getDocument({type:"ChangeRequest",as_list:true})
+    async getChangeRequests(changeId:string | undefined){
+        let params : DocParamsGet= {type:"ChangeRequest",as_list:true}
+        if(changeId){
+            params['id'] = `ChangeRequest/${changeId}`
+        }
+
+        return this.client.getDocument(params)
+        
     }
 
     connectWithCurrentUser() : WOQLClient {

@@ -34,8 +34,8 @@ export const DocumentInteface = () => {
 
     if (!frames || !result) return <div/>
    
-    const updateViewMode =(newBranchName)=>{
-        updateBranch(newBranchName)
+    const updateViewMode =(newBranchName,changeRequestId)=>{
+        updateBranch(newBranchName,changeRequestId)
         setView("Edit")
     }
 

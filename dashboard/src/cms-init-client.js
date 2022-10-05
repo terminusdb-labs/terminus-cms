@@ -85,6 +85,7 @@ export const ClientProvider = ({children}) => {
     const [frames,setFrames] = useState([])
     const [error,setError] = useState([])
     const [currentBranch,setCurrentBranch] = useState('main')
+    const [currentChangeRequest,setCurrentChangeRequest] = useState(null)
 
     useEffect(() => {
         const initClient = async(credentials)=>{
@@ -97,12 +98,14 @@ export const ClientProvider = ({children}) => {
                 const result = await dbClient.getClasses();
                 const frameResult = await dbClient.getSchemaFrame(null, dbClient.db())
 
-                const lastBranch = localStorage.getItem("TERMINUSCMS_BRANCH")
+                const lastBranch = localStorage.getItem("TERMINUSCMS_BRANCH")            
                 if(lastBranch){
                     dbClient.checkout(lastBranch)
+                    const lastChangeRequest = localStorage.getItem("TERMINUSCMS_CHANGE_REQUEST_ID")
                     setCurrentBranch(lastBranch)
+                    setCurrentChangeRequest(lastChangeRequest)
                 }
-                manageClasses(result)
+                //manageClasses(result)
                 setClasses(result)
                 setFrames(frameResult)
                // const access =  new TerminusClient.AccessControl(opts.server,accessCredential)
@@ -132,10 +135,12 @@ export const ClientProvider = ({children}) => {
         }
     }, [opts])
 
-    const updateBranch = (branchName)=>{
+    const updateBranch = (branchName,changeRequestId)=>{
         client.checkout(branchName)
         localStorage.setItem("TERMINUSCMS_BRANCH",branchName)
+        localStorage.setItem("TERMINUSCMS_CHANGE_REQUEST_ID",changeRequestId)
         setCurrentBranch(branchName)
+        setCurrentChangeRequest(changeRequestId)
     }
 
     return (
@@ -147,7 +152,8 @@ export const ClientProvider = ({children}) => {
                 linkEdges,
                 frames,
                 currentBranch,
-                updateBranch
+                updateBranch,
+                currentChangeRequest
             }}
         >
             {children}

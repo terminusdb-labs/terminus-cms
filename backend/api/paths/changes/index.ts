@@ -6,7 +6,7 @@ import * as typeDef from "../../core/typeDef"
     export const GET: Operation = async(req:Request, res:Response) =>{
       try{
           const changeR = new ChangeRequestDB(req)
-          const result = changeR.getChangeRequests()
+          const result = await changeR.getChangeRequests()
           res.status(200).json(result);
       }catch(err:any){
           console.log(err.message)
@@ -32,9 +32,9 @@ import * as typeDef from "../../core/typeDef"
                         "text":message}]
         }
         const changeR = new ChangeRequestDB(req)
-        await changeR.createChangeRequest(payload,message)
+        const crId= await changeR.createChangeRequest(payload,message)
         console.log(`About to create Change Request: ${JSON.stringify(req.body)}`);
-        res.status(201).send("the change request as been created");
+        res.status(201).send({message:"the change request as been created",...crId});
       }catch(err:any){
           console.log(err.message)
           const status = err.status || 500
@@ -42,17 +42,7 @@ import * as typeDef from "../../core/typeDef"
           res.status(status).send(errData);
       }
     }
-  
-    export const PUT: Operation =(req:Request, res:Response)=>{
-      console.log(`About to update Change Request status: ${req.query.status}`);
-      res.status(200).send();
-    }
-  
-    export const DELETE: Operation =(req:Request, res:Response) => {
-      console.log(`About to delete Change Request id: ${req.query.id}`);
-      res.status(200).send();
-    }
-  
+    
     GET.apiDoc = {
       summary: "Fetch Change requests.",
       operationId: "getChangeRequests",
@@ -88,51 +78,9 @@ import * as typeDef from "../../core/typeDef"
         },
       },
     };
+
   
-    PUT.apiDoc = {
-      summary: "Update Change Request.",
-      operationId: "updateChangeRequest",
-      parameters: [
-        {
-          in: "query",
-          name: "status",
-          required: true,
-          type: "string",
-        },
-        {
-          in: "body",
-          name: "change request",
-          schema: {
-            $ref: "#/definitions/PutChangeRequest",
-          },
-        },
-      ],
-      responses: {
-        200: {
-          description: "Updated ok",
-        },
-      },
-    };
-  
-    DELETE.apiDoc = {
-      summary: "Delete Change Request.",
-      operationId: "deleteChangeRequest",
-      consumes: ["application/json"],
-      parameters: [
-        {
-          in: "query",
-          name: "id",
-          required: true,
-          type: "string",
-        },
-      ],
-      responses: {
-        200: {
-          description: "Delete",
-        },
-      },
-    };
-  
+   
     //return operations;
  // };
 

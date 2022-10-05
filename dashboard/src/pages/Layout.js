@@ -11,10 +11,10 @@ import { SubmitChangeRequestModal } from "../components/SubmitChangeRequestModal
 import { useNavigate } from "react-router-dom";
 
 export function Layout (props){
-    const {classes,currentBranch,client,   updateBranch} = ClientObj()
-    if(!client) return ''
     const [showModal,setShowModal] = useState(false)
-
+    const {classes,currentBranch,client,updateBranch} = ClientObj()
+    const navigate = useNavigate()
+    if(!client) return ''
     const getNavDropdown = () =>{
         return classes.map(item=>{
             if(item["@subdocument"]) return ""
@@ -23,16 +23,15 @@ export function Layout (props){
                    </Nav.Link>
         })
     }//#424242
-    const navigate = useNavigate()
 
-    const goToDiffPage = () =>{
-        updateBranch("main")
-        navigate("/")
+    const updateParent = () =>{
+        updateBranch("main" , null)
+        navigate("/change_requests")
     }
 
 
     return <Container fluid className="p-0 flex-row container-background h-100" >
-                {showModal && <SubmitChangeRequestModal showModal={showModal} setShowModal={setShowModal} updateParent={goToDiffPage}/>}
+                {showModal && <SubmitChangeRequestModal showModal={showModal} setShowModal={setShowModal} updateParent={updateParent}/>}
                 <Allotment vertical className='h-100'>
                     <Allotment.Pane maxSize={48} minSize={48}  className="bg-grey">
                     <TopMenu/>

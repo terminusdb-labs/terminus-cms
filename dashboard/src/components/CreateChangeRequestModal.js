@@ -10,7 +10,6 @@ export const CreateChangeRequestModal = ({showModal, setShowModal , updateViewMo
     
     const closeModal = () => setShowModal(false)
 
-
     const runCreate = async () => {
         const name = nameRef.current.value
         const message = messageRef.current.value
@@ -18,11 +17,11 @@ export const CreateChangeRequestModal = ({showModal, setShowModal , updateViewMo
             setError("Change request name and message are mandatory")
             return
         }else{
-            const done = await createChangeRequest(name, message)         
-            if(done){
+            const changeReqId = await createChangeRequest(name, message)         
+            if(changeReqId){
                 nameRef.current.value = ""
                 messageRef.current.value = ""
-                updateViewMode(name)
+                updateViewMode(name,changeReqId)
                 setShowModal(false)
             }                  
         }

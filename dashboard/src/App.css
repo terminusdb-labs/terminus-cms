@@ -266,6 +266,10 @@ a.leaflet-browser-print{
     height: 50px !important;
 }
 
+.text-small{
+    font-size: 0.9em;
+}
+
 .subDocumentCard{
     background-color: #f4f6fe !important;
     border-color: transparent !important;
