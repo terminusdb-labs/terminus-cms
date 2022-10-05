@@ -3,13 +3,14 @@ import {Container, Navbar, Nav, NavDropdown , Form, Button} from "react-bootstra
 import {SearchComponent} from "./SearchComponent"
 import {NavLink as RouterNavLink} from "react-router-dom"
 
-export const TopMenu = () => {
+export const TopMenu = ({showSearchBar=true}) => {
     const isHome = window.location.pathname === '/' ? {opacity:0} : null
     
    
-    return <Navbar bg="dark" expand="lg" variant='dark'>
+    return <Navbar  expand="lg" variant='dark' className="m-0 p-0 bg-grey">
       <Container fluid>
-        <Navbar.Brand as={RouterNavLink} to="/">TERMINUSDB CMS</Navbar.Brand>
+        
+        <Navbar.Brand as={RouterNavLink} to="/"><img src="https://assets.terminusdb.com/images/terminusx-color.png" className="logo-img mr-2" width="40px"/>TERMINUSCMS</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -17,13 +18,11 @@ export const TopMenu = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link as={RouterNavLink} to="documents">DOCUMENTS</Nav.Link>         
-            <Nav.Link href="#" disabled>
-              LINK
-            </Nav.Link>         
+            <Nav.Link as={RouterNavLink} to="/documents">Documents</Nav.Link>         
+            <Nav.Link as={RouterNavLink} to="/change_requests">Change requests</Nav.Link>          
           </Nav>
-          <SearchComponent applyStyle={isHome}></SearchComponent>
-          <Nav className='me-auto'>
+          {showSearchBar && <SearchComponent applyStyle={isHome}></SearchComponent>}
+          <Nav className='ml-auto'>
           <Nav.Link href="#" disabled>
               Admin - Admin 
             </Nav.Link>  

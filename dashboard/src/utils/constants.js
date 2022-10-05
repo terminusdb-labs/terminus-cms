@@ -1,0 +1,1 @@
+export const noProperty = {"@id":true,"@key":true,"@subdocument":true,"@type":true}
