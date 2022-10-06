@@ -14,6 +14,7 @@ import {
 	MERGED, 
 	SUBMITTED
 } from "../components/constants"
+import {VscCheck} from "react-icons/vsc"
 
 const GetChangeRequestSummary = ({changeRequestList}) => {
 	if(!changeRequestList) return <div/>
@@ -30,10 +31,10 @@ const GetChangeRequestSummary = ({changeRequestList}) => {
 export const ChangeRequests = () => {
     const {client} = ClientObj()
     const {
-		getChangeRequestList,
-		changeRequestList
-	}= ChangeRequest()
-
+      getChangeRequestList,
+      changeRequestList
+    } =  ChangeRequest()
+  
     useEffect(() => {
         if(client) getChangeRequestList()
     }, [client])
@@ -48,7 +49,8 @@ export const ChangeRequests = () => {
     const iconTypes={
       	[OPEN]:<VscGitPullRequestDraft className="text-muted mt-1"/>,
       	[SUBMITTED]:<VscGitPullRequest className="text-success mt-1"/>,
-      	[REJECTED]:<VscGitPullRequest className="text-danger mt-1"/>
+      	[REJECTED]:<VscGitPullRequest className="text-danger mt-1"/>,
+        [MERGED] :<VscCheck className="text-success mt-1"/>
     }
 
     const status = {
@@ -61,11 +63,27 @@ export const ChangeRequests = () => {
       const oneDay = 86400000
       return Math.round((Date.now() - timestamp)/oneDay)
     }
+
+    const countType = {"Open" : 0 ,"Submitted":0, "Rejected":0, "Merged":0 }
+
+    const getHeader = () =>{
+      changeRequestList.forEach(item=>{
+        countType[item.status] = countType[item.status]+1
+     })
+
+     return  <React.Fragment>{iconTypes["Open"]} <span className="mr-3">{countType["Open"]} Open</span>            
+     {iconTypes["Submitted"]} <span className="mr-3" >{countType["Submitted"]} Submitted</span> 
+     {iconTypes["Merged"]} <span className="mr-3">{countType["Merged"]} Merged</span> 
+     {iconTypes["Rejected"]} <span className="mr-3">{countType["Rejected"]} Rejected</span></React.Fragment>
  
+
+   }
+    
     const formatListItem=()=>{
         return changeRequestList.map(item=>{
-            if(item.status === MERGED) return <div/>
-            const actions = (item.status ===  SUBMITTED) ?  {action:true, onClick:()=>goToDiffPage(item['tracking_branch'])} : {}
+            
+            if(item.status === "Merged") return ""
+            const actions = item.status === "Submitted" ?  {action:true, onClick:()=>goToDiffPage(item['tracking_branch'])} : {}
             return  <ListGroup.Item {...actions}        
                 className="d-flex justify-content-between align-items-start" key={item.id}>
                 {iconTypes[item.status]}
@@ -83,28 +101,29 @@ export const ChangeRequests = () => {
     }
 
 
-	return <Container fluid className="p-0 flex-row h-100" bg="dark" >
-		<Allotment vertical className='h-100'>
-			<Allotment.Pane className="bg-grey"
-				maxSize={48}
-				minSize={48}
-				>
-				<TopMenu/>
-			</Allotment.Pane>
-			<Allotment.Pane >
-				<Container className="mt-5">
-					<Card>
-						<Card.Header>
-							<GetChangeRequestSummary changeRequestList={changeRequestList}/>
-						</Card.Header>
-						<Card.Body>
-						<ListGroup as="ol" >
-							{changeRequestList && formatListItem()}
-						</ListGroup>
-						</Card.Body>
-					</Card>
-				</Container>
-			</Allotment.Pane>
-		</Allotment>
-	</Container>  
+return (<Container fluid className="p-0 flex-row h-100" bg="dark" >
+          <Allotment vertical className='h-100'>
+          <Allotment.Pane className="bg-grey"
+              maxSize={48}
+              minSize={48}
+              >
+            <TopMenu/>
+          </Allotment.Pane>
+          <Allotment.Pane >
+              <Container className="mt-5">
+          <Card>
+          <Card.Header>
+            {changeRequestList && getHeader()}
+           </Card.Header>
+            <Card.Body>
+              <ListGroup as="ol" >
+                {changeRequestList && formatListItem()}
+              </ListGroup>
+            </Card.Body>
+          </Card>
+         </Container>
+        </Allotment.Pane>
+        </Allotment>
+      </Container>  
+    )
 }

@@ -39,7 +39,15 @@ app.use(
   
   swaggerUi.setup(undefined, {
     swaggerOptions: {
-      url: "http://localhost:3035/api-docs"
+      url: "http://localhost:3035/api-docs",
+      /*basicAuth: {
+        name:   'Authorization',
+        schema: {
+          type: 'basic',
+          in:   'header'
+        },
+        value:  'Basic <user:password>'
+      }  */ 
     },
   })
 );
