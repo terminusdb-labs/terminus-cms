@@ -3,10 +3,10 @@ import { ClientObj } from "../cms-init-client"
 import {errorMessageFormatter} from "../utils/errorMessage"
 
 export function ChangeRequest(){
-    const { client,currentChangeRequest } = ClientObj()
+    const { client,currentChangeRequest } = ClientObj() 
     const [loading, setLoading] = useState(false)
     const [errorMessage, setError] = useState(false)
-    const [requestResult, setRequestResult]  = useState([])
+    const [changeRequestList, setChangeRequestList]  = useState([])
     
     
     const createChangeRequest = async(branchName,message) =>{
@@ -28,7 +28,7 @@ export function ChangeRequest(){
 
     }
 
-    const updateChangeRequestStatus = async(message,status="Submitted") =>{
+    const updateChangeRequestStatus = async(message, status="Submitted") =>{
         try{
             setLoading(true)
             const payload = {message,status}
@@ -48,7 +48,7 @@ export function ChangeRequest(){
             setLoading(true) 
             const result = await client.sendCustomRequest("GET", 'http://localhost:3035/changes')
             //console.log("result ** ", result)
-            setRequestResult(result)
+            setChangeRequestList(result)
         }catch(err){
             const errMessage = errorMessageFormatter(err)
             setError(errMessage)
@@ -57,6 +57,14 @@ export function ChangeRequest(){
         }     
     }
 
-    return {loading,setError,errorMessage,requestResult,createChangeRequest,getChangeRequestList,updateChangeRequestStatus}
+    return {
+        loading,
+        setError,
+        errorMessage,
+        changeRequestList,
+        createChangeRequest,
+        getChangeRequestList,
+        updateChangeRequestStatus
+    }
 
 }

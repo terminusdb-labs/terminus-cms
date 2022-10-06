@@ -50,6 +50,7 @@ export const DocumentInteface = () => {
 
     // function which extracts data from document form 
     function handleSubmit(data) {
+        console.log("data", data)
         setExtracted(data)
     }
    
