@@ -27,9 +27,7 @@
             }
          },
          "required":[
-            "tracking_branch",
-            "original_branch",
-            "origin_database",
+            "status",
             "message"
          ]
       },
