@@ -95,14 +95,12 @@ class ChangeRequestDB {
           }      
     }
 
-    async getChangeRequests(changeId:string | undefined){
+    async getChangeRequests(changeId?: string){
         let params : DocParamsGet= {type:"ChangeRequest",as_list:true}
         if(changeId){
             params['id'] = `ChangeRequest/${changeId}`
         }
-
-        return this.client.getDocument(params)
-        
+        return this.client.getDocument(params)   
     }
 
     connectWithCurrentUser() : WOQLClient {

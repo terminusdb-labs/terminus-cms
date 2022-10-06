@@ -7,12 +7,13 @@ import { TopMenu } from "../components/TopMenu";
 import {ChangeRequest} from "../hooks/ChangeRequest"
 import {VscGitPullRequestDraft} from "react-icons/vsc"
 import {VscGitPullRequest} from "react-icons/vsc"
+import {VscCheck} from "react-icons/vsc"
 
 
 export const ChangeRequests = () => {
     const { client } = ClientObj()
     const {loading,errorMessage,setError,getChangeRequestList,requestResult} =  ChangeRequest()
-
+  
     useEffect(() => {
         if(client)getChangeRequestList()
     }, [client])
@@ -29,7 +30,8 @@ export const ChangeRequests = () => {
     const iconTypes={
       "Open":<VscGitPullRequestDraft/>,
       "Submitted":<VscGitPullRequest className="text-success"/>,
-      "Rejected":<VscGitPullRequest className="text-danger"/>
+      "Rejected":<VscGitPullRequest className="text-danger"/>,
+      "Merged" :<VscCheck className="text-success"/>
     }
 
     const status ={
@@ -43,8 +45,24 @@ export const ChangeRequests = () => {
       return Math.round((Date.now() - timestamp)/oneDay)
     }
 
+    const countType = {"Open" : 0 ,"Submitted":0, "Rejected":0, "Merged":0 }
+
+    const getHeader = () =>{
+      requestResult.forEach(item=>{
+        countType[item.status] = countType[item.status]+1
+     })
+
+     return  <React.Fragment>{iconTypes["Open"]} <span className="mr-3">{countType["Open"]} Open</span>            
+     {iconTypes["Submitted"]} <span className="mr-3" >{countType["Submitted"]} Submitted</span> 
+     {iconTypes["Merged"]} <span className="mr-3">{countType["Merged"]} Merged</span> 
+     {iconTypes["Rejected"]} <span className="mr-3">{countType["Rejected"]} Rejected</span></React.Fragment>
+ 
+
+   }
+    
     const formatListItem=()=>{
         return requestResult.map(item=>{
+            
             if(item.status === "Merged") return ""
             const actions = item.status === "Submitted" ?  {action:true, onClick:()=>goToDiffPage(item['tracking_branch'])} : {}
             return  <ListGroup.Item {...actions}        
@@ -72,7 +90,9 @@ return (<Container fluid className="p-0 flex-row h-100" bg="dark" >
           <Allotment.Pane >
               <Container className="mt-5">
           <Card>
-          <Card.Header></Card.Header>
+          <Card.Header>
+            {requestResult && getHeader()}
+           </Card.Header>
             <Card.Body>
               <ListGroup as="ol" >
                 {requestResult && formatListItem()}
