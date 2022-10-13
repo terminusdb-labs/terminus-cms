@@ -210,6 +210,10 @@
       "@fields": ["theme_id", "name"]
     },
     "name": "xsd:string",
+    "image_url": {
+            "@class": "xsd:anyURI",
+            "@type": "Optional"
+        },
     "theme_id": "xsd:positiveInteger",
     "parent": {
       "@type": "Optional",
