@@ -72,7 +72,7 @@ class ChangeRequestDB {
         const changeId = `ChangeRequest/${changeIdHash}`
         const requestDoc = await this.client.getDocument({id:changeId})
         requestDoc.status = status
-        const messageObj : typeDef.MessageObj =  {"@type" : "Message",  "text":message, "timestamp":Date.now()}
+        const messageObj : typeDef.MessageObj = {"author":this.authUser || "", "@type" : "Message",  "text":message, "timestamp":Date.now()}
         requestDoc.messages.push(messageObj)
         return this.client.updateDocument(requestDoc)
     }
