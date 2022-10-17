@@ -26,10 +26,10 @@ import * as typeDef from "../../core/typeDef"
           "status" :  "Open" ,
           "tracking_branch" : req.body.tracking_branch,
           "original_branch" : req.body.original_branch,
-          "author" : req.body.author, 
+          "creator" : req.body.author, 
           "creation_time" : Date.now(),
           "messages" :[{"@type": "Message", "timestamp":timestamp,
-                        "text":message}]
+                        "text":message,"author":req.body.author}]
         }
         const changeR = new ChangeRequestDB(req)
         const crId= await changeR.createChangeRequest(payload,message)

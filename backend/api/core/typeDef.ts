@@ -2,7 +2,8 @@
 export type ChangeReqStatus = "Submitted" | "Open" | "Rejected" | "Merged"
 export type MessageObj =  {"@type" : "Message", 
             "text":string,
-            "timestamp":number
+            "timestamp":number,
+            "author":string
             }
 
 export type ChangeReqDoc = { 
@@ -11,7 +12,7 @@ export type ChangeReqDoc = {
     "status" :  ChangeReqStatus ,
     "tracking_branch" : string,
     "original_branch" : string,
-    "author" : string, 
+    "creator" : string, 
     "creation_time" : number,
     "messages": MessageObj[]
 }
