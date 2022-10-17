@@ -61,9 +61,9 @@ export const DocumentInteface = () => {
         <Card className="ml-5 mr-5">
             <Card.Header className="justify-content-between d-flex w-100 text-break">
                 <span className="float-left d-flex">
-                    <h5>
+                    <h6>
                         <strong className="text-success ml-1">{viewMode}: {type}/{id}</strong>
-                    </h5>
+                    </h6>
                 </span>
                 {viewMode === "View" && <Button variant="light" 
                     type="button" 

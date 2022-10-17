@@ -8,7 +8,8 @@ import {Allotment} from 'allotment'
 import "allotment/dist/style.css";
 import {ClientObj}  from "../cms-init-client"
 import { SubmitChangeRequestModal } from "../components/SubmitChangeRequestModal";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
+import {BiGitBranch} from "react-icons/bi"
 
 export function Layout (props){
     const [showModal,setShowModal] = useState(false)
@@ -39,16 +40,21 @@ export function Layout (props){
                     <Allotment.Pane >
                         <Allotment horizontal>
                             <Allotment.Pane  maxSize={250} minSize={250} snap>                         
-                            <Nav className="flex-column">
+                            <Nav className="flex-column mt-5">
                                 {getNavDropdown()}
                             </Nav> 
                             </Allotment.Pane>
                             <Allotment.Pane>
                                {currentBranch !== "main" &&
-                                <Alert variant="black" className="m-5 border d-flex"> 
-                                    <span>You are in the change request mode
-                                        <Badge className="ml-2">{currentBranch}</Badge></span>
-                                    <Button className="ml-auto" onClick={()=>{setShowModal(true)}}>Submit you change request for revision</Button>   
+                                <Alert variant="secondary" className="m-5 d-flex"> 
+                                    <span>
+                                        <small className="fw-bold mr-2">You are in change request mode</small>
+                                        <BiGitBranch className="text-muted mr-2"/>
+                                        <Badge bg="success" className="fw-bold mr-2">{currentBranch}</Badge>
+                                    </span>
+                                    <Button className="ml-auto bg-light text-dark btn-sm" onClick={()=>{setShowModal(true)}}>
+                                        <small className="fw-bold">Submit your change request for revision</small>
+                                    </Button>   
                                 </Alert>
                                 }                        
                                 <Outlet/>    

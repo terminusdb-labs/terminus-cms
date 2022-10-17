@@ -171,7 +171,7 @@ form.rjsf > div > fieldset > div.form-group > div.checkbox > label > span {
 
 
 div.search-bar{
-    border: 1px solid #ccc;
+    border: 1px solid #444;
     border-radius: 4px;
     width: 500px !important;
 }
@@ -399,4 +399,58 @@ a.leaflet-browser-print{
 
 .page-link:hover {
     background-color: #414141 !important;
+}
+
+/* table css */
+.table {
+    margin-top: -30px;
+}
+  
+.table td, .table th {
+    border-top: 0 !important;
+    /*word-wrap: break-word !important;*/
+    word-break: break-all !important;
+}
+  
+.table thead th, .member-headers {
+    color: #a3b6ca !important;
+}
+  
+.table > :not(:first-child) {
+    border-top: 0 !important;
+}
+
+.theme__card:hover {
+    background-color: #444;
+    cursor: pointer;
+}
+
+/** message boxes for CRs */
+.box {
+    width: 180px;
+    height: auto;
+    background-color: #303030;
+    color: #fff;
+    padding: 20px;
+    position: relative;
+    border-radius: 4px;
+  }
+
+.box.arrow-left:after {
+    content: " ";
+    position: absolute;
+    left: -15px;
+    top: 15px;
+    border-top: 15px solid transparent;
+    border-right: 15px solid #444;
+    border-left: none;
+    border-bottom: 15px solid transparent;
+}
+
+.new__message__container {
+    border: 1px solid #444;
+    border-radius: 4px;
+    height: 100%;
+    overflow: auto;
+    padding: 30px;
 }

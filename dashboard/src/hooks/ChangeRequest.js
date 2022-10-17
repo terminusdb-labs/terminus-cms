@@ -2,12 +2,11 @@ import React, {useState} from "react";
 import { ClientObj } from "../cms-init-client"
 import {errorMessageFormatter} from "../utils/errorMessage"
 
-export function ChangeRequest(){
+export function ChangeRequest(){ 
     const { client,currentChangeRequest } = ClientObj() 
     const [loading, setLoading] = useState(false)
     const [errorMessage, setError] = useState(false)
     const [changeRequestList, setChangeRequestList]  = useState([])
-    
     
     const createChangeRequest = async(branchName,message) =>{
         try{

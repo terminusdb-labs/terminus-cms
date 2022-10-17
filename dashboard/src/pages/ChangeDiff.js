@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Container, Row, Col} from "react-bootstrap"
 import {TopMenu} from '../components/TopMenu'
 import {useParams} from 'react-router-dom'
@@ -7,6 +7,10 @@ import {ClientObj} from "../cms-init-client"
 import {DiffView} from "../components/DiffView"
 import Badge from 'react-bootstrap/Badge'
 import {BiGitBranch} from "react-icons/bi"
+import Tab from 'react-bootstrap/Tab'
+import Tabs from 'react-bootstrap/Tabs'
+import {DIFFS, MESSAGES} from "../components/constants"
+import {Messages} from "../components/Messages"
 
 const DocumentModifiedCount = ({documentModifiedCount}) => {
     if(documentModifiedCount > 0) return <h6 className="text-muted fw-bold mt-3 mb-3">
@@ -30,11 +34,16 @@ const BranchCRMessage = ({trackingBranch, originBranch}) => {
 
 export const ChangeDiff = () => {
 
-    const {client} = ClientObj()
+    const {
+        client
+    } = ClientObj()
+
     if(!client) return <div/>
 
-    const {id} = useParams()
-    const result = GetDiffList(client, id) 
+    const {id} = useParams() 
+    const [key, setKey] = useState(DIFFS)
+   
+    const result = GetDiffList(client, id)  
 
     let documentModifiedCount = result ? result.length : 0
 
@@ -42,17 +51,26 @@ export const ChangeDiff = () => {
         <TopMenu showSearchBar={false}/>
         <Container>
             <br/><br/>
-            <Row className="w-100">
-                <Col md={6}>
-                    <DocumentModifiedCount documentModifiedCount={documentModifiedCount}/>
-                </Col>
-                <Col md={6}>
-                <BranchCRMessage trackingBranch={id} originBranch={"main"}/>
-                </Col>
-                
-                
-            </Row>
-            <DiffView diffs={result}/> 
+            <Tabs
+                id="change_request_tabs"
+                activeKey={key}
+                onSelect={(k) => setKey(k)}
+                className="mb-3">
+                <Tab eventKey={DIFFS} title={DIFFS}>
+                    <Row className="w-100">
+                        <Col md={6}>
+                            {result && <DocumentModifiedCount documentModifiedCount={documentModifiedCount}/>}
+                        </Col>
+                            <Col md={6}>
+                        <BranchCRMessage trackingBranch={id} originBranch={"main"}/>
+                        </Col>
+                    </Row> 
+                    <DiffView diffs={result}/> 
+                </Tab>
+                <Tab eventKey={MESSAGES} title={MESSAGES}>
+                    <Messages/>
+                </Tab>
+            </Tabs>
         </Container>                 
     </Container>
 }

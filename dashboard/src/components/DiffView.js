@@ -11,6 +11,7 @@ import {DIFFS_PER_PAGE_LIMIT} from "./constants"
 import {Row, Col} from "react-bootstrap"
 import {GetDocumentByBranches} from "../hooks/DocumentHook"
 import Alert from 'react-bootstrap/Alert'
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 /**
  * 
@@ -110,7 +111,10 @@ export const DiffView = ({diffs}) => {
         )
     }
       
-    if(!diffs) return <>Nothing to show</>
+    if(!diffs) return <span>
+        Loading Diffs ... 
+        <ProgressBar variant="info" animated now={100}/>
+    </span>
 
     // onselect of diff accordian 
     function getDocumentStatesOnClick(clicked) {

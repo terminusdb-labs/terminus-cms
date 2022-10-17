@@ -2,12 +2,13 @@ import React, {useEffect} from "react";
 import {Container , Card, Button, ListGroup,Badge} from "react-bootstrap"
 import {Link, useParams, useNavigate } from "react-router-dom";
 import {ClientObj} from "../cms-init-client"
-import {Allotment} from "allotment";
-import {TopMenu} from "../components/TopMenu";
+import {Allotment} from "allotment"
+import {TopMenu} from "../components/TopMenu"
 import {ChangeRequest} from "../hooks/ChangeRequest"
 import {VscGitPullRequestDraft} from "react-icons/vsc"
 import {VscGitPullRequest} from "react-icons/vsc"
 import {BiGitPullRequest} from "react-icons/bi"
+import Stack from 'react-bootstrap/Stack'
 import {
 	OPEN,
 	REJECTED,
@@ -15,6 +16,7 @@ import {
 	SUBMITTED
 } from "../components/constants"
 import {VscCheck} from "react-icons/vsc"
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 const GetChangeRequestSummary = ({changeRequestList}) => {
 	if(!changeRequestList) return <div/>
@@ -28,12 +30,20 @@ const GetChangeRequestSummary = ({changeRequestList}) => {
 	</h6>
 }
 
+export const getDays = (timestamp) =>{
+	const oneDay = 86400000
+	return Math.round((Date.now() - timestamp)/oneDay)
+}
+
 export const ChangeRequests = () => {
-    const {client} = ClientObj()
     const {
-      getChangeRequestList,
-      changeRequestList
-    } =  ChangeRequest()
+		client,
+        setCurrentCRObject
+	} = ClientObj()
+    const {
+		getChangeRequestList,
+		changeRequestList
+    } =  ChangeRequest() 
   
     useEffect(() => {
         if(client) getChangeRequestList()
@@ -42,48 +52,54 @@ export const ChangeRequests = () => {
 
     const navigate = useNavigate()
 
-    const goToDiffPage = (branchName) => {
+    const goToDiffPage = (changeRequestObject) => {
+		let branchName=changeRequestObject['tracking_branch']
+		setCurrentCRObject(changeRequestObject)
         navigate(`/change_requests/${branchName}`)
     }
 
     const iconTypes={
-      	[OPEN]:<VscGitPullRequestDraft className="text-muted mt-1"/>,
-      	[SUBMITTED]:<VscGitPullRequest className="text-success mt-1"/>,
-      	[REJECTED]:<VscGitPullRequest className="text-danger mt-1"/>,
-        [MERGED] :<VscCheck className="text-success mt-1"/>
+      	[OPEN]:<VscGitPullRequestDraft className="text-muted mb-1"/>,
+      	[SUBMITTED]:<VscGitPullRequest className="text-success mb-1"/>,
+      	[REJECTED]:<VscGitPullRequest className="text-danger mb-1"/>,
+        [MERGED] :<VscCheck className="text-success mb-1 "/>
     }
 
     const status = {
         [OPEN]: <Badge bg="success" pill>{OPEN}</Badge>,
-      	[SUBMITTED]: <Badge bg="warning" pill>Status submitted:new to be merged</Badge>,
+      	[SUBMITTED]: <Badge bg="warning" pill>Review required</Badge>,
       	[REJECTED]: <Badge bg="danger" pill>{REJECTED}</Badge>,
     }	
   
-    const getDays = (timestamp) =>{
-      const oneDay = 86400000
-      return Math.round((Date.now() - timestamp)/oneDay)
-    }
-
-    const countType = {"Open" : 0 ,"Submitted":0, "Rejected":0, "Merged":0 }
+    const countType = {[OPEN] : 0 , [SUBMITTED]:0, [REJECTED]:0, [MERGED]:0 }
 
     const getHeader = () =>{
-      changeRequestList.forEach(item=>{
-        countType[item.status] = countType[item.status]+1
-     })
+      	changeRequestList.forEach(item=> {
+        	countType[item.status] = countType[item.status]+1
+    })
 
-     return  <React.Fragment>{iconTypes["Open"]} <span className="mr-3">{countType["Open"]} Open</span>            
-     {iconTypes["Submitted"]} <span className="mr-3" >{countType["Submitted"]} Submitted</span> 
-     {iconTypes["Merged"]} <span className="mr-3">{countType["Merged"]} Merged</span> 
-     {iconTypes["Rejected"]} <span className="mr-3">{countType["Rejected"]} Rejected</span></React.Fragment>
- 
+    return  <React.Fragment>
+		<Stack direction="horizontal" gap={3}>
+			<div className="">
+				<small className="text-gray fw-bold">{iconTypes[OPEN]} <span className="mr-5">{countType[OPEN]} {OPEN}</span> </small>           
+				<small className="text-gray fw-bold">{iconTypes[SUBMITTED]} <span className="mr-5" >{countType[SUBMITTED]} {SUBMITTED}</span> </small>
+				<small className="text-gray fw-bold">{iconTypes[MERGED]} <span className="mr-5">{countType[MERGED]} {MERGED}</span> </small>
+				<small className="text-gray fw-bold">{iconTypes[REJECTED]} <span className="mr-5">{countType[REJECTED]} {REJECTED}</span></small>
+			</div>
+			<div className="ms-auto d-flex">
+				<small className="text-gray fw-bold mr-2">Change Requests </small>
+				<Badge bg="dark text-light">{changeRequestList.length}</Badge>
+			</div>
+		</Stack>
+		</React.Fragment>
 
    }
     
     const formatListItem=()=>{
         return changeRequestList.map(item=>{
-            
+		
             if(item.status === "Merged") return ""
-            const actions = item.status === "Submitted" ?  {action:true, onClick:()=>goToDiffPage(item['tracking_branch'])} : {}
+            const actions = item.status === "Submitted" ?  {action:true, onClick:()=>goToDiffPage(item)} : {}
             return  <ListGroup.Item {...actions}        
                 className="d-flex justify-content-between align-items-start" key={item.id}>
                 {iconTypes[item.status]}
@@ -100,30 +116,30 @@ export const ChangeRequests = () => {
         })
     }
 
-
-return (<Container fluid className="p-0 flex-row h-100" bg="dark" >
-          <Allotment vertical className='h-100'>
-          <Allotment.Pane className="bg-grey"
-              maxSize={48}
-              minSize={48}
-              >
-            <TopMenu/>
-          </Allotment.Pane>
-          <Allotment.Pane >
-              <Container className="mt-5">
-          <Card>
-          <Card.Header>
-            {changeRequestList && getHeader()}
-           </Card.Header>
-            <Card.Body>
-              <ListGroup as="ol" >
-                {changeRequestList && formatListItem()}
-              </ListGroup>
-            </Card.Body>
-          </Card>
-         </Container>
-        </Allotment.Pane>
+	return <Container fluid className="p-0 flex-row h-100" bg="dark" >
+        <Allotment vertical className='h-100'>
+          	<Allotment.Pane className="bg-grey"
+				maxSize={48}
+				minSize={48}
+				>
+            	<TopMenu/>
+          	</Allotment.Pane>
+          	<Allotment.Pane >
+              	<Container className="mt-5">
+					<Card>
+						<Card.Header>
+							{changeRequestList && getHeader()}
+						</Card.Header>
+						<Card.Body className="p-0">
+							<ListGroup as="ol" >
+								{changeRequestList.length===0 && <ProgressBar variant="info" animated now={100}/>}
+								{changeRequestList && formatListItem()}
+							</ListGroup>
+						</Card.Body>
+					</Card>
+         		</Container>
+        	</Allotment.Pane>
         </Allotment>
-      </Container>  
-    )
+    </Container>  
+    
 }

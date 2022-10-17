@@ -6,7 +6,7 @@ services:
       - ./demo_data:/app/demo_data
     restart: "no"
   terminusdb:
-    image: terminusdb/terminusdb-server:dev
+    image: terminusdb/terminusdb-server:graphql
     pull_policy: always
     volumes:
       - ./demo_data:/app/demo_data
