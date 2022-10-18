@@ -9,8 +9,8 @@ if [ ! -d /app/terminusdb/storage/db ]; then
         ./terminusdb role create AppAdmin branch class_frame clone commit_read_access commit_write_access fetch instance_read_access instance_write_access meta_read_access meta_write_access push rebase schema_read_access
         ./terminusdb role create Writer branch class_frame commit_read_access commit_write_access instance_read_access instance_write_access meta_read_access meta_write_access schema_read_access
         # Create users
-        ./terminusdb user create collaborator
-        ./terminusdb user create appAdministrator
+        ./terminusdb user create collaborator -p demo_password
+        ./terminusdb user create appAdministrator -p demo_password
         # Grant capabilities
         ./terminusdb capability grant collaborator terminuscms Writer -s organization
         ./terminusdb capability grant appAdministrator terminuscms AppAdmin -s organization
