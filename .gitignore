@@ -6,3 +6,5 @@ es6
 tdb_storage
 tmp_local
 *.DS_Store
+.vscode
+backend/build
