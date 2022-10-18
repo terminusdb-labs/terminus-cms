@@ -2,6 +2,7 @@
 
 import jsonlines
 import csv
+import glob
 import os
 import sys
 import subprocess
@@ -114,14 +115,18 @@ def serialize_colors(output):
 
 
 def serialize_themes(output):
+    images = {os.path.basename(x)[0:-5] for x in glob.glob("theme_img/*.jpeg")}
+    # https://cdn.terminusdb.com/img/terminus-cms/theme_img/Super%20Mario.jpeg
     with open('./themes.csv') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
+            image_url = f"https://cdn.terminusdb.com/img/terminus-cms/theme_img/{row['name']}.jpeg" if row['name'] in images else None
             output.write({
                 '@type': 'Theme',
                 '@capture': f"Theme/{row['id']}",
                 'theme_id': int(row['id']),
                 'name': row['name'],
+                'image_url': image_url,
                 'parent': {'@ref': f"Theme/{row['parent_id']}"} if row['parent_id'] != '' else None
             })
 
