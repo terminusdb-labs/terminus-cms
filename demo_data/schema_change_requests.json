@@ -1,0 +1,42 @@
+[
+    {
+        "@base": "terminusdb:///data/",
+        "@schema": "terminusdb:///schema#",
+        "@type": "@context"
+    },
+    {
+        "@id": "Status",
+        "@type": "Enum",
+        "@value": [
+            "Open",
+            "Merged",
+            "Rejected",
+            "Submitted"
+        ]
+    },
+    {
+        "@id": "Message",
+        "@key": {
+            "@type": "Random"
+        },
+        "@subdocument": [],
+        "@type": "Class",
+        "author": "xsd:string",
+        "text": "xsd:string",
+        "timestamp": "xsd:decimal"
+    },
+    {
+        "@id": "ChangeRequest",
+        "@type": "Class",
+        "creation_time": "xsd:decimal",
+        "creator": "xsd:string",
+        "messages": {
+            "@class": "Message",
+            "@type": "Set"
+        },
+        "origin_database": "xsd:string",
+        "original_branch": "xsd:string",
+        "status": "Status",
+        "tracking_branch": "xsd:string"
+    }
+]
