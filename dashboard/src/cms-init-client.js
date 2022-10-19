@@ -156,7 +156,8 @@ export const ClientProvider = ({children}) => {
                 updateBranch,
                 currentChangeRequest,
                 currentCRObject, 
-                setCurrentCRObject
+                setCurrentCRObject,
+                setCurrentChangeRequest
             }}
         >
             {children}

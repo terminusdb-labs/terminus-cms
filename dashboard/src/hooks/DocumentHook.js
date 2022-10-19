@@ -1,37 +1,7 @@
 import React, {useState,useEffect} from "react";
 
-export function GetDocumentByBranches_OLD(client, trackingBranch,documentId){
-    const [result, setResult] = useState(false)
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(false)
 
-    async function getDiffList() {
-        try{
-            //setLoading(true)
-            //this is important!!!
-            const clientCopy = client.copy()
-            clientCopy.checkout(trackingBranch)
-
-            const values = await Promise.all([client.getDocument({id:documentId}), clientCopy.getDocument({id:documentId})])
-
-            setResult(values)
-            //setLoading(false)
-           // return res
-        }
-        catch(err){
-            //setLoading(false)
-           setErrorMsg(err.message)
-       }
-    }
-
-    useEffect(() => {
-        if (trackingBranch) getDiffList()
-    }, [trackingBranch])
-
-    return {result}
-}
-
-export function GetDocumentHook(client, documentId){// setLoading, setSuccessMsg, setErrorMsg) {
+export function GetDocumentHook(client, documentId, updated){// setLoading, setSuccessMsg, setErrorMsg) {
         const [result, setResult] = useState(false)
         const [loading, setLoading] = useState(false)
         const [error, setError] = useState(false)
@@ -54,14 +24,14 @@ export function GetDocumentHook(client, documentId){// setLoading, setSuccessMsg
         }
     
         useEffect(() => {
-            if (documentId) getDocument()
-        }, [documentId])
+            if (documentId, updated) getDocument()
+        }, [documentId, updated])
     
         return {result}
     }
 
 // edit documents
-export function EditDocumentHook(client, extractedUpdate, setLoading) {
+export function EditDocumentHook(client, extractedUpdate, setLoading, setUpdated, setView) {
     const [result, setResult] = useState(false)
 
     async function updateDocument() {
@@ -75,6 +45,9 @@ export function EditDocumentHook(client, extractedUpdate, setLoading) {
             const res = await client.updateDocument(update, params, client.db(), commitMsg)
             console.log("updated res", res)
             setLoading(false)
+            if(setView) setView("View")
+            // use updated constant to refresh updated view in UI 
+            if(setUpdated) setUpdated(Date.now()) 
         }
         catch(err){
            //setErrorMsg(err.message)

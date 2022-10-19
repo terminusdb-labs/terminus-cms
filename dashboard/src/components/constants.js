@@ -13,3 +13,6 @@ export const LEGO_SET="LegoSet"
 // tabs 
 export const DIFFS="Diffs"
 export const MESSAGES="Messages"
+
+// consts
+export const TRACKING_BRANCH="tracking_branch"

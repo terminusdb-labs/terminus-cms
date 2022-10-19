@@ -1,42 +1,79 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import {ClientObj} from "../cms-init-client"
 import Card from 'react-bootstrap/Card'
-import {getDays} from "../pages/ChangeRequests"
 import Form from 'react-bootstrap/Form'
 import Button from "react-bootstrap/Button"
+import {ChangeRequest} from "../hooks/ChangeRequest"
+import ProgressBar from 'react-bootstrap/ProgressBar'
+import {
+    extractID, 
+    getDays
+} from "./utils"
+import {VscCommentDiscussion} from "react-icons/vsc"
 
-const Contents = () => {
+const CommentSection = () => {
     const {
         currentCRObject
     } = ClientObj()
 
     if (!currentCRObject.hasOwnProperty("messages")) 
-        return <>No messages to display ...</>
+        return <div className="mt-2">No messages to display ...</div>
 
     let elements=[]
     //console.log("currentCRObject", currentCRObject)
 
     if(Array.isArray(currentCRObject["messages"])) {
-        currentCRObject["messages"].map(curr => {
+        currentCRObject["messages"].slice(0).reverse().map(curr => {
             elements.push(
-                <Card className="box arrow-left mb-3 w-100 mt-2">
+                <React.Fragment>
                     {curr.text}
-                    <Card.Text className="text-muted">{getDays(curr.timestamp)} days ago by {currentCRObject['author']} </Card.Text>
-                </Card>
+                    <Card.Text className="text-muted">{getDays(curr.timestamp)} days ago by {curr.author} </Card.Text>
+                    <hr/>
+                </React.Fragment>
             )
         })
     }
-    return elements
+    return <Card className="mb-3 w-100 mt-2 p-5">{elements}</Card>
 }
 
 const AddNewMessage=()=> {
-    return <Form className="mt-4 new__message__container">
+    const {
+        currentCRObject,
+        setCurrentCRObject
+    } = ClientObj()
+    const {
+        updateChangeRequestStatus,
+        getChangeRequestByID,
+        loading
+    } =  ChangeRequest() 
+    const [comment, setComment]=useState("")
+    const [add, setAdd]=useState(false)
+
+    useEffect(() => {
+        async function updateMessages() {
+            await updateChangeRequestStatus(comment, currentCRObject.status)
+            let id=extractID(currentCRObject["@id"])
+            await getChangeRequestByID(id, setCurrentCRObject)
+            setComment("")
+        }
+        if(comment!=="") updateMessages()
+    }, [add])
+
+    function addComment() {
+        setAdd(Date.now())
+    }
+
+    return <Form className="mt-4 new__message__container mb-4">
+        {loading && <ProgressBar variant="info" animated now={100}/>}
         <Form.Group className="mb-3" controlId="form_change_request_textarea">
             <Form.Control as="textarea" 
                 rows={5} 
-                className="bg-dark text-gray" 
+                onChange={(e) => setComment(e.target.value)}
+                value={comment}
+                style={{color: "white"}}
+                className="bg-dark" 
                 placeholder="Add a new Comment or Message ..."/>
-            <Button className="bg-info float-right mt-2 mb-2">Comment</Button>
+            <Button className="bg-light text-dark btn-sm fw-bold float-right mt-2 mb-2" onClick={addComment}>Comment</Button>
         </Form.Group>
     </Form>
 }
@@ -44,8 +81,12 @@ const AddNewMessage=()=> {
 export const Messages = () => {
 
     return <React.Fragment>
-        <Contents/>
         <AddNewMessage/>
+        <br/>
+        <h5 className="fw-bold text-muted mt-3 mb-3">
+            <VscCommentDiscussion/> Previous Messages
+        </h5>
+        <CommentSection/>
     </React.Fragment>
   
 }

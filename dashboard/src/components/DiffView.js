@@ -34,7 +34,7 @@ function getPropertyModifiedCount(diff) {
  * @returns React Element with branch badge
  */
 const OriginHeader = ({branch}) => {
-    return <Badge bg="danger" className="float-right fw-bold">{branch}</Badge>
+    return <Badge bg="danger" className="float-right fw-bold text-dark">{branch}</Badge>
 }
 
 /**
@@ -43,7 +43,7 @@ const OriginHeader = ({branch}) => {
  * @returns React Element with branch badge
  */
 const TrackingHeader = ({branch}) => {
-    return <Badge bg="success" className="float-right fw-bold">{branch}</Badge>
+    return <Badge bg="success" className="float-right fw-bold text-dark">{branch}</Badge>
 }
 
 /**

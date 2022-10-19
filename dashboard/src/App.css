@@ -425,27 +425,6 @@ a.leaflet-browser-print{
     cursor: pointer;
 }
 
-/** message boxes for CRs */
-.box {
-    width: 180px;
-    height: auto;
-    background-color: #303030;
-    color: #fff;
-    padding: 20px;
-    position: relative;
-    border-radius: 4px;
-  }
-
-.box.arrow-left:after {
-    content: " ";
-    position: absolute;
-    left: -15px;
-    top: 15px;
-    border-top: 15px solid transparent;
-    border-right: 15px solid #444;
-    border-left: none;
-    border-bottom: 15px solid transparent;
-}
 
 .new__message__container {
     border: 1px solid #444;
@@ -454,3 +433,15 @@ a.leaflet-browser-print{
     overflow: auto;
     padding: 30px;
 }
+
+.lego__set__card {
+    height: 180px;
+}
+
+.lego__set__image__div {
+    height: 80px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background-color: black;
+}
+

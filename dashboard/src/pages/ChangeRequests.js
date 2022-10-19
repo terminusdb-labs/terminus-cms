@@ -5,8 +5,6 @@ import {ClientObj} from "../cms-init-client"
 import {Allotment} from "allotment"
 import {TopMenu} from "../components/TopMenu"
 import {ChangeRequest} from "../hooks/ChangeRequest"
-import {VscGitPullRequestDraft} from "react-icons/vsc"
-import {VscGitPullRequest} from "react-icons/vsc"
 import {BiGitPullRequest} from "react-icons/bi"
 import Stack from 'react-bootstrap/Stack'
 import {
@@ -15,8 +13,8 @@ import {
 	MERGED, 
 	SUBMITTED
 } from "../components/constants"
-import {VscCheck} from "react-icons/vsc"
 import ProgressBar from 'react-bootstrap/ProgressBar'
+import {extractID, status, iconTypes, getDays} from "../components/utils"
 
 const GetChangeRequestSummary = ({changeRequestList}) => {
 	if(!changeRequestList) return <div/>
@@ -30,15 +28,11 @@ const GetChangeRequestSummary = ({changeRequestList}) => {
 	</h6>
 }
 
-export const getDays = (timestamp) =>{
-	const oneDay = 86400000
-	return Math.round((Date.now() - timestamp)/oneDay)
-}
-
 export const ChangeRequests = () => {
     const {
 		client,
-        setCurrentCRObject
+        setCurrentCRObject,
+		setCurrentChangeRequest
 	} = ClientObj()
     const {
 		getChangeRequestList,
@@ -53,23 +47,13 @@ export const ChangeRequests = () => {
     const navigate = useNavigate()
 
     const goToDiffPage = (changeRequestObject) => {
-		let branchName=changeRequestObject['tracking_branch']
+		let branchName=changeRequestObject['tracking_branch'] 
 		setCurrentCRObject(changeRequestObject)
+		let id=extractID(changeRequestObject["@id"])
+        setCurrentChangeRequest(id)
         navigate(`/change_requests/${branchName}`)
     }
-
-    const iconTypes={
-      	[OPEN]:<VscGitPullRequestDraft className="text-muted mb-1"/>,
-      	[SUBMITTED]:<VscGitPullRequest className="text-success mb-1"/>,
-      	[REJECTED]:<VscGitPullRequest className="text-danger mb-1"/>,
-        [MERGED] :<VscCheck className="text-success mb-1 "/>
-    }
-
-    const status = {
-        [OPEN]: <Badge bg="success" pill>{OPEN}</Badge>,
-      	[SUBMITTED]: <Badge bg="warning" pill>Review required</Badge>,
-      	[REJECTED]: <Badge bg="danger" pill>{REJECTED}</Badge>,
-    }	
+	
   
     const countType = {[OPEN] : 0 , [SUBMITTED]:0, [REJECTED]:0, [MERGED]:0 }
 
@@ -108,7 +92,7 @@ export const ChangeRequests = () => {
 						{item['tracking_branch']}
 					</div>
 					<small className="text-muted text-small fw-bold">
-						opened {getDays(item.creation_time)} days ago by {item['author']}
+						opened {getDays(item.creation_time)} days ago by {item['creator']}
 					</small>
 				</div>
               	{status[item.status]}

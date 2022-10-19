@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import {Card, Button} from "react-bootstrap"
 import {useParams} from "react-router-dom"
 import {ClientObj} from "../cms-init-client"
@@ -15,6 +15,7 @@ export const DocumentInteface = () => {
         updateBranch 
     } = ClientObj()
 
+
     const [viewMode, setView] = useState("View" )
     const viewSubmit = viewMode === "Edit" ? false : true
 
@@ -22,15 +23,16 @@ export const DocumentInteface = () => {
 
     // constants for editing document 
     const [extracted, setExtracted]=useState(false)
+    const [updated, setUpdated]=useState(Date.now())
     const [loading, setLoading]=useState(false)
     
     let documentID=`${type}/${id}`
 
     // make better check the encoding
-    const {result} = GetDocumentHook(client, documentID) || null
+    const {result} = GetDocumentHook(client, documentID, updated) || null
 
     // edit document hook
-    const editResult = EditDocumentHook(client, extracted, setLoading) 
+    const editResult = EditDocumentHook(client, extracted, setLoading, setUpdated, setView) 
 
     if (!frames || !result) return <div/>
    
@@ -50,7 +52,6 @@ export const DocumentInteface = () => {
 
     // function which extracts data from document form 
     function handleSubmit(data) {
-        console.log("data", data)
         setExtracted(data)
     }
    
@@ -75,7 +76,7 @@ export const DocumentInteface = () => {
             </Card.Header>
             <Card.Body className="text-break">
                 <FrameViewer frame={frames}
-                    // uiFrame={uiFrame}
+                    //uiFrame={uiFrame}
                     type={type}
                     mode={viewMode}
                     onSubmit={handleSubmit}
