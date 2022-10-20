@@ -86,6 +86,7 @@ export const ClientProvider = ({children}) => {
     const [error,setError] = useState([])
     const [currentBranch,setCurrentBranch] = useState('main')
     const [currentChangeRequest,setCurrentChangeRequest] = useState(null)
+    const [teamUserRoles,setTeamUserRoles] = useState(null)
 
     useEffect(() => {
         const initClient = async(credentials)=>{
@@ -94,10 +95,12 @@ export const ClientProvider = ({children}) => {
                  //the last organization viewed organization
                  //this is for woql client 
                 const dbClient = new TerminusClient.WOQLClient(opts.server,credentials)
-       
+                const accessControl = new TerminusClient.AccessControl(opts.server,credentials)
+
                 const result = await dbClient.getClasses();
                 const frameResult = await dbClient.getSchemaFrame(null, dbClient.db())
-
+                const teamUserRoles = await accessControl.getTeamUserRoles(credentials.user,credentials.organization)
+               
                 const lastBranch = localStorage.getItem("TERMINUSCMS_BRANCH")            
                 if(lastBranch){
                     dbClient.checkout(lastBranch)
@@ -106,6 +109,7 @@ export const ClientProvider = ({children}) => {
                     setCurrentChangeRequest(lastChangeRequest)
                 }
                 //manageClasses(result)
+                setTeamUserRoles(teamUserRoles)
                 setClasses(result)
                 setFrames(frameResult)
                // const access =  new TerminusClient.AccessControl(opts.server,accessCredential)
@@ -129,7 +133,7 @@ export const ClientProvider = ({children}) => {
             setLoadingServer(true)
             const user = localStorage.getItem("TerminusCMS-USER") 
             const key = localStorage.getItem("TerminusCMS-KEY")
-            const credentials  = {user ,key, organization:"admin", db:"lego" }                        
+            const credentials  = {user ,key, organization:"terminuscms", db:"lego" }                        
             initClient(credentials)
 
         }
@@ -153,7 +157,8 @@ export const ClientProvider = ({children}) => {
                 frames,
                 currentBranch,
                 updateBranch,
-                currentChangeRequest
+                currentChangeRequest,
+                teamUserRoles
             }}
         >
             {children}

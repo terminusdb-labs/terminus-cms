@@ -2,11 +2,12 @@ import TerminusClient , {WOQLClient} from "@terminusdb/terminusdb-client"
 import { DocParamsGet } from "@terminusdb/terminusdb-client/dist/typescript/lib/typedef"
 import { Request } from "express"
 import * as typeDef from "./typeDef"
+import {ApiError} from "./ApiError"
 const server : string = process.env.SERVER_ENDPOINT || "http://127.0.0.1:6363"
 //maybe we can create a team
-const user = process.env.USER_NAME
-const key = process.env.USER_KEY
-const team = process.env.TEAM_NAME
+//const user = process.env.USER_NAME
+//const key = process.env.USER_KEY
+const team = "terminuscms"//process.env.TEAM_NAME
 
 class ChangeRequestDB {
     //to be review
@@ -16,10 +17,10 @@ class ChangeRequestDB {
     authUser : string | undefined
     //client : typeof TerminusClient.WOQLClient
     constructor(req : Request) {
-        this.client = new TerminusClient.WOQLClient(server, { key: key, user: user,organization:team })
-        this.client.db('change_requests')
         this.request = req
-        this.authUserFromHeader ()
+        this.authPass = req.context.authPass
+        this.authUser = req.context.authUser
+        this.client = this.connectWithCurrentUser("change_requests")  
     }
 
     async createChangeRequest(payload:typeDef.ChangeReqDoc, message:string){
@@ -71,52 +72,56 @@ class ChangeRequestDB {
     async changeRequestStatus(changeIdHash:string,status:string,message:string){
         const changeId = `ChangeRequest/${changeIdHash}`
         const requestDoc = await this.client.getDocument({id:changeId})
+        if(status === "Merged" && requestDoc.status==="Open"){
+            let trackingBranch : string = requestDoc.tracking_branch
+            try{
+                const legoClient = this.connectWithCurrentUser()
+               
+                await legoClient.apply("main", trackingBranch, message, true)
+               // await legoClient.deleteBranch(trackingBranch)
+            }catch(err){
+                throw new Error (`I can not merge the change request ${trackingBranch}`) 
+            }
+        }
         requestDoc.status = status
         const messageObj : typeDef.MessageObj = {"author":this.authUser || "", "@type" : "Message",  "text":message, "timestamp":Date.now()}
         requestDoc.messages.push(messageObj)
         return this.client.updateDocument(requestDoc)
     }
 
-
-    async getChangeRequestById(changeId:string){
-          const requestDoc = await this.client.getDocument({id:changeId})
-          const trackingBranch: string = await requestDoc.tracking_branch
-          const tmpClient:WOQLClient = this.connectWithCurrentUser()
-          const diffResult:object = await tmpClient.getVersionDiff("main",trackingBranch)
-          const diffObj : object ={}
-          if(Array.isArray(diffResult)){
-            diffResult.forEach(item=>{
-
-            })
-          }
-
-          if(!requestDoc){
-            throw new Error ("change request not found")
-          }      
+    async getChangeRequestDiff(changeId?: string){
+        const changeRequest = await this.getChangeRequests(changeId,false)
+        if(changeRequest.status!=="Submitted"){
+            throw new Error (`The change request status is ${changeRequest.status}, you can not see the diff`) 
+        }
+        const trackingBranch : string = changeRequest.tracking_branch;
+        let options={ 
+            "keep": { 
+                "@id" : true, 
+                "@type": true
+            }
+        }
+        const legoClient = this.connectWithCurrentUser()
+        return legoClient.getVersionDiff("main", trackingBranch, undefined, options)
     }
 
-    async getChangeRequests(changeId?: string){
-        let params : DocParamsGet= {type:"ChangeRequest",as_list:true}
+
+    //get if the changeRequest
+
+    async getChangeRequests(changeId?: string, as_list:boolean = true){
+        let params : DocParamsGet= {type:"ChangeRequest",as_list:as_list}
         if(changeId){
             params['id'] = `ChangeRequest/${changeId}`
         }
         return this.client.getDocument(params)   
     }
 
-    connectWithCurrentUser() : WOQLClient {
+    connectWithCurrentUser(db_name:string = "lego") : WOQLClient {
         const tmpClient = new TerminusClient.WOQLClient(server, { key: this.authPass, user:  this.authUser, organization:team })
-        tmpClient.db('lego')
+        tmpClient.db(db_name)
         return tmpClient
     }
 
-    authUserFromHeader () {
-        const auth : string = this.request.headers.authorization || ""
-        const base64Url = auth.split('Basic')[1]
-        const basicDecode = atob(base64Url)
-        const basicArr = basicDecode.split(':')
-        this.authUser = basicArr[0]
-        this.authPass = basicArr[1]
-    }
 }
 
 export default ChangeRequestDB

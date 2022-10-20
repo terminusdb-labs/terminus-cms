@@ -8,6 +8,13 @@ import swaggerUi from "swagger-ui-express";
 import ApiDocs from "./api/api-doc.json"
 import bodyParser from "body-parser";
 import cors from "cors";
+import {addContextMiddle} from "./api/addContextMiddle"
+
+declare namespace Express {
+  export interface Request {
+     content?: object
+  }
+}
 
 var app = express();
 
@@ -21,6 +28,7 @@ const team = process.env.TEAM_NAME
 app.listen(3035);
 //app.use(logger("dev"));
 app.use(cors())
+app.use(addContextMiddle)
 app.use(bodyParser.json());
 //app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser());

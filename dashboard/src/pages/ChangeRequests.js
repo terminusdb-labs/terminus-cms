@@ -52,7 +52,7 @@ export const ChangeRequests = () => {
         countType[item.status] = countType[item.status]+1
      })
 
-     return  <React.Fragment>{iconTypes["Open"]} <span className="mr-3">{countType["Open"]} Open</span>            
+     return  <React.Fragment >{iconTypes["Open"]} <span className="mr-3">{countType["Open"]} Open</span>            
      {iconTypes["Submitted"]} <span className="mr-3" >{countType["Submitted"]} Submitted</span> 
      {iconTypes["Merged"]} <span className="mr-3">{countType["Merged"]} Merged</span> 
      {iconTypes["Rejected"]} <span className="mr-3">{countType["Rejected"]} Rejected</span></React.Fragment>
@@ -61,12 +61,12 @@ export const ChangeRequests = () => {
    }
     
     const formatListItem=()=>{
-        return requestResult.map(item=>{
+        return requestResult.map((item,index)=>{
             
             if(item.status === "Merged") return ""
             const actions = item.status === "Submitted" ?  {action:true, onClick:()=>goToDiffPage(item['tracking_branch'])} : {}
-            return  <ListGroup.Item {...actions}        
-                className="d-flex justify-content-between align-items-start" key={item.id}>
+            return  <ListGroup.Item {...actions}     key={`item___${index}`}   
+                className="d-flex justify-content-between align-items-start">
                 {iconTypes[item.status]}
               <div className="ms-2 me-auto">
                 <div className="fw-bold">{item['tracking_branch']}</div>

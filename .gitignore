@@ -8,3 +8,4 @@ tmp_local
 *.DS_Store
 build
 .vscode
+demo_data/objs.json
