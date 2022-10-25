@@ -72,7 +72,7 @@ class ChangeRequestDB {
     async changeRequestStatus(changeIdHash:string,status:string,message:string){
         const changeId = `ChangeRequest/${changeIdHash}`
         const requestDoc = await this.client.getDocument({id:changeId})
-        if(status === "Merged" && requestDoc.status==="Open"){
+        if(status === "Merged" && requestDoc.status==="Submitted"){
             let trackingBranch : string = requestDoc.tracking_branch
             try{
                 const legoClient = this.connectWithCurrentUser()
