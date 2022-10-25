@@ -1,21 +1,25 @@
 import React from "react";
 //import {useNavigate} from "react-router-dom"
 import { Link , useNavigate} from "react-router-dom";
-import {ClientObj}  from "../cms-init-client"
+//import {ClientObj}  from "../cms-init-client"
 import "allotment/dist/style.css";
 import {WOQLGraph} from "@terminusdb-live/tdb-react-components"
 import TerminusClient from '@terminusdb/terminusdb-client'
-import {scaleOrdinal} from 'd3'; 
+import {getData} from '../test'
 
-export const Documents = () => {
-    const {classes} = ClientObj()
+export const ChartTest = () => {
+    //const {classes} = ClientObj()
+
+    const {nodesObj,linkEdges} = getData()
 
     const navigate = useNavigate()
     const onNodeClick = (id) =>{
         navigate(`/documents/${id}`)
     }
 
-    const classObj = {}
+    const nodeClasses = Object.values(nodesObj)
+    let viewer
+   /* const classObj = {}
     const linkPropertyFromTo = {}
     const linkPropertyToFrom = {}
     const noProperty = {"@id":true,"@key":true,"@subdocument":true,"@type":true}
@@ -23,26 +27,23 @@ export const Documents = () => {
     const nodeClassesObject = {}
     let nodeClasses = []
     const linkEdges = []
-    let viewer
+   
 
-    const color = scaleOrdinal(["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]);
 
     const manageClasses =(classes) =>{
         if(!Array.isArray(classes)) return 
-        
+    
         classes.forEach((item,index)=>{
             classObj[item['@id']] = item
-            const radius = Math.ceil((30 * index)/3)+20
             nodeClassesObject [item['@id']] = {
                 "collisionRadius" : 90,
                 "type": "node",
                 "id": item['@id'],
                 "icon" : {label:true},
                 "nodetype": item['@id'],
-                "color": color(radius),//[255, 178, 102],
+                "color": [255, 178, 102],
                 "text": item['@id'],
-                "toptext" : radius,
-                "radius": radius//Math.ceil((30 * index)/3)+20
+                "radius": Math.ceil((30 * index)/3)+20
             }
         })
         nodeClasses = Object.values(nodeClassesObject)
@@ -98,7 +99,7 @@ export const Documents = () => {
 
         console.log(classObj)
         console.log(linkPropertyFromTo)
-        console.log(linkPropertyToFrom)
+        console.log(linkPropertyToFrom)*/
         const woqlGraphConfig= TerminusClient.View.graph();
         woqlGraphConfig.height(700).width(1500)
         woqlGraphConfig.literals(false);
@@ -110,9 +111,9 @@ export const Documents = () => {
         viewer.nodes = nodeClasses
         viewer.edges = linkEdges
 
-    }
+    //}
 
-    manageClasses(classes)
+    //manageClasses(classes)
  
     return  <div> 
         <div>

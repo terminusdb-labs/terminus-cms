@@ -1,56 +1,136 @@
-import React from "react";
-import {Allotment} from 'allotment'
-import {Container, Nav} from "react-bootstrap"
-//import {useNavigate} from "react-router-dom"
-import {TopMenu} from '../components/TopMenu'
-import { Link,useParams } from "react-router-dom";
+import TerminusClient from "@terminusdb/terminusdb-client"
+import React, {useState,useEffect} from "react";
+import {Row,Col,Card} from "react-bootstrap"
+import {useParams,useNavigate } from "react-router-dom";
+import {WOQLTable,ControlledGetDocumentQuery} from '@terminusdb/terminusdb-react-table'
 import {ClientObj}  from "../cms-init-client"
-import "allotment/dist/style.css";
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 export const DocumentTypeList = () => {
+    const {client} = ClientObj()
     const {type} = useParams()
+    const {
+        updateQuery,
+        changeOrder,
+        changeLimits,
+        controlledDocument,
+        result,
+        limit,
+        start,
+        orderBy,
+        loading,
+        rowCount,
+        documentResults,
+        setDocumentResults,
+        setControlledRefresh,
+        controlledRefresh
+    } = ControlledGetDocumentQuery(client, type, 10)
 
-    const {classes} = ClientObj()
-   /* let navigate = useNavigate();
-    function handleClick(docName) {
-        navigate(`/documents/`+docName)
+    const [extractedResults, setExtractedResults]=useState([])
+    const [tableConfig, setTableConfig] = useState(false)
+
+ 
+
+    const getColumnsFromResults = (results) => {
+        let columns = []
+        for(var k in results[0]) {
+            if(k!=="@id" && k!=="@type")
+                columns.push(k)
+        }
+        //columns[columns.length] = "Delete"
+        //columns[columns.length] = "Copy"
+        // add delete and copy button for document explorer
+        return columns
+    }
+
+    useEffect(() => { // set table view config
+        if(!documentResults) return
+       // setBarLoading(false)
+        let extractedResults = extractDocuments(documentResults)
+        setExtractedResults(extractedResults)
+        let tConf = getDocumentOfTypeTabConfig(extractedResults, onRowClick)
+        setTableConfig(tConf)
+    }, [documentResults])
+
+    const navigate = useNavigate()
+    const onRowClick = (row) =>{
+        const id = row.original["@id"]
+        navigate(`/documents/${id}`)
+    }
+
+    const getDocumentOfTypeTabConfig = (result, onRowClick) => {
+        const tabConfig= TerminusClient.View.table()
+    
+    
+        tabConfig.pager("remote")
+        tabConfig.pagesize(10)
+    
+        let columns = getColumnsFromResults(result)
+    
+        tabConfig.column_order(...columns)
+        tabConfig.row().click(onRowClick)
+    
+        return tabConfig
+    }
+
+    function extractDocuments(documentResults) {
+        var extractedResults=[]
         
-        //setDataProduct(dp.name)         
-    }*/
-
-    const getNavDropdown = () =>{
-        return classes.map(item=>{
-            return <Link to={`/documents/${item['@id']}`} key={`item__${item['@id']}`}>
-                        {item['@id']}
-                   </Link>
+        documentResults.map(item=> {
+            var newJson={}
+            for(var key in item){
+                if(Array.isArray(item[key])){
+                    var type = item[key][0]["@type"]
+                    if(frames[`terminusdb:///schema#${type}`] && frames[`terminusdb:///schema#${type}`]["@subdocument"]){
+                        // this is a subdocument
+                        var newArray=[]
+                        item[key].map(thing => {
+                            newArray.push(thing["@id"])
+                        })
+                        newJson[key]=newArray
+                    }
+                }
+                else if(typeof item[key] === "object"){
+                    if(item[key].hasOwnProperty("@id")){ // object - we do not display sys json data as part of table
+                        newJson[key]=item[key]["@id"]
+                    }
+                }
+                else {
+                    newJson[key]=item[key]
+                }
+            }
+            extractedResults.push(newJson)
         })
+        //console.log("extractedResults", extractedResults)
+        return extractedResults
     }
 
 
-
-    return <Container fluid className="p-0 flex-row h-100" bg="dark" >
-                <Allotment vertical className='h-100'>
-                    <Allotment.Pane 
-                        maxSize={48}
-                        minSize={48}>
-                    <TopMenu/>
-                    </Allotment.Pane>
-                    <Allotment.Pane >
-                        <Allotment horizontal>
-                            <Allotment.Pane  maxSize={280} snap
-                            minSize={280}>
-                           
-                            <Nav className="flex-column">
-                                {getNavDropdown()}
-                            </Nav> 
-                            </Allotment.Pane>
-                            <Allotment.Pane>                          
-                                  <h1>  {`${type} DOCUMENTS PAGE`}   </h1>               
-                            </Allotment.Pane>
-                        </Allotment>
-                </Allotment.Pane>
-                </Allotment>
-            </Container>
-
-
+    return  <div className="m-5">
+        <Card className="content  w-100 mt-5" varaint="light">
+            <Card.Header>
+                <h6>Documents of type - <strong className="text-success">{type}</strong></h6>
+            </Card.Header>
+            <Card.Body className="text-break">
+                {extractedResults && extractedResults.length===0 && <span>
+                    Loading {type}s ... 
+                    <ProgressBar variant="info" animated now={100}/>
+                </span>}
+                {extractedResults && extractedResults.length>0 && <WOQLTable
+                    result={extractedResults}
+                    freewidth={true}
+                    view={(tableConfig ? tableConfig.json() : {})}
+                    limit={limit}
+                    start={start}
+                    orderBy={orderBy}
+                    setLimits={changeLimits}
+                    setOrder={changeOrder}
+                    resultColumns={getColumnsFromResults(extractedResults)}
+                    query={false}
+                    loading={loading}
+                    totalRows={rowCount}
+                />}
+            </Card.Body>
+        </Card>
+    </div>          
 }
