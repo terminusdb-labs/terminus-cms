@@ -3,3 +3,7 @@
 1. Install `docker compose`
 2. Run `docker-compose run ingest bash -c 'cd /app/demo_data && pip install -r requirements.txt && python3 ingest.py --no-insert'`
 3. Run `docker-compose up`
+
+# Ingestion
+
+The ingestion from the demo data is performed automatically by the above scripts. To learn how the process works, see our [Tutorial](./Tutorial.md).

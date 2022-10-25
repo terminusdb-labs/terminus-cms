@@ -1,7 +1,9 @@
 import { NextFunction, Request, Response } from "express"
 
 export const addContextMiddle = function (req:Request, res:Response, next:NextFunction) {
-
+    if(req.url.startsWith("/api-docs")){
+      return next();
+    }
     if(!req.headers.authorization){
       return res.status(401).send("Unauthorized")
     }

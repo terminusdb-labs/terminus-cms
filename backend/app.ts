@@ -28,7 +28,7 @@ const team = process.env.TEAM_NAME
 app.listen(3035);
 //app.use(logger("dev"));
 app.use(cors())
-app.use(addContextMiddle)
+
 app.use(bodyParser.json());
 //app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser());
@@ -59,6 +59,8 @@ app.use(
     },
   })
 );
+
+app.use(addContextMiddle)
 
 console.log("App running on port http://localhost:3035");
 console.log(

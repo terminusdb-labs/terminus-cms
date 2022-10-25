@@ -9,7 +9,7 @@ import "./App.css"
 //import "./Colors.css"
 import { ChangeRequests } from "./pages/ChangeRequests";
 import {ChangeDiff} from "./pages/ChangeDiff";
-
+import { ChartTest } from "./pages/ChartTest";
 
 export function App (props){
     const test = async () =>{
@@ -17,21 +17,22 @@ export function App (props){
     } 
 
     return <React.Fragment>
-            <Routes>
-                <Route index element={<Home/>} />
-                <Route path="change_requests" >
-                    <Route index element={<ChangeRequests/>} />    
-                    <Route path=":id" element={<ChangeDiff/>} /> 
-                </Route>
-                
-                <Route path="documents" element={<Layout />} >
-                    <Route index element={<Documents/>} />                     
-                    <Route path=":type"  >
-                        <Route index element={<DocumentTypeList/>} /> 
-                        <Route path=":id" element={<DocumentInteface/>} /> 
-                    </Route>              
-                </Route>
-            </Routes>
-          </React.Fragment>  
+        <Routes>
+            <Route index element={<Home/>} />
+            
+            <Route path="change_requests" >
+                <Route index element={<ChangeRequests/>} />    
+                <Route path=":id" element={<ChangeDiff/>} /> 
+            </Route>
+            
+            <Route path="documents" element={<Layout />} >
+                <Route index element={<Documents/>} />                     
+                <Route path=":type"  >
+                    <Route index element={<DocumentTypeList/>} /> 
+                    <Route path=":id" element={<DocumentInteface/>} /> 
+                </Route>              
+            </Route>
+        </Routes>
+    </React.Fragment>  
 
 }

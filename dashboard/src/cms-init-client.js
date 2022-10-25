@@ -87,6 +87,7 @@ export const ClientProvider = ({children}) => {
     const [currentBranch,setCurrentBranch] = useState('main')
     const [currentChangeRequest,setCurrentChangeRequest] = useState(null)
     const [teamUserRoles,setTeamUserRoles] = useState(null)
+    const [currentCRObject, setCurrentCRObject]=useState(false)
 
     useEffect(() => {
         const initClient = async(credentials)=>{
@@ -158,7 +159,10 @@ export const ClientProvider = ({children}) => {
                 currentBranch,
                 updateBranch,
                 currentChangeRequest,
-                teamUserRoles
+                teamUserRoles,
+                currentCRObject, 
+                setCurrentCRObject,
+                setCurrentChangeRequest
             }}
         >
             {children}

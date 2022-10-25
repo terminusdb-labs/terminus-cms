@@ -6,4 +6,7 @@ if [ ! -d /app/terminusdb/storage/db ]; then
 	./terminusdb doc insert admin/lego -f -g schema < /app/demo_data/schema.json
 	./terminusdb doc insert admin/lego < /app/demo_data/objs.json
 fi
-./terminusdb serve
+
+if [ "$1" != "--only-insert" ]; then
+        ./terminusdb serve
+fi

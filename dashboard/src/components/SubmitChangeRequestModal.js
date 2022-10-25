@@ -14,7 +14,7 @@ export const SubmitChangeRequestModal = ({showModal, setShowModal , updateParent
             setError("Change request message are mandatory")
             return
         }else{
-            const done = await updateChangeRequestStatus(message)         
+            const done = await updateChangeRequestStatus(message)          
             if(done){
                 messageRef.current.value = ""
                 updateParent()
