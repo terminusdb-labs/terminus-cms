@@ -1,4 +1,4 @@
-# Lego part management CMS
+# Lego part management in TerminusCMS
 
 Lego provide a case study of products which have complex content
 models. This includes large numbers of parts which are members of
@@ -7,10 +7,29 @@ lego sets are made up of multiple assemblages of parts (called
 inventories). In addition each part has specialisations on colours,
 which may be limited depending on the part type.
 
-This provides a microcosm of the types of difficulties encountered in
-managing data about parts in many manufacturing domains. We hope that
-this tutorial can help you to get started using Terminus CMS for your
-own inventory, product line or manufacturing use-case.
+Lego sets are a nice microcosm of the type of content which is typical
+for various inventory, product line, manufacturing and engineering
+content management problems.
+
+TerminusDB is a full knowledge management system and not just about
+content display. It enables fast and effective:
+
+* Modelling of content
+* Ingestion of content
+* Curation of content
+* Display of content
+* Query and content analytics
+
+We found that various CMS technologies were strong at some of these
+and weak at others, but in particular the long term value of data
+increases substantially if it can be leveraged to perform query and
+content analytics on the real curated data rather than some data which
+is available only after extraction to other analytics
+systems. TerminusCMS gives you all of these at once, increasing long
+term agility of your data.
+
+We hope that this tutorial can help you to get started using Terminus
+CMS for your own use-case.
 
 ## Modelling
 
@@ -129,7 +148,7 @@ into the database. We will do this in two stages, the first building
 up JSON objects representing our data, and the second, importing them
 into the database.
 
-### Stage 1: Defining the objects. 
+### Stage 1: Defining the objects.
 
 The [ingest.py](demo_data/ingest.py) script performs the heavy lifting
 for transforming the data.
@@ -174,7 +193,85 @@ This function gets a JSON output stream (`output`) and a dictionary of
 part categories which we built up earlier.
 
 A few things are worth noticing. We create a `@capture` with the
-f-string `f"Part/{row['part_num']}"`. This capture is a name which
-standards for the ID which will be assigned to this
+f-string `f"Part/{row['part_num']}"`. This capture is a name which we
+use as a place holder for the ID which will be assigned to this object
+by the TerminusDB. It is essentially a kind of forward reference which
+we can then reuse with a `@ref` elsewhere.
 
-We open the csv file.
+We can see the re-fuse of this name in the following code for `serialize_elements`.
+
+```python
+def serialize_elements(output, element_image_map):
+    with open('./elements.csv') as csv_file:
+        # reading the csv file using DictReader
+        csv_reader = csv.DictReader(csv_file)
+        elements = {}
+        for row in csv_reader:
+            if row['color_id'] != -1:
+                color_obj = {'@ref' : f"Color/{row['color_id']}"}
+            else:
+                color_obj = None
+            element_id = f"{row['part_num']} {row['color_id']}"
+            if element_id in elements:
+                continue
+            elements[element_id] = True
+            if element_id in element_image_map:
+                image_url = element_image_map[element_id]
+            else:
+                image_url = None
+            output.write({
+                '@type': 'Element',
+                '@capture': f"Element/{element_id}",
+                'part': {'@ref': f"Part/{row['part_num']}"},
+                'color': color_obj,
+                'image_url': image_url
+            })
+    return elements
+```
+
+Here we refer to the part we created with the reference: `{'@ref':
+f"Part/{row['part_num']}"}`. Note: the `Part/` prefix here, is not
+syntax, it is simply a useful convention to avoid colliding with other
+names we might use for references.
+
+### Stage 2: Loading the objects
+
+The functions we looked at essentially just open a csv, and spit out
+JSON objects. These JSON objects we write to a file. Then we can load
+these by ingesting this file into the database with the command:
+
+```shell
+./terminusdb doc insert terminuscms/lego < /app/demo_data/objs.json
+```
+
+The actual command to perform this insertion is in the
+[insert.sh](demo_data/insert.sh) file which takes care of all of our
+initialisation.
+
+That's all there is to getting your data in TerminusCMS!
+
+## After Ingestion: Content Management
+
+Once you've entered all of the data, it is possible to extend the data
+using the Administration dashboard in TerminusCMS. This will let you
+add, delete, and modify existing objects as defined in your schema.
+
+TODO!
+
+## Displaying the Data
+
+The primary inent a headless CMS is to enable fast and effective
+development of display and accessbility of content. TerminusCMS helps
+to make this simply by allowing your team maximum flexibility in how
+you perform display. TerminusCMS gives some tools to assist in this,
+but can also get out of the way completely if it is so desired,
+enabling content creators to use familiar tools such as GraphQL to
+obtain required content.
+
+TODO!
+
+## Content Analytics and Query
+
+TODO!
+
+
