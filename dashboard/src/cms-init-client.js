@@ -76,18 +76,31 @@ const linkPropertyWithClass = () =>{
     
 }
 
+
  
 export const ClientProvider = ({children}) => {
     const [client, setClient] = useState(null)
-    const [accessControlDashboard, setAccessControl] = useState(null)
+  //  const [accessControlDashboard, setAccessControl] = useState(null)
     const [loadingServer, setLoadingServer] = useState(false)
     const [classes,setClasses] = useState([])
     const [frames,setFrames] = useState([])
     const [error,setError] = useState([])
     const [currentBranch,setCurrentBranch] = useState('main')
     const [currentChangeRequest,setCurrentChangeRequest] = useState(null)
-    const [teamUserRoles,setTeamUserRoles] = useState(null)
+    const [teamUserRoleMerge,setTeamUserRoleMerge] = useState(false)
     const [currentCRObject, setCurrentCRObject]=useState(false)
+
+    const hasRebaseRole=(teamUserRoles)=>{
+        try{
+            const actions = teamUserRoles.capability[0].role[0].action
+            if(actions.find(element=>element==="rebase")){
+                setTeamUserRoleMerge(true)
+            }
+        }catch(err){
+            console.log(err)
+        }
+
+    }
 
     useEffect(() => {
         const initClient = async(credentials)=>{
@@ -101,7 +114,8 @@ export const ClientProvider = ({children}) => {
                 const result = await dbClient.getClasses();
                 const frameResult = await dbClient.getSchemaFrame(null, dbClient.db())
                 const teamUserRoles = await accessControl.getTeamUserRoles(credentials.user,credentials.organization)
-               
+                hasRebaseRole(teamUserRoles)
+
                 const lastBranch = localStorage.getItem("TERMINUSCMS_BRANCH")            
                 if(lastBranch){
                     dbClient.checkout(lastBranch)
@@ -110,7 +124,7 @@ export const ClientProvider = ({children}) => {
                     setCurrentChangeRequest(lastChangeRequest)
                 }
                 //manageClasses(result)
-                setTeamUserRoles(teamUserRoles)
+            
                 setClasses(result)
                 setFrames(frameResult)
                // const access =  new TerminusClient.AccessControl(opts.server,accessCredential)
@@ -146,7 +160,7 @@ export const ClientProvider = ({children}) => {
         localStorage.setItem("TERMINUSCMS_CHANGE_REQUEST_ID",changeRequestId)
         setCurrentBranch(branchName)
         setCurrentChangeRequest(changeRequestId)
-    }
+    } 
 
     return (
         <ClientContext.Provider
@@ -159,7 +173,7 @@ export const ClientProvider = ({children}) => {
                 currentBranch,
                 updateBranch,
                 currentChangeRequest,
-                teamUserRoles,
+                teamUserRoleMerge,
                 currentCRObject, 
                 setCurrentCRObject,
                 setCurrentChangeRequest
