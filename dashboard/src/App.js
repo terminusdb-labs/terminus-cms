@@ -19,7 +19,7 @@ export function App (props){
     return <React.Fragment>
         <Routes>
             <Route index element={<Home/>} />
-            
+            <Route path="test" element={<ChartTest/>} />
             <Route path="change_requests" >
                 <Route index element={<ChangeRequests/>} />    
                 <Route path=":id" element={<ChangeDiff/>} /> 
