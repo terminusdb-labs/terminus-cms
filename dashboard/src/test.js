@@ -31,14 +31,17 @@ function rexToRgb(rexStr ){
 
 bindings.forEach(item=>{
     // inventory doc connected with data set throw inventory_set subdoc
+
+    const iconInvLabel = {unicode:"\uf1b2",size:"2"} 
+
     nodesObj[item['inventory']] =  {
                     "collisionRadius" : 90,
                     "type": "node",
                     "id": item['inventory'],
-                    "icon" : {label:true},
+                    "icon" : iconInvLabel, //{label:true},
                     "nodetype": "Inventory",
-                    "color": [141, 160, 203],
-                    "text": "Inv",
+                    "color":  [252, 141, 98],
+                    "text": item['inventory'],
                     "radius":50
                 }
     
@@ -67,7 +70,9 @@ bindings.forEach(item=>{
 
     //inventory_part suddocument creates a relation between inventory and elements
     const elementColor =  item['colorRGB'] ? rexToRgb(item['colorRGB']['@value']) : [255, 178, 102]
-    const iconLabel = item['colorRGB']['@value'] === "FFFFFF" ? {unicode:"\uf06c",size:"2"} : {label:true}
+
+    //\uf009
+    const iconLabel =  {unicode:"\uf12e",size:"2"} //: {label:true}
 
     nodesObj[item['element']] =  {
         "collisionRadius" : 90,
@@ -75,9 +80,9 @@ bindings.forEach(item=>{
         "id": item['element'],
         "icon" : iconLabel,//{label:true},
         "nodetype": "Element",
-        "color": [102, 194, 165],
+        "color":  [141, 160, 203],//[102, 194, 165],
         "text": "Element",
-        "radius":30
+        "radius":40
     }
     //relationship inventory ---> elements
     const elementQuantity =  item['elementQuantity'] ?  item['elementQuantity']['@value'] : "no quantity"
@@ -99,19 +104,21 @@ bindings.forEach(item=>{
                     "arrow": {
                         "width": 50,
                         "height": 20,
-                        "offset" : 33//calculateOffset(propValue)
+                        "offset" : 33// calculateOffset(propValue)
                     }
     })
     const partName =item['partName'] ? item['partName']['@value'] : "no name"
     const partCategory =item['partCategory'] ? item['partCategory']['@value'] : ""
+    const image = item['elementImage'] ?  item['elementImage']['@value'] : null
 
     nodesObj[item['part']] =  {
         "collisionRadius" : 90,
         "type": "node",
         "id": item['part'],
-        "icon" : {label:true},
-        "nodetype": "Element",
+        "icon" : {},
+        "nodetype": "Part",
         "color": elementColor,
+        "image" : image, //"https://cdn.rebrickable.com/media/parts/elements/6378419.jpg",
         "text": partName + '' + partCategory,
         "radius":30
     }
