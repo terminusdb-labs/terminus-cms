@@ -234,6 +234,38 @@ f"Part/{row['part_num']}"}`. Note: the `Part/` prefix here, is not
 syntax, it is simply a useful convention to avoid colliding with other
 names we might use for references.
 
+In TerminusCMS we can also specify *back references* to things which
+should contain us. This is extremely helpful when trying to build a
+graph from CSV.
+
+```
+def serialize_inventory_minifigs(output):
+    with open('./inventory_minifigs.csv') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        for row in csv_reader:
+            inventory_id = row['inventory_id']
+            inventory_minifig_id = f"{inventory_id} {row['fig_num']}"
+            output.write({
+                '@type': "InventoryMinifig",
+                '@linked-by': {"@ref": f"Inventory/{inventory_id}",
+                               "@property": "inventory_minifigs"},
+                'inventory_minifig_id': inventory_minifig_id,
+                'quantity': int(row['quantity']),
+                'minifig': {'@ref': f"Minifig/{row['fig_num']}"}
+            })
+```
+
+In serializing inventory minifigs we specify a field `@linked-by`
+which refers to another object by reference and says that we must be
+one of the elements pointed to by its `inventory_minifigs`
+property.
+
+By inserting this object we ensure that when the ingestion transaction
+completes, the approriate `Inventory` object will point to us, even
+though it is not specified in the document we generated with
+`serialize_inventory`. This is the easiest way to add large
+collections of linked objects to some container.
+
 ### Stage 2: Loading the objects
 
 The functions we looked at essentially just open a csv, and spit out
