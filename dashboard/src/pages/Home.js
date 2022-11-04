@@ -10,9 +10,7 @@ export const Home = () => {
         <TopMenu showSearchBar={false}/>
         <Container>
             <Navbar variant='dark'><SearchComponent applyStyle={{margin:"auto", marginTop:"400px"}}/></Navbar>    
-            <BrowseContextProvider>
                 <Themes/> 
-            </BrowseContextProvider>
         </Container>   
     </Container>
 

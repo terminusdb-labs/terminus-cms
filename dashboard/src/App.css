@@ -445,3 +445,9 @@ a.leaflet-browser-print{
     background-color: black;
 }
 
+.table td{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}

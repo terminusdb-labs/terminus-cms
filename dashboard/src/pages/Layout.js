@@ -34,7 +34,7 @@ export function Layout (props){
     return <Container fluid className="p-0 flex-row container-background h-100" >
                 {showModal && <SubmitChangeRequestModal showModal={showModal} setShowModal={setShowModal} updateParent={updateParent}/>}
                 <Allotment vertical className='h-100'>
-                    <Allotment.Pane maxSize={48} minSize={48}  className="bg-grey">
+                    <Allotment.Pane maxSize={48} minSize={48}  className="bg-grey overflow-visible" >
                     <TopMenu/>
                     </Allotment.Pane>
                     <Allotment.Pane >
@@ -45,6 +45,7 @@ export function Layout (props){
                             </Nav> 
                             </Allotment.Pane>
                             <Allotment.Pane>
+                            <div className="h-100 overflow-auto">
                                {currentBranch !== "main" &&
                                 <Alert variant="secondary" className="m-5 d-flex"> 
                                     <span>
@@ -57,7 +58,8 @@ export function Layout (props){
                                     </Button>   
                                 </Alert>
                                 }                        
-                                <Outlet/>    
+                                <Outlet/>   
+                            </div> 
                             </Allotment.Pane>
                         </Allotment>
                 </Allotment.Pane>
