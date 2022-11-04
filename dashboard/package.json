@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@apollo/client": "^3.7.0",
+    "@apollo/client": "^3.7.1",
     "@babel/plugin-transform-runtime": "^7.19.1",
     "@terminusdb/terminusdb-client": "^10.0.19",
     "allotment": "^1.17.0",
