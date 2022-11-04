@@ -1,38 +1,62 @@
 import React, {useState,useEffect} from "react";
 import {Outlet } from "react-router-dom";
-import {Container, Nav,Row,Col,Card} from "react-bootstrap"
+import {Container, Nav,Row,Col,Card,Alert,Button, Badge} from "react-bootstrap"
 //import {useNavigate} from "react-router-dom"
 import {NavLink as RouterNavLink} from "react-router-dom"
 import {TopMenu} from '../components/TopMenu'
 import {Allotment} from 'allotment'
 import "allotment/dist/style.css";
 import {ClientObj}  from "../cms-init-client"
+import { SubmitChangeRequestModal } from "../components/SubmitChangeRequestModal";
+import { useNavigate } from "react-router-dom"
+import {BiGitBranch} from "react-icons/bi"
 
 export function Layout (props){
-    const {classes} = ClientObj()
-    
+    const [showModal,setShowModal] = useState(false)
+    const {classes,currentBranch,client,updateBranch} = ClientObj()
+    const navigate = useNavigate()
+    if(!client) return ''
     const getNavDropdown = () =>{
         return classes.map(item=>{
             if(item["@subdocument"]) return ""
-            return <Nav.Link as={RouterNavLink} to={`/documents/${item['@id']}`} key={`item__${item['@id']}`}>
+            return <Nav.Link className ="navbar-dark navbar-nav ml-4" as={RouterNavLink} to={`/documents/${item['@id']}`} key={`item__${item['@id']}`}>
                         {item['@id']}
                    </Nav.Link>
         })
+    }//#424242
+
+    const updateParent = () =>{
+        updateBranch("main" , null)
+        navigate("/change_requests")
     }
 
+
     return <Container fluid className="p-0 flex-row container-background h-100" >
+                {showModal && <SubmitChangeRequestModal showModal={showModal} setShowModal={setShowModal} updateParent={updateParent}/>}
                 <Allotment vertical className='h-100'>
-                    <Allotment.Pane maxSize={48} minSize={48}>
+                    <Allotment.Pane maxSize={48} minSize={48}  className="bg-grey">
                     <TopMenu/>
                     </Allotment.Pane>
                     <Allotment.Pane >
                         <Allotment horizontal>
                             <Allotment.Pane  maxSize={250} minSize={250} snap>                         
-                            <Nav className="flex-column">
+                            <Nav className="flex-column mt-5">
                                 {getNavDropdown()}
                             </Nav> 
                             </Allotment.Pane>
-                            <Allotment.Pane>                          
+                            <Allotment.Pane>
+                               {currentBranch !== "main" &&
+                                <Alert variant="secondary" className="m-5 d-flex"> 
+                                    <span>
+                                        <small className="fw-bold mr-2">You are in change request mode</small>
+                                        <BiGitBranch className="text-muted mr-2"/>
+                                        <Badge bg="success" className="fw-bold mr-2">{currentBranch}</Badge>
+                                    </span>
+                                    <Button className="ml-auto bg-light text-dark btn-sm" onClick={()=>{setShowModal(true)}}>
+                                        <small className="fw-bold">Submit your change request for revision</small>
+                                    </Button>   
+                                </Alert>
+                                }                        
                                 <Outlet/>    
                             </Allotment.Pane>
                         </Allotment>

@@ -1,10 +1,11 @@
-
 node_modules
 dist
 es6
 .env
 tdb_storage
+tdb_storage/db
 tmp_local
 *.DS_Store
 .vscode
 backend/build
+demo_data/objs.json

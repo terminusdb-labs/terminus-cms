@@ -18,10 +18,10 @@ export const SearchComponent = ({applyStyle}) => {
   
     const getNavDropdown = () =>{
         return classes.map((item , index)=>{
-            return <React.Fragment><NavDropdown.Item eventKey={item['@id']} key={`item__${item['@id']}`}>
+            return <React.Fragment key={`element__${item['@id']}`} ><NavDropdown.Item eventKey={item['@id']} key={`item__${item['@id']}`}>
                       {item['@id']}
                 </NavDropdown.Item>
-                {index!== (classes.length-1) && <Dropdown.Divider />}
+                {index!== (classes.length-1) && <Dropdown.Divider key={`divided__${item['@id']}`} />}
                 </React.Fragment>
         })
     }
@@ -29,7 +29,7 @@ export const SearchComponent = ({applyStyle}) => {
     const mystyle = applyStyle ? {style:applyStyle} : {}
 
     return <React.Fragment>
-          <Form className="navbar-search mr-3 mt-1">
+          <Form className="navbar-search mr-3 mt-1 ml-auto mr-auto">
           <Form.Group id="topbarSearch">
           
               <InputGroup className="input-group-merge search-bar">
@@ -45,27 +45,6 @@ export const SearchComponent = ({applyStyle}) => {
           </Form>
           </React.Fragment>
     
-    
-
-    /*
-     <NavDropdown title={selectedClass} id="navbarScrollingDropdown" onSelect={setSelectedClass} >
-                    {getNavDropdown()}
-                  </NavDropdown>   
-                  */
-   /*<Nav className='me-auto' {...mystyle}>
-          <NavDropdown title="All" id="navbarScrollingDropdown">
-              {getNavDropdown()}
-            </NavDropdown>         
-          <Form className="d-flex" style={{width:"500px"}}>        
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-  </Nav>*/
 
 
 

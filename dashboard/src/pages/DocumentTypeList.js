@@ -4,6 +4,7 @@ import {Row,Col,Card} from "react-bootstrap"
 import {useParams,useNavigate } from "react-router-dom";
 import {WOQLTable,ControlledGetDocumentQuery} from '@terminusdb/terminusdb-react-table'
 import {ClientObj}  from "../cms-init-client"
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 export const DocumentTypeList = () => {
     const {client} = ClientObj()
@@ -105,30 +106,31 @@ export const DocumentTypeList = () => {
     }
 
 
-    return   <Row className="w-100 mb-5">
-                        <Col md={11}>
-                            <Card className="content mr-3 ml-5 w-100 mt-5" varaint="light">
-                                <Card.Header>
-                                    <h6>Documents of type - <strong className="text-success">{type}</strong></h6>
-                                </Card.Header>
-                                <Card.Body className="text-break">
-                                    {extractedResults && extractedResults.length>0 && <WOQLTable
-                                        result={extractedResults}
-                                        freewidth={true}
-                                        view={(tableConfig ? tableConfig.json() : {})}
-                                        limit={limit}
-                                        start={start}
-                                        orderBy={orderBy}
-                                        setLimits={changeLimits}
-                                        setOrder={changeOrder}
-                                        resultColumns={getColumnsFromResults(extractedResults)}
-                                        query={false}
-                                        loading={loading}
-                                        totalRows={rowCount}
-                                    />}
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    </Row>          
-
+    return  <div className="m-5">
+        <Card className="content  w-100 mt-5" varaint="light">
+            <Card.Header>
+                <h6>Documents of type - <strong className="text-success">{type}</strong></h6>
+            </Card.Header>
+            <Card.Body className="text-break">
+                {extractedResults && extractedResults.length===0 && <span>
+                    Loading {type}s ... 
+                    <ProgressBar variant="info" animated now={100}/>
+                </span>}
+                {extractedResults && extractedResults.length>0 && <WOQLTable
+                    result={extractedResults}
+                    freewidth={true}
+                    view={(tableConfig ? tableConfig.json() : {})}
+                    limit={limit}
+                    start={start}
+                    orderBy={orderBy}
+                    setLimits={changeLimits}
+                    setOrder={changeOrder}
+                    resultColumns={getColumnsFromResults(extractedResults)}
+                    query={false}
+                    loading={loading}
+                    totalRows={rowCount}
+                />}
+            </Card.Body>
+        </Card>
+    </div>          
 }

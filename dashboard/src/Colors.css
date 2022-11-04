@@ -1,5 +1,6 @@
 /*** Pink: de7dd8, Purple: 855afc, Blue: 4c58d2, Yellow: f9d891  ***/
  /* mute: D2D3D9 */
+ @import url("https://bootswatch.com/5/darkly/bootstrap.css");
 
  :root {
     --color-pink: #de7dd8;
@@ -10,6 +11,8 @@
     --color-yellow: #f9d891;
     --color-contrast-yellow: #002856;
     --color-border-yellow: #d7a12f;
+
+    --color-green : rgb(102, 194, 165);
 
     --custom-text: var(--color-pink);
     --custom-nav: var(--color-pink);
@@ -23,17 +26,13 @@
     --badge-border-color: var(--color-border-yellow);
 }
 
-body{
+/*body{
     font-size:0.9rem !important;
-}
+}*/
 
   
 .text-success {
     color: var(--custom-text) !important;
-}
-
-.bg-grey{
-    background-color: #8888 !important;
 }
 
 
@@ -42,8 +41,8 @@ body{
 }
   
 .navbar-dark .navbar-nav .nav-link.active{
-    background-color: var(--custom-nav);
-    color: var(--custom-nav-text) !important;
+    background-color: transparent;
+    color: var( --color-green) !important;
 }
 
 .btn-info {

@@ -1,5 +1,11 @@
+@import url("https://bootswatch.com/5/darkly/bootstrap.css");
+
 body {
     background-color: #222 !important;
+}
+
+.bg-grey{
+   background:  rgb(51, 51, 51)
 }
 
 /**nav bar and content spacing */
@@ -139,10 +145,6 @@ button.tdb__toolbar__base__button {
     text-align: right !important;
 }
 
-.tdb__view__input > input, .tdb__view__enum__input > select,
-.tdb__view__input > span.tdb__span__select {
-    color: #000 !important;
-}
 
 .offcanvas-end {
     width: 500px !important;
@@ -160,16 +162,16 @@ form.rjsf > div > fieldset {
     width: 100% !important;
 }
 
-label.control-label,
+/*label.control-label,
 label.form-label,
 form.rjsf > div > fieldset > div.form-group > div.checkbox > label > span {
     color: #3459e6 !important;
-}
+}*/
 
 
 
 div.search-bar{
-    border: 1px solid #ccc;
+    border: 1px solid #444;
     border-radius: 4px;
     width: 500px !important;
 }
@@ -264,16 +266,14 @@ a.leaflet-browser-print{
     height: 50px !important;
 }
 
+.text-small{
+    font-size: 0.9em;
+}
+
 .subDocumentCard{
     background-color: #f4f6fe !important;
     border-color: transparent !important;
     border: 1px solid #ced4da !important;
-}
-
-.tdb__input > input, .tdb__input > select, .tdb__view__enum__input > select {
-    border-color: transparent !important;
-    border: 1px solid #ced4da !important;
-    color: #000 !important;
 }
 
 /** Map legend css **/
@@ -347,3 +347,101 @@ a.leaflet-browser-print{
     width: 40px;
     z-index: 0;
 }
+
+.navbar-dark{
+    color:white;
+}
+
+.navbar-dark.active{
+    color:#00bc8c;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link.active{
+    color:#00bc8c;
+}
+.logo-img{
+    filter: grayscale(1);
+}
+
+/* accordian */
+.accordion-button {	
+    background: #333333 !important;	
+    color: #fff !important;	
+    border-radius: 2px !important;
+    border-color: #444;	
+}
+
+.accordion-item {
+    border: 1px solid #444;	
+}
+
+
+
+.accordion-button:hover{	
+    background-color: #414141 !important;	
+    color: #cae4fd !important;	
+}
+
+/** scrolling */
+.document__interface__main{
+    height: 100%;
+    overflow: auto;
+}
+
+/** Pagination button */
+.page-link {
+    background-color: #444;
+}
+
+.page-link:hover {
+    background-color: #414141 !important;
+}
+
+/* table css */
+.table {
+    margin-top: -30px;
+}
+  
+.table td, .table th {
+    border-top: 0 !important;
+    /*word-wrap: break-word !important;*/
+    word-break: break-all !important;
+}
+  
+.table thead th, .member-headers {
+    color: #a3b6ca !important;
+}
+  
+.table > :not(:first-child) {
+    border-top: 0 !important;
+}
+
+.theme__card:hover {
+    background-color: #444;
+    cursor: pointer;
+}
+
+
+.new__message__container {
+    border: 1px solid #444;
+    border-radius: 4px;
+    height: 100%;
+    overflow: auto;
+    padding: 30px;
+}
+
+.lego__set__card {
+    height: 180px;
+}
+
+.lego__set__image__div {
+    height: 80px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background-color: black;
+}
+
