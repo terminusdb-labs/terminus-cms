@@ -191,6 +191,10 @@
     "name": "xsd:string",
     "year": "xsd:gYear",
     "theme": "Theme",
+    "description": {
+      "@type": "Optional",
+      "@class": "xsd:string"
+    },
     "inventory_set": { "@type" : "Set",
                        "@class" : "InventorySet"}
   },
