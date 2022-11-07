@@ -132,7 +132,7 @@ def serialize_themes(output):
 
 
 def serialize_sets(output):
-    with open('./sets.csv') as csv_file:
+    with open('./sets_with_description.csv') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
             set_id = row['set_num']
@@ -142,6 +142,7 @@ def serialize_sets(output):
                 'theme': {"@ref": f"Theme/{row['theme_id']}"},
                 'name': row['name'],
                 'year': int(row['year']),
+                'description': row['description'],
             })
 
 
