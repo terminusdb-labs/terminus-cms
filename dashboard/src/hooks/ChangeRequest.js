@@ -2,12 +2,12 @@ import React, {useState} from "react";
 import { ClientObj } from "../cms-init-client"
 import {errorMessageFormatter} from "../utils/errorMessage"
 
-export function ChangeRequest(){ 
-    const { client,currentChangeRequest } = ClientObj() 
+export function ChangeRequest(){  
+    const { client,currentChangeRequest, setCurrentCRObject } = ClientObj() 
     const [loading, setLoading] = useState(false)
     const [errorMessage, setError] = useState(false)
     const [changeRequestList, setChangeRequestList]  = useState([])
-    
+
     const createChangeRequest = async(branchName, message) =>{
         try{
             setLoading(true)
@@ -56,13 +56,18 @@ export function ChangeRequest(){
         }     
     }
 
-    const getChangeRequestByID = async(id, setCurrentCRObject) =>{
+    const getChangeRequestByID = async(id) =>{
         try{
             setLoading(true) 
             const payload = {id}
             const result = await client.sendCustomRequest("GET", 'http://localhost:3035/changes', payload)
-            console.log("result ** ", result[0])
-            if(setCurrentCRObject) setCurrentCRObject(result[0])
+            if(setCurrentCRObject) {
+                result.map(res=>{
+                    if(res["@id"] === `ChangeRequest/${id}`){
+                        setCurrentCRObject(res)
+                    }
+                })
+            }
         }catch(err){
             const errMessage = errorMessageFormatter(err)
             setError(errMessage)

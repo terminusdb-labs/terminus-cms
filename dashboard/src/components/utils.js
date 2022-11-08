@@ -2,7 +2,7 @@
 import React from "react"
 import {VscGitPullRequestDraft} from "react-icons/vsc"
 import {VscGitPullRequest} from "react-icons/vsc"
-import {VscCheck} from "react-icons/vsc"
+import {VscCheck} from "react-icons/vsc" 
 import Badge from "react-bootstrap/Badge"
 import {
 	OPEN,

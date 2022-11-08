@@ -29,6 +29,10 @@
         "@id": "ChangeRequest",
         "@type": "Class",
         "creation_time": "xsd:decimal",
+        "merge_commit_id": {
+            "@class": "xsd:string",
+            "@type": "Optional"
+        },
         "creator": "xsd:string",
         "messages": {
             "@class": "Message",

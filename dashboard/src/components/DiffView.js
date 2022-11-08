@@ -4,7 +4,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import {useParams} from 'react-router-dom'
 import {DiffViewer} from '@terminusdb/terminusdb-documents-ui'
 import Badge from 'react-bootstrap/Badge'
-import {TbExchange} from "react-icons/tb"
+import {TbCurrencyKroneDanish, TbExchange} from "react-icons/tb"
 import Stack from 'react-bootstrap/Stack'
 import Pagination from 'react-bootstrap/Pagination'
 import {DIFFS_PER_PAGE_LIMIT} from "./constants"
@@ -12,6 +12,7 @@ import {Row, Col} from "react-bootstrap"
 import {GetDocumentByBranches} from "../hooks/DocumentHook"
 import Alert from 'react-bootstrap/Alert'
 import ProgressBar from 'react-bootstrap/ProgressBar'
+import {BsPlus} from "react-icons/bs"
 
 /**
  * 
@@ -48,6 +49,20 @@ const TrackingHeader = ({branch}) => {
 
 /**
  * 
+ * @param {*} branch tracking branch after inserted op
+ * @returns React Element with branch badge
+ */
+const TrackingInsertedHeader = ({branch}) => {
+    return <>
+        <BsPlus className="text-success fw-bold h5"/>
+        <BsPlus className="text-success fw-bold h5"/>
+        <BsPlus className="text-success fw-bold h5"/>
+        <Badge bg="success" className="float-right fw-bold text-dark">{branch}</Badge>
+    </>
+}
+
+/**
+ * 
  * @param {*} propertyModifiedCount count of properties modified for a document
  * @returns 
  */
@@ -77,11 +92,15 @@ export const DiffView = ({diffs}) => {
     const [originalValue, setOriginalValue] =  useState(false)
     const [changedValue, setChangedValue] =  useState(false)
 
+    // refresh constants 
+    const [originalRefresh, setOriginalRefresh]=useState(true)
+    const [changedRefresh, setChangedRefresh]=useState(true)
+
     // message constants 
     const [error, setError]=useState(false)
 
-    let cValue=GetDocumentByBranches(client, id, documentID, setChangedValue, setError)
-    let oValue=GetDocumentByBranches(client, "main", documentID, setOriginalValue, setError)
+    let cValue=GetDocumentByBranches(client, id, documentID, setChangedValue, setError, changedRefresh)
+    let oValue=GetDocumentByBranches(client, "main", documentID, setOriginalValue, setError, originalRefresh)
     
     let elements=[], paginationItems=[]
 
@@ -116,29 +135,61 @@ export const DiffView = ({diffs}) => {
         <ProgressBar variant="info" animated now={100}/>
     </span>
 
-    // onselect of diff accordian 
-    function getDocumentStatesOnClick(clicked) {
-        setDocumentID(clicked)
-    }
+    //console.log("originalValue", originalValue)
+    //console.log("changedValue", changedValue)
 
+    
     // looping through diff lists
-    for(var start=current; start<=(current + DIFFS_PER_PAGE_LIMIT); start++) {
+    for(let start=current; start<=(current + DIFFS_PER_PAGE_LIMIT); start++) {
        
         if(start >= diffs.length) continue
 
         let propertyModifiedCount = getPropertyModifiedCount(diffs[start])
 
+        // onselect of diff accordian 
+        function getDocumentStatesOnClick(clicked) {
+            if(diffs[start].hasOwnProperty("@insert")) {
+                let docId = diffs[start]["@insert"]["@id"]
+                setDocumentID(docId)
+                setOriginalValue(false)
+                setOriginalRefresh(false)
+            }
+            else {
+                setDocumentID(clicked)
+                setOriginalRefresh(true)
+            }
+        }
+
+
+        function getTitle(diff) {
+            if(diff.hasOwnProperty("@id")) return <>{diff["@id"]}</>
+            if(diff.hasOwnProperty("@op") && diff["@op"] === "Insert") {
+                return <div className="d-flex">
+                    {`Added new Document ${diff["@insert"]["@id"]}`} 
+                    <BsPlus className="text-success fw-bold h5"/>
+                    <BsPlus className="text-success fw-bold h5"/>
+                    <BsPlus className="text-success fw-bold h5"/>
+                </div>
+            }
+            return null
+        }
+        let eventKey= diffs[start].hasOwnProperty("@insert") ? diffs[start]["@insert"]["@id"] : diffs[start]["@id"]
+        
+        //console.log("documentId", documentID, eventKey, css)
         elements.push(
             <React.Fragment>
                 <Accordion classNames="mb-3 bg-secondary accordion__button"
-                    id={diffs[start]["@id"]}
-                    onSelect={getDocumentStatesOnClick}>
-                    <Accordion.Item eventKey={diffs[start]["@id"]}>
+                    id={eventKey}
+                    activeKey={eventKey === documentID ? eventKey : false}
+                    onSelect={getDocumentStatesOnClick}> 
+                    <Accordion.Item eventKey={eventKey}>
                         <Accordion.Header className="w-100">
-                            <Stack direction="horizontal" gap={3} className="w-100">
+                            <Stack direction="horizontal" gap={1} className="w-100">
                                 <div >
                                     <TbExchange className="text-muted mr-2"/>
-                                    <small className="text-gray fw-bold">{diffs[start]["@id"]}</small>
+                                </div>
+                                <div>
+                                    <small className="text-gray fw-bold">{getTitle(diffs[start])}</small>
                                 </div>
                                 <div className="ms-auto">
                                     <small className="text-warning col-md-10 text-right font-italic">
@@ -146,12 +197,13 @@ export const DiffView = ({diffs}) => {
                                     </small>
                                 </div>
                             </Stack>
-                               </Accordion.Header>
+                        </Accordion.Header>
                         <Accordion.Body>
                             {error && <Alert variant={"danger"}>
                                 {error}
                             </Alert>}
-                            {originalValue && changedValue && <DiffViewer 
+                            {!originalValue && !changedValue && <ProgressBar variant="info" animated now={100}/>} 
+                            {originalValue && changedValue && documentID === diffs[start]["@id"] && <DiffViewer 
                                 oldValue={originalValue} 
                                 newValue={changedValue}
                                 oldValueHeader={<OriginHeader branch="main"/>}
@@ -159,6 +211,16 @@ export const DiffView = ({diffs}) => {
                                 frame={frames}
                                 type={diffs[start]["@type"]}
                                 diffPatch={diffs[start]}/>}
+                            {!originalValue && changedValue && 
+                                diffs[start].hasOwnProperty("@insert") && 
+                                documentID === diffs[start]["@insert"]["@id"] && <DiffViewer 
+                                oldValue={originalValue} 
+                                newValue={changedValue}
+                                oldValueHeader={<OriginHeader branch="main"/>}
+                                newValueHeader={<TrackingInsertedHeader branch={id}/>}
+                                frame={frames}
+                                type={diffs[start]["@insert"]["@type"]}
+                                diffPatch={diffs[start]}/>} 
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>

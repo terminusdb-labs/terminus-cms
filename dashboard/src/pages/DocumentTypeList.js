@@ -1,6 +1,6 @@
 import TerminusClient from "@terminusdb/terminusdb-client"
 import React, {useState,useEffect} from "react";
-import {Row,Col,Card} from "react-bootstrap"
+import {Row,Col,Card, Button} from "react-bootstrap"
 import {useParams,useNavigate } from "react-router-dom";
 import {WOQLTable,ControlledGraphqlQuery} from '@terminusdb/terminusdb-react-table'
 import {ClientObj}  from "../cms-init-client"
@@ -8,7 +8,13 @@ import {graphqlQuery} from "../utils/graphqlQuery"
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import {tableConfigObj} from '../utils/graphqlQuery'
 
-export const DocumentTypeList = () => {
+import Stack from 'react-bootstrap/Stack'
+import {HiPlusSm} from "react-icons/hi"
+import {DocumentInterface} from "./DocumentInterface"
+import * as actions from "../components/constants"
+
+export const DocumentTypeList = ({setCurrentMode, currentMode}) => {   
+    const {client} = ClientObj()
     const {type} = useParams()
     const query = graphqlQuery[type]
     if(!query) return ""
@@ -60,6 +66,7 @@ export const DocumentTypeList = () => {
     const onRowClick = (row) =>{
         const fullId = row.original["id"]
         const id = fullId.substring(fullId.indexOf(type))
+        setCurrentMode(actions.VIEW)
         navigate(`/documents/${id}`)
     }
 
@@ -76,7 +83,7 @@ export const DocumentTypeList = () => {
     
         return tabConfig
     }
-
+ 
     function extractDocuments(documentResults) {
         var extractedResults=[]
         
@@ -119,11 +126,23 @@ export const DocumentTypeList = () => {
         return extractedResults
     }
 
+    function handleCreate(e) {
+        setCurrentMode(actions.CREATE)
+        navigate(`/documents/${type}/___CREATE__`)
+    }
 
     return  <div className="m-5">
         <Card className="content  w-100 mt-5" varaint="light">
             <Card.Header>
-                <h6>Documents of type - <strong className="text-success">{type}</strong></h6>
+                <Stack direction="horizontal" gap={3}>
+                    <h6>Documents of type - <strong className="text-success">{type}</strong></h6>
+                        <div className="ms-auto">
+                            <Button className="bg-light text-dark" onClick={handleCreate}>
+                                <HiPlusSm className="mr-1 mb-1"/>
+                                <small>{`Add new ${type}`}</small>
+                            </Button>
+                        </div>
+                </Stack>   
             </Card.Header>
             <Card.Body className="text-break">
                 {loading && <span>
@@ -149,3 +168,44 @@ export const DocumentTypeList = () => {
         </Card>
     </div>          
 }
+
+
+/*
+    console.log("currentMode", currentMode, controlledRefresh)
+    if(currentMode === actions.VIEW_LIST) {
+        return  <div className="m-5">
+            <Card className="content  w-100 mt-5" varaint="light">
+                <Card.Header>
+                    <Stack direction="horizontal" gap={3}>
+                        <h6>Documents of type - <strong className="text-success">{type}</strong></h6>
+                        <div className="ms-auto">
+                            <Button className="bg-light text-dark" onClick={handleCreate}>
+                                <HiPlusSm className="mr-1 mb-1"/>
+                                <small>{`Add new ${type}`}</small>
+                            </Button>
+                        </div>
+                    </Stack>
+                </Card.Header>
+                <Card.Body className="text-break">
+                    {extractedResults && extractedResults.length===0 && <span>
+                        Loading {type}s ... 
+                        <ProgressBar variant="info" animated now={100}/>
+                    </span>}
+                    {extractedResults && extractedResults.length>0 && <WOQLTable
+                        result={extractedResults}
+                        freewidth={true}
+                        view={(tableConfig ? tableConfig.json() : {})}
+                        limit={limit}
+                        start={start}
+                        orderBy={orderBy}
+                        setLimits={changeLimits}
+                        setOrder={changeOrder}
+                        resultColumns={getColumnsFromResults(extractedResults)}
+                        query={false} 
+                        loading={loading}
+                        totalRows={rowCount}
+                    />}
+                </Card.Body>
+            </Card>
+        </div> 
+    }*/

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import {Home} from "./pages/Home"
 import {Documents} from "./pages/Documents"
-import {Routes,Route,useNavigate} from "react-router-dom"
+import {Routes,Route, useNavigate} from "react-router-dom"
 import { DocumentTypeList } from "./pages/DocumentTypeList";
-import {DocumentInteface} from "./pages/DocumentInterface"
+import {DocumentInterface} from "./pages/DocumentInterface"
 import {Layout} from "./pages/Layout"
 import "./App.css"
 //import "./Colors.css"
@@ -16,9 +16,11 @@ import {Main} from "./pages/Main"
 import {ClientObj} from "./cms-init-client"
 import { Alert,Container } from "react-bootstrap";
 import {GraphIqlEditor} from './pages/GraphIqlEditor'
+import {VIEW_LIST} from "./components/constants"
 // <Route index element={<Home/>} /> 
 export function App (props){
     const {error,loadingServer} = ClientObj()
+    const [currentMode, setCurrentMode] = useState(VIEW_LIST)
 
     if(error) {
         return <Container className="h-100">
@@ -37,11 +39,11 @@ export function App (props){
                 <Route path=":id" element={<ChangeDiff/>} /> 
             </Route>
             
-            <Route path="documents" element={<Layout />} >
+            <Route path="documents" element={<Layout setCurrentMode={setCurrentMode}/>} >
                 <Route index element={<Documents/>} />                     
                 <Route path=":type"  >
-                    <Route index element={<DocumentTypeList/>} /> 
-                    <Route path=":id" element={<DocumentInteface/>} /> 
+                    <Route index element={<DocumentTypeList setCurrentMode={setCurrentMode} currentMode={currentMode}/>} /> 
+                    <Route path=":id" element={<DocumentInterface setCurrentMode={setCurrentMode} currentMode={currentMode}/>} /> 
                 </Route>              
             </Route>
             <Route path="theme" element={<LayoutNoMenu/>}>
@@ -52,6 +54,6 @@ export function App (props){
             </Route>
             
         </Routes>
-    </React.Fragment>  
+    </React.Fragment> 
 
 }

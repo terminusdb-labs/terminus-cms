@@ -12,7 +12,7 @@ export const Documents = () => {
 
     const navigate = useNavigate()
     const onNodeClick = (id) =>{
-        navigate(`/documents/${id}`)
+        navigate(`/documents/${id}`) 
     }
 
     const classObj = {}
@@ -96,9 +96,7 @@ export const Documents = () => {
             })
         })
 
-        console.log(classObj)
-        console.log(linkPropertyFromTo)
-        console.log(linkPropertyToFrom)
+       
         const woqlGraphConfig= TerminusClient.View.graph();
         woqlGraphConfig.height(700).width(1500)
         woqlGraphConfig.literals(false);

@@ -122,7 +122,10 @@ class ChangeRequestDB {
         if(changeRequest.status!=="Submitted"){
             throw new Error (`The change request status is ${changeRequest.status}, you can not see the diff`) 
         }
-        const trackingBranch : string = changeRequest.tracking_branch;
+        let trackingBranch : string = changeRequest.tracking_branch;
+        if(changeRequest.status === "Merged" && changeRequest.merge_commit_id){
+            trackingBranch = changeRequest.merge_commit_id
+        }
         let options={ 
             "keep": { 
                 "@id" : true, 
