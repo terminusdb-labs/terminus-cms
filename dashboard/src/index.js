@@ -3,7 +3,7 @@ import {App} from "./App"
 import {LoginModal} from "./components/LoginModal"
 import {BrowserRouter,useNavigate} from "react-router-dom"
 import { createRoot } from 'react-dom/client';
-import {ClientProvider} from './cms-init-client'
+import {ClientProvider} from './cms-init-client' 
 
 function AppComponent(){
 

@@ -1,7 +1,60 @@
 import React, {useState,useEffect} from "react";
+import * as actions from "../components/constants"
+
+// create a new document
+export function CreateDocumentHook(client, document, mode, setLoading, setMode, setErrorMsg) {
+    const [result, setResult] = useState(false)
+ 
+    async function addDocument() {
+        try{
+            setLoading(true)
+            const res = await client.addDocument(document, null, client.db())
+            setResult(res)
+            if(setMode) setMode(actions.VIEW_LIST)
+            setLoading(false)
+        }
+        catch(err){ 
+            setLoading(false)
+            if(setErrorMsg) setErrorMsg(err.message)
+       }
+    }
+
+    useEffect(() => {
+        if (Object.keys(document).length && mode === actions.CREATE) addDocument()
+    }, [document])
+
+    return result
+}
 
 
-export function GetDocumentHook(client, documentId, updated){// setLoading, setSuccessMsg, setErrorMsg) {
+// delete documents
+export function DeleteDocumentHook(client, documentId, mode, setCurrentMode, updated, setLoading, setErrorMsg) {
+    const [result, setResult] = useState(false)
+
+    async function deleteDocument() {
+        try{
+            setLoading(true)
+            let params={}
+            params['id'] = documentId
+            let commitMsg=`Deleting document ${documentId}` 
+            const res = await client.deleteDocument(params, client.db(), commitMsg)
+            setCurrentMode(actions.VIEW_LIST)
+            setLoading(false)
+        }
+        catch(err){
+            if(setErrorMsg) setErrorMsg(err.message)
+            setLoading(false)
+       }
+    }
+
+    useEffect(() => {
+        if (documentId && mode === actions.DELETE) deleteDocument()
+    }, [documentId, updated])
+
+    return result
+}
+
+export function GetDocumentHook(client, documentId, mode, setData, updated){// setLoading, setSuccessMsg, setErrorMsg) {
         const [result, setResult] = useState(false)
         const [loading, setLoading] = useState(false)
         const [error, setError] = useState(false)
@@ -10,28 +63,29 @@ export function GetDocumentHook(client, documentId, updated){// setLoading, setS
             try{
                 let params={}
                 params['id']=documentId
-                //setLoading(true)
+                setLoading(true)
                 const res = await client.getDocument(params, client.db())
-                
+                if(setData) setData(res)
                 setResult(res)
-                //setLoading(false)
-               // return res
+                setLoading(false)
+                return res
             }
             catch(err){
-                //setLoading(false)
-               //setErrorMsg(err.message)
+                setLoading(false)
+                setErrorMsg(err.message)
            }
         }
     
+
         useEffect(() => {
-            if (documentId, updated) getDocument()
+            if (documentId && updated && mode === actions.VIEW) getDocument()
         }, [documentId, updated])
     
-        return {result}
+        return result
     }
 
 // edit documents
-export function EditDocumentHook(client, extractedUpdate, setLoading, setUpdated, setView) {
+export function EditDocumentHook(client, extractedUpdate, mode, setLoading, setUpdated, setView) {
     const [result, setResult] = useState(false)
 
     async function updateDocument() {
@@ -43,7 +97,6 @@ export function EditDocumentHook(client, extractedUpdate, setLoading, setUpdated
             let commitMsg=`Updating document ${documentId}`
             setLoading(true)
             const res = await client.updateDocument(update, params, client.db(), commitMsg)
-            console.log("updated res", res)
             setLoading(false)
             if(setView) setView("View")
             // use updated constant to refresh updated view in UI 
@@ -57,7 +110,7 @@ export function EditDocumentHook(client, extractedUpdate, setLoading, setUpdated
     }
 
     useEffect(() => {
-        if (extractedUpdate) updateDocument()
+        if (extractedUpdate && extractedUpdate.hasOwnProperty("@id") && mode === actions.EDIT) updateDocument()
     }, [extractedUpdate])
 
     return result
@@ -105,7 +158,7 @@ export function GetDiffList(client, trackingBranch, setError){
  * @param {*} setError Constant to catch error 
  * @returns An array of documents from tracking branch
  */
-export function GetDocumentByBranches(client, branch, documentID, setValue, setError){
+export function GetDocumentByBranches(client, branch, documentID, setValue, setError, refresh){
     const [result, setResult] = useState(false)
 
     async function getDocument() {
@@ -123,10 +176,11 @@ export function GetDocumentByBranches(client, branch, documentID, setValue, setE
     }
 
     useEffect(() => {
-        if (documentID) getDocument()
-    }, [documentID])
+        if (documentID && refresh) getDocument()
+    }, [documentID, refresh])
 
     return result
 }
 
-    
+
+

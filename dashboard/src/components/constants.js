@@ -6,6 +6,11 @@ export const MERGED="Merged"
 export const SUBMITTED="Submitted"
 export const REJECTED="Rejected"
 
+// CR actions
+export const COMMENT="Comment"
+export const APPROVE="Approve"
+export const REJECT="Reject"
+
 // Document types
 export const THEME="Theme"
 export const LEGO_SET="LegoSet"
@@ -16,3 +21,10 @@ export const MESSAGES="Messages"
 
 // consts
 export const TRACKING_BRANCH="tracking_branch"
+
+// actions 
+export const CREATE="Create"
+export const EDIT="Edit"
+export const VIEW="View"
+export const DELETE="Delete"
+export const VIEW_LIST="List"
