@@ -6,8 +6,12 @@ import * as typeDef from "../../core/typeDef"
 
     export const GET: Operation = async(req:Request, res:Response) =>{
       try{
+        var dd = new Date()
+          console.log("ChangeRequestDB",dd.toISOString())
           const changeR = new ChangeRequestDB(req)
           const result = await changeR.getChangeRequests()
+          var dd1 = new Date()
+          console.log("ChangeRequestDB",dd1.toISOString())
           res.status(200).json(result);
       }catch(err:any){
           console.log(err.message)

@@ -8,13 +8,14 @@ export type MessageObj =  {"@type" : "Message",
 
 export type ChangeReqDoc = { 
     "@type" : "ChangeRequest",
-    "origin_database" : string,
-    "status" :  ChangeReqStatus ,
-    "tracking_branch" : string,
-    "original_branch" : string,
-    "creator" : string, 
-    "creation_time" : number,
-    "messages": MessageObj[]
+    origin_database : string,
+    status :  ChangeReqStatus ,
+    tracking_branch : string,
+    original_branch : string,
+    creator : string, 
+    merge_commit_id? :string,
+    creation_time : number,
+    messages: MessageObj[]
 }
 
 export type GetRequestQuery = {

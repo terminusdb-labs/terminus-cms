@@ -1,4 +1,4 @@
-import TerminusClient , {WOQLClient} from "@terminusdb/terminusdb-client"
+import TerminusClient , {WOQLClient,WOQL} from "@terminusdb/terminusdb-client"
 import { DocParamsGet } from "@terminusdb/terminusdb-client/dist/typescript/lib/typedef"
 import { Request } from "express"
 import * as typeDef from "./typeDef"
@@ -69,18 +69,46 @@ class ChangeRequestDB {
         
     }
 
+    /*
+     {
+         "Active Commit ID":"terminusdb://ref/data/ValidCommit/uuyiezbpfpqpe52qw91c9yymr0qbegu",
+         "Branch":"terminusdb://ref/data/Branch/main",
+         "Identifier":{
+            "@type":"xsd:string",
+            "@value":"uuyiezbpfpqpe52qw91c9yymr0qbegu"
+       */
+
+    async getLastMainCommitId(client:WOQLClient){       
+        const query =  WOQL.using("_commits").triple('v:Branch', 'name', WOQL.string('main'))
+                        .triple('v:Branch', 'head', 'v:Active Commit ID')
+		                .triple('v:Active Commit ID',"identifier","v:Identifier")        
+
+        const result = await client.query(query)
+        if(Array.isArray(result.bindings)){
+            return result.bindings[0]['Identifier']['@value']
+        }
+    }
+
     async changeRequestStatus(changeIdHash:string,status:string,message:string){
         const changeId = `ChangeRequest/${changeIdHash}`
         const requestDoc = await this.client.getDocument({id:changeId})
-        if(status === "Merged" && requestDoc.status==="Submitted"){
-            let trackingBranch : string = requestDoc.tracking_branch
-            try{
-                const legoClient = this.connectWithCurrentUser()
-               
-                await legoClient.apply("main", trackingBranch, message, true)
+        if(status === "Merged" ){
+            if(requestDoc.status==="Submitted"){
+                let trackingBranch : string = requestDoc.tracking_branch
+                try{
+                    const legoClient = this.connectWithCurrentUser()
+
+                    const lastCommitId = await this.getLastMainCommitId(legoClient)
+                    
+                    await legoClient.apply("main", trackingBranch, message, true)
+
+                    requestDoc.merge_commit_id = lastCommitId 
                // await legoClient.deleteBranch(trackingBranch)
-            }catch(err){
-                throw new Error (`I can not merge the change request ${trackingBranch}`) 
+                }catch(err){
+                    throw new Error (`I can not merge the change request ${trackingBranch}`) 
+                }
+            }else{
+                throw new Error (`I can not merge a change request with ${requestDoc.status} status` ) 
             }
         }
         requestDoc.status = status

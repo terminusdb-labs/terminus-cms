@@ -5,7 +5,7 @@ import {ClientObj}  from "../cms-init-client"
 import "allotment/dist/style.css";
 import {WOQLGraph} from "@terminusdb-live/tdb-react-components"
 import TerminusClient from '@terminusdb/terminusdb-client'
-import {scaleOrdinal} from 'd3'; 
+import * as d3 from 'd3'
 
 export const Documents = () => {
     const {classes} = ClientObj()
@@ -25,7 +25,7 @@ export const Documents = () => {
     const linkEdges = []
     let viewer
 
-    const color = scaleOrdinal(["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]);
+    const color = d3.scaleOrdinal(["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]);
 
     const manageClasses =(classes) =>{
         if(!Array.isArray(classes)) return 

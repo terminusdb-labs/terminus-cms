@@ -7,6 +7,8 @@ import {ClientProvider} from './cms-init-client'
 import {createApolloClient} from './utils/ApolloClientConfig'
 import { ApolloProvider} from '@apollo/client';
 
+
+
 function AppComponent(){
     if(!localStorage.getItem("TerminusCMS-USER") || !localStorage.getItem("TerminusCMS-KEY")){
         return <LoginModal showModal={true} isCloseble={false}/>
@@ -17,5 +19,5 @@ function AppComponent(){
 }
 
 const container = document.getElementById('root');
-const root = createRoot(container); // createRoot(container!) if you use TypeScript
+const root = createRoot(container); 
 root.render(<BrowserRouter><AppComponent/></BrowserRouter>);

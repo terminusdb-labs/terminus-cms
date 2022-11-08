@@ -15,6 +15,7 @@ import {LayoutNoMenu} from "./pages/LayoutNoMenu"
 import {Main} from "./pages/Main"
 import {ClientObj} from "./cms-init-client"
 import { Alert,Container } from "react-bootstrap";
+import {GraphIqlEditor} from './pages/GraphIqlEditor'
 // <Route index element={<Home/>} /> 
 export function App (props){
     const {error,loadingServer} = ClientObj()
@@ -29,6 +30,7 @@ export function App (props){
         <Routes>
             <Route index element={<Main/>} /> 
             <Route path="web" element={<Home/>} /> 
+            <Route path="graphiql" element={<GraphIqlEditor/>} /> 
            
             <Route path="change_requests" >
                 <Route index element={<ChangeRequests/>} />    
