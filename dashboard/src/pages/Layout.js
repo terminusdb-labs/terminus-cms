@@ -8,20 +8,20 @@ import {Allotment} from 'allotment'
 import "allotment/dist/style.css";
 import {ClientObj}  from "../cms-init-client"
 import { SubmitChangeRequestModal } from "../components/SubmitChangeRequestModal";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import {BiGitBranch} from "react-icons/bi"
-import {VIEW_LIST} from "../components/constants"
 import {VscGitPullRequestDraft} from "react-icons/vsc"
 
-export function Layout ({setCurrentMode}){
+export function Layout (){
     const [showModal,setShowModal] = useState(false)
     const {classes,currentBranch,client,updateBranch} = ClientObj()
     const navigate = useNavigate()
+    const {type} = useParams()
     if(!client) return ''
     const getNavDropdown = () =>{ 
         return classes.map(item=>{ 
             function handleClick(clicked){
-                if(setCurrentMode) setCurrentMode(VIEW_LIST)
+                navigate(`/documents/${type}`)
             }
             if(item["@subdocument"]) return ""
             return <Nav.Link className ="navbar-dark navbar-nav ml-4" 

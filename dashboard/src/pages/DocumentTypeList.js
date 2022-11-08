@@ -8,7 +8,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import Stack from 'react-bootstrap/Stack'
 import {HiPlusSm} from "react-icons/hi"
 import {DocumentInterface} from "./DocumentInterface"
-import * as actions from "../components/constants"
+import {CREATE_PATH} from "../components/constants"
 
 export const DocumentTypeList = ({setCurrentMode, currentMode}) => {   
     const {client} = ClientObj()
@@ -57,7 +57,7 @@ export const DocumentTypeList = ({setCurrentMode, currentMode}) => {
     const navigate = useNavigate()
     const onRowClick = (row) =>{
         const id = row.original["@id"]
-        setCurrentMode(actions.VIEW)
+        //setCurrentMode(actions.VIEW)
         navigate(`/documents/${id}`)
     }
 
@@ -109,48 +109,45 @@ export const DocumentTypeList = ({setCurrentMode, currentMode}) => {
     }
 
     function handleCreate(e) {
-        setCurrentMode(actions.CREATE)
+        //setCurrentMode(actions.CREATE)
+        navigate(`/documents/${type}/${CREATE_PATH}`)
     }
 
-    console.log("currentMode", currentMode, controlledRefresh)
-    if(currentMode === actions.VIEW_LIST) {
-        return  <div className="m-5">
-            <Card className="content  w-100 mt-5" varaint="light">
-                <Card.Header>
-                    <Stack direction="horizontal" gap={3}>
-                        <h6>Documents of type - <strong className="text-success">{type}</strong></h6>
-                        <div className="ms-auto">
-                            <Button className="bg-light text-dark" onClick={handleCreate}>
-                                <HiPlusSm className="mr-1 mb-1"/>
-                                <small>{`Add new ${type}`}</small>
-                            </Button>
-                        </div>
-                    </Stack>
-                </Card.Header>
-                <Card.Body className="text-break">
-                    {extractedResults && extractedResults.length===0 && <span>
-                        Loading {type}s ... 
-                        <ProgressBar variant="info" animated now={100}/>
-                    </span>}
-                    {extractedResults && extractedResults.length>0 && <WOQLTable
-                        result={extractedResults}
-                        freewidth={true}
-                        view={(tableConfig ? tableConfig.json() : {})}
-                        limit={limit}
-                        start={start}
-                        orderBy={orderBy}
-                        setLimits={changeLimits}
-                        setOrder={changeOrder}
-                        resultColumns={getColumnsFromResults(extractedResults)}
-                        query={false} 
-                        loading={loading}
-                        totalRows={rowCount}
-                    />}
-                </Card.Body>
-            </Card>
-        </div> 
-    }
-
-    return <DocumentInterface setCurrentMode={setCurrentMode} 
-        currentMode={currentMode}/>
+    
+    return  <div className="m-5">
+        <Card className="content  w-100 mt-5" varaint="light">
+            <Card.Header>
+                <Stack direction="horizontal" gap={3}>
+                    <h6>Documents of type - <strong className="text-success">{type}</strong></h6>
+                    <div className="ms-auto">
+                        <Button className="bg-light text-dark" onClick={handleCreate}>
+                            <HiPlusSm className="mr-1 mb-1"/>
+                            <small>{`Add new ${type}`}</small>
+                        </Button>
+                    </div>
+                </Stack>
+            </Card.Header>
+            <Card.Body className="text-break">
+                {extractedResults && extractedResults.length===0 && <span>
+                    Loading {type}s ... 
+                    <ProgressBar variant="info" animated now={100}/>
+                </span>}
+                {extractedResults && extractedResults.length>0 && <WOQLTable
+                    result={extractedResults}
+                    freewidth={true}
+                    view={(tableConfig ? tableConfig.json() : {})}
+                    limit={limit}
+                    start={start}
+                    orderBy={orderBy}
+                    setLimits={changeLimits}
+                    setOrder={changeOrder}
+                    resultColumns={getColumnsFromResults(extractedResults)}
+                    query={false} 
+                    loading={loading}
+                    totalRows={rowCount}
+                />}
+            </Card.Body>
+        </Card>
+    </div> 
+    
 }

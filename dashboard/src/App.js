@@ -10,10 +10,8 @@ import "./App.css"
 import { ChangeRequests } from "./pages/ChangeRequests";
 import {ChangeDiff} from "./pages/ChangeDiff";
 import { ChartTest } from "./pages/ChartTest";
-import {VIEW_LIST} from "./components/constants"
 
 export function App (props){
-    const [currentMode, setCurrentMode] = useState(VIEW_LIST)
     
     return <React.Fragment>
         <Routes>
@@ -24,11 +22,11 @@ export function App (props){
                 <Route path=":id" element={<ChangeDiff/>} /> 
             </Route>
             
-            <Route path="documents" element={<Layout setCurrentMode={setCurrentMode}/>} >
+            <Route path="documents" element={<Layout/>} >
                 <Route index element={<Documents/>} />                     
                 <Route path=":type"  >
-                    <Route index element={<DocumentTypeList setCurrentMode={setCurrentMode} currentMode={currentMode}/>} /> 
-                    <Route path=":id" element={<DocumentInterface setCurrentMode={setCurrentMode} currentMode={currentMode}/>} /> 
+                    <Route index element={<DocumentTypeList/>} /> 
+                    <Route path=":id" element={<DocumentInterface/>} /> 
                 </Route>              
             </Route>
         </Routes>
