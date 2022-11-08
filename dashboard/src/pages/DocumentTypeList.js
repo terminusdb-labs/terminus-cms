@@ -10,7 +10,7 @@ import {HiPlusSm} from "react-icons/hi"
 import {DocumentInterface} from "./DocumentInterface"
 import {CREATE_PATH} from "../components/constants"
 
-export const DocumentTypeList = ({setCurrentMode, currentMode}) => {   
+export const DocumentTypeList = () => {   
     const {client} = ClientObj()
     const {type} = useParams()
     const {
@@ -57,7 +57,6 @@ export const DocumentTypeList = ({setCurrentMode, currentMode}) => {
     const navigate = useNavigate()
     const onRowClick = (row) =>{
         const id = row.original["@id"]
-        //setCurrentMode(actions.VIEW)
         navigate(`/documents/${id}`)
     }
 
@@ -109,7 +108,6 @@ export const DocumentTypeList = ({setCurrentMode, currentMode}) => {
     }
 
     function handleCreate(e) {
-        //setCurrentMode(actions.CREATE)
         navigate(`/documents/${type}/${CREATE_PATH}`)
     }
 
