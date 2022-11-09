@@ -19,6 +19,7 @@ import {GraphIqlEditor} from './pages/GraphIqlEditor'
 import {VIEW_LIST} from "./components/constants"
 import {Themes} from "./components/ThemeComponent"
 import {PageNotFound} from "./pages/PageNotFound"
+//import {LegoSetDescription} from "./pages/LegoSetDescription"
 // <Route index element={<Home/>} /> 
 export function App (props){
     const {error,loadingServer} = ClientObj()

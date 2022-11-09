@@ -37,7 +37,7 @@ export const Themes = () => {
 
     const navigate = useNavigate()
     const onNodeClick = (theme) =>{
-        navigate(`/theme/${theme}`)
+        navigate(`/themes/${theme}`)
     }
     useEffect(() => {
         if(client){
