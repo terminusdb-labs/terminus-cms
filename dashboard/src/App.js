@@ -49,7 +49,7 @@ export function App (props){
                     <Route path=":id" element={<DocumentInterface/>} /> 
                 </Route>              
             </Route>
-            <Route path="theme" element={<LayoutWebPage/>}>
+            <Route path="themes" element={<LayoutWebPage/>}>
                 <Route index element={<Themes/>} /> 
                 <Route path=":theme" >
                     <Route index element={<LegoSetForTheme/>} /> 
