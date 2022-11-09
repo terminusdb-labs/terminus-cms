@@ -17,6 +17,7 @@ export function Layout ({setCurrentMode}){
     const [showModal,setShowModal] = useState(false)
     const {classes,currentBranch,client,updateBranch} = ClientObj()
     const navigate = useNavigate()
+
     if(!client) return ''
     const getNavDropdown = () =>{ 
         return classes.map(item=>{ 

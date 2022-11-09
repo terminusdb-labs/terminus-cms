@@ -13,7 +13,7 @@ import {HiPlusSm} from "react-icons/hi"
 import {DocumentInterface} from "./DocumentInterface"
 import * as actions from "../components/constants"
 
-export const DocumentTypeList = ({setCurrentMode, currentMode}) => {   
+export const DocumentTypeList = ({setCurrentMode, currentMode, filters}) => {   
     const {client} = ClientObj()
     const {type} = useParams()
     const query = graphqlQuery[type]
@@ -94,16 +94,6 @@ export const DocumentTypeList = ({setCurrentMode, currentMode}) => {
                 //?? I can pust the count
                 if(Array.isArray(item[key])){
                     newJson[key]= `number ${(item[key].length)}`
-
-                    //var type = item[key][0]["@type"]
-                   /* if(frames[`terminusdb:///schema#${type}`] && frames[`terminusdb:///schema#${type}`]["@subdocument"]){
-                        // this is a subdocument
-                        var newArray=[]
-                        item[key].map(thing => {
-                            newArray.push(thing["@id"])
-                        })
-                        newJson[key]=newArray
-                    }*/
                 }
                 else if(item[key] && typeof item[key] === "object"){
                     //key 
@@ -111,10 +101,6 @@ export const DocumentTypeList = ({setCurrentMode, currentMode}) => {
                     objectKey.forEach(element => {
                         newJson[`${key}--${element}`] =  item[key][element]  
                     });
-
-                  // if(item[key].hasOwnProperty("@id")){ // object - we do not display sys json data as part of table
-                    //    newJson[key]=item[key]["@id"]
-                    //}
                 }
                 else {
                     newJson[key]=item[key]
@@ -168,44 +154,3 @@ export const DocumentTypeList = ({setCurrentMode, currentMode}) => {
         </Card>
     </div>          
 }
-
-
-/*
-    console.log("currentMode", currentMode, controlledRefresh)
-    if(currentMode === actions.VIEW_LIST) {
-        return  <div className="m-5">
-            <Card className="content  w-100 mt-5" varaint="light">
-                <Card.Header>
-                    <Stack direction="horizontal" gap={3}>
-                        <h6>Documents of type - <strong className="text-success">{type}</strong></h6>
-                        <div className="ms-auto">
-                            <Button className="bg-light text-dark" onClick={handleCreate}>
-                                <HiPlusSm className="mr-1 mb-1"/>
-                                <small>{`Add new ${type}`}</small>
-                            </Button>
-                        </div>
-                    </Stack>
-                </Card.Header>
-                <Card.Body className="text-break">
-                    {extractedResults && extractedResults.length===0 && <span>
-                        Loading {type}s ... 
-                        <ProgressBar variant="info" animated now={100}/>
-                    </span>}
-                    {extractedResults && extractedResults.length>0 && <WOQLTable
-                        result={extractedResults}
-                        freewidth={true}
-                        view={(tableConfig ? tableConfig.json() : {})}
-                        limit={limit}
-                        start={start}
-                        orderBy={orderBy}
-                        setLimits={changeLimits}
-                        setOrder={changeOrder}
-                        resultColumns={getColumnsFromResults(extractedResults)}
-                        query={false} 
-                        loading={loading}
-                        totalRows={rowCount}
-                    />}
-                </Card.Body>
-            </Card>
-        </div> 
-    }*/

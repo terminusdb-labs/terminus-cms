@@ -17,8 +17,8 @@ export const Main = () => {
                 <h2>TERMINUSCMS</h2>  
             </Stack>
             <Stack direction="horizontal" gap={5} style={{width: "100%"}} className="mt-5 justify-content-center">
-                    <Button onClick={()=>{onRowClick("web")}} class="mt-2" style={{width:"40%", height:"100px", background:"#66c2a5"}}><h3>Website</h3></Button>
-                    <Button onClick={()=>{onRowClick("documents")}} class="mt-2" style={{width:"40%", height:"100px", background:"#8da0cb"}}><h3>Back Office</h3></Button>
+                    <Button onClick={()=>{onRowClick("theme")}} className="mt-2" style={{width:"40%", height:"100px", background:"#66c2a5"}}><h3>Website</h3></Button>
+                    <Button onClick={()=>{onRowClick("home")}} className="mt-2" style={{width:"40%", height:"100px", background:"#8da0cb"}}><h3>Back Office</h3></Button>
             </Stack>
             
         </Container>   

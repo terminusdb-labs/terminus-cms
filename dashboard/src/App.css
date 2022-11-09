@@ -493,6 +493,15 @@ a.leaflet-browser-print{
       transform: scale(1.0);
     }
 }
+.search-input:focus {
+    border: 1px solid #adb5bd;
+    color : white;
+}
+
+.search-input  {
+    border: 1px solid #adb5bd;
+    color : white;
+}
 
 
 

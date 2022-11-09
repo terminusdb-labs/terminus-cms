@@ -1,12 +1,13 @@
 import React from 'react'
 import {Container, Navbar, Nav ,Dropdown, Form, Button} from "react-bootstrap"
 import {SearchComponent} from "./SearchComponent"
-import {NavLink as RouterNavLink} from "react-router-dom"
+import {NavLink as RouterNavLink, useParams} from "react-router-dom"
 import {ClientObj} from "../cms-init-client"
 import {AiOutlinePoweroff} from "react-icons/ai"
 
 export const TopMenu = ({showSearchBar=true}) => {
 		const {client} = ClientObj()
+		const {type} = useParams()
 		const isHome = window.location.pathname === '/' ? {opacity:0} : null
 		
 		function logoutLocalUser (evt) {
@@ -18,8 +19,8 @@ export const TopMenu = ({showSearchBar=true}) => {
 	 
 		return <Navbar sticky="top" expand="lg" variant='dark' className="m-0 p-0 bg-grey">
 			<Container fluid>
-				
-				<Navbar.Brand as={RouterNavLink} to="/"><img src="https://assets.terminusdb.com/images/terminusx-color.png" className=" mr-2" width="40px"/></Navbar.Brand>
+      			<Navbar.Brand as={RouterNavLink} to="/"><img src="https://assets.terminusdb.com/images/terminusx-color.png" className="logo-img mr-2" width="40px"/>TERMINUSCMS</Navbar.Brand>
+       		
 				<Navbar.Toggle aria-controls="navbarScroll" />
 				<Navbar.Collapse id="navbarScroll">
 					<Nav
@@ -30,7 +31,7 @@ export const TopMenu = ({showSearchBar=true}) => {
 						<Nav.Link as={RouterNavLink} to="/documents">Documents</Nav.Link>         
 						<Nav.Link as={RouterNavLink} to="/change_requests">Change requests</Nav.Link>          
 					</Nav>
-					{showSearchBar && <SearchComponent applyStyle={isHome}></SearchComponent>}
+					{showSearchBar && <SearchComponent applyStyle={isHome} startFilter={type}></SearchComponent>}
 					<Nav className='ml-auto'>
 						<Dropdown className="mr-4" id="profile_menu">
 										<Button size="sm" className="bg-transparent border-0">
