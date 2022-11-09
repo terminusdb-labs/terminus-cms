@@ -1,3 +1,5 @@
+export const CREATE_PATH="___CREATE__"
+
 export const DIFFS_PER_PAGE_LIMIT=5
 
 // CR statuses

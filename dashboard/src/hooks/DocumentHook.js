@@ -2,15 +2,16 @@ import React, {useState,useEffect} from "react";
 import * as actions from "../components/constants"
 
 // create a new document
-export function CreateDocumentHook(client, document, mode, setLoading, setMode, setErrorMsg) {
+export function CreateDocumentHook(client, document, mode, setLoading, navigate, setErrorMsg) {
     const [result, setResult] = useState(false)
  
     async function addDocument() {
         try{
             setLoading(true)
             const res = await client.addDocument(document, null, client.db())
+            let type=document["@type"]
             setResult(res)
-            if(setMode) setMode(actions.VIEW_LIST)
+            if(navigate) navigate(`/documents/${type}`)
             setLoading(false)
         }
         catch(err){ 
@@ -28,7 +29,7 @@ export function CreateDocumentHook(client, document, mode, setLoading, setMode, 
 
 
 // delete documents
-export function DeleteDocumentHook(client, documentId, mode, setCurrentMode, updated, setLoading, setErrorMsg) {
+export function DeleteDocumentHook(client, documentId, type, mode, navigate, updated, setLoading, setErrorMsg) {
     const [result, setResult] = useState(false)
 
     async function deleteDocument() {
@@ -38,7 +39,7 @@ export function DeleteDocumentHook(client, documentId, mode, setCurrentMode, upd
             params['id'] = documentId
             let commitMsg=`Deleting document ${documentId}` 
             const res = await client.deleteDocument(params, client.db(), commitMsg)
-            setCurrentMode(actions.VIEW_LIST)
+            if(navigate) navigate(`/documents/${type}`)
             setLoading(false)
         }
         catch(err){

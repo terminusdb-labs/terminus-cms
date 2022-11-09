@@ -11,9 +11,9 @@ import {tableConfigObj} from '../utils/graphqlQuery'
 import Stack from 'react-bootstrap/Stack'
 import {HiPlusSm} from "react-icons/hi"
 import {DocumentInterface} from "./DocumentInterface"
-import * as actions from "../components/constants"
+import {CREATE_PATH} from "../components/constants"
 
-export const DocumentTypeList = ({setCurrentMode, currentMode, filters}) => {   
+export const DocumentTypeList = () => {   
     const {client} = ClientObj()
     const {type} = useParams()
     const query = graphqlQuery[type]
@@ -113,10 +113,10 @@ export const DocumentTypeList = ({setCurrentMode, currentMode, filters}) => {
     }
 
     function handleCreate(e) {
-        setCurrentMode(actions.CREATE)
-        navigate(`/documents/${type}/___CREATE__`)
+        navigate(`/documents/${type}/${CREATE_PATH}`)
     }
 
+    
     return  <div className="m-5">
         <Card className="content  w-100 mt-5" varaint="light">
             <Card.Header>
