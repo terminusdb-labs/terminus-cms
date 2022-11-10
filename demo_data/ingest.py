@@ -143,6 +143,7 @@ def serialize_sets(output):
                 'name': row['name'],
                 'year': int(row['year']),
                 'description': row['description'],
+                'image_url': row['image_url'],
             })
 
 
