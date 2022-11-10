@@ -136,6 +136,7 @@ def serialize_sets(output):
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
             set_id = row['set_num']
+            image_url = row['image_url'] if row['image_url'] and row['image_url'] != "" else None
             output.write({
                 '@type': 'LegoSet',
                 '@capture': f"LegoSet/{set_id}",
@@ -143,7 +144,7 @@ def serialize_sets(output):
                 'name': row['name'],
                 'year': int(row['year']),
                 'description': row['description'],
-                'image_url': row['image_url'],
+                'image_url': image_url,
             })
 
 
