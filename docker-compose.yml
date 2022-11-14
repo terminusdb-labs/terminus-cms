@@ -2,17 +2,15 @@ version: "3.3"  # optional since v1.27.0
 services:
   ingest:
     image: python:3-bullseye
-    # volumes:
-     # - ./demo_data:/app/demo_data
+    volumes:
+     - ./demo_data:/app/demo_data
     restart: "no"
   terminusdb:
     image: terminusdb/terminusdb-server:graphql
     pull_policy: always
     volumes:
-     # - ./demo_data:/app/demo_data
-      - tdb_storage-cms:/app/terminusdb/storage
+      - ./demo_data:/app/demo_data
+      - ./tdb_storage:/app/terminusdb/storage
     ports:
       - "6363:6363"
-    #command: bash /app/demo_data/insert.sh
-volumes:
-  tdb_storage-cms:
+    command: bash /app/demo_data/insert.sh
