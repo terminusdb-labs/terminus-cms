@@ -195,6 +195,10 @@
       "@type": "Optional",
       "@class": "xsd:string"
     },
+    "image_url": {
+      "@type": "Optional",
+      "@class": "xsd:anyURI"
+    },
     "inventory_set": { "@type" : "Set",
                        "@class" : "InventorySet"}
   },
