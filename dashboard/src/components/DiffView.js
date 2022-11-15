@@ -178,7 +178,7 @@ export const DiffView = ({diffs}) => {
         //console.log("documentId", documentID, eventKey, css)
         elements.push(
             <React.Fragment>
-                <Accordion classNames="mb-3 bg-secondary accordion__button"
+                <Accordion className="mb-3 bg-secondary accordion__button"
                     id={eventKey}
                     activeKey={eventKey === documentID ? eventKey : false}
                     onSelect={getDocumentStatesOnClick}> 

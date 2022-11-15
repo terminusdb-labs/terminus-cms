@@ -24,7 +24,6 @@ export function ChangeRequest(){
         }finally{
             setLoading(false)
         }
-
     }
 
     const updateChangeRequestStatus = async(message, status="Submitted") =>{
@@ -57,14 +56,14 @@ export function ChangeRequest(){
     }
 
     const getChangeRequestByID = async(id) =>{
-        try{
+        try{ 
             setLoading(true) 
             const payload = {id}
             const result = await client.sendCustomRequest("GET", 'http://localhost:3035/changes', payload)
             if(setCurrentCRObject) {
                 result.map(res=>{
                     if(res["@id"] === `ChangeRequest/${id}`){
-                        setCurrentCRObject(res)
+                        setCurrentCRObject(res) 
                     }
                 })
             }

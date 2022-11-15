@@ -46,17 +46,17 @@ export const ChangeDiff = () => {
         currentCRObject
     } = ClientObj() 
 
-    if(!client) return <div/>
-
     const {id} = useParams() 
     const [key, setKey] = useState(DIFFS)
     const [action, setAction]=useState(false)
-    
+
+    const result = GetDiffList(client, currentCRObject["@id"])  
+
     useEffect(() => {
         if(key === DIFFS) setAction(false)
     }, [key])
 
-    const result = GetDiffList(client, id)  
+    if(!client) return <div/>
 
     let documentModifiedCount = result ? result.length : 0
  

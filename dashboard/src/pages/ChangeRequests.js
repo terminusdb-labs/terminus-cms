@@ -54,7 +54,7 @@ export const ChangeRequests = () => {
     const goToDiffPage = (changeRequestObject) => {
 		let branchName=changeRequestObject['tracking_branch'] 
 		setCurrentCRObject(changeRequestObject)
-		let id=extractID(changeRequestObject["@id"])
+		let id=extractID(changeRequestObject["@id"]) 
         setCurrentChangeRequest(id)
         navigate(`/change_requests/${branchName}`)
     }
@@ -129,7 +129,7 @@ export const ChangeRequests = () => {
 		if(!filter) return ""
         return changeRequestList.slice(0).reverse().map((item, index)=>{
 
-			const actions = item.status === "Submitted" ?  {action:true, onClick:()=>goToDiffPage(item)} : {}
+			const actions = (item.status === "Submitted" || item.status === "Merged")?  {action:true, onClick:()=>goToDiffPage(item)} : {}
 			if(item.status === filter) {
 				return  <ListGroup.Item  
 					{...actions} 
