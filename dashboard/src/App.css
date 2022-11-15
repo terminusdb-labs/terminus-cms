@@ -503,6 +503,16 @@ a.leaflet-browser-print{
     color : white;
 }
 
+  /* GraphiQL One Dark Alt (Dark Mode) theme by Ben Keating[1]
+   * Colors taken from Atom's One Dark theme[2]. Add this file to the end of
+   * your <head> block[3] to override built-in default styling.
+   *
+   * [1]. https://twitter.com/flowpoke
+   * [2]. https://github.com/atom/atom/tree/master/packages/one-dark-ui
+   * [3]. e.g. `.../site-packages/graphene_django/templates/graphene/graphiql.html`
+   */
+
+
 
 
 

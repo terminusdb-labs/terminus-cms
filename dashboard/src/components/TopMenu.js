@@ -17,9 +17,11 @@ export const TopMenu = ({showSearchBar=true}) => {
 				window.location.replace(`${base}`) 
 		}
 	 
-		return <Navbar sticky="top" expand="lg" variant='dark' className="m-0 p-0 bg-grey">
-			<Container fluid>
-      			<Navbar.Brand as={RouterNavLink} to="/"><img src="https://assets.terminusdb.com/images/terminusx-color.png" className="logo-img mr-2" width="40px"/>TERMINUSCMS</Navbar.Brand>
+		return <Navbar sticky="top" expand="lg" variant='dark' className="m-0 p-2 bg-grey">
+			<Container fluid className="">
+      			<Navbar.Brand as={RouterNavLink} to="/">
+				  <img src="https://assets.terminusdb.com/images/terminusx-color.png" className="logo-img mr-2" width="40px"/>
+				  <span>TERMINUSCMS</span></Navbar.Brand>
        		
 				<Navbar.Toggle aria-controls="navbarScroll" />
 				<Navbar.Collapse id="navbarScroll">
@@ -29,7 +31,8 @@ export const TopMenu = ({showSearchBar=true}) => {
 						navbarScroll
 					>
 						<Nav.Link as={RouterNavLink} to="/documents">Documents</Nav.Link>         
-						<Nav.Link as={RouterNavLink} to="/change_requests">Change requests</Nav.Link>          
+						<Nav.Link as={RouterNavLink} to="/change_requests">Change requests</Nav.Link> 
+						<Nav.Link as={RouterNavLink} to="/graphiql">GraphiQL</Nav.Link>          
 					</Nav>
 					{showSearchBar && <SearchComponent applyStyle={isHome} startFilter={type}></SearchComponent>}
 					<Nav className='ml-auto'>

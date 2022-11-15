@@ -6,13 +6,11 @@ services:
      - ./demo_data:/app/demo_data
     restart: "no"
   terminusdb:
-    image: terminusdb/terminusdb-server:graphql
+    image: terminusdb/terminusdb-server:dev
     pull_policy: always
     volumes:
       - ./demo_data:/app/demo_data
-      - tdb_storage-cms:/app/terminusdb/storage
+      - ./tdb_storage:/app/terminusdb/storage
     ports:
       - "6363:6363"
     command: bash /app/demo_data/insert.sh
-volumes:
-  tdb_storage-cms:

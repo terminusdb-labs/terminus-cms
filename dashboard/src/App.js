@@ -19,8 +19,9 @@ import {GraphIqlEditor} from './pages/GraphIqlEditor'
 import {VIEW_LIST} from "./components/constants"
 import {Themes} from "./components/ThemeComponent"
 import {PageNotFound} from "./pages/PageNotFound"
-//import {LegoSetDescription} from "./pages/LegoSetDescription"
-// <Route index element={<Home/>} /> 
+import {LegoSetDescription} from "./pages/LegoSetDescription"
+import {AdvancedSearch} from "./components/AdvancedSearch"
+
 export function App (props){
     const {error,loadingServer} = ClientObj()
     const [currentMode, setCurrentMode] = useState(VIEW_LIST)
@@ -35,7 +36,7 @@ export function App (props){
     return <React.Fragment>
         <Routes>
             <Route index element={<Main/>} />          
-            <Route path="home" element={<Home/>} /> 
+            <Route path="adv" element={<AdvancedSearch/>} /> 
             <Route path="graphiql" element={<GraphIqlEditor/>} /> 
            
             <Route path="change_requests" >
@@ -54,7 +55,8 @@ export function App (props){
                 <Route index element={<Themes/>} /> 
                 <Route path=":theme" >
                     <Route index element={<LegoSetForTheme/>} /> 
-                    <Route path=":legoset" element={<LegoSetGraph/>} />   
+                    <Route path=":legoset" element={<LegoSetDescription/>} /> 
+                    <Route path=":legoset/graph" element={<LegoSetGraph/>} />                     
                 </Route>
             </Route>
             <Route path="*" element={<PageNotFound />} />
@@ -62,3 +64,5 @@ export function App (props){
     </React.Fragment> 
 
 }
+
+// <Route path="home" element={<Home/>} /> 

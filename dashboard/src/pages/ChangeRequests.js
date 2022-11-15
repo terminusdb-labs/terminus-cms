@@ -35,6 +35,7 @@ export const ChangeRequests = () => {
 		setCurrentChangeRequest
 	} = ClientObj()
     const {
+		loading,
 		getChangeRequestList,
 		changeRequestList
     } =  ChangeRequest() 
@@ -105,9 +106,9 @@ export const ChangeRequests = () => {
 		if(!changeRequestList) return ""
         return changeRequestList.slice(0).reverse().map((item,index)=>{
 			// do not display Merged and Rejected CRs
-            if(item.status === "Merged") return ""
+           // if(item.status === "Merged") return ""
 			if(item.status === "Rejected") return ""
-            const actions = item.status === "Submitted" ?  {action:true, onClick:()=>goToDiffPage(item)} : {}
+            const actions = (item.status === "Submitted" || item.status === "Merged") ?  {action:true, onClick:()=>goToDiffPage(item)} : {}
             return  <ListGroup.Item {...actions}  key={`item___${index}`}   
                 className="d-flex justify-content-between align-items-start">
 
@@ -167,7 +168,7 @@ export const ChangeRequests = () => {
 						</Card.Header>
 						<Card.Body className="p-0">
 							<ListGroup as="ol" >
-								{changeRequestList.length===0 && <ProgressBar variant="info" animated now={100}/>}
+								{loading && <ProgressBar variant="info" animated now={100}/>}
 								{changeRequestList && !filter && formatListItem()}
 								{changeRequestList && filter && formatFilteredListItem()}
 							</ListGroup>
