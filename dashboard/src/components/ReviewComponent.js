@@ -1,22 +1,11 @@
-import React, {useState, useEffect} from "react"
-import {Button, Row, Col, Stack} from "react-bootstrap"
-import {ClientObj} from "../cms-init-client"
-import {ChangeRequest} from "../hooks/ChangeRequest"
+import React from "react"
 import {
     COMMENT,
     APPROVE,
     REJECT,
-    MERGED,
-    REJECTED,
-    MESSAGES
 } from "./constants"
-import {extractID} from "./utils"
 import Dropdown from 'react-bootstrap/Dropdown'
 import SplitButton from 'react-bootstrap/SplitButton'
-import {MessageBox} from "./MessageBox"
-import {Loading} from "./Loading"
-import {VscCommentDiscussion} from "react-icons/vsc"
-import {FaCheck, FaTimes} from "react-icons/fa"
 import {CommentComponent} from "./CommentComponent"
 import {ApproveComponent} from "./ApproveComponent"
 import {RejectComponent} from "./RejectComponent"
@@ -29,7 +18,6 @@ const View = ({action, setKey}) => {
 }
 
 export const ReviewComponent = ({setKey, action, setAction}) => {
-    
 
     function handleAction (e) {
         if(e.target.text === COMMENT) setAction(COMMENT)
@@ -40,10 +28,10 @@ export const ReviewComponent = ({setKey, action, setAction}) => {
 	return <React.Fragment>
        <SplitButton
             key={"end"}
-            className="text-dark"
+            bsPrefix="btn btn-lg text-dark bg-light"
             id={`dropdown-button-drop-end`}
             drop={"end"}
-            variant="info"
+            variant="light"
             title={"Submit Review"}>
             <Dropdown.Item eventKey={COMMENT} onClick={handleAction}>{COMMENT}</Dropdown.Item>
             <Dropdown.Item eventKey={APPROVE} onClick={handleAction}>{APPROVE}</Dropdown.Item>

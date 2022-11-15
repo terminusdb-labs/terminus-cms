@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from "react";
 import * as actions from "../components/constants"
+import {extractID} from "../components/utils";
 
 // create a new document
 export function CreateDocumentHook(client, document, mode, setLoading, navigate, setErrorMsg) {
@@ -120,23 +121,18 @@ export function EditDocumentHook(client, extractedUpdate, mode, setLoading, setU
 /**
  * 
  * @param {*} client TerminusDB Client
- * @param {*} trackingBranch Tracking branch ID
+ * @param {*} changeRequestID Change Request ID
  * @param {*} setError Constant to catch error 
  * @returns diff list from branches
  */
-export function GetDiffList(client, trackingBranch, setError){
+export function GetDiffList(client, changeRequestID, setError){
     const [result, setResult] = useState(false)
 
     async function getDiffList() {
         try{
-            let options={ 
-                "keep": { 
-                    "@id" : true, 
-                    "@type": true
-                }
-            }
-            const diffResults = await client.getVersionDiff("main", trackingBranch, null, options)
-            setResult(diffResults)
+            let id = extractID(changeRequestID)
+            const result = await client.sendCustomRequest("GET", `http://localhost:3035/changes/${id}/diff`)
+            setResult(result)
         }
         catch(err){
             setError(err.message)
@@ -144,11 +140,12 @@ export function GetDiffList(client, trackingBranch, setError){
     }
 
     useEffect(() => {
-        if (trackingBranch) getDiffList()
-    }, [trackingBranch])
+        if (changeRequestID) getDiffList()
+    }, [changeRequestID])
 
     return result
 }
+
 
 /**
  * 

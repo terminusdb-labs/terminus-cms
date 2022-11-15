@@ -170,12 +170,12 @@ export const DocumentInterface = () => {
                 </span>
         </main>
     }
-
+  
     return <main className="content mt-5 w-100 document__interface__main">
         {showModal && <CreateChangeRequestModal showModal={showModal} 
             setShowModal={setShowModal} 
             updateViewMode={updateViewMode}/>}
-        <Card className="ml-5 mr-5">
+        <Card className="ml-5 mr-5 bg-secondary">
             <Card.Header className="justify-content-between d-flex w-100 text-break">
                 <Header mode={currentMode} type={type} id={id} startCRMode={startCRMode} navigate={navigate}/>
             </Card.Header>
@@ -185,7 +185,7 @@ export const DocumentInterface = () => {
                     type={type}
                     mode={currentMode}
                     onSubmit={handleSubmit}
-                    //onSelect={onSelect} 
+                    //onSelect={onSelect}   
                     formData={data}
                     hideSubmit={currentMode === CONST.VIEW ? true : false}
                     // onTraverse={onTraverse}

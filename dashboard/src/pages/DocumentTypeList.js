@@ -7,7 +7,6 @@ import {ClientObj}  from "../cms-init-client"
 import {graphqlQuery} from "../utils/graphqlQuery"
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import {tableConfigObj} from '../utils/graphqlQuery'
-
 import Stack from 'react-bootstrap/Stack'
 import {HiPlusSm} from "react-icons/hi"
 import {DocumentInterface} from "./DocumentInterface"
@@ -72,7 +71,6 @@ export const DocumentTypeList = () => {
     const onRowClick = (row) =>{
         const fullId = row.original["id"]
         const id = fullId.substring(fullId.indexOf(type))
-       // setCurrentMode(actions.VIEW)
         navigate(`/documents/${id}`)
     }
 
