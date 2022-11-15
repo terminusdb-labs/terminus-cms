@@ -1,7 +1,7 @@
 import TerminusClient from "@terminusdb/terminusdb-client"
 import React, {useState,useEffect} from "react";
 import {Row,Col,Card, Button} from "react-bootstrap"
-import {useParams,useNavigate } from "react-router-dom";
+import {useParams, useNavigate, useSearchParams} from "react-router-dom";
 import {WOQLTable,ControlledGraphqlQuery} from '@terminusdb/terminusdb-react-table'
 import {ClientObj}  from "../cms-init-client"
 import {graphqlQuery} from "../utils/graphqlQuery"
@@ -13,8 +13,12 @@ import {DocumentInterface} from "./DocumentInterface"
 import {CREATE_PATH} from "../components/constants"
 
 export const DocumentTypeList = () => {   
-    const {client} = ClientObj()
     const {type} = useParams()
+    const [searchParams]  = useSearchParams()
+    let startFilters = {}
+    if(searchParams.get('filters')){
+        startFilters ={"name":{"regex":searchParams.get('filters')}}
+    }    
     const query = graphqlQuery[type]
     if(!query) return ""
 
@@ -25,14 +29,15 @@ export const DocumentTypeList = () => {
         limit,
         start,
         orderBy,
+        filterBy,
         loading,
-        documentResults} = ControlledGraphqlQuery(query, type, 10,0,{},{});
+        documentResults} = ControlledGraphqlQuery(query, type, 10,0,{},startFilters);
    
 
    // let extractedResults = documentResults ? documentResults[type] : [] 
 
     const rowCount = 300
-    const [extractedResults, setExtractedResults]=useState([])
+    const [extractedResults, setExtractedResults]=useState(null)
     const [tableConfig, setTableConfig] = useState(false)
 
     const getColumnsFromResults = (results) => {
@@ -55,6 +60,7 @@ export const DocumentTypeList = () => {
         let tConf
         if(tableConfigObj[type]){
             tConf=tableConfigObj[type]()
+            tConf.row().click(onRowClick)
         }else {
             tConf = getDocumentOfTypeTabConfig(extractedResults, onRowClick)
         }
@@ -91,7 +97,7 @@ export const DocumentTypeList = () => {
                 // if it is an array this is set type, I can have more than 1 result for row
                 //?? I can pust the count
                 if(Array.isArray(item[key])){
-                    newJson[key]= `number ${(item[key].length)}`
+                    newJson[key]= `${(item[key].length)}`
                 }
                 else if(item[key] && typeof item[key] === "object"){
                     //key 
@@ -116,12 +122,12 @@ export const DocumentTypeList = () => {
 
     
     return  <div className="m-5">
-        <Card className="content  w-100 mt-5" varaint="light">
+        <Card className="content  w-100 mt-5" variant="light">
             <Card.Header>
                 <Stack direction="horizontal" gap={3}>
                     <h6>Documents of type - <strong className="text-success">{type}</strong></h6>
                         <div className="ms-auto">
-                            <Button className="bg-light text-dark" onClick={handleCreate}>
+                            <Button className="bg-success text-dark" onClick={handleCreate}>
                                 <HiPlusSm className="mr-1 mb-1"/>
                                 <small>{`Add new ${type}`}</small>
                             </Button>
@@ -133,13 +139,14 @@ export const DocumentTypeList = () => {
                     Loading {type} ... 
                     <ProgressBar variant="info" animated now={100}/>
                 </span>}
-                {!loading && extractedResults && extractedResults.length>0 && <WOQLTable
+                {!loading && Array.isArray(extractedResults) && <WOQLTable
                     result={extractedResults}
                     freewidth={true}
                     view={(tableConfig ? tableConfig.json() : {})}
                     limit={limit}
                     start={start}
                     orderBy={orderBy}
+                    filtersBy={filterBy}
                     setFilters = {changeFilters}
                     setLimits={changeLimits}
                     setOrder={changeOrder}

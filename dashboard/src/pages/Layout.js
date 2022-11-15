@@ -19,13 +19,9 @@ export function Layout (){
     if(!client) return ''
     const getNavDropdown = () =>{ 
         return classes.map(item=>{ 
-            function handleClick(clicked){
-                navigate(`/documents/${type}`)
-            }
             if(item["@subdocument"]) return ""
             return <Nav.Link className ="navbar-dark navbar-nav ml-4" 
                 as={RouterNavLink} to={`/documents/${item['@id']}`} 
-                onClick={(e) => handleClick(`item__${item['@id']}`)}
                 key={`item__${item['@id']}`}>
                 {item['@id']}
             </Nav.Link> 

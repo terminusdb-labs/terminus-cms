@@ -1,7 +1,8 @@
 import React,{useState} from "react";
 import {NavDropdown , Form, InputGroup,Dropdown,Button} from "react-bootstrap"
 import {ClientObj}  from "../cms-init-client"
-import {noProperty} from "../utils/constants"
+//import {noProperty} from "../utils/constants"
+import {useParams, useNavigate, useSearchParams} from "react-router-dom";
 export const SearchComponent = ({applyStyle,startFilter}) => {
     const {classes} = ClientObj()
 
@@ -35,12 +36,15 @@ export const SearchComponent = ({applyStyle,startFilter}) => {
     //tobe review
     const mystyle = applyStyle ? {style:applyStyle} : {}
 
+    const navigate = useNavigate()
     const startSearch = ()=>{
-        
+        const filter01 = `${filter}:`
+        const filterValue = inputSearch.replace(/LegoSet:/g,"")
+        navigate(`/documents/${selectedClass}?filters=${filterValue}`)
     }
 
     return <React.Fragment>
-          <Form className="navbar-search mr-3 mt-1 ml-auto mr-auto">
+          <Form className="navbar-search mr-3 mt-0 ml-auto mr-auto">
           <Form.Group id="topbarSearch">
           
               <InputGroup className="input-group-merge search-bar">

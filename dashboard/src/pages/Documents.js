@@ -36,6 +36,7 @@ export const Documents = () => {
             nodeClassesObject [item['@id']] = {
                 "collisionRadius" : 90,
                 "type": "node",
+                "subdocument" : "",
                 "id": item['@id'],
                 "icon" : {label:true},
                 "nodetype": item['@id'],
@@ -98,7 +99,7 @@ export const Documents = () => {
 
        
         const woqlGraphConfig= TerminusClient.View.graph();
-        woqlGraphConfig.height(700).width(1500)
+        woqlGraphConfig.height(1000).width(1500)
         woqlGraphConfig.literals(false);
         woqlGraphConfig.show_force(true)
         //return an WOQLGraph class

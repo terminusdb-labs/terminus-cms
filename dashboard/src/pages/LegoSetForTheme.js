@@ -19,7 +19,7 @@ export const LegoSetForTheme = (props)=>{
   
     const navigate = useNavigate()
     const onNodeClick = (legoset) =>{
-        navigate(`/theme/${theme}/${legoset}`)
+        navigate(`/themes/${theme}/${legoset}`)
     }
 
     useEffect(() => { 
