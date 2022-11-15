@@ -11,7 +11,6 @@ import {
 } from "./utils"
 import {VscCommentDiscussion} from "react-icons/vsc"
 import {Loading} from "./Loading"
-import {MessageBox} from "./MessageBox"
 
 const CommentSection = () => {
     const {
@@ -36,23 +35,6 @@ const CommentSection = () => {
     }
     return <Card className="mb-3 w-100 mt-2 p-5">{elements}</Card>
 }
-
-/*export const MessageBox = ({message, setMessage, onAddComment, placeholder, buttonText, loading}) => {
-    return <Form.Group className="mb-3" controlId="form_change_request_textarea">
-        <Form.Control as="textarea" 
-            rows={5} 
-            onChange={(e) => setMessage(e.target.value)}
-            value={message}
-            style={{color: "white"}}
-            className="bg-dark" 
-            placeholder={placeholder}/>
-        <Button className="bg-info text-dark btn-sm fw-bold float-right mt-2 mb-2 d-flex" 
-            disabled={loading}
-            onClick={onAddComment}>
-            {loading ? <Loading message={buttonText}/> : buttonText} 
-        </Button>
-    </Form.Group>
-}*/
 
 const AddNewMessage=()=> {
     const {
@@ -80,22 +62,28 @@ const AddNewMessage=()=> {
     function addComment() {
         setAdd(Date.now())
     }
-
-    let addButton = () => {
-        return <Button className="bg-info text-dark btn-sm fw-bold float-right mt-2 mb-2 d-flex" 
-            disabled={loading}
-            onClick={addComment}>
-            {loading ? <Loading message={buttonText}/> : buttonText} 
-        </Button>
+    
+    function handleMessage(e) {
+        if(setComment) {
+            setComment(e.target.value)
+        }
     }
 
     return <Form className="mt-4 new__message__container mb-4">
         {loading && <ProgressBar variant="info" animated now={100}/>}
         <Form.Group className="mb-3" controlId="form_change_request_textarea">
-            <MessageBox message={comment} 
-                placeholder="Add a new Comment or Message ..."
-                setMessage={setComment} 
-                button={addButton}/>
+            <Form.Control as="textarea" 
+                rows={5} 
+                onChange={handleMessage}
+                value={comment}
+                style={{color: "white"}}
+                className="bg-dark" 
+                placeholder={"Add a new Comment or Message ..."}/>
+            <Button className="bg-info text-dark btn-sm fw-bold float-right mt-2 mb-2 d-flex" 
+                disabled={loading}
+                onClick={addComment}>
+                {loading ? <Loading message={"Adding Comment ..."}/> : "Comment"} 
+            </Button>
         </Form.Group>
     </Form>
 }
