@@ -81,7 +81,33 @@ class ChangeRequestDB {
     async getLastMainCommitId(client:WOQLClient){       
         const query =  WOQL.using("_commits").triple('v:Branch', 'name', WOQL.string('main'))
                         .triple('v:Branch', 'head', 'v:Active Commit ID')
-		                .triple('v:Active Commit ID',"identifier","v:Identifier")        
+		                .triple('v:Active Commit ID',"identifier","v:Identifier")  
+                        
+    const V = WOQL.Vars('ancestor')
+        
+    const query01 = WOQL.distinct(V.ancestor).path(
+                            'Symptom/d4f13e6d297cc085aac6c2e509542f7a7807c17bae75daaef513ba90fbb7ce1a',
+                            '(<effect,cause)+',
+                            V.ancestor
+                          )
+        
+                       
+
+                       
+           
+    const v = WOQL.Vars('term','document_id','term_count',
+                       'results',
+                       'term_id','term_count_id')
+
+              const count_query = WOQL.group_by(
+                  [v.term],
+                  [v.document_id,v.term_count],
+                  v.results, WOQL.and(WOQL.triple(v.term_id,'term',v.term),
+                  WOQL.triple(v.term_count_id,'term',v.term_id),
+                  WOQL.triple(v.term_count_id,'count',v.term_count) 
+                 .triple(v.document_id,'terms',v.term_count_id)));
+                 
+         
 
         const result = await client.query(query)
         if(Array.isArray(result.bindings)){

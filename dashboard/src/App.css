@@ -503,17 +503,26 @@ a.leaflet-browser-print{
     color : white;
 }
 
-  /* GraphiQL One Dark Alt (Dark Mode) theme by Ben Keating[1]
-   * Colors taken from Atom's One Dark theme[2]. Add this file to the end of
-   * your <head> block[3] to override built-in default styling.
-   *
-   * [1]. https://twitter.com/flowpoke
-   * [2]. https://github.com/atom/atom/tree/master/packages/one-dark-ui
-   * [3]. e.g. `.../site-packages/graphene_django/templates/graphene/graphiql.html`
-   */
 
+.group{
+    background: transparent;
+    border: transparent;
+}
 
+.qb-lite .group--header:hover .group--header .group--drag-handler, .qb-lite .group--header:hover .group--header .group--actions,
+.qb-lite .group--header:not(:hover) .group--drag-handler,
+.qb-lite .group--header:not(:hover) .group--actions,
+.qb-lite .rule_group:not(:hover) .group--drag-handler,
+.qb-lite .rule_group:not(:hover) .group--actions {
+  opacity: 1;
+}
 
+.MuiButton-root {
+     color: white!important;
+     margin-left: 20px;
+}
 
-
+.MuiButton-contained {
+     background-color: #444;
+}
 
