@@ -22,6 +22,21 @@ const ELEMENT_QUERY = gql` query ElementQuery($offset: Int, $limit: Int,$orderBy
     }
 }`
 
+const elementFields = {
+    rgb: {
+        label: 'RGB',
+        type: 'text',
+        valueSources: ['value'],
+        //operators: ['equal']
+    },
+    name: {
+        label: 'Name',
+        type: 'text',
+        valueSources: ['value'],
+       // operators: ['equal']
+    }
+  }
+
 const LEGOSET_QUERY = gql` query LegoSetQuery($offset: Int, $limit: Int, $orderBy: LegoSet_Ordering,$filter:LegoSet_Filter) {
      LegoSet(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
           id
@@ -31,11 +46,32 @@ const LEGOSET_QUERY = gql` query LegoSetQuery($offset: Int, $limit: Int, $orderB
                 id
                 inventory{
                     id
-            }
-            quantity
+          }
+         quantity
       }  		
     }
 }`
+
+const legoSetFields = {
+    year: {
+        label: 'Year',
+        type: 'text',
+        valueSources: ['value'],
+        //operators: ['equal']
+    },
+    quantity: {
+        label: 'Quantity',
+        type: 'number',
+        valueSources: ['value'],
+        //operators: ['equal']
+    },
+    name: {
+        label: 'Name',
+        type: 'text',
+        valueSources: ['value'],
+       // operators: ['equal']
+    }
+  }
 
 const INVENTORY_QUERY = gql`query InventoryQuery($offset: Int, $limit: Int, $orderBy: Inventory_Ordering,$filter:Inventory_Filter) {
     Inventory(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
@@ -58,6 +94,15 @@ const INVENTORY_QUERY = gql`query InventoryQuery($offset: Int, $limit: Int, $ord
     }
 }`
 
+const inventoryFields = {
+    version: {
+        label: 'Version',
+        type: 'number',
+        valueSources: ['value'],
+        //operators: ['equal']
+    }
+  }
+
 const MINIFIG_QUERY = gql` query MinifigQuery($offset: Int, $limit: Int, $orderBy: Minifig_Ordering,$filter:Minifig_Filter) {
     Minifig(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
           id
@@ -68,6 +113,15 @@ const MINIFIG_QUERY = gql` query MinifigQuery($offset: Int, $limit: Int, $orderB
           
   }
 }`
+
+const minifigFields = {
+    version: {
+        label: 'Version',
+        type: 'number',
+        valueSources: ['value'],
+        //operators: ['equal']
+    }
+  }
 
 const PART_QUERY = gql` 
     query PartSetQuery($offset: Int, $limit: Int,$orderBy:Part_Ordering,$filter:Part_Filter) {
@@ -106,6 +160,27 @@ const  THEME_QUERY = gql`query ThemeQuery($offset: Int, $limit: Int,$orderBy: Th
 }`
 
 
+
+
+const colorFields = {
+    rgb: {
+        label: 'RGB',
+        type: 'text',
+        valueSources: ['value'],
+        //operators: ['equal']
+    },
+    name: {
+        label: 'Name',
+        type: 'text',
+        valueSources: ['value'],
+       // operators: ['equal']
+    }
+  }
+
+export const advFiltersFields={
+    "Color": colorFields,
+
+}
 
 export const graphqlQuery ={
     Color:COLOR_QUERY,
