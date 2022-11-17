@@ -11,7 +11,7 @@ import { formatDataSet } from "../components/formatDataSet";
 import {useParams} from "react-router-dom"
 
 export const LegoSetGraph = () => {
-    const {client} = ClientObj()
+    const {clientMain:client} = ClientObj()
     //theme is the theme's name
     const {legoset} = useParams()
     const {result,loading,error,runQuery} = ExecuteQueryHook(client)

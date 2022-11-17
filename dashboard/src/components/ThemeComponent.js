@@ -31,7 +31,7 @@ const ThemeProvider = ({themes,onNodeClick}) => {
 }
 
 export const Themes = () => {
-    const {client} = ClientObj()
+    const {clientMain:client} = ClientObj()
     const {result,loading,error,runQuery} = ExecuteQueryHook(client)
 
     const navigate = useNavigate()

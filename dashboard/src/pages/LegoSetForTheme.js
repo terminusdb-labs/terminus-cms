@@ -12,7 +12,7 @@ import * as d3 from 'd3'
 import {BrowseObj} from "../hooks/BrowseContext"
 
 export const LegoSetForTheme = (props)=>{
-    const {client} = ClientObj()
+    const {clientMain:client} = ClientObj()
     //theme is the theme's name
     const {theme} = useParams()
     const {result,loading,error,runQuery} = ExecuteQueryHook(client)
