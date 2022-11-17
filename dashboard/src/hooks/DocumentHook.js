@@ -56,25 +56,26 @@ export function DeleteDocumentHook(client, documentId, type, mode, navigate, upd
     return result
 }
 
-export function GetDocumentHook(client, documentId, mode, setData, updated){// setLoading, setSuccessMsg, setErrorMsg) {
+export function GetDocumentHook(client, documentId, mode, setData, updated, setErrorMsg){// setLoading, setSuccessMsg, setErrorMsg) {
         const [result, setResult] = useState(false)
         const [loading, setLoading] = useState(false)
         const [error, setError] = useState(false)
     
         async function getDocument() {
             try{
+                console.log("result", client, documentId)
                 let params={}
                 params['id']=documentId
-                setLoading(true)
+                if(setLoading) setLoading(true)
                 const res = await client.getDocument(params, client.db())
                 if(setData) setData(res)
                 setResult(res)
-                setLoading(false)
+                if(setLoading) setLoading(false)
                 return res
             }
             catch(err){
-                setLoading(false)
-                setErrorMsg(err.message)
+                if(setLoading) setLoading(false)
+                if(setErrorMsg) setErrorMsg(err.message)
            }
         }
     
@@ -84,7 +85,8 @@ export function GetDocumentHook(client, documentId, mode, setData, updated){// s
         }, [documentId, updated])
     
         return result
-    }
+}
+
 
 // edit documents
 export function EditDocumentHook(client, extractedUpdate, mode, setLoading, setUpdated, setView) {
@@ -180,5 +182,47 @@ export function GetDocumentByBranches(client, branch, documentID, setValue, setE
     return result
 }
 
+
+/**
+ * 
+ * @param {*} client - TerminusDB Client 
+ * @param {*} documentName - name of document 
+ * @param {*} type - type of document
+ * @param {*} setData - function to get results 
+ * @param {*} setLoading - loading function
+ * @param {*} setErrorMsg - error function 
+ * @returns document details matching name of document
+ */ 
+export function GetDocumentByNameForWebsiteHook(client, documentName, type, setData, setLoading, setErrorMsg) {
+    const [result, setResult] = useState(false)
+    
+    async function getDocument() {
+        try{
+            const queryTemplate = {"name": documentName, "@type": type}
+            const params = {
+                "as_list":true,
+                //id: "LegoSet/0042ce33085eef3e9a9c2f57423ffba1da63e67f0bc435388a52aa0fb70962c2"
+                query:queryTemplate
+            }
+            if(setLoading) setLoading(true)
+            const res = await client.getDocument(params)
+            if(setData) setData(res)
+            setResult(res)
+            if(setLoading) setLoading(false)
+            return res
+        }
+        catch(err){
+            if(setLoading) setLoading(false)
+            if(setErrorMsg) setErrorMsg(err.message)
+        }
+    }
+
+    useEffect(() => {
+        if (client && documentName) getDocument()
+    }, [client, documentName])
+
+    return result
+
+}
 
 

@@ -15,6 +15,7 @@ import Stack from 'react-bootstrap/Stack'
 import {FaTimes} from "react-icons/fa"
 import * as CONST from "../components/constants"
 import ProgressBar from 'react-bootstrap/ProgressBar'
+import {DocumentsResultTable} from "../components/DocumentsResultTable"
 
 const CloseButton = ({navigate, type}) => {
     return <Button variant="light" 
@@ -170,6 +171,10 @@ export const DocumentInterface = () => {
                 </span>
         </main>
     }
+
+    const SearchComponent = ({setSelected}) => {
+        return <DocumentsResultTable type={"Color"} onRowClick={setSelected}/>
+    }
   
     return <main className="content mt-5 w-100 document__interface__main">
         {showModal && <CreateChangeRequestModal showModal={showModal} 
@@ -185,7 +190,7 @@ export const DocumentInterface = () => {
                     type={type}
                     mode={currentMode}
                     onSubmit={handleSubmit}
-                    //onSelect={onSelect}   
+                    onSelect={<SearchComponent/>}   
                     formData={data}
                     hideSubmit={currentMode === CONST.VIEW ? true : false}
                     // onTraverse={onTraverse}
@@ -195,7 +200,7 @@ export const DocumentInterface = () => {
                     type={type}
                     mode={currentMode}
                     onSubmit={handleSubmit}
-                    //onSelect={onSelect} 
+                    onSelect={<SearchComponent/>}   
                     formData={{}}
                     hideSubmit={false}
                     // onTraverse={onTraverse}

@@ -11,7 +11,7 @@ import {CREATE_PATH} from "../components/constants"
 import { AdvancedSearch } from "../components/AdvancedSearch";
 import Accordion from 'react-bootstrap/Accordion'
 
-export const DocumentsResultTable = ({type,startFilters,onRowClick}) => {   
+export const DocumentsResultTable = ({type,startFilters,onRowClick}) => {    
     const query = graphqlQuery[type]
     if(!query) return ""
 
