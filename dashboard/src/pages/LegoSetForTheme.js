@@ -11,7 +11,7 @@ import {useParams,useNavigate} from "react-router-dom"
 import * as d3 from 'd3'
 
 export const LegoSetForTheme = (props)=>{
-    const {client} = ClientObj()
+    const {clientMain:client} = ClientObj()
     //theme is the theme's name
     const {theme} = useParams()
     const {result,loading,error,runQuery} = ExecuteQueryHook(client)
