@@ -22,7 +22,7 @@ const Details = ({data}) => {
 
 export const LegoSetDescription = () => {  
     
-    const {client} = ClientObj()
+    const {clientMain:client} = ClientObj()
     const {legoset} = useParams()
     const [data, setData] = useState(false)
 

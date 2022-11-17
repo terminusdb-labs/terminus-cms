@@ -192,7 +192,7 @@ export function GetDocumentByBranches(client, branch, documentID, setValue, setE
  * @param {*} setLoading - loading function
  * @param {*} setErrorMsg - error function 
  * @returns document details matching name of document
- */
+ */ 
 export function GetDocumentByNameForWebsiteHook(client, documentName, type, setData, setLoading, setErrorMsg) {
     const [result, setResult] = useState(false)
     
@@ -200,14 +200,12 @@ export function GetDocumentByNameForWebsiteHook(client, documentName, type, setD
         try{
             const queryTemplate = {"name": documentName, "@type": type}
             const params = {
-                "graph_type":"schema",
                 "as_list":true,
+                //id: "LegoSet/0042ce33085eef3e9a9c2f57423ffba1da63e67f0bc435388a52aa0fb70962c2"
                 query:queryTemplate
             }
-            const clientCopy = client.copy()
-            clientCopy.checkout("main")
             if(setLoading) setLoading(true)
-            const res = await clientCopy.getDocument(params, clientCopy.db())
+            const res = await client.getDocument(params)
             if(setData) setData(res)
             setResult(res)
             if(setLoading) setLoading(false)
