@@ -5,7 +5,7 @@ export const LegoSetDescription = ({legoSetData}) => {
    
     return <Row className="w-100 mt-5">
             <Col md={8}>
-                main    
+                HELLO    
             </Col> 
             <Col>
             side
