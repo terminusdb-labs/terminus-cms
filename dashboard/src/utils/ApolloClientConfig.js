@@ -36,6 +36,16 @@ export const createApolloClient = ()=>{
 
     return new ApolloClient({
         cache:cache,
+        defaultOptions: {
+          watchQuery: {
+            fetchPolicy: 'no-cache',
+            errorPolicy: 'all',
+          },
+          query: {
+            fetchPolicy: 'no-cache',
+            errorPolicy: 'all',
+          },
+        },
         link: value,       
     });
 }

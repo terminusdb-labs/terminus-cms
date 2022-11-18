@@ -10,19 +10,8 @@ const COLOR_QUERY = gql`
     }
 }`
 
-const ELEMENT_QUERY = gql` query ElementQuery($offset: Int, $limit: Int,$orderBy:Element_Ordering,
-    $filter:Element_Filter) {
-    Element(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
-      image_url
-          id
-          part {
-            id
-        name
-          }
-    }
-}`
 
-const elementFields = {
+const colorFields = {
     rgb: {
         label: 'RGB',
         type: 'text',
@@ -33,9 +22,37 @@ const elementFields = {
         label: 'Name',
         type: 'text',
         valueSources: ['value'],
-       // operators: ['equal']
+    // operators: ['equal']
     }
-  }
+
+}
+
+const ELEMENT_QUERY = gql` query ElementQuery($offset: Int, $limit: Int,$orderBy:Element_Ordering,
+    $filter:Element_Filter) {
+    Element(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
+      image_url
+          id
+          part {
+            id
+            name
+          }
+    }
+}`
+
+const elementFields = {
+    "part":{
+        label: "Part",
+        type: "!group",
+        subfields: {
+            name: {
+                label: 'Name',
+                type: 'text',
+                valueSources: ['value'],
+                //operators: ['equal']
+            }
+         }
+    }
+}
 
 const LEGOSET_QUERY = gql` query LegoSetQuery($offset: Int, $limit: Int, $orderBy: LegoSet_Ordering,$filter:LegoSet_Filter) {
      LegoSet(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
@@ -84,7 +101,7 @@ const INVENTORY_QUERY = gql`query InventoryQuery($offset: Int, $limit: Int, $ord
             }
             quantity
         }
-        inventory_parts{
+         inventory_parts{
             id
             element{
                 id
@@ -106,7 +123,7 @@ const inventoryFields = {
 const MINIFIG_QUERY = gql` query MinifigQuery($offset: Int, $limit: Int, $orderBy: Minifig_Ordering,$filter:Minifig_Filter) {
     Minifig(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
           id
-      figure_number
+          figure_number
           name
           num_parts
           img_url
@@ -115,13 +132,25 @@ const MINIFIG_QUERY = gql` query MinifigQuery($offset: Int, $limit: Int, $orderB
 }`
 
 const minifigFields = {
-    version: {
-        label: 'Version',
+    figure_number: {
+        label: 'Figure Number',
+        type: 'string',
+        valueSources: ['value'],
+        //operators: ['equal']
+    },
+    name:{
+        label: 'Name',
+        type: 'string',
+        valueSources: ['value'],
+        //operators: ['equal']
+    },
+    num_part:{
+        label: 'Part Number',
         type: 'number',
         valueSources: ['value'],
         //operators: ['equal']
     }
-  }
+}
 
 const PART_QUERY = gql` 
     query PartSetQuery($offset: Int, $limit: Int,$orderBy:Part_Ordering,$filter:Part_Filter) {
@@ -133,6 +162,37 @@ const PART_QUERY = gql`
         part_number
     }
 }`
+
+const PartFields = {
+    name:{
+        label: 'Name',
+        type: 'string',
+        valueSources: ['value'],
+        //operators: ['equal']
+    },
+    category:{
+        label: 'Category',
+        valueSources: ['value'],
+        type: "select",
+        fieldSettings: {
+            listValues: category
+            }
+        },
+    material:{
+            label: 'material',
+            valueSources: ['value'],
+            type: "select",
+            fieldSettings: {
+                listValues: material
+            }
+        },
+    name:{
+            label: 'Name',
+            type: 'string',
+            valueSources: ['value'],
+            //operators: ['equal']
+        }
+}
 
 
 const PART_RELATION_QUERY =   gql`query PartRelationQuery($offset: Int, $limit: Int,$orderBy:PartRelation_Ordering,$filter:PartRelation_Filter) {
@@ -150,6 +210,42 @@ const PART_RELATION_QUERY =   gql`query PartRelationQuery($offset: Int, $limit: 
   }
 }`
 
+const partRelationFields = {
+    "right":{
+        label: "Right",
+        type: "!group",
+        subfields: {
+            name: {
+                label: 'Name',
+                type: 'text',
+                valueSources: ['value'],
+                //operators: ['equal']
+            }
+         }
+    },
+    "left":{
+        label: "Left",
+        type: "!group",
+        subfields: {
+            name: {
+                label: 'Name',
+                type: 'text',
+                valueSources: ['value'],
+                //operators: ['equal']
+            }
+         }
+    },
+    relation_type:{
+        label: 'Relation Type',
+        type: "select",
+            fieldSettings: {
+                listValues: relationType
+        },
+        valueSources: ['value'],
+        //operators: ['equal']
+    }
+}
+
 const  THEME_QUERY = gql`query ThemeQuery($offset: Int, $limit: Int,$orderBy: Theme_Ordering,$filter:Theme_Filter) {
     Theme(offset: $offset, limit: $limit,orderBy:$orderBy,filter:$filter){
           id
@@ -159,27 +255,66 @@ const  THEME_QUERY = gql`query ThemeQuery($offset: Int, $limit: Int,$orderBy: Th
   }
 }`
 
-
-
-
-const colorFields = {
-    rgb: {
-        label: 'RGB',
-        type: 'text',
+const themeFields = {
+    name:{
+        label: 'Name',
+        type: 'string',
         valueSources: ['value'],
         //operators: ['equal']
-    },
-    name: {
-        label: 'Name',
-        type: 'text',
-        valueSources: ['value'],
-       // operators: ['equal']
     }
-  }
+}
+
+const totalAdvancedField = {
+    "Theme":{
+        label: "theme",
+        type: "!group",
+        subfields: {
+            name: {
+                label: 'Name',
+                type: 'text',
+                valueSources: ['value'],
+                //operators: ['equal']
+            }
+        }
+    },
+    "LegoSet":{
+
+    }
+
+}
+
+
+export const legoSetWeb = gql `query LegoSetWebQuery($offset: Int, $limit: Int, $orderBy: LegoSet_Ordering,$filter:LegoSet_Filter){
+    LegoSet(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
+      id
+      name
+      year
+      theme {
+        id
+        name
+      }
+      inventory_set{
+        id
+        inventory{
+          id
+          inventory_parts{
+                id
+         }
+        }
+      }
+    }  
+  }`
+
 
 export const advFiltersFields={
-    "Color": colorFields,
-
+    Color:colorFields,
+    Theme:themeFields,
+    LegoSet:legoSetFields,
+    Inventory:inventoryFields,
+    Part:PartFields,
+    Part_Relation :partRelationFields,
+    Minifig:minifigFields,
+    Element:elementFields
 }
 
 export const graphqlQuery ={
@@ -242,6 +377,13 @@ const MinifigTableConfig= () =>{
     tableConfig.pagesize(10)
     return tableConfig
 }
+
+const relationType = ["Alternate",
+                        "Mold",
+                        "Pair",
+                        "Pattern",
+                        "Print",
+                        "Sub-Part"]
 
 const material =[
     "Cardboard/Paper",

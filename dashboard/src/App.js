@@ -54,10 +54,14 @@ export function App (props){
             <Route path="themes" element={<LayoutWebPage/>}>
                 <Route index element={<Themes/>} /> 
                 <Route path=":theme" >
-                    <Route index element={<LegoSetForTheme/>} /> 
-                    <Route path=":legoset" element={<LegoSetDescription/>} /> 
-                    <Route path=":legoset/graph" element={<LegoSetGraph/>} />                     
+                    <Route index element={<LegoSetForTheme/>} />                     
                 </Route>
+            </Route>
+            {/* this is after the serch result*/}
+            <Route path="legoset" element={<LayoutWebPage/>}>
+                <Route index element={<LegoSetForTheme/>} />
+                <Route path=":legoset" element={<LegoSetDescription/>} /> 
+                <Route path=":legoset/graph" element={<LegoSetGraph/>} /> 
             </Route>
             <Route path="*" element={<PageNotFound />} />
         </Routes>
