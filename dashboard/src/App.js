@@ -21,6 +21,7 @@ import {Themes} from "./components/ThemeComponent"
 import {PageNotFound} from "./pages/PageNotFound"
 import {LegoSetDescription} from "./pages/LegoSetDescription"
 import {AdvancedSearch} from "./components/AdvancedSearch"
+import { DocumentsResultTable } from "./components/DocumentsResultTable";
 
 export function App (props){
     const {error,loadingServer} = ClientObj()

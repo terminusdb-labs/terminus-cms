@@ -203,7 +203,7 @@ export const AdvancedSearch = (props) =>{
         onChange={onChange}
         renderBuilder={renderBuilder}
       />
-      <button onClick={onClick}>Filter Data</button>
+      <Button onClick={()=>{onClick()}}>Filter Data</Button>
     </div>
 
     

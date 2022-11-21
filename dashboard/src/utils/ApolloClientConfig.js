@@ -16,18 +16,6 @@ export const createApolloClient = ()=>{
     
     const cache = new InMemoryCache({
         addTypename: false
-       /* typePolicies: {
-            Query: {
-              fields: {
-                Part: {
-                  ...offsetLimitPagination(),
-                  read(existing, { args }) {
-                    // Implement here
-                  }
-                }
-              },
-            },
-          }*/
     });
 
     //offsetLimitPagination

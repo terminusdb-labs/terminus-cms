@@ -163,7 +163,7 @@ const PART_QUERY = gql`
     }
 }`
 
-const PartFields = {
+const partFields = {
     name:{
         label: 'Name',
         type: 'string',
@@ -311,7 +311,7 @@ export const advFiltersFields={
     Theme:themeFields,
     LegoSet:legoSetFields,
     Inventory:inventoryFields,
-    Part:PartFields,
+    Part:partFields,
     Part_Relation :partRelationFields,
     Minifig:minifigFields,
     Element:elementFields
