@@ -16,6 +16,7 @@ import {FaTimes} from "react-icons/fa"
 import * as CONST from "../components/constants"
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import {DocumentsResultTable} from "../components/DocumentsResultTable"
+import Alert from 'react-bootstrap/Alert'
 
 const CloseButton = ({navigate, type}) => {
     return <Button variant="light" 
@@ -106,7 +107,7 @@ export const DocumentInterface = () => {
     const [currentMode, setCurrentMode] = useState(getCurrentMode(docID))
     const [showModal, setShowModal] = useState(false)
     // constants for editing document 
-    const [extracted, setExtracted]=useState(false)
+    const [extracted, setExtracted]=useState({})
     const [loading, setLoading]=useState(false)
     const [errorMsg, setErrorMsg]=useState(false)
     const [data, setData]=useState(false)
@@ -117,8 +118,8 @@ export const DocumentInterface = () => {
 
     const [documentID, setDocumentID] = useState(docID)
     const navigate = useNavigate()
-
-    const createResult = CreateDocumentHook(client, extracted, currentMode, setLoading, navigate, setErrorMsg)
+ 
+    const createResult = CreateDocumentHook(client, extracted, currentMode, setLoading, navigate, setErrorMsg) 
     const viewResult = GetDocumentHook(client, documentID, currentMode, setData, updated, setLoading, setErrorMsg) || null
     const editResult = EditDocumentHook(client, extracted, currentMode, setLoading, setUpdated, setCurrentMode)  
     const deleteResult = DeleteDocumentHook(client, documentID, type, currentMode, navigate, updated, setLoading, setErrorMsg)  
@@ -180,6 +181,9 @@ export const DocumentInterface = () => {
         {showModal && <CreateChangeRequestModal showModal={showModal} 
             setShowModal={setShowModal} 
             updateViewMode={updateViewMode}/>}
+        {errorMsg && <Alert variant={"danger"} className="ml-5 mr-5">
+            {errorMsg}
+        </Alert>}
         <Card className="ml-5 mr-5 bg-secondary">
             <Card.Header className="justify-content-between d-flex w-100 text-break">
                 <Header mode={currentMode} type={type} id={id} startCRMode={startCRMode} navigate={navigate}/>
@@ -201,7 +205,7 @@ export const DocumentInterface = () => {
                     mode={currentMode}
                     onSubmit={handleSubmit}
                     onSelect={<SearchComponent/>}   
-                    formData={{}}
+                    formData={extracted}
                     hideSubmit={false}
                     // onTraverse={onTraverse}
                 />}

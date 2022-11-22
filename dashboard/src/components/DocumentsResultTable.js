@@ -48,7 +48,7 @@ export const DocumentsResultTable = ({type,startFilters,onRowClick}) => {
     }
 
     const onRowClickCall=(row)=>{
-        if(onRowClick)onRowClick(row)
+        if(onRowClick)onRowClick(row.original.name)
     }
 
     useEffect(() => { // set table view config

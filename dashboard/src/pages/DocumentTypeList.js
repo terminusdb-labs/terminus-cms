@@ -37,7 +37,7 @@ export const DocumentTypeList = () => {
                 <Stack direction="horizontal" gap={3}>
                     <h6>Documents of type - <strong className="text-success">{type}</strong></h6>
                         <div className="ms-auto">
-                            <Button className="bg-success text-dark" onClick={handleCreate}>
+                            <Button className="bg-light text-dark" onClick={handleCreate}>
                                 <HiPlusSm className="mr-1 mb-1"/>
                                 <small>{`Add new ${type}`}</small>
                             </Button>
