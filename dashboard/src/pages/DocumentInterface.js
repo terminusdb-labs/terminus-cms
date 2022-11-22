@@ -172,8 +172,8 @@ export const DocumentInterface = () => {
         </main>
     }
 
-    const SearchComponent = ({setSelected}) => {
-        return <DocumentsResultTable type={"Color"} onRowClick={setSelected}/>
+    const SearchComponent = ({setSelected, doctype}) => {
+        return <DocumentsResultTable type={doctype} onRowClick={setSelected}/>
     }
   
     return <main className="content mt-5 w-100 document__interface__main">

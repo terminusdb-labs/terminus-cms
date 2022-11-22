@@ -45,7 +45,7 @@ export const DocumentTypeList = () => {
                 </Stack>   
             </Card.Header>
             <Card.Body className="text-break">
-              <DocumentsResultTable  startFilters={startFilters} onRowClick={onRowClick}/>
+              <DocumentsResultTable  type={type} startFilters={startFilters} onRowClick={onRowClick}/>
             </Card.Body>
         </Card>
     </div>          

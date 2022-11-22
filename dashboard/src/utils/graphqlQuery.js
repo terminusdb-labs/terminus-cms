@@ -112,6 +112,7 @@ const INVENTORY_QUERY = gql`query InventoryQuery($offset: Int, $limit: Int, $ord
             id
             minifig{
                 id
+                name
             }
             quantity
         }
@@ -119,6 +120,10 @@ const INVENTORY_QUERY = gql`query InventoryQuery($offset: Int, $limit: Int, $ord
             id
             element{
                 id
+                part {
+                    id
+                    name
+                }
             }
             quantity
         }
@@ -220,8 +225,8 @@ const partFields = {
 }
 
 
-const PART_RELATION_QUERY =   gql`query PartRelationQuery($offset: Int, $limit: Int,$orderBy:PartRelation_Ordering,$filter:PartRelation_Filter) {
-    PartRelation(offset: $offset, limit: $limit,orderBy:$orderBy,filter:$filter){
+const PART_RELATION_QUERY =   gql`query PartRelationQuery($offset: Int, $limit: Int,$filter:PartRelation_Filter) {
+    PartRelation(offset: $offset, limit: $limit,filter:$filter){
         id
         right{
             id
@@ -235,12 +240,11 @@ const PART_RELATION_QUERY =   gql`query PartRelationQuery($offset: Int, $limit: 
   }
 }`
 
-PartRelationTableConfig
 
 const PartRelationTableConfig = () =>{
     const tableConfig= TerminusClient.View.table();
     tableConfig.column_order("right--name","left--name","relation_type")
-    tableConfig.column("relation_type").filter({"type":"list",options:{dataprovider:relationType}})
+    tableConfig.column("relation_type").filter({"type":"list",options:{dataprovider:relationType}}).unsortable(true)
     tableConfig.column("right--name").filterable(false).unsortable(true)
     tableConfig.column("left--name").filterable(false).unsortable(true)
     tableConfig.pager("remote")
@@ -305,9 +309,9 @@ const ThemeTableConfig = () =>{
 }
 
 const themeFields = {
-    name:{
+    "name":{
         label: 'Name',
-        type: 'string',
+        type: 'text',
         valueSources: ['value']
     }
 }
@@ -359,7 +363,7 @@ export const advFiltersFields={
     LegoSet:legoSetFields,
     Inventory:inventoryFields,
     Part:partFields,
-    Part_Relation :partRelationFields,
+    PartRelation :partRelationFields,
     Minifig:minifigFields,
     Element:elementFields
 }
@@ -463,16 +467,16 @@ const category =["Bars__Ladders_and_Fences",
     "Mechanical",
     "Minidoll_Heads",
     "Minidoll_Lower_Body",
-    "Minidoll_Upper_Body"
- /*   Minifig_Accessories,
-    Minifig_Heads,
-    Minifig_Headwear,
-    Minifig_Lower_Body,
-    Minifig_Upper_Body,
-    Minifigs,
-    Modulex,
-    Non_Buildable_Figures__Duplo__Fabuland__etc_,
-    Non_LEGO,
+    "Minidoll_Upper_Body",
+    "Minifig_Accessories",
+    "Minifig_Heads",
+    "Minifig_Headwear",
+    "Minifig_Lower_Body",
+    "Minifig_Upper_Body",
+    "Minifigs",
+    "Modulex",
+    "Non_Buildable_Figures__Duplo__Fabuland__etc_",
+   /* Non_LEGO,
     Other,
     Panels,
     Plants_and_Animals,
@@ -507,7 +511,7 @@ const category =["Bars__Ladders_and_Fences",
     Wheels_and_Tyres,
     Windows_and_Doors,
     Windscreens_and_Fuselage,
-    Znap,*/
+    Znap*/
 ]
 
 const PartTableConfig= () =>{
