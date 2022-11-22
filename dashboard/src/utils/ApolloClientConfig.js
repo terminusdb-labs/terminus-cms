@@ -16,18 +16,6 @@ export const createApolloClient = ()=>{
     
     const cache = new InMemoryCache({
         addTypename: false
-       /* typePolicies: {
-            Query: {
-              fields: {
-                Part: {
-                  ...offsetLimitPagination(),
-                  read(existing, { args }) {
-                    // Implement here
-                  }
-                }
-              },
-            },
-          }*/
     });
 
     //offsetLimitPagination
@@ -36,6 +24,16 @@ export const createApolloClient = ()=>{
 
     return new ApolloClient({
         cache:cache,
+        defaultOptions: {
+          watchQuery: {
+            fetchPolicy: 'no-cache',
+            errorPolicy: 'all',
+          },
+          query: {
+            fetchPolicy: 'no-cache',
+            errorPolicy: 'all',
+          },
+        },
         link: value,       
     });
 }

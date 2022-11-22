@@ -33,7 +33,6 @@ export function Layout (){
         navigate("/change_requests")
     }
 
-
     return <Container fluid className="p-0 flex-row container-background h-100" >
                 {showModal && <SubmitChangeRequestModal showModal={showModal} setShowModal={setShowModal} updateParent={updateParent}/>}
                 <Allotment vertical className='h-100'>
@@ -49,7 +48,7 @@ export function Layout (){
                             </Allotment.Pane>
                             <Allotment.Pane>
                             <div className="h-100 overflow-auto">
-                               {currentBranch !== "main" &&
+                               {currentBranch && currentBranch !== "main" &&
                                 <Alert variant="secondary" className="m-5 d-flex"> 
                                     <span>
                                         <small className="fw-bold mr-2">You are in change request mode</small>
