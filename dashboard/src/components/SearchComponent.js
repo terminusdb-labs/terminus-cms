@@ -1,15 +1,23 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import {NavDropdown , Form, InputGroup,Dropdown,Button} from "react-bootstrap"
 import {ClientObj}  from "../cms-init-client"
 //import {noProperty} from "../utils/constants"
 import {useParams, useNavigate, useSearchParams} from "react-router-dom";
-export const SearchComponent = ({applyStyle,startFilter}) => {
+export const SearchComponent = ({applyStyle,startFilter,nolist,pagePath}) => {
     const {classes} = ClientObj()
 
-    const filter = startFilter || "LegoSet"
+    const filter = startFilter || startFilter==="" ? startFilter : "LegoSet"
     const [inputSearch, setInputSearch]=useState(`${filter}:`)
     const [selectedClass, setSelectedClass]=useState(filter)
     const placeholder  = "Search"
+
+    const path = pagePath || '/documents/'
+
+    useEffect(() => {
+        //reset input search if the page change
+        setInputSearch(`${filter}:`)
+
+    },[window.location.pathname])
 
     function handleOnChange(e) {
       e.preventDefault()
@@ -39,8 +47,8 @@ export const SearchComponent = ({applyStyle,startFilter}) => {
     const navigate = useNavigate()
     const startSearch = ()=>{
         const filter01 = `${filter}:`
-        const filterValue = inputSearch.replace(/LegoSet:/g,"")
-        navigate(`/documents/${selectedClass}?filters=${filterValue}`)
+        const filterValue = inputSearch.replace(filter01,"")
+        navigate(`${path}${selectedClass}?filters=${filterValue}`)
     }
 
     return <React.Fragment>
@@ -48,12 +56,12 @@ export const SearchComponent = ({applyStyle,startFilter}) => {
           <Form.Group id="topbarSearch">
           
               <InputGroup className="input-group-merge search-bar">
-                  <InputGroup.Text style={{border: "1px solid #adb5bd"}}>
-                  <NavDropdown title={"Filters"} id="navbarScrollingDropdown" onSelect={changeFilterFrom}>
+                {!nolist===true && <InputGroup.Text style={{border: "1px solid #adb5bd"}}>
+                <NavDropdown title={"Filters"} id="navbarScrollingDropdown" onSelect={changeFilterFrom}>
                     {getNavDropdown()}
                   </NavDropdown>
 
-                  </InputGroup.Text>
+                  </InputGroup.Text>}
                   <Form.Control onKeyPress={(ev) => {
                     if (ev.key === 'Enter') {
                         // Do code here

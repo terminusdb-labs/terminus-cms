@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Query, Builder, BasicConfig, Utils as QbUtils} from 'react-awesome-query-builder';
+import {Button} from 'react-bootstrap'
 
 // For AntDesign widgets only:
 //import AntdConfig from 'react-awesome-query-builder/lib/config/antd';
@@ -122,9 +123,9 @@ const defaultConfig = {
 };
 
 // You can load query value from your backend storage (for saving see `Query.onChange()`)
-const queryValue = {"id": QbUtils.uuid(), "type": "group"};
 
 export const AdvancedSearch = (props) =>{
+    const queryValue = props.queryValue || {"id": QbUtils.uuid(), "type": "group"};
     const [tree,setTree] = useState(QbUtils.loadTree(queryValue))
 
     console.log("AdvancedSearch",props.fields)
@@ -144,28 +145,41 @@ export const AdvancedSearch = (props) =>{
                     "equal":'eq',
                     "not_equal":"ne",
                     "like":"regex",
-                    "starts_with":"startsWith"}
+                    "starts_with":"regex"}
 
-    const getChildrenRule = (childrenArr) =>{
+    const getChildrenRule = (childrenArr,groupName) =>{
        const childrenArrtmp = [] 
         childrenArr.forEach(element => {
             if(element.type=="group"){
               const conjunction = mapField[element.properties.conjunction] || element.properties.conjunction
               const childrenRule = getChildrenRule(element.children1)
-              if(childrenRule.length===1){
-                childrenArrtmp.push(childrenRule[0])
-              }else{
+             //if(childrenRule.length===1){
+               // childrenArrtmp.push(childrenRule[0])
+             // }else{
                 childrenArrtmp.push({[conjunction] : childrenRule})
+             // }
+            }else if (element.type=="rule_group"){
+              const ruleGroup = element.properties.field
+              const childrenRule = getChildrenRule(element.children1,`${ruleGroup}.`)
+              if(childrenRule.length===1){
+                childrenArrtmp.push({[ruleGroup]:childrenRule[0]})
+              }else{
+                childrenArrtmp.push({[ruleGroup] :{"_and" : childrenRule}})
               }
             }else{
-              const field = element.properties.field
+              let field = element.properties.field
               const operator = mapField[element.properties.operator] || element.properties.operator
               let value = element.properties.value[0]
               if(element.properties.operator === "like"){
                 value = `(?i)${value}`
               }
-              
-              
+              if(element.properties.operator === "starts_with"){
+                value = `(ˆ)${value}`
+              }
+              if(groupName){
+                field = field.replace(groupName,'')
+                //addToObj[fieldOnly]={[operator]:value}
+              }
               childrenArrtmp.push({[field]:{[operator]:value}})
             }  
         });
@@ -177,7 +191,11 @@ export const AdvancedSearch = (props) =>{
         if(data && Array.isArray(data.children1)){
            const filterObjArr = getChildrenRule( data.children1,filterObj)
            console.log("filterObj",JSON.stringify(filterObjArr,null,4))
-           return  filterObjArr[0]
+           if(filterObjArr.length === 1) return filterObjArr[0]
+           const conjunction = data.properties && data.properties.conjunction ?  mapField[data.properties.conjunction] : "_and"
+
+           console.log("filterObj",JSON.stringify({[conjunction]:filterObjArr},null,4))
+           return  {[conjunction]:filterObjArr}
         }
     }
 
@@ -203,7 +221,7 @@ export const AdvancedSearch = (props) =>{
         onChange={onChange}
         renderBuilder={renderBuilder}
       />
-      <button onClick={onClick}>Filter Data</button>
+      <Button onClick={()=>{onClick()}}>Filter Data</Button>
     </div>
 
     

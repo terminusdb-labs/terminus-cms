@@ -6,23 +6,26 @@ import {ClientObj} from "../cms-init-client"
 import {AiOutlinePoweroff} from "react-icons/ai"
 import logo from '../assets/terminusx-color-white.png';
 
-export const TopMenuWeb = ({showSearchBar=true}) => {
-		const {client} = ClientObj()
-		const isHome = window.location.pathname === '/' ? {opacity:0} : null
-		
-		/*function logoutLocalUser (evt) {
-				localStorage.removeItem("TerminusCMS-USER") 
-				localStorage.removeItem("TerminusCMS-KEY")
-				const base = "/"
-				window.location.replace(`${base}`) 
-		}*/
-	 
-		return <Navbar sticky="top" variant='light' className="m-0 p-0">
-			<Container fluid>
-      			<Navbar.Brand as={RouterNavLink} to="/">
+export const TopMenuWeb = () => {
+		return  <Navbar sticky="top" variant='light' className="m-0 p-0">
+			<Container fluid className="">
+				<Navbar.Brand as={RouterNavLink} to="/">
 					<span><img src={logo} className="logo-img mr-2 ml-5" width="25px"/>
 					<label className="website-color fw-bold">TerminusCMS</label></span>
 				</Navbar.Brand>
+       		
+				<Navbar.Toggle aria-controls="navbarScroll" />
+				<Navbar.Collapse id="navbarScroll">
+					<Nav
+						className="me-auto my-2 my-lg-0"
+						style={{ maxHeight: '100px' }}
+						navbarScroll
+					>
+					<Nav.Link as={RouterNavLink} to="/themes">Themes</Nav.Link>                
+					</Nav>
+					<Nav className='ml-auto'>						
+					</Nav>
+				</Navbar.Collapse>
 			</Container>
 		</Navbar>
 }
