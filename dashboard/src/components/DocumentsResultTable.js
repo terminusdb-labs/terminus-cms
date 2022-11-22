@@ -17,10 +17,11 @@ export const DocumentsResultTable = () => {
     if (!query) return ""
 
     const advSearchFields = advFiltersFields[type] || false
-    const tableConfig = tableConfigObj[type]()
+    const tableConfig = typeof tableConfigObj[type] === "function" ? tableConfigObj[type]() : new 
     tableConfig.row().click(onRowClickCall)
 
     const { documentError,
+        rowCount,
         changeOrder,
         changeLimits,
         changeFilters,
@@ -34,7 +35,7 @@ export const DocumentsResultTable = () => {
 
     // let extractedResults = documentResults ? documentResults[type] : [] 
 
-    const rowCount = 300
+   // const rowCount = 300
     // const [extractedResults, setExtractedResults]=useState(null)
     // const [tableConfig, setTableConfig] = useState(false)
     // const [advSearchFields,setAdvSearchFields] = useState(null)
@@ -91,23 +92,23 @@ export const DocumentsResultTable = () => {
         return extractedResults
     }
 
-/*
- {!loading && advSearchFields &&
-                {/* <Accordion defaultActiveKey="0">
+   // const showBar = loading ? {className:"visible"} : {className:"invisible"}
+    return <div>          
+            {advSearchFields &&
+                 <Accordion className="mb-4">
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Advanced filter</Accordion.Header>
                         <Accordion.Body>
                             <AdvancedSearch fields={advSearchFields} setFilter={setAdvancedFilters} />
                         </Accordion.Body>
                     </Accordion.Item>
-            </Accordion>*/
-    return <div>
-            {loading && <span>
+                </Accordion>
+            }
+            {loading && <span >
                 Loading {type} ...
-                <ProgressBar variant="info" animated now={100} />
+                <ProgressBar variant="success" animated now={100}  className="mb-4"/>
             </span>}
-           <Button onClick={()=>{setAdvancedFilters({})}}>Text</Button>
-            {!loading && Array.isArray(extractedResults) && <WOQLTable
+            {!loading && Array.isArray(extractedResults) && <WOQLTable 
                 result={extractedResults}
                 freewidth={true}
                 view={(tableConfig ? tableConfig.json() : {})}

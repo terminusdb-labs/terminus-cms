@@ -111,6 +111,17 @@ const INVENTORY_QUERY = gql`query InventoryQuery($offset: Int, $limit: Int, $ord
     }
 }`
 
+const InventoryTableConfig = () =>{
+    const tableConfig= TerminusClient.View.table();
+    tableConfig.column_order("version")
+  //  tableConfig.column("year").filter({"type":"string",options:{operator:"eq"}})
+  //  tableConfig.column("inventory_set").filterable(false).unsortable(true)
+    tableConfig.pager("remote")
+    tableConfig.pagesize(10)
+    return tableConfig
+
+}
+
 const inventoryFields = {
     version: {
         label: 'Version',
@@ -210,6 +221,20 @@ const PART_RELATION_QUERY =   gql`query PartRelationQuery($offset: Int, $limit: 
   }
 }`
 
+PartRelationTableConfig
+
+const PartRelationTableConfig = () =>{
+    const tableConfig= TerminusClient.View.table();
+    tableConfig.column_order("right--name","left--name","relation_type")
+    tableConfig.column("relation_type").filter({"type":"list",options:{dataprovider:relationType}})
+    tableConfig.column("right--name").filterable(false).unsortable(true)
+    tableConfig.column("left--name").filterable(false).unsortable(true)
+    tableConfig.pager("remote")
+    tableConfig.pagesize(10)
+    return tableConfig
+
+}
+
 const partRelationFields = {
     "right":{
         label: "Right",
@@ -255,12 +280,21 @@ const  THEME_QUERY = gql`query ThemeQuery($offset: Int, $limit: Int,$orderBy: Th
   }
 }`
 
+const ThemeTableConfig = () =>{
+    const tableConfig= TerminusClient.View.table();
+    tableConfig.column_order("image_url","name")
+    tableConfig.column("image_url").width(100).renderer({type: "image",options:{"width":"80px"}})
+    tableConfig.column("image_url").filterable(false).header(" ").unsortable(true)
+    tableConfig.pager("remote")
+    tableConfig.pagesize(10)
+    return tableConfig
+}
+
 const themeFields = {
     name:{
         label: 'Name',
         type: 'string',
-        valueSources: ['value'],
-        //operators: ['equal']
+        valueSources: ['value']
     }
 }
 
@@ -304,7 +338,6 @@ export const legoSetWeb = gql `query LegoSetWebQuery($offset: Int, $limit: Int, 
       }
     }  
   }`
-
 
 export const advFiltersFields={
     Color:colorFields,
@@ -350,7 +383,7 @@ const ElementTableConfig= () =>{
     const tableConfig= TerminusClient.View.table();
     tableConfig.column_order("image_url", "part--name")
     // to be review
-    tableConfig.column("part--name").unsortable(true).filter({type:"string",options:{varPath : {Part:{name:"__VALUE__"}}}})
+    tableConfig.column("part--name").unsortable(true).filter({type:"string",options:{varPath : {part:{name:"__VALUE__"}}}})
     tableConfig.column("image_url").width(100).renderer({type: "image",options:{"width":"80px"}})
     tableConfig.column("image_url").filterable(false).header(" ").unsortable(true)
     tableConfig.pager("remote")
@@ -485,11 +518,11 @@ const PartTableConfig= () =>{
 
 export const tableConfigObj ={
     Color:ColorTableConfig,
-    //Theme:THEME_QUERY,
+    Theme:ThemeTableConfig,
     LegoSet:LegoSetTableConfig,
-    //Inventory:INVENTORY_QUERY,
+    Inventory:InventoryTableConfig,
     Part:PartTableConfig,
-    //PartRelation :PART_RELATION_QUERY,
+    PartRelation :PartRelationTableConfig,
     Minifig:MinifigTableConfig,
     Element:ElementTableConfig
 }
