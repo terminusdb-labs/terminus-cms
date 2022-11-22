@@ -59,6 +59,10 @@ const LEGOSET_QUERY = gql` query LegoSetQuery($offset: Int, $limit: Int, $orderB
           id
           name
           year
+          theme{
+            id
+            name
+          }
           inventory_set{
                 id
                 inventory{
@@ -70,6 +74,16 @@ const LEGOSET_QUERY = gql` query LegoSetQuery($offset: Int, $limit: Int, $orderB
 }`
 
 const legoSetFields = {
+    "theme":{
+        label: "Theme",
+        type: "!group",
+        subfields: {name:{
+                label: 'Name',
+                type: 'text',
+                valueSources: ['value']
+            }
+        }
+    },
     year: {
         label: 'Year',
         type: 'text',
@@ -370,13 +384,13 @@ const ColorTableConfig = () =>{
 }
 const LegoSetTableConfig = () =>{
     const tableConfig= TerminusClient.View.table();
-    tableConfig.column_order("name", "year","inventory_set")
+    tableConfig.column_order("name", "year","inventory_set","theme--name")
+    tableConfig.column("theme--name").unsortable(true).filter({type:"string",options:{varPath : {theme:{name:"__VALUE__"}}}})
     tableConfig.column("year").filter({"type":"string",options:{operator:"eq"}})
     tableConfig.column("inventory_set").filterable(false).unsortable(true)
     tableConfig.pager("remote")
     tableConfig.pagesize(10)
     return tableConfig
-
 }
 
 const ElementTableConfig= () =>{
