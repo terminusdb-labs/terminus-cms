@@ -22,7 +22,7 @@ export const DocumentTypeList = () => {
     
     const navigate = useNavigate()
     const onRowClick = (row) =>{
-        const fullId = row.original["id"]
+        const fullId = row["id"]
         const id = fullId.substring(fullId.indexOf(type))
         navigate(`/documents/${id}`)
     }

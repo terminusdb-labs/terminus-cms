@@ -11,7 +11,10 @@ export const DocumentsResultTable = ({type,onRowClick}) => {
     if (!query) return ""
 
     const onRowClickCall = (row) => {
-        if (onRowClick) onRowClick(row)
+        if (onRowClick) {
+            const rowTmp = row && row.original ? {label:row.original.name, id:row.original.id}: {}
+            onRowClick(rowTmp)
+        }
     }
 
     const advSearchFields = advFiltersFields[type] || false
