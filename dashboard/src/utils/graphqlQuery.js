@@ -309,9 +309,9 @@ const ThemeTableConfig = () =>{
 }
 
 const themeFields = {
-    name:{
+    "name":{
         label: 'Name',
-        type: 'string',
+        type: 'text',
         valueSources: ['value']
     }
 }

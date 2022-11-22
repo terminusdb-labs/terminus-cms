@@ -1,22 +1,21 @@
 import TerminusClient from "@terminusdb/terminusdb-client"
-import React, { useState, useEffect, Fragment } from "react";
-import { Row, Col, Card, Button } from "react-bootstrap"
-import { useParams, useNavigate, useSearchParams } from "react-router-dom";
+import React from "react";
 import { WOQLTable, ControlledGraphqlQuery } from '@terminusdb/terminusdb-react-table'
 import { graphqlQuery, tableConfigObj, advFiltersFields } from "../utils/graphqlQuery"
 import ProgressBar from 'react-bootstrap/ProgressBar'
-import Stack from 'react-bootstrap/Stack'
-import { HiPlusSm } from "react-icons/hi"
-import { CREATE_PATH } from "../components/constants"
 import { AdvancedSearch } from "../components/AdvancedSearch";
 import Accordion from 'react-bootstrap/Accordion'
 
-export const DocumentsResultTable = ({type}) => {
+export const DocumentsResultTable = ({type,onRowClick}) => {
     const query = graphqlQuery[type]
     if (!query) return ""
 
+    const onRowClickCall = (row) => {
+        if (onRowClick) onRowClick(row)
+    }
+
     const advSearchFields = advFiltersFields[type] || false
-    const tableConfig = typeof tableConfigObj[type] === "function" ? tableConfigObj[type]() : new 
+    const tableConfig = typeof tableConfigObj[type] === "function" ? tableConfigObj[type]() : TerminusClient.View.table()
     tableConfig.row().click(onRowClickCall)
 
     const { documentError,
@@ -32,13 +31,6 @@ export const DocumentsResultTable = ({type}) => {
         loading,
         documentResults } = ControlledGraphqlQuery(query, type, 10, 0, {}, false);
 
-    // let extractedResults = documentResults ? documentResults[type] : [] 
-
-   // const rowCount = 300
-    // const [extractedResults, setExtractedResults]=useState(null)
-    // const [tableConfig, setTableConfig] = useState(false)
-    // const [advSearchFields,setAdvSearchFields] = useState(null)
-
     const getColumnsFromResults = (results) => {
         let columns = []
         for (var k in results[0]) {
@@ -51,17 +43,8 @@ export const DocumentsResultTable = ({type}) => {
         return columns
     }
 
-    const onRowClickCall = (row) => {
-        if (onRowClick) onRowClick(row)
-    }
+  
     let extractedResults = documentResults ? extractDocuments(documentResults[type]) : []
-
-    /*useEffect(() => { // set table view config
-        if(!documentResults) return
-       // setBarLoading(false)
-        let extractedResults = documentResults ? extractDocuments(documentResults[type]) : [] 
-        setExtractedResults(extractedResults)
-    }, [documentResults])*/
 
     function extractDocuments(documentResults) {
         var extractedResults = []
