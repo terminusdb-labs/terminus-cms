@@ -48,9 +48,11 @@ export const ChangeDiff = () => {
 
     const {id} = useParams() 
     const [key, setKey] = useState(DIFFS)
-    const [action, setAction]=useState(false)
+    const [action, setAction]=useState(false) 
 
-    const result = GetDiffList(client, currentCRObject["@id"])  
+    //let changeRequestID=localStorage.getItem("TERMINUSCMS_CHANGE_REQUEST_ID")
+    const result = GetDiffList(client, currentCRObject["@id"])   
+    //const result = GetDiffList(client, currentCRObject["@id"])   
 
     useEffect(() => {
         if(key === DIFFS) setAction(false)

@@ -10,7 +10,7 @@ export const TopMenuWeb = () => {
 		return  <Navbar sticky="top" variant='light' className="m-0 p-0">
 			<Container fluid className="">
 				<Navbar.Brand as={RouterNavLink} to="/">
-					<span><img src={logo} className="logo-img mr-2 ml-5" width="25px"/>
+					<span className='h3'><img src={logo} className="logo-img mr-2 ml-5" width="35px"/>
 					<label className="website-color fw-bold">TerminusCMS</label></span>
 				</Navbar.Brand>
        		
