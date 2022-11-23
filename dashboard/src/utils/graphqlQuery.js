@@ -341,6 +341,8 @@ export const legoSetWeb = gql `query LegoSetWebQuery($offset: Int, $limit: Int, 
       id
       name
       year
+      image_url
+      description
       theme {
         id
         name
@@ -388,10 +390,10 @@ const ColorTableConfig = () =>{
 }
 const LegoSetTableConfig = () =>{
     const tableConfig= TerminusClient.View.table();
-    tableConfig.column_order("name", "year","inventory_set","theme--name")
+    tableConfig.column_order("name", "theme--name" ,"year", "inventory_set")
     tableConfig.column("theme--name").unsortable(true).filter({type:"string",options:{varPath : {theme:{name:"__VALUE__"}}}})
     tableConfig.column("year").filter({"type":"string",options:{operator:"eq"}})
-    tableConfig.column("inventory_set").filterable(false).unsortable(true)
+    tableConfig.column("inventory_set").filterable(false).unsortable(true).header("Inventory Set Quantity")
     tableConfig.pager("remote")
     tableConfig.pagesize(10)
     return tableConfig

@@ -4,10 +4,12 @@ import {useNavigate} from "react-router-dom";
 
 export const Main = () => {
 
-    const navigate = useNavigate()
+    //const navigate = useNavigate()
     const onRowClick = (id) =>{
-        navigate(`/${id}`)
+        //navigate(`/${id}`)
+        location.replace(`/${id}`)
     }
+
 
     return <Container fluid className="p-0 flex-row h-100" bg="dark" >
         <Container>

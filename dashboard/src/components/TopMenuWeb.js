@@ -1,6 +1,5 @@
 import React from 'react'
 import {Container, Navbar, Nav ,Dropdown, Form, Button} from "react-bootstrap"
-import {SearchComponent} from "./SearchComponent"
 import {NavLink as RouterNavLink} from "react-router-dom"
 import {ClientObj} from "../cms-init-client"
 import {AiOutlinePoweroff} from "react-icons/ai"

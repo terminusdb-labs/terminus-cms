@@ -2,14 +2,15 @@ import React, {useState, useEffect} from "react"
 import {Row, Container, Button} from "react-bootstrap"
 import {useParams, useNavigate} from "react-router-dom"
 import {GetDocumentByNameForWebsiteHook} from "../hooks/DocumentHook"
-import {ClientObj} from "../cms-init-client"
+import {ClientObjWeb} from "../cms-init-client-web"
 import Card from 'react-bootstrap/Card'
 import {BsFillCartCheckFill, BsStarHalf} from "react-icons/bs"
 import {BiArrowBack} from "react-icons/bi"
 import {AiOutlineCheck, AiFillStar, AiOutlineHeart} from "react-icons/ai"
 import Stack from 'react-bootstrap/Stack'
 import {GrNodes} from "react-icons/gr"
-
+import {ControlledGraphqlQuery} from '@terminusdb/terminusdb-react-table'
+import {legoSetWeb} from "../utils/graphqlQuery"
 const Image = ({data}) => {
     if(!data.hasOwnProperty("image_url")) return <>No Image to show ...</>
 
@@ -89,18 +90,22 @@ const Details= ({data}) => {
 
 export const LegoSetDescription = () => {  
     
-    const {clientMain:client} = ClientObj()
+    //const {clientMain:client} = ClientObjWeb()
     const {legoset} = useParams()
     const [data, setData] = useState(false)
 
     const {theme} = useParams()
     const navigate=useNavigate()
 
-    const doc_result = GetDocumentByNameForWebsiteHook(client, legoset, "LegoSet", setData) 
+    
+    const { error,loading,
+        documentResults} = ControlledGraphqlQuery(legoSetWeb, "LegoSet", 50,0,{},{name:{"eq":legoset}});
+   
+    //const doc_result = documentResults
+   // const doc_result = GetDocumentByNameForWebsiteHook(client, legoset, "LegoSet", setData) 
 
-    let result={
-        "@id": "LegoSet/0042ce33085eef3e9a9c2f57423ffba1da63e67f0bc435388a52aa0fb70962c2",
-        "@type": "LegoSet",
+   let result  =  documentResults && documentResults.LegoSet ? documentResults.LegoSet[0] : {
+        "id": "LegoSet/0042ce33085eef3e9a9c2f57423ffba1da63e67f0bc435388a52aa0fb70962c2",
         "description": "\n\n\nName\n1-Up Mushroom\n\n\nReleased\n2021\n\n\nInventory\n19 parts\n\n\nTheme\nSuper Mario\n\n\n",
         "image_url": "https://cdn.rebrickable.com/media/thumbs/sets/71394-1/90591.jpg/1000x800p.jpg",
         "inventory_set": [
@@ -115,6 +120,8 @@ export const LegoSetDescription = () => {
         "theme": "Theme/690+Super%20Mario",
         "year": "2021"
     }
+
+    
 
     function goBackLegoSet() {
         navigate(`/themes/${theme}`)
