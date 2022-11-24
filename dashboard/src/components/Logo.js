@@ -1,10 +1,11 @@
 import React from "react"
 
-export const Logo = ({width, size, filter}) => {
+export const Logo = ({width, size, filter, className}) => {
+    const classObj = className || `mr-2 ml-5`
     return <React.Fragment>
         <span className={`${size} website-color ${filter} logo`}>
             <img src={"https://assets.terminusdb.com/images/terminusx-color.png"} 
-                className={`mr-2 ml-5`}
+                className={classObj}
                 width={width}/>
             <label className="fw-bold logo">TerminusCMS</label>
         </span>

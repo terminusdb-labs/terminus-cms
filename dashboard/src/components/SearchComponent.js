@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import {NavDropdown , Form, InputGroup,Dropdown,Button} from "react-bootstrap"
 import {useNavigate} from "react-router-dom";
-export const SearchComponent = ({applyStyle,startFilter,nolist,pagePath,classes=[]}) => {
+export const SearchComponent = ({applyStyle,startFilter,nolist,pagePath,classes=[],addClassName=true}) => {
 
     const filter = startFilter || startFilter==="" ? startFilter : "LegoSet"
     const [inputSearch, setInputSearch]=useState(`${filter}:`)
@@ -45,7 +45,8 @@ export const SearchComponent = ({applyStyle,startFilter,nolist,pagePath,classes=
     const startSearch = ()=>{
         const filter01 = `${filter}:`
         const filterValue = inputSearch.replace(filter01,"")
-        navigate(`${path}${selectedClass}?filters=${filterValue}`)
+        const classN = addClassName ? selectedClass : ''
+        navigate(`${path}${classN}?filters=${filterValue}`)
     }
 
     return <React.Fragment>

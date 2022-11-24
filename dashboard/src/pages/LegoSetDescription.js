@@ -131,10 +131,7 @@ export const LegoSetDescription = () => {
             <h5 className="fw-bold mt-3 mb-3">
                 <span className="text-muted ">LegoSet : </span><span className="text-gray">{result.name}</span>
             </h5>
-            <Button className="btn-sm bg-light text-dark fw-bold ms-auto" onClick={goBackLegoSet}>
-                <BiArrowBack className="mr-2"/>
-                Go Back to LegoSets
-            </Button>
+            
         </Stack>
         <Card className="w-100 mt-5 mb-5 website__card h-100">
             <Row className="w-100">
@@ -144,3 +141,9 @@ export const LegoSetDescription = () => {
         </Card>
     </Container>
 }
+
+/*
+<Button className="btn-sm bg-light text-dark fw-bold ms-auto" onClick={goBackLegoSet}>
+                <BiArrowBack className="mr-2"/>
+                Go Back to LegoSets
+            </Button>*/
