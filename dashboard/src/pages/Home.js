@@ -2,7 +2,6 @@ import React from 'react'
 import {Container,Navbar} from "react-bootstrap"
 import {TopMenu} from '../components/TopMenu'
 import {SearchComponent} from '../components/SearchComponent'
-import {BrowseContextProvider} from '../hooks/BrowseContext'
 import {Themes} from "../components/ThemeComponent"
 import {ClientObjWeb} from "../cms-init-client-web"
 

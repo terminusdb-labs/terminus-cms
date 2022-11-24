@@ -32,7 +32,7 @@ export const CommentComponent = ({setKey}) => {
     
 	return <Form.Group className="mt-3 mb-5">
 		<Form.Control
-			className="bg-dark text-light" 
+			className="bg-dark text-light border-secondary" 
 			as="textarea"
 			rows="3"
 			placeholder="Please leave a comment or a message ..."

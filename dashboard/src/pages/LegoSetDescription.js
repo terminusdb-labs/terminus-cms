@@ -26,7 +26,7 @@ const Image = ({data}) => {
                 <div>Shop more like this</div> 
                 <Button variant="outline-light" className="btn btn-sm">Fantasy</Button>{' '}
                 <Button variant="outline-light" className="btn btn-sm">Minecraft®</Button>{' '}
-                <Button variant="outline-light" className="btn btn-sm">Mushroom</Button>{' '}
+                <Button variant="outline-light" className="btn btn-sm">{data.name}</Button>{' '}
             </React.Fragment>
         </Card.Body>
     </Card>

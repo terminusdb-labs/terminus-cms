@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import {ClientObj} from "../cms-init-client"
 import Accordion from 'react-bootstrap/Accordion'
 import {useParams} from 'react-router-dom'
@@ -13,6 +13,8 @@ import {GetDocumentByBranches} from "../hooks/DocumentHook"
 import Alert from 'react-bootstrap/Alert'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import {BsPlus} from "react-icons/bs"
+import {extractID} from "../components/utils"
+import {ChangeRequest} from "../hooks/ChangeRequest"
 
 /**
  * 
@@ -79,8 +81,14 @@ function propertyModified (propertyModifiedCount) {
  * @param {*} originBranchDocumentList document list of origin branch
  * @returns 
  */
-export const DiffView = ({diffs}) => { 
-    const {frames, client} = ClientObj()
+export const DiffView = ({diffs, CRObject}) => { 
+    const {
+        frames, 
+        client
+    } = ClientObj()
+    /*const {
+        getChangeRequestByID,
+    } = ChangeRequest()*/
     const {id} = useParams()
 
     // pagination constants
@@ -99,11 +107,17 @@ export const DiffView = ({diffs}) => {
     // message constants 
     const [error, setError]=useState(false)
 
-    let cValue=GetDocumentByBranches(client, id, documentID, setChangedValue, setError, changedRefresh)
+    let cValue=GetDocumentByBranches(client, CRObject.tracking_branch, documentID, setChangedValue, setError, changedRefresh)
     let oValue=GetDocumentByBranches(client, "main", documentID, setOriginalValue, setError, originalRefresh)
+
+    /*useEffect(() => {
+        async function getCRID() {
+            await getChangeRequestByID(id)
+        }
+        if(id) getCRID()
+    }, [id])*/
     
     let elements=[], paginationItems=[]
-
 
     let divide = diffs.length/DIFFS_PER_PAGE_LIMIT
 
@@ -151,12 +165,13 @@ export const DiffView = ({diffs}) => {
             if(diffs[start].hasOwnProperty("@insert")) {
                 let docId = diffs[start]["@insert"]["@id"]
                 setDocumentID(docId)
+                setChangedRefresh(Date.now())
                 setOriginalValue(false)
                 setOriginalRefresh(false)
-            }
+            } 
             else {
                 setDocumentID(clicked)
-                setOriginalRefresh(true)
+                setOriginalRefresh(Date.now())
             }
         }
 
@@ -208,7 +223,7 @@ export const DiffView = ({diffs}) => {
                                     oldValue={originalValue} 
                                     newValue={changedValue}
                                     oldValueHeader={<OriginHeader branch="main"/>}
-                                    newValueHeader={<TrackingHeader branch={id}/>}
+                                    newValueHeader={<TrackingHeader branch={CRObject.tracking_branch}/>}
                                     frame={frames}
                                     type={diffs[start]["@type"]}
                                     diffPatch={diffs[start]}/>}
@@ -219,7 +234,7 @@ export const DiffView = ({diffs}) => {
                                     oldValue={originalValue} 
                                     newValue={changedValue}
                                     oldValueHeader={<OriginHeader branch="main"/>}
-                                    newValueHeader={<TrackingInsertedHeader branch={id}/>}
+                                    newValueHeader={<TrackingInsertedHeader branch={CRObject.tracking_branch}/>}
                                     frame={frames}
                                     type={diffs[start]["@insert"]["@type"]}
                                     diffPatch={diffs[start]}/>} 
