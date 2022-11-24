@@ -28,7 +28,7 @@ export const TopMenuWeb = () => {
 				>
 				<Nav.Link as={RouterNavLink} to="/themes" className='text-light'>Home</Nav.Link>                
 				</Nav>
-				<Nav className='ml-auto'>	
+				<Nav className='ml-auto mr-3'>	
 				<SearchComponent addClassName={false} startFilter={"LegoSet"} pagePath ={"/legoset"} nolist={true} applyStyle={{margin:"auto", marginTop:"400px"}}/>					
 				</Nav>
 				{showback && <Button className="ml-5 mr-4 btn-sm bg-light text-dark fw-bold" onClick={goBackLegoSet}>
