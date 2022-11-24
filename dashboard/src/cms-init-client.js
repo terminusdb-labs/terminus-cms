@@ -45,8 +45,10 @@ export const ClientProvider = ({children}) => {
                 const dbClient = new TerminusClient.WOQLClient(opts.server,credentials)
                 const accessControl = new TerminusClient.AccessControl(opts.server,credentials)
 
-                const dbClientMain = dbClient.copy()
-
+               /* const dbClientMain =new TerminusClient.WOQLClient(opts.server, {user:"anyUser" ,
+                                                                                key:"demo_password", 
+                                                                                organization:"terminuscms", db:"lego"})
+*/
                 const result = await dbClient.getClasses();
                 const frameResult = await dbClient.getSchemaFrame(null, dbClient.db())
                 const teamUserRoles = await accessControl.getTeamUserRoles(credentials.user,credentials.organization)
@@ -69,7 +71,7 @@ export const ClientProvider = ({children}) => {
                //  }
                 
                //  setAccessControl(clientAccessControl)
-                 setClientMain(dbClientMain)
+               //  setClientMain(dbClientMain)
                  setClient(dbClient)
             } catch (err) {
                 const message = formatErrorMessage(err)
@@ -103,7 +105,7 @@ export const ClientProvider = ({children}) => {
             value={{
                 client,
                 classes,
-                clientMain,
+             //   clientMain,
                 
                // nodeClasses,
                // linkEdges,

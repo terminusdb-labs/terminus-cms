@@ -25,8 +25,7 @@ import { DocumentsResultTable } from "./components/DocumentsResultTable";
 
 export function App (props){
     const {error,loadingServer} = ClientObj()
-    const [currentMode, setCurrentMode] = useState(VIEW_LIST)
-
+    
     if(error) {
         return <Container className="h-100">
                     <Alert variant="dark" className="mt-5"><h3 className="m-5 text-center">{error}</h3></Alert>
@@ -37,7 +36,6 @@ export function App (props){
     return <React.Fragment>
         <Routes>
             <Route index element={<Main/>} />          
-            <Route path="adv" element={<AdvancedSearch/>} /> 
             <Route path="graphiql" element={<GraphIqlEditor/>} /> 
            
             <Route path="change_requests" >
@@ -52,22 +50,20 @@ export function App (props){
                     <Route path=":id" element={<DocumentInterface/>} /> 
                 </Route>              
             </Route>
-            <Route path="themes" element={<LayoutWebPage/>}>
-                <Route index element={<Themes/>} /> 
-                <Route path=":theme" >
-                    <Route index element={<LegoSetForTheme/>} />                     
-                </Route>
-            </Route>
-            {/* this is after the serch result*/}
-            <Route path="legoset" element={<LayoutWebPage/>}>
-                <Route index element={<LegoSetForTheme/>} />
-                <Route path=":legoset" element={<LegoSetDescription/>} /> 
-                <Route path=":legoset/graph" element={<LegoSetGraph/>} /> 
-            </Route>
-            <Route path="*" element={<PageNotFound />} />
         </Routes>
     </React.Fragment> 
 
 }
 
-// <Route path="home" element={<Home/>} /> 
+/*<Route path="themes" element={<LayoutWebPage/>}>
+                <Route index element={<Themes/>} /> 
+                <Route path=":theme" >
+                    <Route index element={<LegoSetForTheme/>} />                     
+                </Route>
+            </Route>
+            <Route path="legoset" element={<LayoutWebPage/>}>
+                <Route index element={<LegoSetForTheme/>} />
+                <Route path=":legoset" element={<LegoSetDescription/>} /> 
+                <Route path=":legoset/graph" element={<LegoSetGraph/>} /> 
+            </Route>
+            <Route path="*" element={<PageNotFound />} />*/

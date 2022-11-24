@@ -7,14 +7,14 @@ import {AiOutlinePoweroff} from "react-icons/ai"
 import {Logo} from "./Logo"
 
 export const TopMenu = ({showSearchBar=true}) => {
-		const {client} = ClientObj()
+		const {client,classes} = ClientObj()
 		const {type} = useParams()
 		const isHome = window.location.pathname === '/' ? {opacity:0} : null
 		
 		function logoutLocalUser (evt) {
 				localStorage.removeItem("TerminusCMS-USER") 
 				localStorage.removeItem("TerminusCMS-KEY")
-				const base = "/"
+				const base = "/documents"
 				window.location.replace(`${base}`) 
 		}
 	 
@@ -34,7 +34,7 @@ export const TopMenu = ({showSearchBar=true}) => {
 						<Nav.Link as={RouterNavLink} to="/change_requests">Change requests</Nav.Link> 
 						<Nav.Link as={RouterNavLink} to="/graphiql">GraphiQL</Nav.Link>          
 					</Nav>
-					{showSearchBar && <SearchComponent applyStyle={isHome} startFilter={type}></SearchComponent>}
+					{showSearchBar && <SearchComponent classes ={classes} applyStyle={isHome} startFilter={type}></SearchComponent>}
 					<Nav className='ml-auto'>
 						<Dropdown className="mr-4" id="profile_menu">
 							<Button size="sm" className="bg-transparent border-0">

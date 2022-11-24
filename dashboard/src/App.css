@@ -538,6 +538,21 @@ a.leaflet-browser-print{
     background-color: #de7dd8;
 }
 
+#table_page_number{
+    visibility: hidden;
+}
+
+#table_row_total{
+    visibility: hidden;
+}
+
+#table_next{
+    width: 60px;
+}
+
+#table_previous{
+    width: 60px;
+}
 .tdb__input > input {
     color: #adb5bd !important;
     background-color: transparent !important;
