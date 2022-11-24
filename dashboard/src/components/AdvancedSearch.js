@@ -38,21 +38,10 @@ const regex = {
   mongoFormatOp:null
 }
 
-console.log(InitialConfig.operators.like)
-console.log(InitialConfig.operators.proximity.options)
-
-console.log("TEXT", InitialConfig.types.text)
-
-const types = InitialConfig.types
-
-const textop = types.text.widgets.text.operators //
-textop.push("regex")
-
-console.log("textop",textop)
-types.text.widgets.text.operators = textop//types.text.widgets.text.operators
-types.text.widgets.textarea.operators = textop
 
 const operators = {
+  select_equals:InitialConfig.operators.select_equals,
+  select_not_equals:InitialConfig.operators.select_not_equals,
   equal:InitialConfig.operators.equal,
   not_equal:InitialConfig.operators.not_equal,
   less:InitialConfig.operators.less,
@@ -65,17 +54,13 @@ const operators = {
   like:InitialConfig.operators.like
 };
 
+console.log(InitialConfig.operators.like)
+console.log(InitialConfig.operators.proximity.options)
 
-/*const operators = {
-  equals: {
-    label: 'equals',
-    reversedOp: 'not_equal',
-    labelForFormat: '==TEST',
-    cardinality: 1,
-    formatOp: (field, _op, value, _valueSrc, _valueType, opDef) => `${field} ${opDef.labelForFormat} ${value}`,
-    mongoFormatOp: (field, op, value) => ({ [field]: { '$eq': value } }),
-  },
-}*/
+console.log("TEXT", InitialConfig.types.text)
+
+
+
 
 const stringFilter = {"eq": "eq", //Equality
                       "ne": "ne", //Disequality
@@ -105,7 +90,6 @@ const booleanFilter ={"eq": "eq", //Equality
 const defaultConfig = {
   ...InitialConfig,
   operators,
-  types,
   fields: {
     rgb: {
         label: 'RGB',
@@ -142,6 +126,8 @@ export const AdvancedSearch = (props) =>{
 
     const mapField ={"AND":'_and',
                     "OR" : '_or',
+                    "select_equals":'eq',
+                    "select_not_equals" :"ne",
                     "equal":'eq',
                     "not_equal":"ne",
                     "like":"regex",

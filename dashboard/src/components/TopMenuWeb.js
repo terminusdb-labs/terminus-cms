@@ -3,13 +3,12 @@ import {Container, Navbar, Nav ,Dropdown, Form, Button} from "react-bootstrap"
 import {NavLink as RouterNavLink} from "react-router-dom"
 import {ClientObj} from "../cms-init-client"
 import {AiOutlinePoweroff} from "react-icons/ai"
-import logo from '../assets/terminusx-color-white.png';
 
 export const TopMenuWeb = () => {
 		return  <Navbar sticky="top" variant='light' className="m-0 p-0">
 			<Container fluid className="">
 				<Navbar.Brand as={RouterNavLink} to="/">
-					<span><img src={logo} className="logo-img mr-2 ml-5" width="25px"/>
+					<span className='h3'><img src="https://assets.terminusdb.com/images/terminusx-color.png" className="mr-2 ml-5" width="40px"/>
 					<label className="website-color fw-bold">TerminusCMS</label></span>
 				</Navbar.Brand>
        		

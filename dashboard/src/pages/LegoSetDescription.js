@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
 import {Row, Container, Button} from "react-bootstrap"
-import {useParams, useNavigate} from "react-router-dom"
+import {useParams,useNavigate} from "react-router-dom"
 import {GetDocumentByNameForWebsiteHook} from "../hooks/DocumentHook"
 import {ClientObjWeb} from "../cms-init-client-web"
 import Card from 'react-bootstrap/Card'
@@ -39,7 +39,7 @@ const Details= ({data}) => {
     const navigate=useNavigate()
 
     function handleNodeClick(e) {
-        navigate(`/themes/${theme}/${legoset}/graph`)
+        navigate(`/legoset/${legoset}/graph`)
     }
 
     return <Card className="bg-secondary col-md-8">
@@ -94,7 +94,6 @@ export const LegoSetDescription = () => {
     const {legoset} = useParams()
     const [data, setData] = useState(false)
 
-    const {theme} = useParams()
     const navigate=useNavigate()
 
     
@@ -122,9 +121,9 @@ export const LegoSetDescription = () => {
     }
 
     
-
+    
     function goBackLegoSet() {
-        navigate(`/themes/${theme}`)
+        navigate(-1)
     }
 
     return <Container fluid>

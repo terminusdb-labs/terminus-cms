@@ -549,3 +549,10 @@ a.leaflet-browser-print{
 #table_previous{
     width: 60px;
 }
+.tdb__input > input {
+    color: #adb5bd !important;
+    background-color: transparent !important;
+    border-color: rgb(102, 102, 102) !important;
+    line-height: 1.5;
+}
+

@@ -79,7 +79,7 @@ function propertyModified (propertyModifiedCount) {
  * @param {*} originBranchDocumentList document list of origin branch
  * @returns 
  */
-export const DiffView = ({diffs}) => {
+export const DiffView = ({diffs}) => { 
     const {frames, client} = ClientObj()
     const {id} = useParams()
 
@@ -203,24 +203,26 @@ export const DiffView = ({diffs}) => {
                                 {error}
                             </Alert>}
                             {!originalValue && !changedValue && <ProgressBar variant="info" animated now={100}/>} 
-                            {originalValue && changedValue && documentID === diffs[start]["@id"] && <DiffViewer 
-                                oldValue={originalValue} 
-                                newValue={changedValue}
-                                oldValueHeader={<OriginHeader branch="main"/>}
-                                newValueHeader={<TrackingHeader branch={id}/>}
-                                frame={frames}
-                                type={diffs[start]["@type"]}
-                                diffPatch={diffs[start]}/>}
+                            {originalValue && changedValue && documentID === diffs[start]["@id"] && 
+                                <DiffViewer 
+                                    oldValue={originalValue} 
+                                    newValue={changedValue}
+                                    oldValueHeader={<OriginHeader branch="main"/>}
+                                    newValueHeader={<TrackingHeader branch={id}/>}
+                                    frame={frames}
+                                    type={diffs[start]["@type"]}
+                                    diffPatch={diffs[start]}/>}
                             {!originalValue && changedValue && 
                                 diffs[start].hasOwnProperty("@insert") && 
-                                documentID === diffs[start]["@insert"]["@id"] && <DiffViewer 
-                                oldValue={originalValue} 
-                                newValue={changedValue}
-                                oldValueHeader={<OriginHeader branch="main"/>}
-                                newValueHeader={<TrackingInsertedHeader branch={id}/>}
-                                frame={frames}
-                                type={diffs[start]["@insert"]["@type"]}
-                                diffPatch={diffs[start]}/>} 
+                                documentID === diffs[start]["@insert"]["@id"] && 
+                                <DiffViewer 
+                                    oldValue={originalValue} 
+                                    newValue={changedValue}
+                                    oldValueHeader={<OriginHeader branch="main"/>}
+                                    newValueHeader={<TrackingInsertedHeader branch={id}/>}
+                                    frame={frames}
+                                    type={diffs[start]["@insert"]["@type"]}
+                                    diffPatch={diffs[start]}/>} 
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>

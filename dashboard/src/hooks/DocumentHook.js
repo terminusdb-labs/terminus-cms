@@ -137,13 +137,13 @@ export function GetDiffList(client, changeRequestID, setError){
             setResult(result)
         }
         catch(err){
-            setError(err.message)
+            if(setError) setError(err.message)
        }
-    }
+    } 
 
     useEffect(() => {
-        if (changeRequestID) getDiffList()
-    }, [changeRequestID])
+        if (changeRequestID && client) getDiffList()
+    }, [changeRequestID, client])
 
     return result
 }

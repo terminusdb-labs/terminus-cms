@@ -1,6 +1,84 @@
 import {gql} from "@apollo/client";
 import TerminusClient from "@terminusdb/terminusdb-client"
 
+const material =[
+    "Cardboard/Paper",
+    "Cloth",
+    "Foam",
+    "Metal",
+    "Plastic",
+    "Rubber"
+  ]
+
+
+const category =["Bars__Ladders_and_Fences",
+    "Baseplates",
+    "Bricks_Sloped",
+    "Belville__Scala_and_Fabuland",
+    "Bricks_Curved",
+    "Bricks_Round_and_Cones",
+    "Bricks_Special",
+    "Bricks_Wedged",
+    "Bricks",
+    "Clikits",
+    "Containers",
+    "Duplo__Quatro_and_Primo",
+    "Electronics",
+    "Flags__Signs__Plastics_and_Cloth",
+    "HO_Scale",
+    "Hinges__Arms_and_Turntables",
+    "Large_Buildable_Figures",
+    "Magnets_and_Holders",
+    "Mechanical",
+    "Minidoll_Heads",
+    "Minidoll_Lower_Body",
+    "Minidoll_Upper_Body",
+    "Minifig_Accessories",
+    "Minifig_Heads",
+    "Minifig_Headwear",
+    "Minifig_Lower_Body",
+    "Minifig_Upper_Body",
+    "Minifigs",
+    "Modulex",
+    "Non_Buildable_Figures__Duplo__Fabuland__etc_",
+    "Stickers",
+   /* Other,
+    Panels,
+    Plants_and_Animals,
+    Plates_Angled,
+    Plates_Round_Curved_and_Dishes,
+    Plates_Special,
+    Plates,
+    Pneumatics,
+    Projectiles___Launchers,
+    Rock,
+    Stickers,
+    String__Bands_and_Reels,
+    Supports__Girders_and_Cranes,
+    Technic_Axles,
+    Technic_Beams_Special,
+    Technic_Beams,
+    Technic_Bricks,
+    Technic_Bushes,
+    Technic_Connectors,
+    Technic_Gears,
+    Technic_Panels,
+    Technic_Pins,
+    Technic_Special,
+    Technic_Steering__Suspension_and_Engine,
+    Tiles_Round_and_Curved,
+    Tiles_Special,
+    Tiles,
+    Tools,
+    Transportation___Land,
+    Transportation___Sea_and_Air,
+    Tubes_and_Hoses,
+    Wheels_and_Tyres,
+    Windows_and_Doors,
+    Windscreens_and_Fuselage,
+    Znap*/
+]
+
 const COLOR_QUERY = gql`
   query ColorQuery($offset: Int, $limit: Int,$filter:Color_Filter) {
     Color(offset: $offset, limit: $limit,filter:$filter) {
@@ -104,6 +182,16 @@ const legoSetFields = {
     }
   }
 
+  const inventoryFields = {
+    version: {
+        label: 'Version',
+        type: 'number',
+        valueSources: ['value'],
+        //operators: ['equal']
+    }
+
+  }
+
 const INVENTORY_QUERY = gql`query InventoryQuery($offset: Int, $limit: Int, $orderBy: Inventory_Ordering,$filter:Inventory_Filter) {
     Inventory(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
           id
@@ -132,7 +220,7 @@ const INVENTORY_QUERY = gql`query InventoryQuery($offset: Int, $limit: Int, $ord
 
 const InventoryTableConfig = () =>{
     const tableConfig= TerminusClient.View.table();
-    tableConfig.column_order("version")
+    tableConfig.column_order("version","inventory_minifigs","inventory_parts")
   //  tableConfig.column("year").filter({"type":"string",options:{operator:"eq"}})
   //  tableConfig.column("inventory_set").filterable(false).unsortable(true)
     tableConfig.pager("remote")
@@ -141,14 +229,7 @@ const InventoryTableConfig = () =>{
 
 }
 
-const inventoryFields = {
-    version: {
-        label: 'Version',
-        type: 'number',
-        valueSources: ['value'],
-        //operators: ['equal']
-    }
-  }
+
 
 const MINIFIG_QUERY = gql` query MinifigQuery($offset: Int, $limit: Int, $orderBy: Minifig_Ordering,$filter:Minifig_Filter) {
     Minifig(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
@@ -194,34 +275,47 @@ const PART_QUERY = gql`
 }`
 
 const partFields = {
-    name:{
-        label: 'Name',
-        type: 'string',
-        valueSources: ['value'],
-        //operators: ['equal']
-    },
+   
     category:{
         label: 'Category',
         valueSources: ['value'],
-        type: "select",
+        operators: ["select_equals", "select_not_equals"],
+        defaultOperator: "select_equals",
+        type: "select",      
         fieldSettings: {
-            listValues: category
-            }
+                listValues: category
+            },
         },
-    material:{
-            label: 'material',
+     material:{        
+            label: 'Material',
             valueSources: ['value'],
+            operators: ["select_equals", "select_not_equals"],
+            defaultOperator: "select_equals",
             type: "select",
             fieldSettings: {
-                listValues: material
+                
+                listValues: [
+                    "Cardboard/Paper",
+                    "Cloth",
+                    "Foam",
+                    "Metal",
+                    "Plastic",
+                    "Rubber"
+                  ]
             }
         },
     name:{
             label: 'Name',
-            type: 'string',
+            type: 'text',
             valueSources: ['value'],
             //operators: ['equal']
-        }
+        },
+    part_number:{
+            label: 'Part Number',
+            type: 'text',
+            valueSources: ['value'],
+            //operators: ['equal']
+    }
 }
 
 
@@ -280,6 +374,8 @@ const partRelationFields = {
     },
     relation_type:{
         label: 'Relation Type',
+        operators: ["select_equals", "select_not_equals"],
+        defaultOperator: "select_equals",
         type: "select",
             fieldSettings: {
                 listValues: relationType
@@ -413,10 +509,10 @@ const ElementTableConfig= () =>{
 
 const MinifigTableConfig= () =>{
     const tableConfig= TerminusClient.View.table();
-    tableConfig.column_order("name", "num_parts","img_url")
+    tableConfig.column_order("img_url","name", "num_parts")
     tableConfig.column("img_url").width(100).renderer({type: "image",options:{"width":"80px"}})
-    tableConfig.column("img_url").filterable(false)//.header(" ")
-    tableConfig.column("num_parts").width(100).filter({type: "number"})
+    tableConfig.column("img_url").filterable(false).unsortable(true).header(" ")
+    tableConfig.column("num_parts").filterable(false).unsortable(true)
     // tableConfig.column("material").filter({type:"list",dataprovider:material})
     // tabConfig.column_order("Time", "Author", "Commit ID", "Message", "Copy Commit ID")
     // tabConfig.column("Commit ID")
@@ -438,83 +534,6 @@ const relationType = ["Alternate",
                         "Print",
                         "Sub-Part"]
 
-const material =[
-    "Cardboard/Paper",
-    "Cloth",
-    "Foam",
-    "Metal",
-    "Plastic",
-    "Rubber"
-  ]
-
-
-const category =["Bars__Ladders_and_Fences",
-    "Baseplates",
-    "Bricks_Sloped",
-    "Belville__Scala_and_Fabuland",
-    "Bricks_Curved",
-    "Bricks_Round_and_Cones",
-    "Bricks_Special",
-    "Bricks_Wedged",
-    "Bricks",
-    "Clikits",
-    "Containers",
-    "Duplo__Quatro_and_Primo",
-    "Electronics",
-    "Flags__Signs__Plastics_and_Cloth",
-    "HO_Scale",
-    "Hinges__Arms_and_Turntables",
-    "Large_Buildable_Figures",
-    "Magnets_and_Holders",
-    "Mechanical",
-    "Minidoll_Heads",
-    "Minidoll_Lower_Body",
-    "Minidoll_Upper_Body",
-    "Minifig_Accessories",
-    "Minifig_Heads",
-    "Minifig_Headwear",
-    "Minifig_Lower_Body",
-    "Minifig_Upper_Body",
-    "Minifigs",
-    "Modulex",
-    "Non_Buildable_Figures__Duplo__Fabuland__etc_",
-   /* Non_LEGO,
-    Other,
-    Panels,
-    Plants_and_Animals,
-    Plates_Angled,
-    Plates_Round_Curved_and_Dishes,
-    Plates_Special,
-    Plates,
-    Pneumatics,
-    Projectiles___Launchers,
-    Rock,
-    Stickers,
-    String__Bands_and_Reels,
-    Supports__Girders_and_Cranes,
-    Technic_Axles,
-    Technic_Beams_Special,
-    Technic_Beams,
-    Technic_Bricks,
-    Technic_Bushes,
-    Technic_Connectors,
-    Technic_Gears,
-    Technic_Panels,
-    Technic_Pins,
-    Technic_Special,
-    Technic_Steering__Suspension_and_Engine,
-    Tiles_Round_and_Curved,
-    Tiles_Special,
-    Tiles,
-    Tools,
-    Transportation___Land,
-    Transportation___Sea_and_Air,
-    Tubes_and_Hoses,
-    Wheels_and_Tyres,
-    Windows_and_Doors,
-    Windscreens_and_Fuselage,
-    Znap*/
-]
 
 const PartTableConfig= () =>{
     const tableConfig= TerminusClient.View.table();
