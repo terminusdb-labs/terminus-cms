@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Container, Row, Col, Card} from "react-bootstrap"
 import {TopMenu} from '../components/TopMenu'
-import {useParams, matchPath} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import {GetDiffList} from "../hooks/DocumentHook"
 import {ClientObj} from "../cms-init-client"
 import {DiffView} from "../components/DiffView"
@@ -11,6 +11,7 @@ import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
 import Stack from 'react-bootstrap/Stack'
 import {status} from "../components/utils"
+import {ChangeRequest} from "../hooks/ChangeRequest"
 import {
     DIFFS, 
     MESSAGES, 
@@ -19,7 +20,7 @@ import {
 import {Messages} from "../components/Messages"
 import {ReviewComponent} from "../components/ReviewComponent"
 
-const DocumentModifiedCount = ({documentModifiedCount}) => {
+const DocumentModifiedCount = ({documentModifiedCount}) => { 
     if(documentModifiedCount > 0) return <h6 className="text-muted fw-bold mt-1 mb-3">
         {`${documentModifiedCount} documents changed`}
     </h6>
@@ -46,12 +47,23 @@ export const ChangeDiff = () => {
         currentCRObject
     } = ClientObj() 
 
-    const {id} = useParams() 
+    const {
+        getChangeRequestByID,
+    } = ChangeRequest()
+    const {id} = useParams()
+
     const [key, setKey] = useState(DIFFS)
     const [action, setAction]=useState(false) 
 
+    useEffect(() => {
+        async function getCRID() {
+            await getChangeRequestByID(id)
+        }
+        if(id, client) getCRID()
+    }, [id, client])
+
     //let changeRequestID=localStorage.getItem("TERMINUSCMS_CHANGE_REQUEST_ID")
-    const result = GetDiffList(client, currentCRObject["@id"])   
+    const result = GetDiffList(client, id)      
     //const result = GetDiffList(client, currentCRObject["@id"])   
 
     useEffect(() => {
@@ -89,10 +101,10 @@ export const ChangeDiff = () => {
                                             {result && <DocumentModifiedCount documentModifiedCount={documentModifiedCount}/>}
                                         </Col>
                                         <Col md={6}>
-                                            <BranchCRMessage trackingBranch={id} originBranch={"main"}/>
+                                            <BranchCRMessage trackingBranch={currentCRObject.tracking_branch} originBranch={"main"}/>
                                         </Col>
                                     </Row> 
-                                    <DiffView diffs={result}/> 
+                                    <DiffView diffs={result} CRObject={currentCRObject}/> 
                                 </Card.Body> 
                             </Card>
                         </Tab>
