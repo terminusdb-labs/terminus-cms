@@ -367,6 +367,10 @@ a.leaflet-browser-print{
     filter: grayscale(1);
 }
 
+.logo:hover { 
+    cursor: pointer;
+}
+
 /* accordian */
 .accordion-button {	
     background: #333333 !important;	

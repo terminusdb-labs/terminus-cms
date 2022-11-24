@@ -32,7 +32,7 @@ export const DocumentTypeList = () => {
     }
  
     return  <div className="m-5">
-        <Card className="content  w-100 mt-5" variant="light">
+        <Card className="content border-secondary w-100 mt-5" variant="light">
             <Card.Header>
                 <Stack direction="horizontal" gap={3}>
                     <h6>Documents of type - <strong className="text-success">{type}</strong></h6>
