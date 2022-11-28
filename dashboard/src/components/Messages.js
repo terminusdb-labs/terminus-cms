@@ -50,7 +50,7 @@ const AddNewMessage=()=> {
     const [add, setAdd]=useState(false)
 
     useEffect(() => {
-        async function updateMessages() {
+        async function updateMessages() { 
             await updateChangeRequestStatus(comment, currentCRObject.status)
             let id=extractID(currentCRObject["@id"])
             await getChangeRequestByID(id)

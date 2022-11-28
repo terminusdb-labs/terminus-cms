@@ -53,11 +53,9 @@ export const ChangeRequests = () => {
 	//console.log("changeRequestList", changeRequestList)
 
     const goToDiffPage = (changeRequestObject) => {  
-		let branchName=changeRequestObject['tracking_branch'] 
 		setCurrentCRObject(changeRequestObject)
 		let id=extractID(changeRequestObject["@id"]) 
         setCurrentChangeRequest(id)
-        //navigate(`/change_requests/${branchName}`) 
 		navigate(`/change_requests/${id}`) 
     }
 	
