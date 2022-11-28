@@ -5,6 +5,8 @@ import { graphqlQuery, tableConfigObj, advFiltersFields } from "../utils/graphql
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import { AdvancedSearch } from "../components/AdvancedSearch";
 import Accordion from 'react-bootstrap/Accordion'
+import Tab from 'react-bootstrap/Tab'
+import Tabs from 'react-bootstrap/Tabs'
 
 export const DocumentsResultTable = ({type,onRowClick}) => {
     const query = graphqlQuery[type]
@@ -84,7 +86,7 @@ export const DocumentsResultTable = ({type,onRowClick}) => {
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>Advanced filter</Accordion.Header>
                         <Accordion.Body>
-                            <AdvancedSearch fields={advSearchFields} setFilter={setAdvancedFilters} />
+                           <AdvancedSearch fields={advSearchFields} setFilter={setAdvancedFilters} />
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>

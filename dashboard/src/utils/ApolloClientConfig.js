@@ -5,7 +5,7 @@ import { ApolloClient,ApolloLink, concat, InMemoryCache, ApolloProvider, gql, Ht
  //add an ENV var 
 export const createApolloClient = ()=>{
 
-    const httpLink = new HttpLink({ uri: "http://localhost:6363/api/graphql/terminuscms/lego/local/branch/changeRequestDemo" });
+    const httpLink = new HttpLink({ uri: "http://localhost:6363/api/graphql/terminuscms/lego/local/branch/DemoChangeRequest" });
     const authMiddleware = new ApolloLink((operation, forward) => {
         // add the authorization to the headers
         operation.setContext(({ headers = {} }) => ({
