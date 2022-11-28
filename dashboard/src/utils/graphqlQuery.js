@@ -188,9 +188,49 @@ const legoSetFields = {
         type: 'number',
         valueSources: ['value'],
         //operators: ['equal']
+    },
+    "inventory_minifigs":{
+        label: "Inventory Minifigs/minifig",
+        type: "!group",
+        mode: "multiple",
+        subfields: {
+            "minifig/name": {
+                        label: 'NAME',
+                        type: 'text',
+                        valueSources: ['value']
+            } 
+        } 
+    },
+    "inventory_parts":{
+        label: "Inventory Parts/element/part",
+        type: "!group",
+        mode: "multiple",
+        subfields: {
+            "element/part/name":{
+                label: 'Name',
+                type: 'text',
+                valueSources: ['value'],
+            } /*{
+                label: "Element",
+                type: "!group",
+                subfields: {
+                    part:{
+                        label: "Part",
+                        type: "!group",
+                        subfields: {
+                            name:{
+                                label: 'Name',
+                                type: 'text',
+                                valueSources: ['value'],
+                            }
+                        }
+                    }
+                
+                }
+            }  */
+        }
     }
-
-  }
+}
 
 const INVENTORY_QUERY = gql`query InventoryQuery($offset: Int, $limit: Int, $orderBy: Inventory_Ordering,$filter:Inventory_Filter) {
     Inventory(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
@@ -220,7 +260,7 @@ const INVENTORY_QUERY = gql`query InventoryQuery($offset: Int, $limit: Int, $ord
 
 const InventoryTableConfig = () =>{
     const tableConfig= TerminusClient.View.table();
-    tableConfig.column_order("version","inventory_minifigs","inventory_parts")
+    tableConfig.column_order("id","version","inventory_minifigs","inventory_parts")
   //  tableConfig.column("year").filter({"type":"string",options:{operator:"eq"}})
   //  tableConfig.column("inventory_set").filterable(false).unsortable(true)
     tableConfig.pager("remote")

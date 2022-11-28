@@ -103,10 +103,10 @@ export const LegoSetDescription = () => {
     //const doc_result = documentResults
    // const doc_result = GetDocumentByNameForWebsiteHook(client, legoset, "LegoSet", setData) 
 
-   let result  =  documentResults && documentResults.LegoSet ? documentResults.LegoSet[0] : {
+   let result  =  documentResults && documentResults.LegoSet ? documentResults.LegoSet[0] : null /*{
         "id": "LegoSet/0042ce33085eef3e9a9c2f57423ffba1da63e67f0bc435388a52aa0fb70962c2",
         "description": "\n\n\nName\n1-Up Mushroom\n\n\nReleased\n2021\n\n\nInventory\n19 parts\n\n\nTheme\nSuper Mario\n\n\n",
-        "image_url": "https://cdn.rebrickable.com/media/thumbs/sets/71394-1/90591.jpg/1000x800p.jpg",
+        "image_url": "",
         "inventory_set": [
           {
             "@id": "LegoSet/0042ce33085eef3e9a9c2f57423ffba1da63e67f0bc435388a52aa0fb70962c2/inventory_set/InventorySet/8601b482bdbbb8da0422916fb4ca78bc80621b57aeac8bcf4cb751b9239a9430",
@@ -118,7 +118,7 @@ export const LegoSetDescription = () => {
         "name": "1-Up Mushroom",
         "theme": "Theme/690+Super%20Mario",
         "year": "2021"
-    }
+    }*/
 
     
     
@@ -135,8 +135,11 @@ export const LegoSetDescription = () => {
         </Stack>
         <Card className="w-100 mt-5 mb-5 website__card h-100">
             <Row className="w-100">
-                <Image data={result}/>
-                <Details data={result}/>
+               {result && 
+               <React.Fragment>
+                    <Image data={result}/>
+                    <Details data={result}/> 
+                </React.Fragment>}
             </Row>
         </Card>
     </Container>

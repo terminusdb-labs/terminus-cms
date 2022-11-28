@@ -1,5 +1,5 @@
 
-import React, {useEffect} from "react"
+import React, {useEffect,useState} from "react"
 import Card from 'react-bootstrap/Card'
 import {Row, Col, ProgressBar, Alert, Button,Container} from 'react-bootstrap'
 import Stack from 'react-bootstrap/Stack'
@@ -12,17 +12,20 @@ export const LegoSetForTheme = (props)=>{
     
     const {theme} = useParams()
     const [searchParams]  = useSearchParams()
+    
+   
     let startFilters = {}
-    if(searchParams.get('filters')){
-        startFilters ={"name":{"regex":`(?i)${searchParams.get('filters')}`}}
-    }else if(theme){
-        startFilters ={"theme":{"name":{"eq":theme}}}
-    }
-
+        if(searchParams.get('filters')){
+            startFilters ={"name":{"regex":`(?i)${searchParams.get('filters')}`}}
+        }else if(theme){
+            startFilters ={"theme":{"name":{"eq":theme}}}
+        }
+    
     const query = legoSetWeb
 
     const { error,loading,
-        documentResults} = ControlledGraphqlQuery(query, "LegoSet", 50,0,{},startFilters);
+        setAdvancedFilters,
+        documentResults} = ControlledGraphqlQuery(query, "LegoSet", 50,0,{"name":"ASC"},startFilters);
    
     const result = documentResults &&  documentResults.LegoSet ? documentResults.LegoSet : []
   
@@ -33,12 +36,15 @@ export const LegoSetForTheme = (props)=>{
         navigate(`/legoset/${legoset}`)
     }
 
-    /*useEffect(() => { 
-        if(client && theme) {
-            let query = getLegoSetByTheme(`${theme}`)
-            runQuery(query)
+    useEffect(() => { 
+        let startFiltersTmp = {}
+        if(searchParams.get('filters')){
+            startFiltersTmp ={"name":{"regex":`(?i)${searchParams.get('filters')}`}}
+        }else if(theme){
+            startFiltersTmp ={"theme":{"name":{"eq":theme}}}
         }
-    }, [client,theme])*/
+        setAdvancedFilters(startFiltersTmp)
+    }, [searchParams,theme])
 
     if(error) return <Alert variant={"danger"}>
         {error}
