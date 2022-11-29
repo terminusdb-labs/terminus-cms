@@ -283,18 +283,18 @@ const MINIFIG_QUERY = gql` query MinifigQuery($offset: Int, $limit: Int, $orderB
 }`
 
 const minifigFields = {
-    figure_number: {
-        label: 'Figure Number',
-        type: 'text',
-        valueSources: ['value'],
-        //operators: ['equal']
-    },
     name:{
         label: 'Name',
         type: 'text',
         valueSources: ['value'],
         //operators: ['equal']
     },
+    figure_number: {
+        label: 'Figure Number',
+        type: 'text',
+        valueSources: ['value'],
+        //operators: ['equal']
+    }, 
     num_part:{
         label: 'Part Number',
         type: 'number',

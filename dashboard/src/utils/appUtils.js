@@ -15,3 +15,18 @@ export function formatErrorMessage (err){
 	}
 	return message
 }
+//viewportMargin: "Infinity",
+export const MODEL_BUILDER_EDITOR_OPTIONS = {
+    theme: "ayu-dark",
+    height: "auto",
+    mode: {
+      name: "javascript",
+      json: true,
+      statementIndent: 2
+    },
+    lineNumbers: true,
+    lineWrapping: true,
+    indentWithTabs: false,
+    tabSize: 2,
+    readOnly:true
+}
