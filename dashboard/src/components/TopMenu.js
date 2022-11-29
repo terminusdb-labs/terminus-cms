@@ -12,10 +12,9 @@ export const TopMenu = ({showSearchBar=true}) => {
 		const isHome = window.location.pathname === '/' ? {opacity:0} : null
 		
 		function logoutLocalUser (evt) {
-				localStorage.removeItem("TerminusCMS-USER") 
-				localStorage.removeItem("TerminusCMS-KEY")
-				const base = "/documents"
-				window.location.replace(`${base}`) 
+			localStorage.clear()
+			const base = "/documents"
+			window.location.replace(`${base}`) 
 		}
 	 
 		return <Navbar sticky="top" expand="lg" variant='dark' className="m-0 p-2 bg-grey">

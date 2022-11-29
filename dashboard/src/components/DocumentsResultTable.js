@@ -1,28 +1,19 @@
 import TerminusClient from "@terminusdb/terminusdb-client"
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { WOQLTable, ControlledGraphqlQuery } from '@terminusdb/terminusdb-react-table'
 import { graphqlQuery, tableConfigObj, advFiltersFields } from "../utils/graphqlQuery"
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import { AdvancedSearch } from "../components/AdvancedSearch";
 import Accordion from 'react-bootstrap/Accordion'
-import Tab from 'react-bootstrap/Tab'
-import Tabs from 'react-bootstrap/Tabs'
+import {Tab,Tabs,Form, Button} from 'react-bootstrap'
+import { GraphqlQueryView } from "./GraphqlQueryViewer";
 
 export const DocumentsResultTable = ({type,onRowClick}) => {
     const query = graphqlQuery[type]
+    const [advSearchFields,setAdvFields] = useState(false)
+    const [queryToDisplay,setQueryTodisplay] = useState(false)
+   
     if (!query) return ""
-
-    const onRowClickCall = (row) => {
-        if (onRowClick) {
-            const rowTmp = row && row.original ? {label:row.original.name, id:row.original.id}: {}
-            onRowClick(rowTmp)
-        }
-    }
-
-    const advSearchFields = advFiltersFields[type] || false
-    const tableConfig = typeof tableConfigObj[type] === "function" ? tableConfigObj[type]() : TerminusClient.View.table()
-    tableConfig.row().click(onRowClickCall)
-
     const { documentError,
         rowCount,
         changeOrder,
@@ -35,20 +26,55 @@ export const DocumentsResultTable = ({type,onRowClick}) => {
         filterBy,
         loading,
         documentResults } = ControlledGraphqlQuery(query, type, 10, 0, {}, false);
+    
+    const variablesObj = {"offset":start,"limit":limit,"orderBy":orderBy || {} ,"filter":filterBy || {}}
 
-    const getColumnsFromResults = (results) => {
-        let columns = []
-        for (var k in results[0]) {
-            if (k !== "id")
-                columns.push(k)
+    useEffect(() => {
+       if(type){
+            setQueryTodisplay(query.loc.source.body)
+            setAdvFields(advFiltersFields[type])          
+       }
+    },[type]);
+
+   // const copyTest = (editor)=>{
+     //   navigator.clipboard.writeText(editor.getValue());
+    //}
+
+   // let textInputEditor
+   // let variablesEditor
+
+
+   /* useEffect(() => {
+        if(textInput && textInput.current){
+            textInputEditor = CodeMirror.fromTextArea(textInput.current, {
+                mode: 'graphql',
+                height: "auto",
+                readOnly:true,
+                theme:"shadowfox",
+                autoRefresh: true,
+              });     
         }
-        //columns[columns.length] = "Delete"
-        //columns[columns.length] = "Copy"
-        // add delete and copy button for document explorer
-        return columns
-    }
+        if(variables && variables.current){
+            variablesEditor = CodeMirror.fromTextArea(variables.current, {
+                mode: 'json',
+                height: "auto",
+                theme:"shadowfox",
+                autoRefresh: true,
+                readOnly:true
+              });     
+        }
+     },[textInput.current,variables.current]);*/
 
-  
+    const onRowClickCall = (row) => {
+        if (onRowClick) {
+            const rowTmp = row && row.original ? {label:row.original.name, id:row.original.id}: {}
+            onRowClick(rowTmp)
+        }
+    }
+    // let advSearchFields = advFiltersFields[type] || false
+    const tableConfig = typeof tableConfigObj[type] === "function" ? tableConfigObj[type]() : TerminusClient.View.table()
+    tableConfig.row().click(onRowClickCall)
+
     let extractedResults = documentResults ? extractDocuments(documentResults[type]) : []
 
     function extractDocuments(documentResults) {
@@ -79,6 +105,8 @@ export const DocumentsResultTable = ({type,onRowClick}) => {
         return extractedResults
     }
 
+
+
    // const showBar = loading ? {className:"visible"} : {className:"invisible"}
     return <div>          
             {advSearchFields &&
@@ -95,21 +123,33 @@ export const DocumentsResultTable = ({type,onRowClick}) => {
                 Loading {type} ...
                 <ProgressBar variant="success" animated now={100}  className="mb-4"/>
             </span>}
-            {!loading && Array.isArray(extractedResults) && <WOQLTable 
-                result={extractedResults}
-                freewidth={true}
-                view={(tableConfig ? tableConfig.json() : {})}
-                limit={limit}
-                start={start}
-                orderBy={orderBy}
-                filtersBy={filterBy}
-                setFilters={changeFilters}
-                setLimits={changeLimits}
-                setOrder={changeOrder}
-               // resultColumns={getColumnsFromResults(extractedResults)}
-                query={false}
-                loading={loading}
-                totalRows={rowCount}
-        />}
+            <Tabs defaultActiveKey="table" className="mb-3" >
+                <Tab eventKey="table" title="Result Table">
+                    {!loading && Array.isArray(extractedResults) && 
+                    <WOQLTable 
+                        result={extractedResults}
+                        freewidth={true}
+                        view={(tableConfig ? tableConfig.json() : {})}
+                        limit={limit}
+                        start={start}
+                        orderBy={orderBy}
+                        filtersBy={filterBy}
+                        setFilters={changeFilters}
+                        setLimits={changeLimits}
+                        setOrder={changeOrder}
+                    // resultColumns={getColumnsFromResults(extractedResults)}
+                        query={false}
+                        loading={loading}
+                        totalRows={rowCount}
+                />}
+            </Tab>
+            <Tab eventKey="graphql" title="Graphql Query">
+                <div>
+                {queryToDisplay && 
+                   <GraphqlQueryView queryToDisplay={queryToDisplay} variablesObj={variablesObj} />
+                }
+                </div>
+            </Tab>
+         </Tabs>
     </div>
 }

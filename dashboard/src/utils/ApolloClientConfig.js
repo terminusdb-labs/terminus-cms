@@ -1,11 +1,15 @@
 import { ApolloClient,ApolloLink, concat, InMemoryCache, ApolloProvider, gql, HttpLink, Query } from '@apollo/client';
-
+ 
 
 //local/branch/main
  //add an ENV var 
 export const createApolloClient = ()=>{
 
-    const httpLink = new HttpLink({ uri: "http://localhost:6363/api/graphql/terminuscms/lego/local/branch/DemoChangeRequest" });
+    const branchName =  localStorage.getItem("TERMINUSCMS_BRANCH")
+
+    const url = branchName ? `http://localhost:6363/api/graphql/terminuscms/lego/local/branch/${branchName}` : "http://localhost:6363/api/graphql/terminuscms/lego" 
+
+    const httpLink = new HttpLink({ uri: url });
     const authMiddleware = new ApolloLink((operation, forward) => {
         // add the authorization to the headers
         operation.setContext(({ headers = {} }) => ({
@@ -49,7 +53,7 @@ export const createApolloClientWeb = ()=>{
       operation.setContext(({ headers = {} }) => ({
       headers: {
           ...headers,
-          authorization: "Basic Y29sbGFib3JhdG9yOmRlbW9fcGFzc3dvcmQ="
+          authorization: "Basic YW55VXNlcjpkZW1vX3Bhc3N3b3Jk"
       }
       }));
       return forward(operation);

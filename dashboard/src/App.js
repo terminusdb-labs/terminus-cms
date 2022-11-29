@@ -22,6 +22,8 @@ import {PageNotFound} from "./pages/PageNotFound"
 import {LegoSetDescription} from "./pages/LegoSetDescription"
 import {AdvancedSearch} from "./components/AdvancedSearch"
 import { DocumentsResultTable } from "./components/DocumentsResultTable";
+import { ApolloProvider} from '@apollo/client';
+import {createApolloClient} from './utils/ApolloClientConfig'
 
 export function App (props){
     const {error,loadingServer} = ClientObj()
@@ -31,6 +33,8 @@ export function App (props){
                     <Alert variant="dark" className="mt-5"><h3 className="m-5 text-center">{error}</h3></Alert>
                 </Container>;
     }
+
+    const client = createApolloClient()
 
     //home is the back office home page
     return <React.Fragment>
@@ -46,7 +50,7 @@ export function App (props){
             <Route path="documents" element={<Layout/>} >
                 <Route index element={<Documents/>} />                     
                 <Route path=":type"  >
-                    <Route index element={<DocumentTypeList/>} /> 
+                    <Route index element={<ApolloProvider client={client}> <DocumentTypeList/></ApolloProvider>} /> 
                     <Route path=":id" element={<DocumentInterface/>} /> 
                 </Route>              
             </Route>

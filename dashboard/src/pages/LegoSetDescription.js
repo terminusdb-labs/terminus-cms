@@ -128,9 +128,9 @@ export const LegoSetDescription = () => {
 
     return <Container fluid>
         <Stack direction="horizontal" gap={3} style={{width: "98%"}} className="mt-5">
-            <h5 className="fw-bold mt-3 mb-3">
-                <span className="text-muted ">LegoSet : </span><span className="text-gray">{result.name}</span>
-            </h5>
+        {result && <h5 className="fw-bold mt-3 mb-3">
+               <span className="text-muted ">LegoSet : </span><span className="text-gray">{result.name}</span>
+            </h5>}
             
         </Stack>
         <Card className="w-100 mt-5 mb-5 website__card h-100">

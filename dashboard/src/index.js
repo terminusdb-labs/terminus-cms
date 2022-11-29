@@ -9,12 +9,10 @@ import {ClientProviderWeb} from './cms-init-client-web'
 import {createApolloClient} from './utils/ApolloClientConfig'
 import { ApolloProvider} from '@apollo/client';
 
-
 function AppComponent(){
     // I need the login only in the back office
     
     var searchPattern = new RegExp('/^(\/graphiql|\/change_requests|\/documents)/');
-
    
     if (window.location.pathname.startsWith('/documents') ||  
         window.location.pathname.startsWith('/change_requests') || 
@@ -23,8 +21,8 @@ function AppComponent(){
             return <LoginModal showModal={true} isCloseble={false}/>
         }
 
-        const client = createApolloClient()
-        return <ApolloProvider client={client}><ClientProvider ><App/></ClientProvider></ApolloProvider>
+      //  const client = createApolloClient()
+        return <ClientProvider ><App/></ClientProvider>
     }
 
     const client = createApolloClient()
