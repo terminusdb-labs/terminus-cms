@@ -360,7 +360,7 @@ const partFields = {
 
 
 const PART_RELATION_QUERY =   gql`query PartRelationQuery($offset: Int, $limit: Int,$filter:PartRelation_Filter) {
-    PartRelation(offset: $offset, limit: $limit,filter:$filter){
+    PartRelation(offset: $offset, limit: $limit,filter:$filter ){
         id
         right{
             id

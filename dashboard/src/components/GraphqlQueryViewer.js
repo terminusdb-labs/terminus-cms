@@ -1,36 +1,23 @@
-import TerminusClient from "@terminusdb/terminusdb-client"
 import React,{useState,useEffect,useRef} from "react";
-import { WOQLTable, ControlledGraphqlQuery } from '@terminusdb/terminusdb-react-table'
-import { graphqlQuery, tableConfigObj, advFiltersFields } from "../utils/graphqlQuery"
 import {FiCopy} from "react-icons/fi"
-import {MODEL_BUILDER_EDITOR_OPTIONS} from "../utils/appUtils"
-import ProgressBar from 'react-bootstrap/ProgressBar'
-import { AdvancedSearch } from "../components/AdvancedSearch";
-import Accordion from 'react-bootstrap/Accordion'
-import {Tab,Tabs,Form, Button} from 'react-bootstrap'
+import {Button} from 'react-bootstrap'
 import 'codemirror/theme/ayu-dark.css'
-//import {UnControlled as CodeMirror} from 'react-codemirror2'
-//import 'codemirror/lib/codemirror.css'
-//import 'codemirror/theme/ayu-dark.css'
-//require('codemirror/mode/css/css')
-//require('codemirror/mode/javascript/javascript')
-//import 'codemirror/addon/display/autorefresh.js'
-
 import CodeMirror from 'codemirror';
 import 'codemirror/addon/hint/show-hint';
 import 'codemirror/addon/lint/lint';
 import 'codemirror-graphql/hint';
 import 'codemirror-graphql/lint';
 import 'codemirror-graphql/mode';
+import 'codemirror/addon/display/autorefresh.js'
 
-export const GraphqlQueryView = ({queryToDisplay,variablesObj}) => {
-    
+export const GraphqlQueryView = ({queryToDisplay,start,limit,orderBy,filterBy}) => {
+
+    const variablesObj = {"offset":start,"limit":limit,"orderBy":orderBy || {} ,"filter":filterBy || {}}
     const textInput = useRef(null);
     const variables = useRef(null);
 
     let textInputEditor
     let variablesEditor
-
 
     useEffect(() => {
         if(textInput && textInput.current){

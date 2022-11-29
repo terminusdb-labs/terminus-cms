@@ -51,23 +51,9 @@ export function App (props){
                 <Route index element={<Documents/>} />                     
                 <Route path=":type"  >
                     <Route index element={<ApolloProvider client={client}> <DocumentTypeList/></ApolloProvider>} /> 
-                    <Route path=":id" element={<DocumentInterface/>} /> 
+                    <Route path=":id" element={<ApolloProvider client={client}> <DocumentInterface/></ApolloProvider>} /> 
                 </Route>              
             </Route>
         </Routes>
     </React.Fragment> 
-
 }
-
-/*<Route path="themes" element={<LayoutWebPage/>}>
-                <Route index element={<Themes/>} /> 
-                <Route path=":theme" >
-                    <Route index element={<LegoSetForTheme/>} />                     
-                </Route>
-            </Route>
-            <Route path="legoset" element={<LayoutWebPage/>}>
-                <Route index element={<LegoSetForTheme/>} />
-                <Route path=":legoset" element={<LegoSetDescription/>} /> 
-                <Route path=":legoset/graph" element={<LegoSetGraph/>} /> 
-            </Route>
-            <Route path="*" element={<PageNotFound />} />*/

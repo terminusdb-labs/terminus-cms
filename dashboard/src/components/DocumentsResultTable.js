@@ -21,14 +21,13 @@ export const DocumentsResultTable = ({type,onRowClick}) => {
         changeFilters,
         setAdvancedFilters,
         limit,
+        queryFilters,
         start,
         orderBy,
         filterBy,
         loading,
         documentResults } = ControlledGraphqlQuery(query, type, 10, 0, {}, false);
     
-    const variablesObj = {"offset":start,"limit":limit,"orderBy":orderBy || {} ,"filter":filterBy || {}}
-
     useEffect(() => {
        if(type){
             setQueryTodisplay(query.loc.source.body)
@@ -123,7 +122,7 @@ export const DocumentsResultTable = ({type,onRowClick}) => {
                 Loading {type} ...
                 <ProgressBar variant="success" animated now={100}  className="mb-4"/>
             </span>}
-            <Tabs defaultActiveKey="table" className="mb-3" >
+            {!loading && <Tabs defaultActiveKey="table" className="mb-3" >
                 <Tab eventKey="table" title="Result Table">
                     {!loading && Array.isArray(extractedResults) && 
                     <WOQLTable 
@@ -146,10 +145,15 @@ export const DocumentsResultTable = ({type,onRowClick}) => {
             <Tab eventKey="graphql" title="Graphql Query">
                 <div>
                 {queryToDisplay && 
-                   <GraphqlQueryView queryToDisplay={queryToDisplay} variablesObj={variablesObj} />
+                   <GraphqlQueryView 
+                     filterBy={queryFilters}
+                     orderBy={orderBy}
+                     start={start}
+                     limit={limit}
+                     queryToDisplay={queryToDisplay} />
                 }
                 </div>
             </Tab>
-         </Tabs>
+         </Tabs>}
     </div>
 }
