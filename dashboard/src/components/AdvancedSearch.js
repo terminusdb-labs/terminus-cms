@@ -135,25 +135,28 @@ export const AdvancedSearch = (props) =>{
                     "not_equal":"ne",
                     "like":"regex",
                     "starts_with":"regex"}
-
+    
+    const checkNot = (element, object)  => {
+        if(element.properties && element.properties.not){
+          return {"_not":object}
+        }
+        return object
+    }            
     const getChildrenRule = (childrenArr,groupName) =>{
        const childrenArrtmp = [] 
         childrenArr.forEach(element => {
             if(element.type=="group"){
               const conjunction = mapField[element.properties.conjunction] || element.properties.conjunction
               const childrenRule = getChildrenRule(element.children1)
-             //if(childrenRule.length===1){
-               // childrenArrtmp.push(childrenRule[0])
-             // }else{
-                childrenArrtmp.push({[conjunction] : childrenRule})
-             // }
+             
+              childrenArrtmp.push(checkNot(element,{[conjunction] : childrenRule}))
+
             }else if (element.type=="rule_group"){
               let ruleGroup = element.properties.field
               const childrenRule = getChildrenRule(element.children1,`${ruleGroup}.`)
 
               if(groupName){
                 ruleGroup = ruleGroup.replace(groupName,'')
-                //addToObj[fieldOnly]={[operator]:value}
               }
 
               if(childrenRule.length===1){
@@ -171,12 +174,17 @@ export const AdvancedSearch = (props) =>{
               let field = element.properties.field
               const operator = mapField[element.properties.operator] || element.properties.operator
               let value = element.properties.value[0]
+
               if(element.properties.operator === "like"){
                 value = `(?i)${value}`
-              }
-              if(element.properties.operator === "starts_with"){
+              }else if(element.properties.operator === "starts_with"){
                 value = `(ˆ)${value}`
               }
+
+              if(typeof value === "number"){
+                value = `${value}`
+              }
+              
               if(groupName){
                 field = field.replace(groupName,'')              
                 //addToObj[fieldOnly]={[operator]:value}
@@ -207,12 +215,12 @@ export const AdvancedSearch = (props) =>{
         let filterObj ={}
         if(data && Array.isArray(data.children1)){
            const filterObjArr = getChildrenRule( data.children1,filterObj)
-        //   console.log("filterObj",JSON.stringify(filterObjArr,null,4))
-           if(filterObjArr.length === 1) return filterObjArr[0]
-           const conjunction = data.properties && data.properties.conjunction ?  mapField[data.properties.conjunction] : "_and"
 
-         //  console.log("filterObj",JSON.stringify({[conjunction]:filterObjArr},null,4))
-           return  {[conjunction]:filterObjArr}
+           if(filterObjArr.length === 1) {
+              return checkNot(data,filterObjArr[0])
+           }
+           const conjunction = data.properties && data.properties.conjunction ?  mapField[data.properties.conjunction] : "_and"
+           return checkNot(data,{[conjunction]:filterObjArr})
         }
     }
 
