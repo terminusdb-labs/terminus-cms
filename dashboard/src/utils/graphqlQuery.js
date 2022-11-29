@@ -285,13 +285,13 @@ const MINIFIG_QUERY = gql` query MinifigQuery($offset: Int, $limit: Int, $orderB
 const minifigFields = {
     figure_number: {
         label: 'Figure Number',
-        type: 'string',
+        type: 'text',
         valueSources: ['value'],
         //operators: ['equal']
     },
     name:{
         label: 'Name',
-        type: 'string',
+        type: 'text',
         valueSources: ['value'],
         //operators: ['equal']
     },
@@ -549,7 +549,7 @@ const ElementTableConfig= () =>{
 
 const MinifigTableConfig= () =>{
     const tableConfig= TerminusClient.View.table();
-    tableConfig.column_order("img_url","name", "num_parts")
+    tableConfig.column_order("img_url","name", "num_parts","figure_number")
     tableConfig.column("img_url").width(100).renderer({type: "image",options:{"width":"80px"}})
     tableConfig.column("img_url").filterable(false).unsortable(true).header(" ")
     tableConfig.column("num_parts").filterable(false).unsortable(true)

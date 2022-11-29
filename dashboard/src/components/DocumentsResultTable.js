@@ -1,5 +1,5 @@
 import TerminusClient from "@terminusdb/terminusdb-client"
-import React from "react";
+import React,{useState} from "react";
 import { WOQLTable, ControlledGraphqlQuery } from '@terminusdb/terminusdb-react-table'
 import { graphqlQuery, tableConfigObj, advFiltersFields } from "../utils/graphqlQuery"
 import ProgressBar from 'react-bootstrap/ProgressBar'
@@ -10,6 +10,7 @@ import Tabs from 'react-bootstrap/Tabs'
 
 export const DocumentsResultTable = ({type,onRowClick}) => {
     const query = graphqlQuery[type]
+    const [advSearchFields,setAdvFields] = useState(false)
     if (!query) return ""
 
     const onRowClickCall = (row) => {
@@ -19,7 +20,7 @@ export const DocumentsResultTable = ({type,onRowClick}) => {
         }
     }
 
-    const advSearchFields = advFiltersFields[type] || false
+   // let advSearchFields = advFiltersFields[type] || false
     const tableConfig = typeof tableConfigObj[type] === "function" ? tableConfigObj[type]() : TerminusClient.View.table()
     tableConfig.row().click(onRowClickCall)
 
