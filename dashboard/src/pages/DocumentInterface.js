@@ -174,6 +174,7 @@ export const DocumentInterface = () => {
     }
 
     const SearchComponent = ({setSelected, doctype}) => {
+        console.log("doctype", doctype)
         return <DocumentsResultTable type={doctype} onRowClick={setSelected}/>
     }
   

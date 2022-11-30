@@ -560,3 +560,8 @@ a.leaflet-browser-print{
     line-height: 1.5;
 }
 
+a {
+    color: #007bff;
+    text-decoration: underline;
+}
+

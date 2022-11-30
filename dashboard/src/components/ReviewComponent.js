@@ -9,6 +9,7 @@ import SplitButton from 'react-bootstrap/SplitButton'
 import {CommentComponent} from "./CommentComponent"
 import {ApproveComponent} from "./ApproveComponent"
 import {RejectComponent} from "./RejectComponent"
+import {ClientObj} from "../cms-init-client"
 
 const View = ({action, setKey}) => {
     if(action === COMMENT) return <CommentComponent setKey={setKey}/>
@@ -18,11 +19,17 @@ const View = ({action, setKey}) => {
 }
 
 export const ReviewComponent = ({setKey, action, setAction}) => {
+    const {userHasMergeRole}= ClientObj()
 
-    function handleAction (e) {
-        if(e.target.text === COMMENT) setAction(COMMENT)
-        else if(e.target.text === APPROVE) setAction(APPROVE)
+    function handleAction (action) {
+        if(action === COMMENT) setAction(COMMENT)
+        else if(action === APPROVE) setAction(APPROVE)
         else setAction(REJECT)
+    }
+
+    if(!userHasMergeRole) {
+        // for collaborator or reader role
+        return <View action={COMMENT} setKey={setKey}/>
     }
     
 	return <React.Fragment>
@@ -33,9 +40,9 @@ export const ReviewComponent = ({setKey, action, setAction}) => {
             drop={"end"}
             variant="light"
             title={"Submit Review"}>
-            <Dropdown.Item eventKey={COMMENT} onClick={handleAction}>{COMMENT}</Dropdown.Item>
-            <Dropdown.Item eventKey={APPROVE} onClick={handleAction}>{APPROVE}</Dropdown.Item>
-            <Dropdown.Item eventKey={REJECT} onClick={handleAction}>{REJECT}</Dropdown.Item>
+            <Dropdown.Item eventKey={COMMENT} onClick={(e) => handleAction(e.target.text)}>{COMMENT}</Dropdown.Item>
+            <Dropdown.Item eventKey={APPROVE} onClick={(e) => handleAction(e.target.text)}>{APPROVE}</Dropdown.Item>
+            <Dropdown.Item eventKey={REJECT} onClick={(e) => handleAction(e.target.text)}>{REJECT}</Dropdown.Item>
           </SplitButton>
         <View action={action} setKey={setKey}/>
     </React.Fragment>
