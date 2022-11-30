@@ -51,12 +51,12 @@ export const GraphqlQueryView = ({queryToDisplay,start,limit,orderBy,filterBy}) 
             <div className="d-flex justify-content-end mr-2">
                 <Button title = "copy grapl query" onClick={()=>{copyTest(textInputEditor)}}><FiCopy/></Button>
             </div>              
-            <textarea key="textInput" id="textInput" ref={textInput} value={queryToDisplay}></textarea>                       
+            <textarea readOnly key="textInput" id="textInput" ref={textInput} value={queryToDisplay}></textarea>                       
             
             <hr></hr>
             <div className="d-flex justify-content-end mr-2">
                 <Button title ="copy variables"  onClick={()=>{copyTest(variablesEditor)}}><FiCopy/></Button>
             </div>  
-            <textarea  key="variables" id="variables" ref={variables} value={JSON.stringify(variablesObj,null,4)}></textarea>
+            <textarea readOnly  key="variables" id="variables" ref={variables} value={JSON.stringify(variablesObj,null,4)}></textarea>
         </React.Fragment>
 }

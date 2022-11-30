@@ -163,7 +163,8 @@ export const DocumentInterface = () => {
 
     if(currentMode === CONST.DELETE) {
         return <main className="content mt-5 w-100 document__interface__main">
-            {showModal && <CreateChangeRequestModal showModal={showModal} 
+            {showModal && <CreateChangeRequestModal showModal={showModal}
+                type={type} 
                 setShowModal={setShowModal} 
                 updateViewMode={updateViewMode}/>}
                 <span className="m-5">
@@ -180,6 +181,7 @@ export const DocumentInterface = () => {
     return <main className="content mt-5 w-100 document__interface__main">
         {showModal && <CreateChangeRequestModal showModal={showModal} 
             setShowModal={setShowModal} 
+            type={type} 
             updateViewMode={updateViewMode}/>}
         {errorMsg && <Alert variant={"danger"} className="ml-5 mr-5">
             {errorMsg}

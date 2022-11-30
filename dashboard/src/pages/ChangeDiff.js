@@ -74,7 +74,7 @@ export const ChangeDiff = () => {
 
     let documentModifiedCount = result ? result.length : 0
  
-    return <Container fluid className="p-0 flex-row h-100" bg="dark" >
+    return <Container fluid className="p-0 flex-row h-100 " bg="dark" >
         <TopMenu showSearchBar={false}/>
         <Container>
             <br/><br/>
