@@ -1,14 +1,18 @@
 import React, {useRef, useState} from "react"
 import {Alert, Modal, Button, Form} from "react-bootstrap" 
 import {ChangeRequest} from "../hooks/ChangeRequest"
+import {useNavigate} from "react-router-dom"
 
 
-export const CreateChangeRequestModal = ({showModal, setShowModal , updateViewMode}) => { 
+export const CreateChangeRequestModal = ({showModal, setShowModal , updateViewMode, type}) => { 
     const nameRef = useRef(null);
     const messageRef = useRef(null);
     const {loading,errorMessage,setError,createChangeRequest} =  ChangeRequest()
-    
-    const closeModal = () => setShowModal(false)
+    const navigate = useNavigate()
+
+    const closeModal = () => {
+        navigate(`/documents/${type}`)
+    }
 
     const runCreate = async () => {
         const name = nameRef.current.value

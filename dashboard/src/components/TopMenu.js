@@ -19,7 +19,7 @@ export const TopMenu = ({showSearchBar=true}) => {
 	 
 		return <Navbar sticky="top" expand="lg" variant='dark' className="m-0 p-2 bg-grey">
 			<Container fluid className="">
-      			<Navbar.Brand as={RouterNavLink} to="/">
+      			<Navbar.Brand as={RouterNavLink} to="/" className="mr-5">
 				  	<Logo width="35px" size="h4" filter="logo-img"/>	
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="navbarScroll" />

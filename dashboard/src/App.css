@@ -209,7 +209,7 @@ input.failure-chain-checkbox {
   }
 
   .dropdown-toggle::after{
-    color: #252b42;
+    color: #cccccc;
     font-size: 20px;
   }
 

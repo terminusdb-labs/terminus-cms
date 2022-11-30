@@ -152,8 +152,8 @@ export const ChangeRequests = () => {
     }
 
 	return <Container fluid className="p-0 flex-row h-100" bg="dark" >
-        <Allotment vertical className='h-100'>
-          	<Allotment.Pane className="bg-grey"
+        <Allotment vertical className='h-100 ' >
+          	<Allotment.Pane className="bg-grey overflow-visible"
 				maxSize={48}
 				minSize={48}
 				>
@@ -166,7 +166,7 @@ export const ChangeRequests = () => {
 							{changeRequestList && getHeader()}
 						</Card.Header>
 						<Card.Body className="p-0">
-							<ListGroup as="ol" >
+							<ListGroup as="ol" key={"ListGroup"}>
 								{loading && <ProgressBar variant="info" animated now={100}/>}
 								{changeRequestList && !filter && formatListItem()}
 								{changeRequestList && filter && formatFilteredListItem()}
