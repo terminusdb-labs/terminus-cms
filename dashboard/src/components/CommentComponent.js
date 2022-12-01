@@ -19,7 +19,7 @@ export const CommentComponent = ({setKey}) => {
         updateChangeRequestStatus,
         getChangeRequestByID,
 		loading
-    } = ChangeRequest()
+    } = ChangeRequest() 
 
     const [val, setVal]=useState("")
     
@@ -27,12 +27,15 @@ export const CommentComponent = ({setKey}) => {
 		let res=await updateChangeRequestStatus(val, currentCRObject.status)
         let id=extractID(currentCRObject["@id"])
         let cr=await getChangeRequestByID(id) 
-        if(setKey) setKey(MESSAGES)
+        if(setKey) {
+			setKey(MESSAGES)
+			setVal("")
+		}
     }
     
 	return <Form.Group className="mt-3 mb-5">
 		<Form.Control
-			className="bg-dark text-light" 
+			className="bg-dark text-light border-secondary" 
 			as="textarea"
 			rows="3"
 			placeholder="Please leave a comment or a message ..."

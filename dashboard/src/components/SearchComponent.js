@@ -1,10 +1,7 @@
 import React,{useState,useEffect} from "react";
 import {NavDropdown , Form, InputGroup,Dropdown,Button} from "react-bootstrap"
-import {ClientObj}  from "../cms-init-client"
-//import {noProperty} from "../utils/constants"
-import {useParams, useNavigate, useSearchParams} from "react-router-dom";
-export const SearchComponent = ({applyStyle,startFilter,nolist,pagePath}) => {
-    const {classes} = ClientObj()
+import {useNavigate} from "react-router-dom";
+export const SearchComponent = ({applyStyle,startFilter,nolist,pagePath,classes=[],addClassName=true}) => {
 
     const filter = startFilter || startFilter==="" ? startFilter : "LegoSet"
     const [inputSearch, setInputSearch]=useState(`${filter}:`)
@@ -14,7 +11,7 @@ export const SearchComponent = ({applyStyle,startFilter,nolist,pagePath}) => {
     const path = pagePath || '/documents/'
 
     useEffect(() => {
-        //reset input search if the page change
+        //reset input search if the page
         setInputSearch(`${filter}:`)
 
     },[window.location.pathname])
@@ -48,7 +45,8 @@ export const SearchComponent = ({applyStyle,startFilter,nolist,pagePath}) => {
     const startSearch = ()=>{
         const filter01 = `${filter}:`
         const filterValue = inputSearch.replace(filter01,"")
-        navigate(`${path}${selectedClass}?filters=${filterValue}`)
+        const classN = addClassName ? selectedClass : ''
+        navigate(`${path}${classN}?filters=${filterValue}`)
     }
 
     return <React.Fragment>

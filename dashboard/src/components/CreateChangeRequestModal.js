@@ -1,14 +1,18 @@
 import React, {useRef, useState} from "react"
 import {Alert, Modal, Button, Form} from "react-bootstrap" 
 import {ChangeRequest} from "../hooks/ChangeRequest"
+import {useNavigate} from "react-router-dom"
 
 
-export const CreateChangeRequestModal = ({showModal, setShowModal , updateViewMode}) => { 
+export const CreateChangeRequestModal = ({showModal, setShowModal , updateViewMode, type}) => { 
     const nameRef = useRef(null);
     const messageRef = useRef(null);
     const {loading,errorMessage,setError,createChangeRequest} =  ChangeRequest()
-    
-    const closeModal = () => setShowModal(false)
+    const navigate = useNavigate()
+
+    const closeModal = () => {
+        navigate(`/documents/${type}`)
+    }
 
     const runCreate = async () => {
         const name = nameRef.current.value
@@ -38,15 +42,15 @@ export const CreateChangeRequestModal = ({showModal, setShowModal , updateViewMo
             {errorMessage && 
              <Alert variant="danger"  onClose={() => setError(false)} dismissible>{errorMessage}</Alert>}
             <Form>
-                <Form.Group className="mb-3">
-                    <Form.Control required 
+                <Form.Group className="mb-3 tdb__input">
+                    <Form.Control required  
                         ref={nameRef}
                         id="add_changerequest_name" 
                         type="text"
                         placeholder={`Please type the change request name`} />
                    
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="mb-3 tdb__input">
                     <Form.Control required 
                         ref={messageRef}
                         id="add_message" 
@@ -59,7 +63,8 @@ export const CreateChangeRequestModal = ({showModal, setShowModal , updateViewMo
             <Button
                 disabled={loading}
                 id ="add_element_button"
-                variant="info" 
+                variant="light" 
+                className="text-dark"
                 title={`Start a change request`} 
                 onClick={runCreate}>{loading ? 'Sending Request ...' : "Start a change request"} 
             </Button>

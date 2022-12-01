@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react"
-import {ClientObj} from "../cms-init-client"
 import {ExecuteQuery} from "../hooks/ExecuteQuery"
 import {getThemesQuery, getLegoSetByTheme} from "../hooks/queries"
 import Card from 'react-bootstrap/Card'
@@ -9,6 +8,7 @@ import {BiArrowBack} from "react-icons/bi"
 import Stack from 'react-bootstrap/Stack'
 import {ExecuteQueryHook} from "../hooks/ExecuteQuery"
 import {useNavigate} from "react-router-dom"
+import { ClientObjWeb } from "../cms-init-client-web"
 
 const ThemeProvider = ({themes,onNodeClick}) => {  
     const elements = themes.map((theme,index) => {
@@ -31,7 +31,7 @@ const ThemeProvider = ({themes,onNodeClick}) => {
 }
 
 export const Themes = () => {
-    const {clientMain:client} = ClientObj()
+    const {clientMain:client} = ClientObjWeb()
     const {result,loading,error,runQuery} = ExecuteQueryHook(client)
 
     const navigate = useNavigate()

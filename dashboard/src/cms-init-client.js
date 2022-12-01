@@ -1,21 +1,25 @@
 import TerminusClient ,{UTILS} from '@terminusdb/terminusdb-client'
 import React , {useState,useEffect,useContext} from 'react'
 import {formatErrorMessage} from "./utils/appUtils"
+import { classDocuments } from './utils/ClassDocuments'
+import { schemaFrame } from './utils/SchemaFrame'
 export const ClientContext = React.createContext()
 export const ClientObj = () => useContext(ClientContext)
-
 
 const opts = {
     server : "http://127.0.0.1:6363"
 
 }
- 
+
 export const ClientProvider = ({children}) => {
     const [client, setClient] = useState(null)
     const [clientMain, setClientMain] = useState(null)
-  //  const [accessControlDashboard, setAccessControl] = useState(null)
-    const [classes,setClasses] = useState([])
-    const [frames,setFrames] = useState([])
+    const classes = classDocuments
+    const frames = schemaFrame
+  
+    //  const [accessControlDashboard, setAccessControl] = useState(null)
+   //const [classes,setClasses] = useState([])
+    //const [frames,setFrames] = useState([])
 
     const [loadingServer, setLoadingServer] = useState(false)
     const [error,setError] = useState(false)
@@ -45,10 +49,12 @@ export const ClientProvider = ({children}) => {
                 const dbClient = new TerminusClient.WOQLClient(opts.server,credentials)
                 const accessControl = new TerminusClient.AccessControl(opts.server,credentials)
 
-                const dbClientMain = dbClient.copy()
+               //const result = await dbClient.getClasses();
 
-                const result = await dbClient.getClasses();
-                const frameResult = await dbClient.getSchemaFrame(null, dbClient.db())
+               //console.log(JSON.stringify(result,null,4))
+               // const frameResult = await dbClient.getSchemaFrame(null, dbClient.db())
+
+              //  console.log(JSON.stringify(frameResult,null,4))
                 const teamUserRoles = await accessControl.getTeamUserRoles(credentials.user,credentials.organization)
                 hasRebaseRole(teamUserRoles)
 
@@ -61,15 +67,15 @@ export const ClientProvider = ({children}) => {
                 }
                 //manageClasses(result)
             
-                setClasses(result)
-                setFrames(frameResult)
+                //setClasses(result)
+                //setFrames(frameResult)
                // const access =  new TerminusClient.AccessControl(opts.server,accessCredential)
                // const clientAccessControl = new AccessControlDashboard(access)
 
                //  }
                 
                //  setAccessControl(clientAccessControl)
-                 setClientMain(dbClientMain)
+               //  setClientMain(dbClientMain)
                  setClient(dbClient)
             } catch (err) {
                 const message = formatErrorMessage(err)
@@ -103,7 +109,7 @@ export const ClientProvider = ({children}) => {
             value={{
                 client,
                 classes,
-                clientMain,
+             //   clientMain,
                 
                // nodeClasses,
                // linkEdges,

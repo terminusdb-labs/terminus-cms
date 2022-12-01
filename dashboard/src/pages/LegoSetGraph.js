@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 //import {useNavigate} from "react-router-dom"
 import {Container,ProgressBar} from "react-bootstrap"
-import {ClientObj} from "../cms-init-client"
+import {ClientObjWeb} from "../cms-init-client-web"
 import "allotment/dist/style.css";
 import {WOQLGraph} from "@terminusdb-live/tdb-react-components"
 import TerminusClient from '@terminusdb/terminusdb-client'
@@ -11,7 +11,7 @@ import { formatDataSet } from "../components/formatDataSet";
 import {useParams} from "react-router-dom"
 
 export const LegoSetGraph = () => {
-    const {clientMain:client} = ClientObj()
+    const {clientMain:client} = ClientObjWeb()
     //theme is the theme's name
     const {legoset} = useParams()
     const {result,loading,error,runQuery} = ExecuteQueryHook(client)

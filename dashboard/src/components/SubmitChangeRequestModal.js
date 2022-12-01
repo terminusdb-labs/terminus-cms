@@ -33,7 +33,7 @@ export const SubmitChangeRequestModal = ({showModal, setShowModal , updateParent
             {errorMessage && 
              <Alert variant="danger"  onClose={() => setError(false)} dismissible>{errorMessage}</Alert>}
             <Form>
-                <Form.Group>
+                <Form.Group className="mb-3 tdb__input">
                     <Form.Control required 
                         ref={messageRef}
                         id="add_message" 
@@ -46,7 +46,8 @@ export const SubmitChangeRequestModal = ({showModal, setShowModal , updateParent
             <Button
                 disabled={loading}
                 id ="add_element_button"
-                variant="info" 
+                variant="light" 
+                className="text-dark"
                 title={`Submit change request`} 
                 onClick={runCreate}>{loading ? 'Sending Request ...' : "Submit change request"} 
             </Button>

@@ -132,18 +132,18 @@ export function GetDiffList(client, changeRequestID, setError){
 
     async function getDiffList() {
         try{
-            let id = extractID(changeRequestID)
-            const result = await client.sendCustomRequest("GET", `http://localhost:3035/changes/${id}/diff`)
+            //let id = extractID(changeRequestID)
+            const result = await client.sendCustomRequest("GET", `http://localhost:3035/changes/${changeRequestID}/diff`)
             setResult(result)
         }
         catch(err){
-            setError(err.message)
+            if(setError) setError(err.message)
        }
-    }
+    } 
 
     useEffect(() => {
-        if (changeRequestID) getDiffList()
-    }, [changeRequestID])
+        if (changeRequestID && client) getDiffList()
+    }, [changeRequestID, client])
 
     return result
 }
@@ -164,7 +164,7 @@ export function GetDocumentByBranches(client, branch, documentID, setValue, setE
     async function getDocument() {
         try{
             const clientCopy = client.copy()
-            clientCopy.checkout(branch)
+            clientCopy.checkout(branch) 
             let value = await clientCopy.getDocument({id: documentID})
             if(setValue) setValue(value)
             
@@ -176,8 +176,8 @@ export function GetDocumentByBranches(client, branch, documentID, setValue, setE
     }
 
     useEffect(() => {
-        if (documentID && refresh) getDocument()
-    }, [documentID, refresh])
+        if (documentID && branch && refresh) getDocument()
+    }, [documentID, branch, refresh])
 
     return result
 }

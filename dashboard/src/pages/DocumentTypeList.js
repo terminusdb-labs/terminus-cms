@@ -32,12 +32,12 @@ export const DocumentTypeList = () => {
     }
  
     return  <div className="m-5">
-        <Card className="content  w-100 mt-5" variant="light">
+        <Card className="content border-secondary w-100 mt-5" variant="light">
             <Card.Header>
                 <Stack direction="horizontal" gap={3}>
                     <h6>Documents of type - <strong className="text-success">{type}</strong></h6>
                         <div className="ms-auto">
-                            <Button className="bg-success text-dark" onClick={handleCreate}>
+                            <Button className="bg-light text-dark" onClick={handleCreate}>
                                 <HiPlusSm className="mr-1 mb-1"/>
                                 <small>{`Add new ${type}`}</small>
                             </Button>

@@ -1,6 +1,5 @@
 
-import React, {useEffect} from "react"
-import {ClientObj} from "../cms-init-client"
+import React, {useEffect,useState} from "react"
 import Card from 'react-bootstrap/Card'
 import {Row, Col, ProgressBar, Alert, Button,Container} from 'react-bootstrap'
 import Stack from 'react-bootstrap/Stack'
@@ -13,17 +12,20 @@ export const LegoSetForTheme = (props)=>{
     
     const {theme} = useParams()
     const [searchParams]  = useSearchParams()
+    
+   
     let startFilters = {}
-    if(searchParams.get('filters')){
-        startFilters ={"name":{"regex":`(?i)${searchParams.get('filters')}`}}
-    }else if(theme){
-        startFilters ={"theme":{"name":{"eq":theme}}}
-    }
-
+        if(searchParams.get('filters')){
+            startFilters ={"name":{"regex":`(?i)${searchParams.get('filters')}`}}
+        }else if(theme){
+            startFilters ={"theme":{"name":{"eq":theme}}}
+        }
+    
     const query = legoSetWeb
 
     const { error,loading,
-        documentResults} = ControlledGraphqlQuery(query, "LegoSet", 50,0,{},startFilters);
+        setAdvancedFilters,
+        documentResults} = ControlledGraphqlQuery(query, "LegoSet", 50,0,{"name":"ASC"},startFilters);
    
     const result = documentResults &&  documentResults.LegoSet ? documentResults.LegoSet : []
   
@@ -34,12 +36,15 @@ export const LegoSetForTheme = (props)=>{
         navigate(`/legoset/${legoset}`)
     }
 
-    /*useEffect(() => { 
-        if(client && theme) {
-            let query = getLegoSetByTheme(`${theme}`)
-            runQuery(query)
+    useEffect(() => { 
+        let startFiltersTmp = {}
+        if(searchParams.get('filters')){
+            startFiltersTmp ={"name":{"regex":`(?i)${searchParams.get('filters')}`}}
+        }else if(theme){
+            startFiltersTmp ={"theme":{"name":{"eq":theme}}}
         }
-    }, [client,theme])*/
+        setAdvancedFilters(startFiltersTmp)
+    }, [searchParams,theme])
 
     if(error) return <Alert variant={"danger"}>
         {error}
@@ -61,6 +66,7 @@ const LegoSetProvider = ({legoSets,onNodeClick}) => {
     
     const color = d3.scaleOrdinal(["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]);
     
+   
     //const legoSetTmp ={}
 
     console.log(legoSets)
@@ -68,21 +74,21 @@ const LegoSetProvider = ({legoSets,onNodeClick}) => {
     const elements= legoSets.map((set,index) => {
         //if(legoSetTmp[set.LegoSet]) return ''
         //legoSetTmp[set.LegoSet] = true
-        let isActive = {}
-        if(set.inventory_set.lenght>0 && 
-           set.inventory_set[0].inventory.inventory_parts.lenght>0) {
-            isActive= {style:{"borderColor": color(set.name), "borderWidth": "4px"}, onClick:()=>{onNodeClick(set.name)} } 
-        }
+        let image = set.image_url ||  ''
+        const currentColor = color[set.id]
 
         const onNodeClickCall = (legoSet) =>{
             if(onNodeClick)onNodeClick(legoSet)
         }
 
         return  <Col md={2} className="mb-5" key={`legoset__${index}`}>
-                <Card className="lego__set__card theme__card"  {...isActive}
+                <Card className="theme__card bg-secondary"
                     onClick={(e) => onNodeClickCall(set.name)} 
                     id={set.name}>
-                    <div className="lego__set__image__div"></div>
+                    {!image && 
+                    <div className="card-img-top" 
+                    style={{height:"152px", background:currentColor}}></div>}
+                    {image && <Card.Img variant="top" src={image} />}
                     <Card.Body>
                         <small className="fw-bold">{set.name}</small>
                     </Card.Body>

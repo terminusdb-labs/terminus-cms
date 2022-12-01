@@ -209,7 +209,7 @@ input.failure-chain-checkbox {
   }
 
   .dropdown-toggle::after{
-    color: #252b42;
+    color: #cccccc;
     font-size: 20px;
   }
 
@@ -365,6 +365,10 @@ a.leaflet-browser-print{
 }
 .logo-img{
     filter: grayscale(1);
+}
+
+.logo:hover { 
+    cursor: pointer;
 }
 
 /* accordian */
@@ -532,5 +536,32 @@ a.leaflet-browser-print{
 
 .website-bg {
     background-color: #de7dd8;
+}
+
+#table_page_number{
+    visibility: hidden;
+}
+
+#table_row_total{
+    visibility: hidden;
+}
+
+#table_next{
+    width: 60px;
+}
+
+#table_previous{
+    width: 60px;
+}
+.tdb__input > input {
+    color: #adb5bd !important;
+    background-color: transparent !important;
+    border-color: rgb(102, 102, 102) !important;
+    line-height: 1.5;
+}
+
+a {
+    color: #007bff;
+    text-decoration: underline;
 }
 

@@ -38,21 +38,10 @@ const regex = {
   mongoFormatOp:null
 }
 
-console.log(InitialConfig.operators.like)
-console.log(InitialConfig.operators.proximity.options)
-
-console.log("TEXT", InitialConfig.types.text)
-
-const types = InitialConfig.types
-
-const textop = types.text.widgets.text.operators //
-textop.push("regex")
-
-console.log("textop",textop)
-types.text.widgets.text.operators = textop//types.text.widgets.text.operators
-types.text.widgets.textarea.operators = textop
 
 const operators = {
+  select_equals:InitialConfig.operators.select_equals,
+  select_not_equals:InitialConfig.operators.select_not_equals,
   equal:InitialConfig.operators.equal,
   not_equal:InitialConfig.operators.not_equal,
   less:InitialConfig.operators.less,
@@ -65,17 +54,13 @@ const operators = {
   like:InitialConfig.operators.like
 };
 
+console.log(InitialConfig.operators.like)
+console.log(InitialConfig.operators.proximity.options)
 
-/*const operators = {
-  equals: {
-    label: 'equals',
-    reversedOp: 'not_equal',
-    labelForFormat: '==TEST',
-    cardinality: 1,
-    formatOp: (field, _op, value, _valueSrc, _valueType, opDef) => `${field} ${opDef.labelForFormat} ${value}`,
-    mongoFormatOp: (field, op, value) => ({ [field]: { '$eq': value } }),
-  },
-}*/
+console.log("TEXT", InitialConfig.types.text)
+
+
+
 
 const stringFilter = {"eq": "eq", //Equality
                       "ne": "ne", //Disequality
@@ -105,7 +90,6 @@ const booleanFilter ={"eq": "eq", //Equality
 const defaultConfig = {
   ...InitialConfig,
   operators,
-  types,
   fields: {
     rgb: {
         label: 'RGB',
@@ -129,8 +113,11 @@ export const AdvancedSearch = (props) =>{
     const [tree,setTree] = useState(QbUtils.loadTree(queryValue))
 
     console.log("AdvancedSearch",props.fields)
+
+    if(!props.fields)return ""
     
-    const config = {...defaultConfig,fields:props.fields || {}} 
+    const config = {...InitialConfig,
+      operators,fields:props.fields || {}} 
    
     const renderBuilder = (props) => (
       <div className="query-builder-container" style={{padding: '10px'}}>
@@ -142,27 +129,44 @@ export const AdvancedSearch = (props) =>{
 
     const mapField ={"AND":'_and',
                     "OR" : '_or',
+                    "select_equals":'eq',
+                    "select_not_equals" :"ne",
                     "equal":'eq',
                     "not_equal":"ne",
                     "like":"regex",
                     "starts_with":"regex"}
-
+    
+    const checkNot = (element, object)  => {
+        if(element.properties && element.properties.not){
+          return {"_not":object}
+        }
+        return object
+    }            
     const getChildrenRule = (childrenArr,groupName) =>{
        const childrenArrtmp = [] 
         childrenArr.forEach(element => {
             if(element.type=="group"){
               const conjunction = mapField[element.properties.conjunction] || element.properties.conjunction
               const childrenRule = getChildrenRule(element.children1)
-             //if(childrenRule.length===1){
-               // childrenArrtmp.push(childrenRule[0])
-             // }else{
-                childrenArrtmp.push({[conjunction] : childrenRule})
-             // }
+             
+              childrenArrtmp.push(checkNot(element,{[conjunction] : childrenRule}))
+
             }else if (element.type=="rule_group"){
-              const ruleGroup = element.properties.field
+              let ruleGroup = element.properties.field
               const childrenRule = getChildrenRule(element.children1,`${ruleGroup}.`)
+
+              if(groupName){
+                ruleGroup = ruleGroup.replace(groupName,'')
+              }
+
               if(childrenRule.length===1){
-                childrenArrtmp.push({[ruleGroup]:childrenRule[0]})
+                if(element.properties && 
+                  element.properties.mode==="multiple"){
+                  childrenArrtmp.push({[ruleGroup]:{"someHave":childrenRule[0]}})
+                }else{
+                  childrenArrtmp.push({[ruleGroup]:childrenRule[0]})
+                }
+
               }else{
                 childrenArrtmp.push({[ruleGroup] :{"_and" : childrenRule}})
               }
@@ -170,17 +174,38 @@ export const AdvancedSearch = (props) =>{
               let field = element.properties.field
               const operator = mapField[element.properties.operator] || element.properties.operator
               let value = element.properties.value[0]
+
               if(element.properties.operator === "like"){
                 value = `(?i)${value}`
-              }
-              if(element.properties.operator === "starts_with"){
+              }else if(element.properties.operator === "starts_with"){
                 value = `(ˆ)${value}`
               }
+
+              if(typeof value === "number"){
+                value = `${value}`
+              }
+              
               if(groupName){
-                field = field.replace(groupName,'')
+                field = field.replace(groupName,'')              
                 //addToObj[fieldOnly]={[operator]:value}
               }
-              childrenArrtmp.push({[field]:{[operator]:value}})
+              //"element/part/name
+              if(field.indexOf("/")>-1){
+                const fieldArr = field.split("/");
+                let fieldObj = {}
+                let i = (fieldArr.length-2)
+                
+                fieldObj[fieldArr[fieldArr.length-1]]={[operator]:value}
+
+                while(i>=0){
+                   fieldObj={[fieldArr[i]]:fieldObj} 
+                   i = i-1
+                }
+                childrenArrtmp.push(fieldObj)
+
+              }else {
+                childrenArrtmp.push({[field]:{[operator]:value}})
+              }
             }  
         });
         return childrenArrtmp
@@ -190,12 +215,12 @@ export const AdvancedSearch = (props) =>{
         let filterObj ={}
         if(data && Array.isArray(data.children1)){
            const filterObjArr = getChildrenRule( data.children1,filterObj)
-           console.log("filterObj",JSON.stringify(filterObjArr,null,4))
-           if(filterObjArr.length === 1) return filterObjArr[0]
-           const conjunction = data.properties && data.properties.conjunction ?  mapField[data.properties.conjunction] : "_and"
 
-           console.log("filterObj",JSON.stringify({[conjunction]:filterObjArr},null,4))
-           return  {[conjunction]:filterObjArr}
+           if(filterObjArr.length === 1) {
+              return checkNot(data,filterObjArr[0])
+           }
+           const conjunction = data.properties && data.properties.conjunction ?  mapField[data.properties.conjunction] : "_and"
+           return checkNot(data,{[conjunction]:filterObjArr})
         }
     }
 

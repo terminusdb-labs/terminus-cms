@@ -33,7 +33,7 @@ const CommentSection = () => {
             )
         })
     }
-    return <Card className="mb-3 w-100 mt-2 p-5">{elements}</Card>
+    return <Card className="mb-3 w-100 mt-2 p-5 border-secondary">{elements}</Card>
 }
 
 const AddNewMessage=()=> {
@@ -50,7 +50,7 @@ const AddNewMessage=()=> {
     const [add, setAdd]=useState(false)
 
     useEffect(() => {
-        async function updateMessages() {
+        async function updateMessages() { 
             await updateChangeRequestStatus(comment, currentCRObject.status)
             let id=extractID(currentCRObject["@id"])
             await getChangeRequestByID(id)
@@ -77,9 +77,9 @@ const AddNewMessage=()=> {
                 onChange={handleMessage}
                 value={comment}
                 style={{color: "white"}}
-                className="bg-dark" 
+                className="bg-dark border-secondary" 
                 placeholder={"Add a new Comment or Message ..."}/>
-            <Button className="bg-info text-dark btn-sm fw-bold float-right mt-2 mb-2 d-flex" 
+            <Button className="bg-light text-dark btn-sm fw-bold float-right mt-2 mb-2 d-flex" 
                 disabled={loading}
                 onClick={addComment}>
                 {loading ? <Loading message={"Adding Comment ..."}/> : "Comment"} 

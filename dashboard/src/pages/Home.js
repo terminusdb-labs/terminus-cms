@@ -2,12 +2,11 @@ import React from 'react'
 import {Container,Navbar} from "react-bootstrap"
 import {TopMenu} from '../components/TopMenu'
 import {SearchComponent} from '../components/SearchComponent'
-import {BrowseContextProvider} from '../hooks/BrowseContext'
 import {Themes} from "../components/ThemeComponent"
-import {ClientObj} from "../cms-init-client"
+import {ClientObjWeb} from "../cms-init-client-web"
 
 export const Home = () => {
-    const {client} = ClientObj()
+    const {client} = ClientObjWeb()
 
     return <Container fluid className="p-0 flex-row h-100" bg="dark" >
         <TopMenu showSearchBar={false}/>

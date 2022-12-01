@@ -1,15 +1,16 @@
 import React, {useState, useEffect} from "react"
 import {Row, Container, Button} from "react-bootstrap"
-import {useParams, useNavigate} from "react-router-dom"
+import {useParams,useNavigate} from "react-router-dom"
 import {GetDocumentByNameForWebsiteHook} from "../hooks/DocumentHook"
-import {ClientObj} from "../cms-init-client"
+import {ClientObjWeb} from "../cms-init-client-web"
 import Card from 'react-bootstrap/Card'
 import {BsFillCartCheckFill, BsStarHalf} from "react-icons/bs"
 import {BiArrowBack} from "react-icons/bi"
 import {AiOutlineCheck, AiFillStar, AiOutlineHeart} from "react-icons/ai"
 import Stack from 'react-bootstrap/Stack'
 import {GrNodes} from "react-icons/gr"
-
+import {ControlledGraphqlQuery} from '@terminusdb/terminusdb-react-table'
+import {legoSetWeb} from "../utils/graphqlQuery"
 const Image = ({data}) => {
     if(!data.hasOwnProperty("image_url")) return <>No Image to show ...</>
 
@@ -25,7 +26,7 @@ const Image = ({data}) => {
                 <div>Shop more like this</div> 
                 <Button variant="outline-light" className="btn btn-sm">Fantasy</Button>{' '}
                 <Button variant="outline-light" className="btn btn-sm">Minecraft®</Button>{' '}
-                <Button variant="outline-light" className="btn btn-sm">Mushroom</Button>{' '}
+                <Button variant="outline-light" className="btn btn-sm">{data.name}</Button>{' '}
             </React.Fragment>
         </Card.Body>
     </Card>
@@ -38,7 +39,7 @@ const Details= ({data}) => {
     const navigate=useNavigate()
 
     function handleNodeClick(e) {
-        navigate(`/themes/${theme}/${legoset}/graph`)
+        navigate(`/legoset/${legoset}/graph`)
     }
 
     return <Card className="bg-secondary col-md-8">
@@ -89,20 +90,23 @@ const Details= ({data}) => {
 
 export const LegoSetDescription = () => {  
     
-    const {clientMain:client} = ClientObj()
+    //const {clientMain:client} = ClientObjWeb()
     const {legoset} = useParams()
     const [data, setData] = useState(false)
 
-    const {theme} = useParams()
     const navigate=useNavigate()
 
-    const doc_result = GetDocumentByNameForWebsiteHook(client, legoset, "LegoSet", setData) 
+    
+    const { error,loading,
+        documentResults} = ControlledGraphqlQuery(legoSetWeb, "LegoSet", 50,0,{},{name:{"eq":legoset}});
+   
+    //const doc_result = documentResults
+   // const doc_result = GetDocumentByNameForWebsiteHook(client, legoset, "LegoSet", setData) 
 
-    let result={
-        "@id": "LegoSet/0042ce33085eef3e9a9c2f57423ffba1da63e67f0bc435388a52aa0fb70962c2",
-        "@type": "LegoSet",
+   let result  =  documentResults && documentResults.LegoSet ? documentResults.LegoSet[0] : null /*{
+        "id": "LegoSet/0042ce33085eef3e9a9c2f57423ffba1da63e67f0bc435388a52aa0fb70962c2",
         "description": "\n\n\nName\n1-Up Mushroom\n\n\nReleased\n2021\n\n\nInventory\n19 parts\n\n\nTheme\nSuper Mario\n\n\n",
-        "image_url": "https://cdn.rebrickable.com/media/thumbs/sets/71394-1/90591.jpg/1000x800p.jpg",
+        "image_url": "",
         "inventory_set": [
           {
             "@id": "LegoSet/0042ce33085eef3e9a9c2f57423ffba1da63e67f0bc435388a52aa0fb70962c2/inventory_set/InventorySet/8601b482bdbbb8da0422916fb4ca78bc80621b57aeac8bcf4cb751b9239a9430",
@@ -114,27 +118,35 @@ export const LegoSetDescription = () => {
         "name": "1-Up Mushroom",
         "theme": "Theme/690+Super%20Mario",
         "year": "2021"
-    }
+    }*/
 
+    
+    
     function goBackLegoSet() {
-        navigate(`/themes/${theme}`)
+        navigate(-1)
     }
 
     return <Container fluid>
         <Stack direction="horizontal" gap={3} style={{width: "98%"}} className="mt-5">
-            <h5 className="fw-bold mt-3 mb-3">
-                <span className="text-muted ">LegoSet : </span><span className="text-gray">{result.name}</span>
-            </h5>
-            <Button className="btn-sm bg-light text-dark fw-bold ms-auto" onClick={goBackLegoSet}>
-                <BiArrowBack className="mr-2"/>
-                Go Back to LegoSets
-            </Button>
+        {result && <h5 className="fw-bold mt-3 mb-3">
+               <span className="text-muted ">LegoSet : </span><span className="text-gray">{result.name}</span>
+            </h5>}
+            
         </Stack>
         <Card className="w-100 mt-5 mb-5 website__card h-100">
             <Row className="w-100">
-                <Image data={result}/>
-                <Details data={result}/>
+               {result && 
+               <React.Fragment>
+                    <Image data={result}/>
+                    <Details data={result}/> 
+                </React.Fragment>}
             </Row>
         </Card>
     </Container>
 }
+
+/*
+<Button className="btn-sm bg-light text-dark fw-bold ms-auto" onClick={goBackLegoSet}>
+                <BiArrowBack className="mr-2"/>
+                Go Back to LegoSets
+            </Button>*/

@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import {ClientObj} from "../cms-init-client"
 import Accordion from 'react-bootstrap/Accordion'
 import {useParams} from 'react-router-dom'
@@ -13,6 +13,9 @@ import {GetDocumentByBranches} from "../hooks/DocumentHook"
 import Alert from 'react-bootstrap/Alert'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import {BsPlus} from "react-icons/bs"
+import {BiMinusCircle} from "react-icons/bi"
+import {extractID} from "../components/utils"
+import {ChangeRequest} from "../hooks/ChangeRequest"
 
 /**
  * 
@@ -63,6 +66,21 @@ const TrackingInsertedHeader = ({branch}) => {
 
 /**
  * 
+ * @param {*} branch tracking branch after inserted op
+ * @returns React Element with branch badge
+ */
+ const TrackingDeletedHeader = ({branch}) => {
+    return <>
+        <BiMinusCircle className="text-success fw-bold h5"/>
+        <BiMinusCircle className="text-success fw-bold h5"/>
+        <BiMinusCircle className="text-success fw-bold h5"/>
+        <Badge bg="success" className="float-right fw-bold text-dark">{branch}</Badge>
+    </>
+}
+
+
+/**
+ * 
  * @param {*} propertyModifiedCount count of properties modified for a document
  * @returns 
  */
@@ -79,8 +97,14 @@ function propertyModified (propertyModifiedCount) {
  * @param {*} originBranchDocumentList document list of origin branch
  * @returns 
  */
-export const DiffView = ({diffs}) => {
-    const {frames, client} = ClientObj()
+export const DiffView = ({diffs, CRObject}) => { 
+    const {
+        frames, 
+        client
+    } = ClientObj()
+    /*const {
+        getChangeRequestByID,
+    } = ChangeRequest()*/
     const {id} = useParams()
 
     // pagination constants
@@ -99,11 +123,10 @@ export const DiffView = ({diffs}) => {
     // message constants 
     const [error, setError]=useState(false)
 
-    let cValue=GetDocumentByBranches(client, id, documentID, setChangedValue, setError, changedRefresh)
+    let cValue=GetDocumentByBranches(client, CRObject.tracking_branch, documentID, setChangedValue, setError, changedRefresh)
     let oValue=GetDocumentByBranches(client, "main", documentID, setOriginalValue, setError, originalRefresh)
     
     let elements=[], paginationItems=[]
-
 
     let divide = diffs.length/DIFFS_PER_PAGE_LIMIT
 
@@ -137,6 +160,7 @@ export const DiffView = ({diffs}) => {
 
     //console.log("originalValue", originalValue)
     //console.log("changedValue", changedValue)
+    //console.log("documentID", documentID)
 
     
     // looping through diff lists
@@ -151,12 +175,20 @@ export const DiffView = ({diffs}) => {
             if(diffs[start].hasOwnProperty("@insert")) {
                 let docId = diffs[start]["@insert"]["@id"]
                 setDocumentID(docId)
+                setChangedRefresh(Date.now())
                 setOriginalValue(false)
                 setOriginalRefresh(false)
             }
+            else if(diffs[start].hasOwnProperty("@delete")) {
+                let docId = diffs[start]["@delete"]["@id"]
+                setDocumentID(docId)
+                setOriginalRefresh(Date.now())
+                setChangedValue(false)
+                setChangedRefresh(false)
+            } 
             else {
                 setDocumentID(clicked)
-                setOriginalRefresh(true)
+                setOriginalRefresh(Date.now())
             }
         }
 
@@ -171,9 +203,24 @@ export const DiffView = ({diffs}) => {
                     <BsPlus className="text-success fw-bold h5"/>
                 </div>
             }
+            if(diff.hasOwnProperty("@op") && diff["@op"] === "Delete") {
+                return <div className="d-flex">
+                    {`Deleted Document ${diff["@delete"]["@id"]}`} 
+                    <BiMinusCircle className="text-success fw-bold h5"/>
+                    <BiMinusCircle className="text-success fw-bold h5"/>
+                    <BiMinusCircle className="text-success fw-bold h5"/>
+                </div>
+            }
             return null
         }
-        let eventKey= diffs[start].hasOwnProperty("@insert") ? diffs[start]["@insert"]["@id"] : diffs[start]["@id"]
+
+        let eventKey= diffs[start].hasOwnProperty("@id") ? diffs[start]["@id"] : false
+        if(diffs[start].hasOwnProperty("@insert")) {
+            eventKey=diffs[start]["@insert"]["@id"]
+        }
+        if(diffs[start].hasOwnProperty("@delete")) {
+            eventKey=diffs[start]["@delete"]["@id"]
+        }
         
         //console.log("documentId", documentID, eventKey, css)
         elements.push(
@@ -203,24 +250,37 @@ export const DiffView = ({diffs}) => {
                                 {error}
                             </Alert>}
                             {!originalValue && !changedValue && <ProgressBar variant="info" animated now={100}/>} 
-                            {originalValue && changedValue && documentID === diffs[start]["@id"] && <DiffViewer 
-                                oldValue={originalValue} 
-                                newValue={changedValue}
-                                oldValueHeader={<OriginHeader branch="main"/>}
-                                newValueHeader={<TrackingHeader branch={id}/>}
-                                frame={frames}
-                                type={diffs[start]["@type"]}
-                                diffPatch={diffs[start]}/>}
+                            {originalValue && changedValue && documentID === diffs[start]["@id"] && 
+                                <DiffViewer 
+                                    oldValue={originalValue} 
+                                    newValue={changedValue}
+                                    oldValueHeader={<OriginHeader branch="main"/>}
+                                    newValueHeader={<TrackingHeader branch={CRObject.tracking_branch}/>}
+                                    frame={frames}
+                                    type={diffs[start]["@type"]}
+                                    diffPatch={diffs[start]}/>}
                             {!originalValue && changedValue && 
                                 diffs[start].hasOwnProperty("@insert") && 
-                                documentID === diffs[start]["@insert"]["@id"] && <DiffViewer 
-                                oldValue={originalValue} 
-                                newValue={changedValue}
-                                oldValueHeader={<OriginHeader branch="main"/>}
-                                newValueHeader={<TrackingInsertedHeader branch={id}/>}
-                                frame={frames}
-                                type={diffs[start]["@insert"]["@type"]}
-                                diffPatch={diffs[start]}/>} 
+                                documentID === diffs[start]["@insert"]["@id"] && 
+                                <DiffViewer 
+                                    oldValue={originalValue} 
+                                    newValue={changedValue}
+                                    oldValueHeader={<OriginHeader branch="main"/>}
+                                    newValueHeader={<TrackingInsertedHeader branch={CRObject.tracking_branch}/>}
+                                    frame={frames}
+                                    type={diffs[start]["@insert"]["@type"]}
+                                    diffPatch={diffs[start]}/>} 
+                            {originalValue && !changedValue && 
+                                diffs[start].hasOwnProperty("@delete") && 
+                                documentID === diffs[start]["@delete"]["@id"] && 
+                                <DiffViewer 
+                                    oldValue={originalValue} 
+                                    newValue={{}}
+                                    oldValueHeader={<OriginHeader branch="main"/>}
+                                    newValueHeader={<TrackingDeletedHeader branch={CRObject.tracking_branch}/>}
+                                    frame={frames}
+                                    type={diffs[start]["@delete"]["@type"]}
+                                    diffPatch={diffs[start]}/>} 
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>

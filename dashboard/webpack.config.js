@@ -3,36 +3,36 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CopyWebPackPlugin= require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Dotenv = require('dotenv-webpack');
+//const Dotenv = require('dotenv-webpack');
 
 module.exports = (env, argv) => ({
-  entry: [
-    path.join(__dirname, './src/index.js'),
-  ],
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: "assets/[contenthash].js",
-    publicPath: '/'
-  },
+    entry:  path.join(__dirname, './src/index.js'),
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: "assets/tdb-dashboard.js",
+      publicPath: '/'
+    },
+
   devtool:argv.mode === 'production' ? false : '#inline-source-map',
   plugins: [
-    new Dotenv({path: path.resolve(__dirname, '.env'), systemvars: true}),
+  //  new Dotenv({path: path.resolve(__dirname, '.env'), systemvars: true}),
     new HtmlWebPackPlugin({
         inject: true,
+        title: env.title ? env.title : "TerminusDB",
         template: path.resolve(__dirname, './src/index.html'),
-        bundleFileName:"terminus-cms-dashboard.min.js"
+        bundleFileName:"tdb-dashboard.min.js"
       }),
      new MiniCssExtractPlugin({
-      filename: 'assets/terminus-cms-dashboard.main.css',
+      filename: 'assets/tdb-dashboard.main.css',
      }),
-     /*new CopyWebPackPlugin({
+     new CopyWebPackPlugin({
       patterns: [
         { from: path.resolve(__dirname, "./src/App.css"), to: "assets/App.css", force:true },
         { from: path.resolve(__dirname, "./src/Colors.css"), to: "assets/Colors.css", force:true },
         { from: path.resolve(__dirname, "./src/assets"), to: "assets/", force:true },
         
         
-      ]})*/
+      ]})
 
 
   //{ chunks:["contact", "vendor"], template: "src/pages/contact.html",  filename: "contact.html"}
@@ -42,8 +42,10 @@ module.exports = (env, argv) => ({
       filename: 'index.html'
     }),*/
   ],
+  
   resolve: {
     alias: {
+      react: path.resolve('./node_modules/react')
     },
     fallback: { "https": false },
     extensions: ['.js', '.jsx', '.json'],
@@ -95,4 +97,21 @@ module.exports = (env, argv) => ({
         ]
       }]
     },
+    /*optimization: {
+      minimize: argv.mode === 'production' ? true : false,
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /node_modules/,
+            chunks: "initial",
+            name: "vendor",
+            enforce: true
+          }
+        }
+      }
+    }*/
 });
+//      fallback: {"https": false},
+//      extensions: ['.js', '.jsx', '.json', '.png'],
+ //   },
+//}
