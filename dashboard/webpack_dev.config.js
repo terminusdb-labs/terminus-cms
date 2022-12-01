@@ -37,7 +37,7 @@ module.exports = (env, argv) => ({
       "@terminusdb/terminusdb-react-table": path.resolve('../../terminusdb-dashboard/packages/tdb-react-table/src/index.js'),
       "@terminusdb/terminusdb-documents-ui": path.resolve('../../terminusdb-dashboard/packages/tdb-documents-ui/src/index.js'),
       "@terminusdb-live/tdb-react-components" :path.resolve('../../terminusdb-dashboard/packages/tdb-react-components/src/index.js'),
-      react: path.resolve('./node_modules/react')   
+      react: path.resolve('./node_modules/react') 
     },
     fallback: { "https": false },
     extensions: ['.js', '.jsx', '.json'],

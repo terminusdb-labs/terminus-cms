@@ -10,16 +10,23 @@ import { TopMenu } from "../components/TopMenu";
 //import "./style.css"
 
 export function GraphIqlEditor() {
+  const branchName =  localStorage.getItem("TERMINUSCMS_BRANCH")
+  const user = localStorage.getItem("TerminusCMS-USER") 
+  const key = localStorage.getItem("TerminusCMS-KEY")
+
+  const basicAuth = btoa(`${user}:${key}`)
+  const url = branchName ? `http://localhost:6363/api/graphql/terminuscms/lego/local/branch/${branchName}` : "http://localhost:6363/api/graphql/terminuscms/lego" 
+
   const fetcher = createGraphiQLFetcher({
-          url:"http://localhost:6363/api/graphql/terminuscms/lego",
+          url:url,
           headers: {
-            authorization: "Basic Y29sbGFib3JhdG9yOmRlbW9fcGFzc3dvcmQ="
+            authorization: 'Basic '+ basicAuth
         }
   });
 
   return (
     <Container fluid className="h-100">
-      <TopMenu/>
+      <TopMenu showSearchBar={false} showBranch={true}/>
       <GraphiQL
         editorTheme="shadowfox"
         fetcher={fetcher}

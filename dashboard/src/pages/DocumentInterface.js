@@ -175,8 +175,8 @@ export const DocumentInterface = () => {
     }
 
     const SearchComponent = ({setSelected, doctype}) => {
-        console.log("doctype", doctype)
-        return <DocumentsResultTable type={doctype} onRowClick={setSelected}/>
+       // console.log("doctype", doctype)
+        return <DocumentsResultTable showGraphqlTab={false} type={doctype} onRowClick={setSelected}/>
     }
   
     return <main className="content mt-5 w-100 document__interface__main">

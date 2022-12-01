@@ -3,9 +3,14 @@ import { ApolloClient,ApolloLink, concat, InMemoryCache, ApolloProvider, gql, Ht
 
 //local/branch/main
  //add an ENV var 
+ //This is only a demo you must not connect in base auth from the interface it is not secure
 export const createApolloClient = ()=>{
 
     const branchName =  localStorage.getItem("TERMINUSCMS_BRANCH")
+    const user = localStorage.getItem("TerminusCMS-USER") 
+    const key = localStorage.getItem("TerminusCMS-KEY")
+
+    const basicAuth = btoa(`${user}:${key}`)
 
     const url = branchName ? `http://localhost:6363/api/graphql/terminuscms/lego/local/branch/${branchName}` : "http://localhost:6363/api/graphql/terminuscms/lego" 
 
@@ -15,7 +20,7 @@ export const createApolloClient = ()=>{
         operation.setContext(({ headers = {} }) => ({
         headers: {
             ...headers,
-            authorization: "Basic Y29sbGFib3JhdG9yOmRlbW9fcGFzc3dvcmQ="
+            authorization: 'Basic '+ basicAuth
         }
         }));
         return forward(operation);
@@ -45,6 +50,9 @@ export const createApolloClient = ()=>{
     });
 }
 
+// we are using anyuser credential for connecting with the web page
+// maybe we can move this in the backend and have an oper endpoint for the website
+// but not for the demo
 export const createApolloClientWeb = ()=>{
   
   const httpLink = new HttpLink({ uri: "http://localhost:6363/api/graphql/terminuscms/lego" });

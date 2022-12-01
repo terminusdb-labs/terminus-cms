@@ -8,7 +8,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import {Tab,Tabs,Form, Button} from 'react-bootstrap'
 import { GraphqlQueryView } from "./GraphqlQueryViewer";
 
-export const DocumentsResultTable = ({type,onRowClick}) => {
+export const DocumentsResultTable = ({type,onRowClick,showGraphqlTab=true}) => {
     const query = graphqlQuery[type]
     const [advSearchFields,setAdvFields] = useState(false)
     const [queryToDisplay,setQueryTodisplay] = useState(false)
@@ -122,7 +122,8 @@ export const DocumentsResultTable = ({type,onRowClick}) => {
                 Loading {type} ...
                 <ProgressBar variant="success" animated now={100}  className="mb-4"/>
             </span>}
-            {!loading && <Tabs defaultActiveKey="table" className="mb-3" >
+            {!loading && 
+            <Tabs defaultActiveKey="table" className="mb-3" >
                 <Tab eventKey="table" title="Result Table">
                     {!loading && Array.isArray(extractedResults) && 
                     <WOQLTable 
@@ -142,7 +143,7 @@ export const DocumentsResultTable = ({type,onRowClick}) => {
                         totalRows={rowCount}
                 />}
             </Tab>
-            <Tab eventKey="graphql" title="Graphql Query">
+           {showGraphqlTab && <Tab eventKey="graphql" title="Graphql Query">
                 <div>
                 {queryToDisplay && 
                    <GraphqlQueryView 
@@ -153,7 +154,7 @@ export const DocumentsResultTable = ({type,onRowClick}) => {
                      queryToDisplay={queryToDisplay} />
                 }
                 </div>
-            </Tab>
+            </Tab>}
          </Tabs>}
     </div>
 }

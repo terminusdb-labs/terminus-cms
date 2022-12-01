@@ -37,7 +37,7 @@ export const LoginModal = ({showModal, setShowModal, isCloseble }) => {
                     localStorage.setItem(TERMINUS_CMS_KEY,password)
                     //localStorage.setItem("Org",organization)
                     // to be review using routing
-                    const base = process.env.BASE_URL ? `/${process.env.BASE_URL}` : ""
+                    const base = "" //process.env.BASE_URL ? `/${process.env.BASE_URL}` : ""
                     window.location.replace(`${base}`) 
                 }  
             }).catch(err=>{

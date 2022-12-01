@@ -1,13 +1,14 @@
 import React from 'react'
-import {Container, Navbar, Nav ,Dropdown, Form, Button} from "react-bootstrap"
+import {Container, Navbar, Nav ,Dropdown, Form, Button,Badge} from "react-bootstrap"
 import {SearchComponent} from "./SearchComponent"
 import {NavLink as RouterNavLink, useParams} from "react-router-dom"
 import {ClientObj} from "../cms-init-client"
 import {AiOutlinePoweroff} from "react-icons/ai"
 import {Logo} from "./Logo"
+import {BiGitBranch} from "react-icons/bi"
 
-export const TopMenu = ({showSearchBar=true}) => {
-		const {client,classes} = ClientObj()
+export const TopMenu = ({showSearchBar=true, showBranch=false}) => {
+		const {client,classes,currentBranch} = ClientObj()
 		const {type} = useParams()
 		const isHome = window.location.pathname === '/' ? {opacity:0} : null
 		
@@ -34,6 +35,10 @@ export const TopMenu = ({showSearchBar=true}) => {
 						<Nav.Link as={RouterNavLink} to="/graphiql">GraphiQL</Nav.Link>          
 					</Nav>
 					{showSearchBar && <SearchComponent classes ={classes} applyStyle={isHome} startFilter={type}></SearchComponent>}
+					{showBranch && <React.Fragment><BiGitBranch/>You are in change request mode :
+							<Badge bg="success" className="float-right fw-bold text-dark ml-1">{currentBranch}</Badge>
+							</React.Fragment>	
+						}
 					<Nav className='ml-auto'>
 						<Dropdown className="mr-4" id="profile_menu">
 							<Button size="sm" className="bg-transparent border-0">
