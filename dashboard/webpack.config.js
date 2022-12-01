@@ -6,22 +6,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 //const Dotenv = require('dotenv-webpack');
 
 module.exports = (env, argv) => ({
- 
-    /*entry:  path.join(__dirname, './src/index.js'),
-  
+    entry:  path.join(__dirname, './src/index.js'),
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: "assets/tdb-dashboard.js",
       publicPath: '/'
-    },*/
-
-   // module.exports = {
-      entry: path.join(__dirname, './src/index.js'),
-    
-      output: {
-        filename: 'tdb-dashboard.min.js'
-      },
-   // },
+    },
 
   devtool:argv.mode === 'production' ? false : '#inline-source-map',
   plugins: [
@@ -52,8 +42,10 @@ module.exports = (env, argv) => ({
       filename: 'index.html'
     }),*/
   ],
+  
   resolve: {
     alias: {
+      react: path.resolve('./node_modules/react')
     },
     fallback: { "https": false },
     extensions: ['.js', '.jsx', '.json'],
