@@ -1,5 +1,5 @@
 import React from "react"
-import Button from "react-bootstrap/button"
+import {Button} from "react-bootstrap"
 
 export const ActionButton = ({bgColor, handleClick, label}) => {
     let style = {

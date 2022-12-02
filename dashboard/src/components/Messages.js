@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react"
 import {ClientObj} from "../cms-init-client"
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
-import Button from "react-bootstrap/Button"
+import {Button} from "react-bootstrap"
 import {ChangeRequest} from "../hooks/ChangeRequest"
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import {
