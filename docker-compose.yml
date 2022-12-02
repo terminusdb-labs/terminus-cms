@@ -14,3 +14,9 @@ services:
     ports:
       - "6363:6363"
     command: bash /app/demo_data/insert.sh
+  web:
+    build: ./dashboard
+    ports:
+      - "3000:3000"
+    depends_on:
+      - terminusdb
