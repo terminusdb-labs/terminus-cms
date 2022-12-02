@@ -1,3 +1,4 @@
+
 import * as dotenv from 'dotenv'
 import express from "express";
 import path  from "path";
@@ -36,6 +37,7 @@ app.use(bodyParser.json());
 // OpenAPI routes
 initialize({
   app,
+  // @ts-ignore
   apiDoc: ApiDocs,//"./api/api-doc.json",//require("./api/api-doc"),
   paths: path.resolve(__dirname, 'api/paths')
 });
