@@ -8,3 +8,7 @@
 # Ingestion
 
 The ingestion from the demo data is performed automatically by the above scripts. To learn how the process works, see our [Tutorial](./Tutorial.md).
+
+# Running
+
+Visit localhost:3000 after following the installation instructions
