@@ -11,4 +11,5 @@ The ingestion from the demo data is performed automatically by the above scripts
 
 # Running
 
-Visit localhost:3000 after following the installation instructions
+1. Visit localhost:3000 after following the installation instructions
+2. Log in with `collaborator` username in the backoffice and `demo` as the password
