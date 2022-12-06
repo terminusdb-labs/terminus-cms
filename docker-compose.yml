@@ -6,7 +6,7 @@ services:
      - ./demo_data:/app/demo_data
     restart: "no"
   terminusdb:
-    image: terminusdb/terminusdb-server:dev
+    image: terminusdb/terminusdb-server:dev-6ae4ba0ef44e0f0d7b57349c89484e9be982d653
     pull_policy: always
     volumes:
       - ./demo_data:/app/demo_data
