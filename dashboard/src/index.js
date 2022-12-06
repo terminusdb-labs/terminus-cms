@@ -6,7 +6,7 @@ import {BrowserRouter,useNavigate} from "react-router-dom"
 import { createRoot } from 'react-dom/client';
 import {ClientProvider} from './cms-init-client'
 import {ClientProviderWeb} from './cms-init-client-web'
-import {createApolloClient} from './utils/ApolloClientConfig'
+import {createApolloClientWeb} from './utils/ApolloClientConfig'
 import { ApolloProvider} from '@apollo/client';
 
 function AppComponent(){
@@ -25,7 +25,7 @@ function AppComponent(){
         return <ClientProvider ><App/></ClientProvider>
     }
 
-    const client = createApolloClient()
+    const client = createApolloClientWeb()
     return <ApolloProvider client={client}><ClientProviderWeb ><AppWeb/></ClientProviderWeb></ApolloProvider>
 
 }

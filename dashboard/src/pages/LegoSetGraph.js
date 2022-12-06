@@ -46,7 +46,7 @@ export const LegoSetGraph = () => {
 
     //manageClasses(classes)
     const onNodeClick = () =>{
-        alert("hello")
+        //alert("hello")
     }
 
     if(loading) {
