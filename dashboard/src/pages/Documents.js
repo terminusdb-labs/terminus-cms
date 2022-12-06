@@ -10,9 +10,20 @@ import * as d3 from 'd3'
 export const Documents = () => {
     const {classes} = ClientObj()
 
+
+    const matchSubdoc ={
+        InventoryPart:"Part",
+        InventorySet:"Inventory",
+        InventoryMinifig:"Minifig"
+    }
+
     const navigate = useNavigate()
     const onNodeClick = (id) =>{
-        navigate(`/documents/${id}`) 
+        let goto =id
+        if(matchSubdoc[id]){
+            goto = matchSubdoc[id]
+        }
+        navigate(`/documents/${goto}`) 
     }
 
     const classObj = {}
@@ -27,12 +38,24 @@ export const Documents = () => {
 
     const color = d3.scaleOrdinal(["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]);
 
+    const matchSize={Color:217,
+                    Element:55817,
+                    Inventory:33889,
+                    InventorySet:33889,
+                    LegoSet:19788,
+                    Minifig:12558,
+                    InventoryMinifig:12558,
+                    Part:48313,
+                    InventoryPart:48313,
+                    PartRelation:27416,
+                    Theme:458}
+
     const manageClasses =(classes) =>{
         if(!Array.isArray(classes)) return 
         
         classes.forEach((item,index)=>{
             classObj[item['@id']] = item
-            const radius = Math.ceil((30 * index)/3)+20
+            const radius = Math.ceil(matchSize[item['@id']]/400)+30 //Math.ceil((30 * index)/3)+20
             nodeClassesObject [item['@id']] = {
                 "collisionRadius" : 90,
                 "type": "node",
@@ -42,7 +65,7 @@ export const Documents = () => {
                 "nodetype": item['@id'],
                 "color": color(radius),//[255, 178, 102],
                 "text": item['@id'],
-                "toptext" : radius,
+                "toptext" : matchSize[item['@id']],
                 "radius": radius//Math.ceil((30 * index)/3)+20
             }
         })
