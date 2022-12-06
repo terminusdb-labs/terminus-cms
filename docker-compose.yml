@@ -16,6 +16,8 @@ services:
     command: bash /app/demo_data/insert.sh
   backend:
     build: ./backend
+    environment:
+      - SERVER_ENDPOINT=http://terminusdb:6363
     ports:
       - "3035:3035"
     depends_on:
