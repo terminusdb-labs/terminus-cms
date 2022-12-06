@@ -32,7 +32,7 @@ export const ClientProviderWeb = ({children}) => {
             //to be review the local connection maybe don't need a user in the cloud
             //and don't need auth0 too
             setLoadingServer(true)
-            const credentials  = {user:"anyUser" ,key:"demo_password", organization:"terminuscms", db:"lego" }                        
+            const credentials  = {user:"anyUser" ,key:"demo", organization:"terminuscms", db:"lego" }                        
             initClient(credentials)
 
         }
