@@ -16,11 +16,11 @@ export const GraphqlQueryView = ({queryToDisplay,start,limit,orderBy,filterBy}) 
     const textInput = useRef(null);
     const variables = useRef(null);
 
-    let textInputEditor
-    let variablesEditor
+    let textInputEditor = null 
+    let variablesEditor = null
 
     useEffect(() => {
-        if(textInput && textInput.current){
+        if(textInput && textInput.current ){
             textInputEditor = CodeMirror.fromTextArea(textInput.current, {
                 mode: 'graphql',
                 height: "auto",
