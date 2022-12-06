@@ -82,7 +82,7 @@ const category =["Bars__Ladders_and_Fences",
 const COLOR_QUERY = gql`
   query ColorQuery($offset: Int, $limit: Int,$filter:Color_Filter) {
     Color(offset: $offset, limit: $limit,filter:$filter) {
-        id
+        _id
         rgb
         name
     }
@@ -109,9 +109,9 @@ const ELEMENT_QUERY = gql` query ElementQuery($offset: Int, $limit: Int,$orderBy
     $filter:Element_Filter) {
     Element(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
       image_url
-          id
+          _id
           part {
-            id
+            _id
             name
           }
     }
@@ -134,17 +134,17 @@ const elementFields = {
 
 const LEGOSET_QUERY = gql` query LegoSetQuery($offset: Int, $limit: Int, $orderBy: LegoSet_Ordering,$filter:LegoSet_Filter) {
      LegoSet(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
-          id
+          _id
           name
           year
           theme{
-            id
+            _id
             name
           }
           inventory_set{
-                id
+                _id
                 inventory{
-                    id
+                    _id
           }
          quantity
       }  		
@@ -234,22 +234,22 @@ const legoSetFields = {
 
 const INVENTORY_QUERY = gql`query InventoryQuery($offset: Int, $limit: Int, $orderBy: Inventory_Ordering,$filter:Inventory_Filter) {
     Inventory(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
-          id
+          _id
           version 
           inventory_minifigs{
-            id
+            _id
             minifig{
-                id
+                _id
                 name
             }
             quantity
         }
          inventory_parts{
-            id
+            _id
             element{
-                id
+                _id
                 part {
-                    id
+                    _id
                     name
                 }
             }
@@ -260,7 +260,7 @@ const INVENTORY_QUERY = gql`query InventoryQuery($offset: Int, $limit: Int, $ord
 
 const InventoryTableConfig = () =>{
     const tableConfig= TerminusClient.View.table();
-    tableConfig.column_order("id","version","inventory_minifigs","inventory_parts")
+    tableConfig.column_order("_id","version","inventory_minifigs","inventory_parts")
   //  tableConfig.column("year").filter({"type":"string",options:{operator:"eq"}})
   //  tableConfig.column("inventory_set").filterable(false).unsortable(true)
     tableConfig.pager("remote")
@@ -273,7 +273,7 @@ const InventoryTableConfig = () =>{
 
 const MINIFIG_QUERY = gql` query MinifigQuery($offset: Int, $limit: Int, $orderBy: Minifig_Ordering,$filter:Minifig_Filter) {
     Minifig(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
-          id
+          _id
           figure_number
           name
           num_parts
@@ -306,7 +306,7 @@ const minifigFields = {
 const PART_QUERY = gql` 
     query PartSetQuery($offset: Int, $limit: Int,$orderBy:Part_Ordering,$filter:Part_Filter) {
     Part(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter) {
-        id
+        _id
         category
         material
         name
@@ -361,13 +361,13 @@ const partFields = {
 
 const PART_RELATION_QUERY =   gql`query PartRelationQuery($offset: Int, $limit: Int,$filter:PartRelation_Filter) {
     PartRelation(offset: $offset, limit: $limit,filter:$filter ){
-        id
+        _id
         right{
-            id
+            _id
             name
         }
         left{
-            id
+            _id
             name
         }
         relation_type	
@@ -427,7 +427,7 @@ const partRelationFields = {
 
 const  THEME_QUERY = gql`query ThemeQuery($offset: Int, $limit: Int,$orderBy: Theme_Ordering,$filter:Theme_Filter) {
     Theme(offset: $offset, limit: $limit,orderBy:$orderBy,filter:$filter){
-          id
+          _id
           image_url
           name
       
@@ -474,21 +474,21 @@ const totalAdvancedField = {
 
 export const legoSetWeb = gql `query LegoSetWebQuery($offset: Int, $limit: Int, $orderBy: LegoSet_Ordering,$filter:LegoSet_Filter){
     LegoSet(offset: $offset, limit: $limit, orderBy:$orderBy,filter:$filter){
-      id
+      _id
       name
       year
       image_url
       description
       theme {
-        id
+        _id
         name
       }
       inventory_set{
-        id
+        _id
         inventory{
-          id
+          _id
           inventory_parts{
-                id
+            _id
          }
         }
       }

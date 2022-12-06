@@ -35,38 +35,9 @@ export const DocumentsResultTable = ({type,onRowClick,showGraphqlTab=true}) => {
        }
     },[type]);
 
-   // const copyTest = (editor)=>{
-     //   navigator.clipboard.writeText(editor.getValue());
-    //}
-
-   // let textInputEditor
-   // let variablesEditor
-
-
-   /* useEffect(() => {
-        if(textInput && textInput.current){
-            textInputEditor = CodeMirror.fromTextArea(textInput.current, {
-                mode: 'graphql',
-                height: "auto",
-                readOnly:true,
-                theme:"shadowfox",
-                autoRefresh: true,
-              });     
-        }
-        if(variables && variables.current){
-            variablesEditor = CodeMirror.fromTextArea(variables.current, {
-                mode: 'json',
-                height: "auto",
-                theme:"shadowfox",
-                autoRefresh: true,
-                readOnly:true
-              });     
-        }
-     },[textInput.current,variables.current]);*/
-
     const onRowClickCall = (row) => {
         if (onRowClick) {
-            const rowTmp = row && row.original ? {label:row.original.name, id:row.original.id}: {}
+            const rowTmp = row && row.original ? {label:row.original.name, id:row.original._id}: {}
             onRowClick(rowTmp)
         }
     }
