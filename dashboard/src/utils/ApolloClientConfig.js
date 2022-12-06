@@ -61,7 +61,7 @@ export const createApolloClientWeb = ()=>{
       operation.setContext(({ headers = {} }) => ({
       headers: {
           ...headers,
-          authorization: "Basic YW55VXNlcjpkZW1vX3Bhc3N3b3Jk"
+          authorization: "Basic YW55VXNlcjpkZW1v"
       }
       }));
       return forward(operation);
