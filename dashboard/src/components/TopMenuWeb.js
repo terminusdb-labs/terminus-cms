@@ -14,7 +14,7 @@ export const TopMenuWeb = () => {
 
 	const showback = window.location.pathname.endsWith("/themes") ? false : true
 
-	return  <Navbar sticky="top" variant='light' className="m-0 p-0 mt-2">
+	return  <Navbar sticky="top" variant='light' className="m-0 p-0 mt-2 bg-dark">
 		<Container >
 			<Navbar.Brand as={RouterNavLink} to="/">
 				<Logo width="40px" size="h3" className="mr-2"/>

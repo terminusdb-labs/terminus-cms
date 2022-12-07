@@ -81,7 +81,7 @@ bindings.forEach(item=>{
         "icon" : iconLabel,//{label:true},
         "nodetype": "Element",
         "color":  [141, 160, 203],//[102, 194, 165],
-        "text": "Element",
+        "text": item['element'],
         "radius":40
     }
     //relationship inventory ---> elements
